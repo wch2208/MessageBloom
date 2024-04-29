@@ -1,0 +1,29 @@
+// font
+@font-face {
+  font-family: 'pretendard';
+  src: url('../public/Pretendard-Regular.ttf');
+}
+
+// font sizes
+$font-sizes: (
+  28: 28px,
+  24: 24px,
+  20: 20px,
+  18: 18px,
+  16: 16px,
+  15: 15px,
+  14: 14px,
+  12: 12px,
+);
+
+// font weights
+$font-weights: (
+  Bold: 700,
+  Regular: 400,
+);
+
+// mixin
+@mixin font-style($size, $weight) {
+  font-size: map-get($font-sizes, $size);
+  font-weight: map-get($font-weights, $weight);
+}
