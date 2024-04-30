@@ -18,6 +18,11 @@
     background-color: $white;
     border-radius: 16px;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
+    transition: all 0.1s linear;
+    &:hover {
+      transform: scale(1.03);
+      transition: all 0.1s linear;
+    }
     .add-post-card__plus-icon {
       width: 56px;
       height: 56px;
@@ -44,7 +49,7 @@
 
 @media #{$desktop-screen} {
   .posted-page-container {
-    padding: 130px 24px 180px 24px;
+    padding: 130px 24px 200px 24px;
     margin: 0 auto;
     width: 100%;
     display: grid;
