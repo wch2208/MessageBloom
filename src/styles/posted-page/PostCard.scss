@@ -9,6 +9,11 @@
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
   padding: 25px;
   font-family: 'pretendard', sans-serif;
+  transition: all 0.1s linear;
+  &:hover {
+    transform: scale(1.03);
+    transition: all 0.1s linear;
+  }
   .card-info-container {
     display: flex;
     align-items: center;
@@ -46,6 +51,18 @@
       .card-info__role.known {
         background-color: $orange100;
         color: $orange500;
+      }
+    }
+    #card__delete-btn {
+      background-color: $white;
+      width: 40px;
+      height: 40px;
+      border: 1px solid $gray300;
+      border-radius: 6px;
+      margin-left: auto;
+      cursor: pointer;
+      &img {
+        color: $black;
       }
     }
   }
