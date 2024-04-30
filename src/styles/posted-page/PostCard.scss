@@ -1,4 +1,4 @@
-@import '../colors', '../font', '../reset';
+@import '../varialbes', '../reset';
 
 .card-container {
   width: 320px;
@@ -9,7 +9,6 @@
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
   padding: 25px;
   font-family: 'pretendard', sans-serif;
-  @include font-style(15, Regular);
   .card-info-container {
     display: flex;
     align-items: center;
@@ -28,21 +27,35 @@
       .card-info__role {
         width: 41px;
         height: 20px;
-        background-color: $purple100;
         border-radius: 4px;
-        padding: 0 8px 0 8px;
         @include font-style(14, Regular);
+        padding: 0 8px 0 8px;
+      }
+      .card-info__role.collegue {
+        background-color: $purple100;
         color: $purple600;
+      }
+      .card-info__role.family {
+        background-color: $green100;
+        color: $green500;
+      }
+      .card-info__role.friend {
+        background-color: $blue100;
+        color: $blue500;
+      }
+      .card-info__role.known {
+        background-color: $orange100;
+        color: $orange500;
       }
     }
   }
-  .card-info__underline {
+  .card__underline {
     width: 100%;
     height: 1px;
     background-color: $gray200;
     margin: 15px 0 20px 0;
   }
-  .card-info__date {
+  .card__date {
     margin-top: 40px;
     float: left;
     color: $gray400;
