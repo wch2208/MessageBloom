@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/posted-page/PostCard.scss';
+import getClassByRole from '../../utils/getClassByRole';
 
 function PostCard({ data }) {
   return (
@@ -12,12 +13,12 @@ function PostCard({ data }) {
         />
         <div className='card-info-detail-container'>
           <p className='card-info__name'>From. {data.name}</p>
-          <span className='card-info__role'>{data.role}</span>
+          <span className={`card-info__role ${getClassByRole(data.role)}`}>{data.role}</span>
         </div>
       </div>
-      <div className='card-info__underline'></div>
-      <p className='card-info__content'>{data.content}</p>
-      <span className='card-info__date'>{data.date}</span>
+      <div className='card__underline'></div>
+      <p className='card__content'>{data.content}</p>
+      <span className='card__date'>{data.date}</span>
     </div>
   );
 }
