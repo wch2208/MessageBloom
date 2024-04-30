@@ -62,3 +62,51 @@
     @include font-style(12, Regular);
   }
 }
+
+@media #{$tablet-screen} {
+  .card-container {
+    width: 352px;
+    height: 284px;
+    .card-info-container {
+      gap: 15px;
+      .card-info__img {
+        width: 56px;
+        height: 56px;
+      }
+      .card-info__name {
+        @include font-style(18, Bold);
+      }
+    }
+    .card__content {
+      line-height: 28px;
+      @include font-style(18, Regular);
+    }
+    .card__date {
+      margin-top: 85px;
+    }
+  }
+}
+
+@media #{$desktop-screen} {
+  .card-container {
+    width: 384px;
+    height: 280px;
+    .card-info-container {
+      gap: 15px;
+      .card-info__img {
+        width: 56px;
+        height: 56px;
+      }
+      .card-info__name {
+        @include font-style(18, Bold);
+      }
+    }
+    .card__content {
+      line-height: 28px;
+      @include font-style(18, Regular);
+    }
+    .card__date {
+      margin-top: 85px;
+    }
+  }
+}
