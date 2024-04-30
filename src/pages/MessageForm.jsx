@@ -1,4 +1,6 @@
 import '../styles/message-form/MessageForm.scss';
+import basicProfile from '../assets/image/profile/img_profile_basic.svg';
+import profile1 from '../assets/image/profile/img_profile_01.svg';
 
 export default function MessageForm() {
   return (
@@ -9,17 +11,74 @@ export default function MessageForm() {
           <label htmlFor='nameInput' className='message-form__title'>
             From.
           </label>
-          <input id='nameInput' placeholder='이름을 입력해 주세요.' />
+          <input
+            className='message-form__inputs'
+            id='nameInput'
+            placeholder='이름을 입력해 주세요.'
+          />
         </div>
 
         {/* 프로필이미지 */}
         <div className='message-form__profile'>
           <sapn className='message-form__title'>프로필 이미지</sapn>
-          <div>
-            <img alt='프로필 이미지 미리보기' />
+          <div className='message-form__profile-container'>
+            <img src={basicProfile} alt='프로필 이미지 미리보기' />
             <div className='message-form__profile-options'>
-              <span>프로필 이미지를 선택해주세요!</span>
-              <div>프로필 이미지들..</div>
+              <span className='message-form__profile-options-title'>
+                프로필 이미지를 선택해주세요!
+              </span>
+              <div className='message-form__profile-preview-container'>
+                <img
+                  className='message-form__profile--preview'
+                  src={profile1}
+                  alt='프로필 이미지 미리보기'
+                />
+                <img
+                  className='message-form__profile--preview'
+                  src={profile1}
+                  alt='프로필 이미지 미리보기'
+                />
+                <img
+                  className='message-form__profile--preview'
+                  src={profile1}
+                  alt='프로필 이미지 미리보기'
+                />
+                <img
+                  className='message-form__profile--preview'
+                  src={profile1}
+                  alt='프로필 이미지 미리보기'
+                />
+                <img
+                  className='message-form__profile--preview'
+                  src={profile1}
+                  alt='프로필 이미지 미리보기'
+                />
+                <img
+                  className='message-form__profile--preview'
+                  src={profile1}
+                  alt='프로필 이미지 미리보기'
+                />
+                <img
+                  className='message-form__profile--preview'
+                  src={profile1}
+                  alt='프로필 이미지 미리보기'
+                />
+                <img
+                  className='message-form__profile--preview'
+                  src={profile1}
+                  alt='프로필 이미지 미리보기'
+                />
+                <img
+                  className='message-form__profile--preview'
+                  src={profile1}
+                  alt='프로필 이미지 미리보기'
+                />
+                <img
+                  className='message-form__profile--preview'
+                  src={profile1}
+                  alt='프로필 이미지 미리보기'
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -28,7 +87,7 @@ export default function MessageForm() {
           <label htmlFor='select' className='message-form__title'>
             상대와의 관계
           </label>
-          <select id='select'>
+          <select id='select' className='message-form__inputs'>
             <option>동료</option>
             <option>멘토</option>
             <option>멘티</option>
@@ -40,14 +99,20 @@ export default function MessageForm() {
           <label htmlFor='textarea' className='message-form__title'>
             내용을 입력해 주세요
           </label>
-          <textarea name='content' id='textarea' cols='30' rows='10'></textarea>
+          <textarea
+            className='message-form__text-area'
+            name='content'
+            id='textarea'
+            placeholder='I am your reach text editor.'></textarea>
         </div>
         {/* 폰트 */}
         <div className='message-form__font'>
           <span className='message-form__title'>폰트 선택</span>
-          <select>
+          <select className='message-form__inputs'>
             <option>Noto Sans</option>
             <option>Pretendard</option>
+            <option>나눔명조</option>
+            <option>나눔손글씨체 손편지체</option>
           </select>
         </div>
         <button className='message-form__submit'>생성하기</button>
