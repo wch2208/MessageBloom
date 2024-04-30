@@ -1,0 +1,35 @@
+@import '../../styles/colors';
+@import '../../styles/font';
+@import '../../styles/reset';
+
+// 모바일 360~ 767 태블릿 767~1199 데스크톱 1200~
+
+p {
+  @include font-style(24, Bold);
+}
+
+.message-form {
+  width: 320px;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+.message-form__title {
+  @include font-style(24, Bold);
+}
+
+.relationContainer {
+  //
+}
+
+@media (min-width: 767px) {
+  .container {
+    width: 767px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
