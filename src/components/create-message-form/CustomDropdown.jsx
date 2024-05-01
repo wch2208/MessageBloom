@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ArrowIcon from '../assets/icon/ic_arrow_down.svg';
+import ArrowIcon from '../../assets/icon/ic_arrow_down.svg';
 
 export default function CustomDropdown({ props }) {
   if (!props || props.length === 0) {

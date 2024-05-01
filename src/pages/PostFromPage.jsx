@@ -1,9 +1,9 @@
-import '../styles/create-message-form/MessageForm.scss';
+import '../styles/create-message-form/PostFromPage.scss';
 import basicProfile from '../assets/image/profile/img_profile_basic.svg';
 import profile1 from '../assets/image/profile/img_profile_01.svg';
-import CustomDropdown from '../components/CustomDropdown';
+import CustomDropdown from '../components/create-message-form/CustomDropdown';
 
-export default function MessageForm() {
+export default function PostFromPage() {
   const items = [
     { text: 'Noto Sans', id: 1 },
     { text: 'Pretendard', id: 2 },

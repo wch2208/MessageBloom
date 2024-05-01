@@ -1,8 +1,8 @@
-import '../styles/create-message-form/MessageBackgroundForm.scss';
+import '../styles/create-message-form/PostToPage.scss';
 import checkIcon from '../assets/icon/ic_check.svg';
 import { useState } from 'react';
 
-export default function MessageBackgroundForm() {
+export default function PostToPage() {
   const [selectedValue, setSelectedValue] = useState('color');
   const [selectedColor, setSelectedColor] = useState('orange');
   const [selectedImage, setSelectedImage] = useState('wallpaper01');
