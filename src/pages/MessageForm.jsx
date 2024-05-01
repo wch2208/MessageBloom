@@ -12,10 +12,10 @@ export default function MessageForm() {
   ];
 
   const members = [
-    { text: '동료', id: 1 },
-    { text: '멘토', id: 2 },
-    { text: '멘티', id: 3 },
-    { text: '매니저', id: 4 },
+    { text: '지인', id: 1 },
+    { text: '친구', id: 2 },
+    { text: '동료', id: 3 },
+    { text: '가족', id: 4 },
   ];
 
   const profiles = Array(10).fill({ src: profile1, alt: '프로필 이미지 미리보기' });
