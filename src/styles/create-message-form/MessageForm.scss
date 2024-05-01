@@ -1,5 +1,4 @@
-@import '../../styles/varialbes';
-@import '../../styles/reset';
+@import '../../styles/variables';
 
 // 모바일 360~ 767 태블릿 767~1199 데스크톱 1200~
 
@@ -63,7 +62,6 @@
 .message-form__arrow-icon {
   width: 16px;
   height: 16px;
-  margin: 0;
 }
 
 .message-form__drop-down-menu-box--active {
@@ -85,9 +83,6 @@
 .message-form__profile-container {
   display: flex;
   justify-content: space-between;
-  img {
-    margin: 0;
-  }
 }
 
 .message-form__profile-options-title {

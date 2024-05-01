@@ -1,9 +1,9 @@
-import '../styles/create-message-form/MessageForm.scss';
+import '../styles/message-form/MessageForm.scss';
 import basicProfile from '../assets/image/profile/img_profile_basic.svg';
 import profile1 from '../assets/image/profile/img_profile_01.svg';
 import CustomDropdown from '../components/CustomDropdown';
 
-export default function MessageForm() {
+export default function MessageBackgroundForm() {
   const items = [
     { text: 'Noto Sans', id: 1 },
     { text: 'Pretendard', id: 2 },
@@ -22,7 +22,7 @@ export default function MessageForm() {
 
   return (
     <>
-      <div className='message-form'>
+      <div className='background-form'>
         <div className='message-form__sender'>
           <label htmlFor='nameInput' className='message-form__title'>
             From.
