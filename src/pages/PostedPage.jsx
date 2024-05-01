@@ -3,6 +3,8 @@ import PostCard from '../components/posted-page/PostCard';
 import '../styles/posted-page/PostedPage.scss';
 import imgPofile01 from '../assets/image/profile/img_profile_01.svg';
 import plusicon from '../assets/icon/ic_plus.svg';
+import HeaderPost from '../components/headerPost/HeaderPost';
+
 const mockData = [
   {
     id: 1,
@@ -40,16 +42,19 @@ const mockData = [
 
 function PostedPage() {
   return (
-    <div className='posted-page-container'>
-      <div className='add-post-card'>
-        <div className='add-post-card__plus-icon'>
-          <img src={plusicon} alt='포스트 카드 추가 버튼' />
+    <>
+      <HeaderPost />
+      <div className='posted-page-container'>
+        <div className='add-post-card'>
+          <div className='add-post-card__plus-icon'>
+            <img src={plusicon} alt='포스트 카드 추가 버튼' />
+          </div>
         </div>
+        {mockData.map((data) => {
+          return <PostCard key={data.id} data={data} />;
+        })}
       </div>
-      {mockData.map((data) => {
-        return <PostCard key={data.id} data={data} />;
-      })}
-    </div>
+    </>
   );
 }
 
