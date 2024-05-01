@@ -90,10 +90,6 @@
         background: $accent-background-thick;
         border-radius: 10px;
       }
-
-      &::-webkit-scrollbar-track {
-        background: rgba(33, 122, 244, 0.1);
-      }
       .modal__content {
         @include font-style(14, Regular);
         line-height: 20px;
