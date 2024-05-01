@@ -21,7 +21,7 @@ export default function CustomDropdown({ props }) {
   return (
     <div className='message-form__inputs' onClick={handleToggle}>
       {selected}
-      <img src={ArrowIcon} />
+      <img className='message-form__arrow-icon' alt='아래 방향 화살표 아이콘' src={ArrowIcon} />
       <div
         className={`message-form__drop-down-menu-box ${
           active ? 'message-form__drop-down-menu-box--active' : ''
