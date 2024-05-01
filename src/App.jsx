@@ -11,7 +11,7 @@ function App() {
       <Route path='/' element={<Main />} />
       <Route path='/posted-page' element={<PostedPage />} />
       <Route path='/post/:id/message' element={<MessageForm />} />
-      <Route path='/post/:id' element={<MessageBackgroundForm />} />
+      <Route path='/post' element={<MessageBackgroundForm />} />
     </Routes>
   );
 }
