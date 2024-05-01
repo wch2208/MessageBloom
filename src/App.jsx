@@ -1,7 +1,8 @@
-import './App.scss'
+import './App.scss';
+import MessageForm from './pages/MessageForm';
 
 function App() {
-  return <div></div>
+  return <MessageForm />;
 }
 
-export default App
+export default App;
