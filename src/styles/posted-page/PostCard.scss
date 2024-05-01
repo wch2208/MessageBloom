@@ -5,6 +5,7 @@
   height: 230px;
   margin: 0 auto;
   background-color: $white;
+  cursor: pointer;
   border-radius: 16px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
   padding: 25px;
@@ -61,7 +62,7 @@
       border-radius: 6px;
       margin-left: auto;
       cursor: pointer;
-      &img {
+      img {
         color: $black;
       }
     }
@@ -99,7 +100,7 @@
       @include font-style(18, Regular);
     }
     .card__date {
-      margin-top: 85px;
+      margin-top: 70px;
     }
   }
 }
@@ -123,7 +124,7 @@
       @include font-style(18, Regular);
     }
     .card__date {
-      margin-top: 85px;
+      margin-top: 70px;
     }
   }
 }
