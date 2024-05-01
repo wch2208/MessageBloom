@@ -73,8 +73,10 @@
     background-color: $gray200;
     margin: 15px 0 20px 0;
   }
+  .card__content {
+    height: 80px;
+  }
   .card__date {
-    margin-top: 40px;
     float: left;
     color: $gray400;
     @include font-style(12, Regular);
@@ -100,7 +102,7 @@
       @include font-style(18, Regular);
     }
     .card__date {
-      margin-top: 70px;
+      margin-top: 45px;
     }
   }
 }
@@ -109,22 +111,5 @@
   .card-container {
     width: 384px;
     height: 280px;
-    .card-info-container {
-      gap: 15px;
-      .card-info__img {
-        width: 56px;
-        height: 56px;
-      }
-      .card-info__name {
-        @include font-style(18, Bold);
-      }
-    }
-    .card__content {
-      line-height: 28px;
-      @include font-style(18, Regular);
-    }
-    .card__date {
-      margin-top: 70px;
-    }
   }
 }
