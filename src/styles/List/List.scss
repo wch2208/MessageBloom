@@ -1,0 +1,59 @@
+@import '../variables';
+
+.list {
+  width: 320px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+  gap: 74px;
+}
+
+.list__best-cards,
+.list__newest-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  overflow: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.list__best-title,
+.list__newest-title {
+  @include font-style(24, Bold);
+  padding-bottom: 12px;
+}
+
+.list__create-btn {
+  border: 0px;
+  background-color: #f26d85;
+  color: $white;
+  min-width: 320px;
+  height: 56px;
+  padding: 14px 24px;
+  margin: 24px auto;
+  border-radius: 12px;
+  @include font-style(18, Regular);
+}
+
+@media #{$tablet-screen} {
+  .list {
+    width: 720px;
+  }
+
+  .list__create-btn {
+    width: 720px;
+  }
+}
+
+@media #{$desktop-screen} {
+  .list {
+    width: 1200px;
+  }
+
+  .list__create-btn {
+    width: 280px;
+  }
+}
