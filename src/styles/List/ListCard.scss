@@ -1,0 +1,85 @@
+@import '../variables';
+
+.list-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 33px;
+  width: 208px;
+  height: 232px;
+  padding: 30px 24px 20px 24px;
+  margin-left: 20px;
+  background-color: $purple200;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+}
+
+.list-card__writers__profiles-count {
+  position: relative;
+  left: -30px;
+  width: 33px;
+  height: 28px;
+  background-color: $white;
+  border-radius: 30px;
+  padding: 5px 6px;
+  @include font-style(12, Regular);
+  color: $gray500;
+  line-height: 18px;
+}
+
+.list-card__text {
+  @include font-style(14, Regular);
+
+  span {
+    @include font-style(14, Bold);
+  }
+}
+
+.list-card__emoji-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list-card__divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba($color: $black, $alpha: 0.12);
+}
+
+.list-card__emoji-wrap {
+  display: flex;
+  gap: 4px;
+}
+
+.list-card__emoji {
+  text-align: center;
+  width: 55px;
+  height: 32px;
+  padding: 6px 8px;
+  border-radius: 32px;
+  background-color: rgba($color: $black, $alpha: 0.54);
+  color: white;
+  @include font-style(14, 400);
+
+  & span {
+    padding: 2px;
+  }
+}
+
+@media #{$tablet-screen} {
+  .list-card {
+    width: 275px;
+    height: 260px;
+    padding: 30px 24px 20px 24px;
+  }
+
+  .list-card__writers__to {
+    font-size: 24px;
+  }
+
+  .list-card__text {
+    font-size: 16px;
+  }
+}
