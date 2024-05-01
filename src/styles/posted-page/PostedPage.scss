@@ -40,7 +40,8 @@
   .posted-page-container {
     padding: 130px 24px 130px 24px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    grid-template-columns: repeat(2, 352px);
     .add-post-card {
       width: 352px;
       height: 284px;
