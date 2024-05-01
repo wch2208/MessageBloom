@@ -1,5 +1,9 @@
-@import './styles/varialbes', './styles/reset';
+@import './styles/variables', './styles/reset';
 
 body * {
   font-family: 'pretendard';
+}
+
+* {
+  transition: all 0.3s ease-out;
 }
