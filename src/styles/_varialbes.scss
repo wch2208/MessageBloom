@@ -1,3 +1,38 @@
+// media 변수
+$tablet-screen: 'screen and (min-width: 768px) and (max-width: 1199px)';
+$desktop-screen: 'screen and (min-width: 1200px)';
+// font 변수
+// font
+@font-face {
+  font-family: 'pretendard';
+  src: url('../public/Pretendard-Regular.ttf');
+}
+
+// font sizes
+$font-sizes: (
+  28: 28px,
+  24: 24px,
+  20: 20px,
+  18: 18px,
+  16: 16px,
+  15: 15px,
+  14: 14px,
+  12: 12px,
+);
+
+// font weights
+$font-weights: (
+  Bold: 700,
+  Regular: 400,
+);
+
+// mixin
+@mixin font-style($size, $weight) {
+  font-size: map-get($font-sizes, $size);
+  font-weight: map-get($font-weights, $weight);
+}
+
+// color 변수
 // purple color
 $purple100: #f8f0ff;
 $purple200: #ecd9ff;
@@ -41,4 +76,6 @@ $white: #ffffff;
 $black: #000000;
 $error: #dc3a3a;
 $surface: #f6f8ff;
-$header-title-color: #f26d85;
+$accent-color: #f26d85;
+$accent-background-light: #f2e4e9;
+$accent-background-thick: #f2cedf;
