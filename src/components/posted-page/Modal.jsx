@@ -7,12 +7,13 @@ function Modal({ modalData, handleModalOpen }) {
     handleModalOpen(false);
   };
 
-  const preventBubble = (e) => {
-    e.stopPropagation();
-  };
   return (
     <div className='modal-wrapper' onClick={handleWrapperClick}>
-      <div className='modal-container' onClick={preventBubble}>
+      <div
+        className='modal-container'
+        onClick={(e) => {
+          e.stopPropagation();
+        }}>
         <div className='modal-info'>
           <img
             className='modal-info__img'
