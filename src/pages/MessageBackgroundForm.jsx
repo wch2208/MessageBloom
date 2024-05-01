@@ -1,9 +1,5 @@
 import '../styles/create-message-form/MessageBackgroundForm.scss';
 import checkIcon from '../assets/icon/ic_check.svg';
-import wallpaper01 from '../assets/image/wallpaper/img_wallpaper_01.svg';
-import wallpaper02 from '../assets/image/wallpaper/img_wallpaper_02.svg';
-import wallpaper03 from '../assets/image/wallpaper/img_wallpaper_03.svg';
-import wallpaper04 from '../assets/image/wallpaper/img_wallpaper_04.svg';
 import { useState } from 'react';
 
 export default function MessageBackgroundForm() {

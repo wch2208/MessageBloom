@@ -25,7 +25,7 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  width: 320px;
+  width: 100%;
   height: 50px;
   border: 1px solid $gray300;
   border-radius: 8px;
@@ -181,4 +181,19 @@
   border: none;
   color: $white;
   @include font-style(18, Bold);
+}
+
+@media #{$tablet-screen} {
+  .background-form {
+    width: 720px;
+  }
+  .background-form__color-picker,
+  .background-form__image-picker {
+    gap: 16px;
+  }
+  .background-form__radio-color-label,
+  .background-form__radio-image-label {
+    width: 168px;
+    height: 168px;
+  }
 }
