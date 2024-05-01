@@ -1,0 +1,21 @@
+@import '../variables';
+
+.list-card__emoji-wrap {
+  display: flex;
+  gap: 4px;
+}
+
+.list-card__emoji {
+  text-align: center;
+  width: 55px;
+  height: 32px;
+  padding: 6px 8px;
+  border-radius: 32px;
+  background-color: rgba($color: $black, $alpha: 0.54);
+  color: white;
+  @include font-style(14, 400);
+
+  & span {
+    padding: 2px;
+  }
+}
