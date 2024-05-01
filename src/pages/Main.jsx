@@ -1,6 +1,6 @@
-import '../styles/main/main.scss'
-import section01 from '../assets/main/section01.svg'
-import section02 from '../assets/main/section02.png'
+import '../styles/main/main.scss';
+import section01 from '../assets/main/section01.svg';
+import section02 from '../assets/main/section02.png';
 
 export default function Main() {
   return (
@@ -26,8 +26,8 @@ export default function Main() {
         </div>
       </section>
       <div className='btn-container'>
-        <p className='btn'>구경해보기</p>
+        <button id='btn'>구경해보기</button>
       </div>
     </div>
-  )
+  );
 }
