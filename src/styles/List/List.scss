@@ -21,6 +21,7 @@
 .list__best-title,
 .list__newest-title {
   margin: auto;
+  min-width: 320px;
   padding-left: 20px;
   @include font-style(24, Bold);
   padding-bottom: 12px;
