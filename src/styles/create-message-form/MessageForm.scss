@@ -1,9 +1,10 @@
 @import '../../styles/variables';
 
 // 모바일 360~ 767 태블릿 767~1199 데스크톱 1200~
-
-* {
-  font-family: 'Pretendard', sans-serif;
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .message-form {
@@ -135,6 +136,10 @@
   margin: 0 auto;
   margin-top: 206px;
   margin-bottom: 24px;
+  background-color: $accent-color;
+  border: none;
+  color: $white;
+  @include font-style(18, Bold);
 }
 
 @media (min-width: 767px) {
