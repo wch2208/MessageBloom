@@ -120,17 +120,4 @@
 }
 
 @media #{$desktop-screen} {
-  .list-card {
-    width: 275px;
-    height: 260px;
-    padding: 30px 24px 20px 24px;
-  }
-
-  .list-card__writers__to {
-    font-size: 24px;
-  }
-
-  .list-card__text {
-    font-size: 16px;
-  }
 }
