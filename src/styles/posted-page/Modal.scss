@@ -112,3 +112,44 @@
     }
   }
 }
+
+@media #{$tablet-screen} {
+  .modal-wrapper {
+    .modal-container {
+      width: 600px;
+      height: 476px;
+      padding: 35px;
+      .modal-info {
+        .modal-info-detail-container {
+          .modal-info__name {
+            @include font-style(18, Bold);
+          }
+          .modal-info__role {
+            width: 41px;
+            height: 20px;
+            @include font-style(14, Regular);
+          }
+        }
+        .modal__date {
+          @include font-style(14, Regular);
+        }
+      }
+      .modal__underline {
+        margin: 20px 0 25px 0;
+      }
+      .modal__content-container {
+        height: 240px;
+        .modal__content {
+          @include font-style(18, Regular);
+          line-height: 27px;
+        }
+      }
+      #modal-confirm__btn {
+        width: 120px;
+        height: 40px;
+        padding: 7px 16px;
+        left: 200px;
+      }
+    }
+  }
+}
