@@ -103,7 +103,7 @@
   @include font-style(14, 400);
 }
 
-@media (min-width: 768px) {
+@media #{$tablet-screen} {
   .list-card {
     width: 275px;
     height: 260px;
@@ -119,5 +119,18 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media #{$desktop-screen} {
+  .list-card {
+    width: 275px;
+    height: 260px;
+    padding: 30px 24px 20px 24px;
+  }
+
+  .list-card__writers__to {
+    font-size: 24px;
+  }
+
+  .list-card__text {
+    font-size: 16px;
+  }
 }
