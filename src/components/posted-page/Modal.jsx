@@ -3,9 +3,16 @@ import getClassByRole from '../../utils/getClassByRole';
 import '../../styles/posted-page/Modal.scss';
 
 function Modal({ modalData, handleModalOpen }) {
+  const handleWrapperClick = () => {
+    handleModalOpen(false);
+  };
+
+  const preventBubble = (e) => {
+    e.stopPropagation();
+  };
   return (
-    <div className='modal-wrapper'>
-      <div className='modal-container'>
+    <div className='modal-wrapper' onClick={handleWrapperClick}>
+      <div className='modal-container' onClick={preventBubble}>
         <div className='modal-info'>
           <img
             className='modal-info__img'
