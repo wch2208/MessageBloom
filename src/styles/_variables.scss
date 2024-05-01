@@ -1,9 +1,5 @@
 // media 변수
-<<<<<<< HEAD
-$tablet-screen: 'screen and (min-width: 768px) and (max-width: 1199px)';
-=======
 $tablet-screen: 'screen and (min-width: 768px)';
->>>>>>> 6c07acac4042774c26afb509c94956433e2c255a
 $desktop-screen: 'screen and (min-width: 1200px)';
 // font 변수
 // font
@@ -16,7 +12,7 @@ $desktop-screen: 'screen and (min-width: 1200px)';
 $font-sizes: (
   28: 28px,
   24: 24px,
-  20: 20px,
+  s 20: 20px,
   18: 18px,
   16: 16px,
   15: 15px,
