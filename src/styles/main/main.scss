@@ -1,5 +1,4 @@
-@import '../colors.scss';
-@import '../font.scss';
+@import '../reset', '../varialbes';
 
 //색상변수
 $box-bg-color: $surface;
@@ -12,49 +11,6 @@ $font-btn-color: $white;
 $btn-width-mobile: calc(100% - 48px);
 $btn-width-desktop: 280px;
 
-//공통
-section {
-  align-items: center;
-  border: 1px solid $box-bg-color;
-  border-radius: 16px;
-  background-color: $box-bg-color;
-  margin: 24px;
-
-  .point-btn {
-    @include font-style(14, Bold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-    height: 32px;
-    border-radius: 50px;
-    background-color: $btn-bg-color;
-    color: $font-btn-color;
-    margin-bottom: 16px;
-  }
-  .h2 {
-    font-size: 18px;
-    line-height: 28px;
-    color: $font-title-color;
-  }
-  .description {
-    margin-top: 8px;
-    color: $font-description-color;
-    line-height: 22px;
-    @include font-style(15, Regular);
-  }
-  img {
-    width: 100%;
-    object-fit: cover;
-  }
-}
-
-.section1 {
-  justify-content: center;
-  margin-top: 40px;
-  margin: 40px auto 20px;
-}
-
 @mixin btn-style {
   @include font-style(18, Regular);
   text-align: center;
@@ -65,11 +21,63 @@ section {
   color: $font-btn-color;
 }
 
+//공통
+.alignment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1248;
+  margin-top: 128px;
+  padding: 0 24px;
+  .section1,
+  .section2 {
+    align-items: center;
+    width: 100%;
+    border: 1px solid $box-bg-color;
+    border-radius: 16px;
+    background-color: $box-bg-color;
+    margin: 24px;
+
+    .point-btn {
+      @include font-style(14, Bold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 32px;
+      border-radius: 50px;
+      background-color: $btn-bg-color;
+      color: $font-btn-color;
+      margin-bottom: 16px;
+    }
+    .h2 {
+      font-size: 18px;
+      line-height: 28px;
+      color: $font-title-color;
+    }
+    .description {
+      margin-top: 8px;
+      color: $font-description-color;
+      line-height: 22px;
+      @include font-style(15, Regular);
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
 /* Mobile version only*/
 @media (max-width: 767px) {
   .text-box {
     margin: 24px;
     flex: 1;
+    h2 {
+      @include font-style(18, Bold);
+    }
   }
 
   img {
@@ -78,17 +86,21 @@ section {
 
   .btn-container {
     display: flex;
+    margin: 30px 0 30px 0;
     justify-content: center;
+    width: 100%;
   }
 
-  .btn {
+  #btn {
     @include btn-style;
     width: $btn-width-mobile;
+    width: 100%;
+    border: none;
   }
 }
 
 /*tablet version*/
-@media (min-width: 768px) and (max-width: 1199px) {
+@media #{$tablet-screen} {
   .text-box {
     margin: 20px 0 36px 20px;
   }
@@ -99,22 +111,26 @@ section {
   .btn-container {
     display: flex;
     justify-content: center;
+    margin: 30px 0 30px 0;
+    width: 100%;
   }
 
-  .btn {
+  #btn {
     @include btn-style;
-    width: $btn-width-mobile;
+    width: 100%;
+    border: none;
   }
 }
 
 /*desktop version*/
-@media (min-width: 1200px) {
+@media #{$desktop-screen} {
   .alignment {
-    margin: 0 auto;
+    margin: 128px auto 32px auto;
     width: 1200px;
   }
 
-  section {
+  .section1,
+  .section2 {
     width: 100%;
     height: 300px;
     display: flex;
@@ -140,10 +156,11 @@ section {
     }
   }
 
-  .btn {
+  #btn {
     @include btn-style;
+    margin-top: 30px;
     width: $btn-width-desktop;
-    text-align: center;
-    margin: 0 auto;
+    border: none;
+    cursor: pointer;
   }
 }
