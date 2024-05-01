@@ -1,0 +1,11 @@
+.sharetoast {
+  position: relative;
+  width: 320px;
+  height: 64px;
+  z-index: 9999;
+}
+
+.sharetoast__container {
+  position: absolute;
+  display: inline-flex;
+}
