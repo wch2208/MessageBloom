@@ -2,10 +2,16 @@ import React from 'react';
 import '../../styles/posted-page/PostCard.scss';
 import getClassByRole from '../../utils/getClassByRole';
 import deletedicon from '../../assets/icon/ic_deleted.svg';
+import contentSlice from '../../utils/contentSlice';
 
-function PostCard({ data }) {
+function PostCard({ data, setModalDataByData, handleModalOpen }) {
+  const handleCardClick = () => {
+    handleModalOpen(true);
+    setModalDataByData(data.id);
+  };
+
   return (
-    <div className='card-container'>
+    <div className='card-container' onClick={handleCardClick}>
       <div className='card-info-container'>
         <img
           className='card-info__img'
@@ -21,7 +27,7 @@ function PostCard({ data }) {
         </button>
       </div>
       <div className='card__underline'></div>
-      <p className='card__content'>{data.content}</p>
+      <p className='card__content'>{contentSlice(data.content)}</p>
       <span className='card__date'>{data.date}</span>
     </div>
   );
