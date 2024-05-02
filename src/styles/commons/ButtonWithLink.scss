@@ -19,13 +19,8 @@ button {
   cursor: pointer;
   border: none;
   width: 100%;
-
-  a {
-    text-decoration: none;
-    text-align: center;
-    color: $font-btn-color;
-    white-space: nowrap;
-  }
+  color: $font-btn-color;
+  white-space: nowrap;
 
   &:hover {
     background-color: $accent-background-thick;
