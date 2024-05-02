@@ -114,13 +114,14 @@
     #modal-confirm__btn {
       position: relative;
       padding: 7px 16px;
-      border-radius: 6px;
       border: none;
+      border-radius: 6px;
       background-color: $accent-color;
+      @include font-style(12, Bold);
       color: $white;
+      cursor: pointer;
       margin-top: 15px;
       left: 115px;
-      cursor: pointer;
     }
   }
 }
