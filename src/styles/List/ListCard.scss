@@ -85,7 +85,7 @@
 
 @media #{$tablet-screen} {
   .list-card {
-    width: 275px;
+    min-width: 275px;
     height: 260px;
     padding: 30px 24px 20px 24px;
   }
