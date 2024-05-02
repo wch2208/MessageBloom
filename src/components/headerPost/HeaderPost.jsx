@@ -52,15 +52,16 @@ const HeaderPost = () => {
           <div className='headerPost__button-wrapper'>
             <button className='headerPost__post-btn'>
               <img src={addicon} alt='이모지추가' />
-              {/*추가*/}
+              <span style={{ display: windowWidth >= 768 ? 'inline' : 'none' }}>추가</span>
             </button>
+
             <img className='headerPost__rectangle' src={rectangle} alt='가림막' />
             <div className='headerPost__dropdown'>
               <button className='headerPost__share-btn' onClick={toggleDropdown}>
                 <img src={shareicon} alt='페이지공유' style={{ cursor: 'pointer' }} />
               </button>
               {dropdownOpen && (
-                <ul className='headerPost__dropdown-menu'>
+                <ul className='headerPost__share-dropdown-menu'>
                   <li
                     className='headerPost__dropdown-menu-item'
                     onClick={() => handleShareOptionClick('KakaoTalk')}

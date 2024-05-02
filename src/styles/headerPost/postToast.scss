@@ -1,11 +1,40 @@
+@import '../reset', '../variables';
+
 .sharetoast {
-  position: relative;
+  position: fixed;
+  bottom: 50px; /* 원하는 바닥 여백으로 조정하세요 */
+  left: 50%; /* 화면 가로 중앙 정렬 */
+  transform: translateX(-50%);
   width: 320px;
   height: 64px;
   z-index: 9999;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: $white;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
 }
 
-.sharetoast__container {
-  position: absolute;
-  display: inline-flex;
+.sharetoast.hide {
+  opacity: 0;
+}
+
+.sharetoast__message {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sharetoast__completed-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.sharetoast__completed-text {
+  @include font-style(16, Regular);
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  text-align: left;
 }

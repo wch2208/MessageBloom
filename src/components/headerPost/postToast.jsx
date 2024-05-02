@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/headerPost/PostToast.scss';
 import completedIcon from '../../assets/icon/ic_completed.svg';
-import deletedIcon from '../../assets/icon/ic_deleted.svg';
+import closeIcon from '../../assets/icon/ic_close.svg';
 
 const Toast = ({ message }) => {
   const [showToast, setShowToast] = useState(true);
@@ -15,16 +15,12 @@ const Toast = ({ message }) => {
   }, []);
 
   return (
-    <div className='sharetoast'>
-      {showToast && (
-        <div className='sharetoast__container'>
-          <div className='sharetoast__message'>
-            <img src={completedIcon} alt='URL 복사 성공' />
-            <span>{message}</span>
-          </div>
-          <img src={deletedIcon} alt='닫기 아이콘' />
-        </div>
-      )}
+    <div className={`sharetoast ${showToast ? '' : 'hide'}`}>
+      <div className='sharetoast__message'>
+        <img src={completedIcon} alt='URL 복사 성공' className='sharetoast__completed-icon' />
+        <span className='sharetoast__completed-text'>{message}</span>
+        <img src={closeIcon} alt='닫기 아이콘' className='sharetoast__close-icon' />
+      </div>
     </div>
   );
 };

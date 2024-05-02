@@ -1,3 +1,5 @@
+@import '../reset', '../variables';
+
 .headerPost__dropdown-emojis-container {
   position: relative;
   display: flex;
@@ -6,11 +8,10 @@
 
 .headerPost__dropdown-button {
   border: none;
-  background-color: #ffffff;
+  background-color: $white;
   width: 215px;
   height: 36px;
   display: flex;
-  justify-content: space-between;
   justify-content: flex-end;
 }
 
@@ -26,23 +27,50 @@
   margin: 6px;
   cursor: pointer;
 }
-.headerPost__dropdown-menu {
+
+.headerPost__emoji-dropdown-menu {
   position: absolute;
   width: 203px;
   height: 98px;
   top: 40px;
-  gap: 2px;
+  gap: 10px;
   justify-content: flex-end;
+  left: 6px;
+  border-radius: 8px;
+  border: 1px solid $gray300;
+  background-color: $white;
+  padding: 16px;
 }
 
-.headerPost__emoji {
+.headerPost__emoji,
+.headerPost__emoji-dropdown {
   position: relative;
   display: inline-block;
   width: 53px;
   height: 28px;
   gap: 10px;
   border-radius: 32px;
-  background-color: #00000054;
+  color: $white;
+  margin-top: 5px;
+  padding-top: 4px;
+  background-color: rgba(0, 0, 0, 0.54);
   align-items: center;
   justify-content: center;
+}
+
+.headerPost__emoji-share {
+  margin-right: 3px;
+}
+
+@media #{$desktop-screen} {
+  .headerPost__emoji-dropdown-menu {
+    width: 312px;
+    height: 134px;
+  }
+
+  .headerPost__emoji,
+  .headerPost__emoji-dropdown {
+    width: 66px;
+    height: 36px;
+  }
 }

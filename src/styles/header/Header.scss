@@ -2,51 +2,57 @@
 
 * {
   text-decoration: none;
-  .header {
-    text-decoration: none;
-    height: 64px;
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #dddddd;
-    .left {
-      .logo {
-        cursor: pointer;
-        width: 130px;
-        height: 30px;
-        display: flex;
-        gap: 8px;
-        margin-top: 5px;
-        .logo-icon {
-          width: 27.82px;
-          height: 27.66px;
-        }
-        .logo-text {
-          font-family: Poppins;
-          font-size: 19.97px;
-          font-weight: 700;
-          line-height: 29.96px;
-          text-align: center;
-          color: #4a494f;
-        }
+}
+
+.header {
+  text-decoration: none;
+  height: 64px;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dddddd;
+
+  .left {
+    .logo {
+      cursor: pointer;
+      width: 130px;
+      height: 30px;
+      display: flex;
+      gap: 8px;
+      margin-top: 5px;
+
+      .logo-icon {
+        width: 27.82px;
+        height: 27.66px;
+      }
+
+      .logo-text {
+        font-family: Poppins;
+        font-size: 19.97px;
+        font-weight: 700;
+        line-height: 29.96px;
+        text-align: center;
+        color: #4a494f;
       }
     }
-    .post-button {
-      cursor: pointer;
-      width: 142px;
-      height: 40px;
-      border: 1px solid #cccccc;
-      border-radius: 8px;
-      .post-btn {
-        justify-content: center;
-        display: flex;
-        margin-top: 8px;
-        @include font-style(14, Regular);
-        background-color: #ffffff;
-        line-height: 20px;
-        letter-spacing: -0.005em;
-        text-align: center;
-      }
+  }
+
+  .post-button {
+    cursor: pointer;
+    width: 142px;
+    height: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+
+    .post-btn {
+      justify-content: center;
+      display: flex;
+      margin-top: 8px;
+      @include font-style(14, Regular);
+      background-color: #ffffff;
+      line-height: 20px;
+      letter-spacing: -0.005em;
+      text-align: center;
     }
   }
 }

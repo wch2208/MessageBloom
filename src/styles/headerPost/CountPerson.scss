@@ -1,3 +1,5 @@
+@import '../reset', '../variables';
+
 .headerPost__profile-container {
   display: flex;
   width: 228px;
@@ -18,11 +20,10 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1px solid #dddddd;
-  background-color: #ffffff;
+  border: 1px solid $gray300; /* 변수 사용 */
+  background-color: $white; /* 변수 사용 */
   padding: 5px;
-  font-weight: 500;
-  font-size: 12px;
+  @include font-style(12, Regular);
   line-height: 18px;
 }
 
@@ -30,14 +31,12 @@
   width: 141px;
   display: flex;
   justify-content: flex-end;
-  font-size: 18px;
-  font-weight: 400;
+  @include font-style(18, Regular); /* 변수 사용 */
   line-height: 27px;
   align-items: center;
 }
 
 .headerPost__profile-count {
-  font-size: 18px;
-  font-weight: 700;
+  @include font-style(18, Bold); /* 변수 사용 */
   line-height: 27px;
 }
