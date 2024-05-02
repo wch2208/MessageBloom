@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import checkIcon from '../../assets/icon/ic_check.svg';
 import '../../styles/create-message-form/ColorPicker.scss';
+import { COLOR_NAMES } from './FormConfig';
 
 function ColorOption({ handleColorChange, colorName, selectedColor }) {
   return (
@@ -29,8 +30,7 @@ function ColorOption({ handleColorChange, colorName, selectedColor }) {
 }
 
 export default function ColorPicker() {
-  const colorNames = ['orange', 'purple', 'blue', 'green'];
-  const [selectedColor, setSelectedColor] = useState(colorNames[0]);
+  const [selectedColor, setSelectedColor] = useState(COLOR_NAMES[0]);
 
   const handleColorChange = (event) => {
     setSelectedColor(event.target.value);
@@ -38,7 +38,7 @@ export default function ColorPicker() {
 
   return (
     <div className='background-form__color-picker'>
-      {colorNames.map((colorName, i) => (
+      {COLOR_NAMES.map((colorName, i) => (
         <ColorOption
           key={i}
           handleColorChange={handleColorChange}

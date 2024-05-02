@@ -1,6 +1,7 @@
 import checkIcon from '../../assets/icon/ic_check.svg';
 import { useState } from 'react';
 import '../../styles/create-message-form/ImagePicker.scss';
+import { IMAGE_NAMES } from './FormConfig';
 
 function ImageOption({ handleImageChange, imageName, selectedImage }) {
   return (
@@ -33,15 +34,15 @@ function ImageOption({ handleImageChange, imageName, selectedImage }) {
 }
 
 export default function ImagePicker() {
-  const imageNames = ['wallpaper01', 'wallpaper02', 'wallpaper03', 'wallpaper04'];
-  const [selectedImage, setSelectedImage] = useState(imageNames[0]);
+  const [selectedImage, setSelectedImage] = useState(IMAGE_NAMES[0]);
 
-  const handleImageChange = (event) => {
-    setSelectedImage(event.target.value);
+  const handleImageChange = (e) => {
+    setSelectedImage(e.target.value);
   };
+
   return (
     <div className='background-form__image-picker'>
-      {imageNames.map((imageName, i) => (
+      {IMAGE_NAMES.map((imageName, i) => (
         <ImageOption
           key={i}
           handleImageChange={handleImageChange}
