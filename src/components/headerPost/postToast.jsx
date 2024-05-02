@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../styles/headerPost/postToast.scss';
+import '../../styles/headerPost/PostToast.scss';
 import completedIcon from '../../assets/icon/ic_completed.svg';
 import deletedIcon from '../../assets/icon/ic_deleted.svg';
 
