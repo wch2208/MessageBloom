@@ -1,5 +1,58 @@
 @import '../variables', '../reset';
 
+$background-colors: (
+  orange: $orange200,
+  purple: $purple200,
+  blue: $blue200,
+  green: $green200,
+);
+
+$background-images: (
+  wallpaper01: url(../../assets/image/wallpaper/img_wallpaper_01.svg),
+  wallpaper02: url(../../assets/image/wallpaper/img_wallpaper_02.svg),
+  wallpaper03: url(../../assets/image/wallpaper/img_wallpaper_03.svg),
+  wallpaper04: url(../../assets/image/wallpaper/img_wallpaper_04.svg),
+);
+
+@mixin background-color-style($color: none) {
+  background-color: map-get($background-colors, $color);
+}
+
+@mixin background-image-style($image: none) {
+  background-image: map-get($background-images, $image);
+}
+
+.post-wrapper {
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &.green {
+    @include background-color-style(green);
+  }
+  &.purple {
+    @include background-color-style(purple);
+  }
+  &.blue {
+    @include background-color-style(blue);
+  }
+  &.orange {
+    @include background-color-style(orange);
+  }
+  &.wallpaper01 {
+    @include background-image-style(wallpaper01);
+  }
+  &.wallpaper02 {
+    @include background-image-style(wallpaper02);
+  }
+  &.wallpaper03 {
+    @include background-image-style(wallpaper03);
+  }
+  &.wallpaper04 {
+    @include background-image-style(wallpaper04);
+  }
+}
+
 .posted-page-container {
   max-width: 1248px;
   padding: 130px 0 130px 0;
