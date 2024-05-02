@@ -20,12 +20,27 @@ const mock = [
 export default function List() {
   const [data, setData] = useState(list.list);
 
+  const getBestCards = () => {
+    const sortedCards = [...data];
+    sortedCards.sort((a, b) => b.messageCount - a.messageCount);
+    return sortedCards.slice(0, 10);
+  };
+
+  const getLatestCards = () => {
+    const sortedCards = [...data];
+    sortedCards.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    return sortedCards;
+  };
+
+  const bestCards = getBestCards();
+  const latestCards = getLatestCards();
+
   return (
     <div className='list'>
       <div className='list__best'>
         <p className='list__best-title'>인기 롤링 페이퍼 🔥</p>
         <div className='list__best-cards'>
-          {data.map((card) => (
+          {bestCards.map((card) => (
             <ListCard key={card.id} {...card} />
           ))}
         </div>
@@ -34,7 +49,7 @@ export default function List() {
       <div className='list__newest'>
         <p className='list__newest-title'>최근에 만든 롤링 페이퍼 ⭐️</p>
         <div className='list__newest-cards'>
-          {data.map((card) => (
+          {latestCards.map((card) => (
             <ListCard key={card.id} {...card} />
           ))}
         </div>
