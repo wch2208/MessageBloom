@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PostCard from '../components/posted-page/PostCard';
 import '../styles/posted-page/PostedPage.scss';
 import imgpofile01 from '../assets/image/profile/img_profile_01.svg';
 import imgwallpaper from '../assets/image/wallpaper/img_wallpaper_01.svg';
 import plusicon from '../assets/icon/ic_plus.svg';
-import { useState } from 'react';
 import Modal from '../components/posted-page/Modal';
 
 const mockData = [
@@ -93,12 +92,15 @@ function PostedPage() {
     setIsModalOpen(value);
   };
 
-  useEffect(() => {
-    const setBackgroundByData = () => {
+  const setBackgroundByData = useMemo(() => {
+    return () => {
       recipMockData[0].backgroundColor === ''
         ? setBackground(recipMockData[0].backgroundImageURL)
         : setBackground(recipMockData[0].backgroundColor);
     };
+  }, [recipMockData, setBackground]);
+
+  useEffect(() => {
     setBackgroundByData();
   }, []);
 
