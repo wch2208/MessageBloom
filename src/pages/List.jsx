@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import '../styles/List/List.scss';
 import ListCard from '../components/List/ListCard';
 import list from '../mock-data.json';
@@ -8,6 +8,9 @@ import ic_arrow_right from './../assets/icon/ic_arrow_right.svg';
 
 export default function List() {
   const [data, setData] = useState(list.list);
+  const scrollRef = useRef(null);
+  const bestCardsRef = useRef(null);
+  const latestCardsRef = useRef(null);
 
   const getBestCards = () => {
     const sortedCards = [...data];
@@ -24,21 +27,27 @@ export default function List() {
   const bestCards = getBestCards();
   const latestCards = getLatestCards();
 
-  const handleMove = () => {};
+  const handleClickScroll = (direction) => {
+    if (direction === 'left') {
+      scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    } else if (direction === 'right') {
+      scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'end' });
+    }
+  };
 
   return (
     <div className='list'>
       <div className='list__best'>
         <p className='list__best-title'>인기 롤링 페이퍼 🔥</p>
-        <ArrowButton btnType={'left'}>
+        <ArrowButton btnType={'left'} onClick={handleClickScroll()}>
           {<img src={ic_arrow_left} alt='왼쪽으로 클릭'></img>}
         </ArrowButton>
         <div className='list__best-cards'>
           {bestCards.map((card) => (
-            <ListCard key={card.id} {...card} />
+            <ListCard ref={scrollRef.current} key={card.id} {...card} />
           ))}
         </div>
-        <ArrowButton btnType={'right'}>
+        <ArrowButton btnType={'right'} onClick={handleClickScroll}>
           {<img src={ic_arrow_right} alt='오른쪽으로 클릭'></img>}
         </ArrowButton>
       </div>
