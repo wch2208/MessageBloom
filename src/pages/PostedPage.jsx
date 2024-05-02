@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PostCard from '../components/posted-page/PostCard';
 import '../styles/posted-page/PostedPage.scss';
 import imgpofile01 from '../assets/image/profile/img_profile_01.svg';
+import imgwallpaper from '../assets/image/wallpaper/img_wallpaper_01.svg';
 import plusicon from '../assets/icon/ic_plus.svg';
-import { useState } from 'react';
 import Modal from '../components/posted-page/Modal';
 
 const mockData = [
@@ -15,7 +15,7 @@ const mockData = [
     relationship: '친구',
     content:
       '코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!',
-    font: 'Noto Sans',
+    font: 'Noto-Sans',
     createdAt: new Date().toLocaleDateString(),
   },
   {
@@ -37,7 +37,7 @@ const mockData = [
     relationship: '지인',
     content:
       '코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!',
-    font: '나눔 명조',
+    font: 'NanumMyengjo',
     createdAt: new Date().toLocaleDateString(),
   },
   {
@@ -48,7 +48,7 @@ const mockData = [
     relationship: '가족',
     content:
       '코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 조심하세요!코로나가 또다시 기승을 부리는 요즘이네요.',
-    font: 'Noto Sans',
+    font: 'NanumSonPyeonJiCe',
     createdAt: new Date().toLocaleDateString(),
   },
   {
@@ -64,8 +64,23 @@ const mockData = [
   },
 ];
 
+const recipMockData = [
+  {
+    id: 1,
+    name: '',
+    backgroundColor: '',
+    backgroundImageURL: 'wallpaper01',
+    createAt: '2024-05-01',
+    messageCount: '1',
+    recentMessage: '',
+    reactionCount: 0,
+    topReactions: '',
+  },
+];
+
 function PostedPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [background, setBackground] = useState('');
   const [modalData, setModalData] = useState([]);
 
   const setModalDataByData = (modalId) => {
@@ -77,25 +92,39 @@ function PostedPage() {
     setIsModalOpen(value);
   };
 
+  const setBackgroundByData = useMemo(() => {
+    return () => {
+      recipMockData[0].backgroundColor === ''
+        ? setBackground(recipMockData[0].backgroundImageURL)
+        : setBackground(recipMockData[0].backgroundColor);
+    };
+  }, [recipMockData, setBackground]);
+
+  useEffect(() => {
+    setBackgroundByData();
+  }, []);
+
   return (
-    <div className='posted-page-container'>
-      <div className='add-post-card'>
-        <div className='add-post-card__plus-icon'>
-          <img src={plusicon} alt='포스트 카드 추가 버튼' />
-        </div>
-      </div>
-      {mockData.map((data) => {
-        return (
-          <div key={data.id}>
-            <PostCard
-              setModalDataByData={setModalDataByData}
-              handleModalOpen={handleModalOpen}
-              data={data}
-            />
+    <div className={`post-wrapper ${background}`}>
+      <div className='posted-page-container'>
+        <div className='add-post-card'>
+          <div className='add-post-card__plus-icon'>
+            <img src={plusicon} alt='포스트 카드 추가 버튼' />
           </div>
-        );
-      })}
-      {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
+        </div>
+        {mockData.map((data) => {
+          return (
+            <div key={data.id}>
+              <PostCard
+                setModalDataByData={setModalDataByData}
+                handleModalOpen={handleModalOpen}
+                data={data}
+              />
+            </div>
+          );
+        })}
+        {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
+      </div>
     </div>
   );
 }
