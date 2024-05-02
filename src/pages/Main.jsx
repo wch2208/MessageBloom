@@ -1,6 +1,7 @@
 import '../styles/main/main.scss';
 import section01 from '../assets/main/section01.svg';
 import section02 from '../assets/main/section02.png';
+import ButtonWithLink from '../components/commons/ButtonWithLink';
 
 export default function Main() {
   return (
@@ -25,9 +26,7 @@ export default function Main() {
           <img src={section02} alt='이모지 추가 예시 사진' className='img2' />
         </div>
       </section>
-      <div className='btn-container'>
-        <button id='btn'>구경해보기</button>
-      </div>
+      <ButtonWithLink to='/list' buttonText='구경해보기' />
     </div>
   );
 }

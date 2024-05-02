@@ -1,8 +1,8 @@
 @import '../reset', '../variables';
 
 //색상변수
-$box-bg-color: $surface;
-$btn-bg-color: $purple600;
+$box-bg-color: $accent-background-light;
+$btn-bg-color: $accent-color;
 $font-title-color: $gray900;
 $font-description-color: $gray500;
 $font-btn-color: $white;
@@ -11,15 +11,8 @@ $font-btn-color: $white;
 $btn-width-mobile: calc(100% - 48px);
 $btn-width-desktop: 280px;
 
-@mixin btn-style {
-  @include font-style(18, Regular);
-  text-align: center;
-  line-height: 56px;
-  height: 56px;
-  border-radius: 12px;
-  background-color: $btn-bg-color;
-  color: $font-btn-color;
-}
+//box 투명도
+$box-opacity: 0.3;
 
 //공통
 .alignment {
@@ -35,9 +28,9 @@ $btn-width-desktop: 280px;
   .section2 {
     align-items: center;
     width: 100%;
-    border: 1px solid $box-bg-color;
+    border: 1px solid rgba($box-bg-color, $box-opacity);
     border-radius: 16px;
-    background-color: $box-bg-color;
+    background-color: rgba($box-bg-color, $box-opacity);
     margin: 24px;
 
     .point-btn {
@@ -83,20 +76,6 @@ $btn-width-desktop: 280px;
   img {
     margin: 50px 0 60px;
   }
-
-  .btn-container {
-    display: flex;
-    margin: 30px 0 30px 0;
-    justify-content: center;
-    width: 100%;
-  }
-
-  #btn {
-    @include btn-style;
-    width: $btn-width-mobile;
-    width: 100%;
-    border: none;
-  }
 }
 
 /*tablet version*/
@@ -106,19 +85,6 @@ $btn-width-desktop: 280px;
   }
   img {
     margin: 40px auto;
-  }
-
-  .btn-container {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0 30px 0;
-    width: 100%;
-  }
-
-  #btn {
-    @include btn-style;
-    width: 100%;
-    border: none;
   }
 }
 
@@ -154,13 +120,5 @@ $btn-width-desktop: 280px;
     .text-box {
       margin: 60px 190px 60px 0;
     }
-  }
-
-  #btn {
-    @include btn-style;
-    margin-top: 30px;
-    width: $btn-width-desktop;
-    border: none;
-    cursor: pointer;
   }
 }

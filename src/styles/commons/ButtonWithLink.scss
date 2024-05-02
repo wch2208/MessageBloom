@@ -1,0 +1,40 @@
+@import '../reset', '../variables';
+
+//색상변수
+$box-bg-color: $accent-background-light;
+$btn-bg-color: $accent-color;
+$font-title-color: $gray900;
+$font-description-color: $gray500;
+$font-btn-color: $white;
+
+//버튼 너비 변수
+$btn-width-desktop: 280px;
+
+button {
+  @include font-style(18, Regular);
+  height: 56px;
+  border-radius: 12px;
+  background-color: $btn-bg-color;
+  margin-top: 30px;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+
+  a {
+    text-decoration: none;
+    text-align: center;
+    color: $font-btn-color;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    background-color: $accent-background-thick;
+  }
+}
+
+/*desktop version*/
+@media #{$desktop-screen} {
+  button {
+    width: $btn-width-desktop;
+  }
+}
