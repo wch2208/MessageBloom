@@ -86,27 +86,42 @@
       &::-webkit-scrollbar {
         width: 4px;
       }
-
       &::-webkit-scrollbar-thumb {
         height: 100px;
         background: $accent-background-thick;
         border-radius: 10px;
       }
       .modal__content {
-        @include font-style(14, Regular);
         line-height: 20px;
+        &.Noto-Sans {
+          font-family: 'Noto-Sans', sans-serif;
+          @include font-style(14, Regular);
+        }
+        &.pretendard {
+          font-family: 'pretendard', sans-serif;
+          @include font-style(14, Regular);
+        }
+        &.NanumMyengjo {
+          font-family: 'NanumMyeongjo', sans-serif;
+          @include font-style(14, Regular);
+        }
+        &.NanumSonPyeonJiCe {
+          font-family: 'NanumSonPyeonJiCe', sans-serif;
+          @include font-style(18, Regular);
+        }
       }
     }
     #modal-confirm__btn {
       position: relative;
       padding: 7px 16px;
-      border-radius: 6px;
       border: none;
+      border-radius: 6px;
       background-color: $accent-color;
+      @include font-style(12, Bold);
       color: $white;
+      cursor: pointer;
       margin-top: 15px;
       left: 115px;
-      cursor: pointer;
     }
   }
 }
@@ -138,8 +153,23 @@
       .modal__content-container {
         height: 240px;
         .modal__content {
-          @include font-style(18, Regular);
           line-height: 27px;
+          &.Noto-Sans {
+            font-family: 'Noto-Sans', sans-serif;
+            @include font-style(18, Regular);
+          }
+          &.pretendard {
+            font-family: 'pretendard', sans-serif;
+            @include font-style(18, Regular);
+          }
+          &.NanumMyengjo {
+            font-family: 'NanumMyeongjo', sans-serif;
+            @include font-style(18, Regular);
+          }
+          &.NanumSonPyeonJiCe {
+            font-family: 'NanumSonPyeonJiCe', sans-serif;
+            @include font-style(28, Regular);
+          }
         }
       }
       #modal-confirm__btn {

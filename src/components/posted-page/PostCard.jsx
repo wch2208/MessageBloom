@@ -29,7 +29,7 @@ function PostCard({ data, setModalDataByData, handleModalOpen }) {
         </button>
       </div>
       <div className='card__underline'></div>
-      <p className='card__content'>{contentSlice(data.content)}</p>
+      <p className={`card__content ${data.font}`}>{contentSlice(data.content)}</p>
       <span className='card__date'>{data.createdAt}</span>
     </div>
   );
