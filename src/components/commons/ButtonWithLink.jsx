@@ -9,7 +9,7 @@ const ButtonWithLink = ({ to, buttonText }) => {
   };
 
   return (
-    <button className='ButtonWithLink__button' onClick={handleButtonClick}>
+    <button className='btnwithlink' onClick={handleButtonClick}>
       {buttonText}
     </button>
   );

@@ -10,7 +10,7 @@ $font-btn-color: $white;
 //버튼 너비 변수
 $btn-width-desktop: 280px;
 
-button {
+.btnwithlink {
   @include font-style(18, Regular);
   height: 56px;
   border-radius: 12px;
@@ -29,7 +29,7 @@ button {
 
 /*desktop version*/
 @media #{$desktop-screen} {
-  button {
+  .btnwithlink {
     width: $btn-width-desktop;
   }
 }
