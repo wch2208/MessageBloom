@@ -14,10 +14,13 @@ const Header = () => {
           </picture>
         </Link>
       </div>
-
-      <button to='/post' className='post-btn'>
-        롤링 페이지 만들기
-      </button>
+      <div className='post-button'>
+        {(location.pathname === '/' || location.pathname === '/list') && (
+          <button to='/post' className='post-btn'>
+            롤링 페이지 만들기
+          </button>
+        )}
+      </div>
     </header>
   );
 };

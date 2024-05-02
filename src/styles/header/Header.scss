@@ -31,17 +31,19 @@
         }
       }
     }
-    .post-btn {
-      width: 142px;
-      height: 40px;
-      border-radius: 8px;
-      border: 1px solid #cccccc;
+    .post-button {
+      .post-btn {
+        width: 142px;
+        height: 40px;
+        border-radius: 8px;
+        border: 1px solid #cccccc;
 
-      @include font-style(14, Regular);
-      background-color: #ffffff;
-      line-height: 20px;
-      letter-spacing: -0.005em;
-      text-align: center;
+        @include font-style(14, Regular);
+        background-color: #ffffff;
+        line-height: 20px;
+        letter-spacing: -0.005em;
+        text-align: center;
+      }
     }
   }
 }

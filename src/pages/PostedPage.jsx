@@ -3,6 +3,7 @@ import PostCard from '../components/posted-page/PostCard';
 import '../styles/posted-page/PostedPage.scss';
 import imgPofile01 from '../assets/image/profile/img_profile_01.svg';
 import plusicon from '../assets/icon/ic_plus.svg';
+import Header from '../components/header/Header';
 import HeaderPost from '../components/headerPost/HeaderPost';
 
 const mockData = [
@@ -43,6 +44,7 @@ const mockData = [
 function PostedPage() {
   return (
     <>
+      <Header />
       <HeaderPost />
       <div className='posted-page-container'>
         <div className='add-post-card'>

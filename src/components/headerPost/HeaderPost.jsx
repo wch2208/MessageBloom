@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../styles/headerPost/HeaderPost.scss';
-import Toast from './postToast';
+import Emojis from './DropDownEmojis';
+import Toast from './PostToast';
 import addicon from '../../assets/icon/ic_add_20.svg';
 import shareicon from '../../assets/icon/ic_share_20.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
@@ -32,7 +33,9 @@ const HeaderPost = () => {
                         <img className="headerPost__rectangle" src={rectangle} alt="가림막" />*/}
           </div>
 
-          <div className='headerPost__emoji-wrapper'>이모지</div>
+          <div className='headerPost__emoji-wrapper'>
+            <Emojis />
+          </div>
 
           <div className='headerPost__button-wrapper'>
             <button className='headerPost__post-btn'>

@@ -1,0 +1,47 @@
+.headerPost__dropdown-emojis-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.headerPost__dropdown-button {
+  border: none;
+  background-color: #ffffff;
+  width: 215px;
+  height: 36px;
+  display: flex;
+  justify-content: space-between;
+  justify-content: flex-end;
+}
+
+.headerPost__popularemoji {
+  width: 177px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerPost__dropdown-icon {
+  width: 24px;
+  height: 24px;
+  margin: 6px;
+}
+.headerPost__dropdown-menu {
+  position: absolute;
+  width: 203px;
+  height: 98px;
+  top: 40px;
+  gap: 2px;
+  justify-content: flex-end;
+}
+
+.headerPost__emoji {
+  position: relative;
+  display: inline-block;
+  width: 53px;
+  height: 28px;
+  gap: 10px;
+  border-radius: 32px;
+  background-color: #00000054;
+  align-items: center;
+  justify-content: center;
+}
