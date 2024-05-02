@@ -15,12 +15,14 @@ function PostCard({ data, setModalDataByData, handleModalOpen }) {
       <div className='card-info-container'>
         <img
           className='card-info__img'
-          src={data.profile}
+          src={data.profileImageURL}
           alt='받은 포스트 카드 작성자 프로필 이미지'
         />
         <div className='card-info-detail-container'>
-          <p className='card-info__name'>From. {data.name}</p>
-          <span className={`card-info__role ${getClassByRole(data.role)}`}>{data.role}</span>
+          <p className='card-info__name'>From. {data.sender}</p>
+          <span className={`card-info__role ${getClassByRole(data.relationship)}`}>
+            {data.relationship}
+          </span>
         </div>
         <button id='card__delete-btn'>
           <img src={deletedicon} alt='포스트 카드 삭제 버튼' />
@@ -28,7 +30,7 @@ function PostCard({ data, setModalDataByData, handleModalOpen }) {
       </div>
       <div className='card__underline'></div>
       <p className='card__content'>{contentSlice(data.content)}</p>
-      <span className='card__date'>{data.date}</span>
+      <span className='card__date'>{data.createdAt}</span>
     </div>
   );
 }

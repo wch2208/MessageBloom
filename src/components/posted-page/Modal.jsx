@@ -17,16 +17,16 @@ function Modal({ modalData, handleModalOpen }) {
         <div className='modal-info'>
           <img
             className='modal-info__img'
-            src={modalData.profile}
+            src={modalData.profileImageURL}
             alt='받은 포스트 카드 작성자 프로필 이미지'
           />
           <div className='modal-info-detail-container'>
-            <p className='modal-info__name'>From. {modalData.name}</p>
-            <span className={`modal-info__role ${getClassByRole(modalData.role)}`}>
-              {modalData.role}
+            <p className='modal-info__name'>From. {modalData.sender}</p>
+            <span className={`modal-info__role ${getClassByRole(modalData.relationship)}`}>
+              {modalData.relationship}
             </span>
           </div>
-          <span className='modal__date'>{modalData.date}</span>
+          <span className='modal__date'>{modalData.createdAt}</span>
         </div>
         <div className='modal__underline'></div>
         <div className='modal__content-container'>
