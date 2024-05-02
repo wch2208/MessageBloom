@@ -1,0 +1,30 @@
+@import '../variables';
+
+.arrow-button {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid $gray300;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.left {
+  position: relative;
+  top: 160px;
+}
+
+.right {
+  position: relative;
+  bottom: 160px;
+  left: 1160px;
+}
