@@ -1,6 +1,7 @@
 import '../styles/main/main.scss';
 import section01 from '../assets/main/section01.svg';
 import section02 from '../assets/main/section02.png';
+import Button from '../components/commons/Button';
 
 export default function Main() {
   return (
@@ -27,6 +28,9 @@ export default function Main() {
       </section>
       <div className='btn-container'>
         <button id='btn'>구경해보기</button>
+      </div>
+      <div>
+        <Button text={'공용 버튼'}></Button>
       </div>
     </div>
   );
