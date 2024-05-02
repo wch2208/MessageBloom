@@ -4,6 +4,8 @@ import '../../styles/header/Header.scss';
 import { PiFlowerDuotone } from 'react-icons/pi';
 
 const Header = () => {
+  const location = useLocation();
+
   return (
     <header className='header'>
       <div className='left'>
@@ -14,13 +16,14 @@ const Header = () => {
           </picture>
         </Link>
       </div>
-      <div className='post-button'>
-        {(location.pathname === '/' || location.pathname === '/list') && (
-          <button to='/post' className='post-btn'>
+
+      {(location.pathname === '/' || location.pathname === '/list') && (
+        <div className='post-button'>
+          <Link to='/post' className='post-btn'>
             롤링 페이지 만들기
-          </button>
-        )}
-      </div>
+          </Link>
+        </div>
+      )}
     </header>
   );
 };

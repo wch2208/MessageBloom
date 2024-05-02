@@ -2,6 +2,7 @@ import '../styles/create-message-form/PostFromPage.scss';
 import basicProfile from '../assets/image/profile/img_profile_basic.svg';
 import profile1 from '../assets/image/profile/img_profile_01.svg';
 import CustomDropdown from '../components/create-message-form/CustomDropdown';
+import Header from '../components/header/Header';
 
 export default function PostFromPage() {
   const items = [
@@ -22,6 +23,7 @@ export default function PostFromPage() {
 
   return (
     <>
+      <Header />
       <div className='message-form'>
         <div className='message-form__sender'>
           <label htmlFor='nameInput' className='message-form__title'>

@@ -1,6 +1,7 @@
 import '../styles/create-message-form/PostToPage.scss';
 import checkIcon from '../assets/icon/ic_check.svg';
 import { useState } from 'react';
+import Header from '../components/header/Header';
 
 export default function PostToPage() {
   const [selectedValue, setSelectedValue] = useState('color');
@@ -21,6 +22,7 @@ export default function PostToPage() {
 
   return (
     <>
+      <Header />
       <div className='background-form'>
         <div className='background-form__header'>
           <label className='background-form__title'>To.</label>

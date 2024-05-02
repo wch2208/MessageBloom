@@ -32,12 +32,15 @@
       }
     }
     .post-button {
+      cursor: pointer;
+      width: 142px;
+      height: 40px;
+      border: 1px solid #cccccc;
+      border-radius: 8px;
       .post-btn {
-        width: 142px;
-        height: 40px;
-        border-radius: 8px;
-        border: 1px solid #cccccc;
-
+        justify-content: center;
+        display: flex;
+        margin-top: 8px;
         @include font-style(14, Regular);
         background-color: #ffffff;
         line-height: 20px;

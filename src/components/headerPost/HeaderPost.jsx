@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles/headerPost/HeaderPost.scss';
+import CountPerson from './CountPerson';
 import Emojis from './DropDownEmojis';
 import Toast from './PostToast';
 import addicon from '../../assets/icon/ic_add_20.svg';
@@ -29,8 +30,7 @@ const HeaderPost = () => {
 
         <div className='headerPost__info-wrapper'>
           <div className='headerPost__person-wrapper'>
-            {/* 몇 명 작성했는지 보이는 부분
-                        <img className="headerPost__rectangle" src={rectangle} alt="가림막" />*/}
+            <CountPerson />
           </div>
 
           <div className='headerPost__emoji-wrapper'>
