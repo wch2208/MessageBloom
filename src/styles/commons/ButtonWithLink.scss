@@ -34,7 +34,7 @@ $btn-width-desktop: 280px;
 
 /*desktop version*/
 @media #{$desktop-screen} {
-  button {
+  .CommonButton {
     width: $btn-width-desktop;
   }
 }
