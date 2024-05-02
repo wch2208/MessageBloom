@@ -1,8 +1,8 @@
 @import '../reset', '../variables';
 
 //색상변수
-$box-bg-color: $surface;
-$btn-bg-color: $purple600;
+$box-bg-color: $accent-background-light;
+$btn-bg-color: $accent-color;
 $font-title-color: $gray900;
 $font-description-color: $gray500;
 $font-btn-color: $white;
@@ -10,6 +10,9 @@ $font-btn-color: $white;
 //버튼 너비 변수
 $btn-width-mobile: calc(100% - 48px);
 $btn-width-desktop: 280px;
+
+//box 투명도
+$box-opacity: 0.5;
 
 @mixin btn-style {
   @include font-style(18, Regular);
@@ -37,7 +40,7 @@ $btn-width-desktop: 280px;
     width: 100%;
     border: 1px solid $box-bg-color;
     border-radius: 16px;
-    background-color: $box-bg-color;
+    background-color: rgba($box-bg-color, $box-opacity);
     margin: 24px;
 
     .point-btn {
