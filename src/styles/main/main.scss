@@ -12,7 +12,7 @@ $btn-width-mobile: calc(100% - 48px);
 $btn-width-desktop: 280px;
 
 //box 투명도
-$box-opacity: 0.5;
+$box-opacity: 0.3;
 
 @mixin btn-style {
   @include font-style(18, Regular);
@@ -38,7 +38,7 @@ $box-opacity: 0.5;
   .section2 {
     align-items: center;
     width: 100%;
-    border: 1px solid $box-bg-color;
+    border: 1px solid rgba($box-bg-color, $box-opacity);
     border-radius: 16px;
     background-color: rgba($box-bg-color, $box-opacity);
     margin: 24px;
