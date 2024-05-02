@@ -1,0 +1,199 @@
+@import '../variables';
+
+// 모바일 360~ 767 태블릿 767~1199 데스크톱 1200~
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-form {
+  //
+  width: 320px;
+  margin: 0 auto;
+}
+
+.background-form__title {
+  @include font-style(24, Bold);
+  margin-bottom: 12px;
+  margin-top: 50px;
+  display: block;
+}
+
+.background-form__input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border: 1px solid $gray300;
+  border-radius: 8px;
+  padding: 12px 16px 12px 16px;
+  @include font-style(16, Regular);
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  appearance: none;
+  padding: 12px 16px;
+  user-select: none;
+}
+
+.background-form-group {
+  margin: 48px 0 24px 0;
+  & > p:first-child {
+    @include font-style(24, Bold);
+    margin-bottom: 4px;
+  }
+  & > p:nth-child(2) {
+    @include font-style(16, Regular);
+  }
+}
+
+.background-form__radio-group {
+  display: flex;
+  margin: 24px 0 28px 0;
+}
+.background-form__radio {
+  display: none;
+}
+.background-form__radio-label {
+  cursor: pointer;
+  @include flex-center;
+  width: 118px;
+  height: 40px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  @include font-style(16, Regular);
+  text-align: center;
+  border: none;
+  background-color: $gray100;
+}
+.background-form__radio--active {
+  @include font-style(16, Bold);
+  border: 2px solid $accent-background-thick;
+  color: $accent-color;
+  background-color: $accent-background-light;
+}
+
+.background-form__color-picker {
+  input {
+    display: none;
+  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  #orange + label {
+    border: 1px solid $orange300;
+    background-color: $orange200;
+  }
+  #purple + label {
+    border: 1px solid $purple300;
+    background-color: $purple200;
+  }
+  #blue + label {
+    border: 1px solid $blue300;
+    background-color: $blue200;
+  }
+  #green + label {
+    border: 1px solid $green300;
+    background-color: $green200;
+  }
+}
+
+.background-form__image-picker {
+  input {
+    display: none;
+  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  #wallpaper01 + label {
+    background-image: url(../../assets/image/wallpaper/img_wallpaper_01.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+  }
+  #wallpaper02 + label {
+    background-image: url(../../assets/image/wallpaper/img_wallpaper_02.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+  }
+  #wallpaper03 + label {
+    background-image: url(../../assets/image/wallpaper/img_wallpaper_03.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+  }
+  #wallpaper04 + label {
+    background-image: url(../../assets/image/wallpaper/img_wallpaper_04.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+  }
+}
+.background-form__radio-color-label {
+  display: block;
+  width: 154px;
+  height: 154px;
+  border-radius: 16px;
+}
+.background-form__radio-image-label {
+  display: block;
+  width: 154px;
+  height: 154px;
+  border-radius: 16px;
+}
+
+.background-form__check-icon {
+  background-color: $gray500;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  display: none;
+  z-index: 1;
+}
+.background-form__radio-color--active {
+  @include flex-center;
+}
+.background-form__radio-image--active {
+  @include flex-center;
+}
+.background-form__radio-image--translucent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.background-form__submit {
+  width: 100%;
+  height: 56px;
+  padding: 14px 24px 14px 24px;
+  border-radius: 12px;
+  margin: 0 auto;
+  margin-top: 82px;
+  margin-bottom: 24px;
+  background-color: $accent-color;
+  border: none;
+  color: $white;
+  @include font-style(18, Bold);
+}
+
+@media #{$tablet-screen} {
+  .background-form {
+    width: 720px;
+  }
+  .background-form__color-picker,
+  .background-form__image-picker {
+    gap: 16px;
+  }
+  .background-form__radio-color-label,
+  .background-form__radio-image-label {
+    width: 168px;
+    height: 168px;
+  }
+}
