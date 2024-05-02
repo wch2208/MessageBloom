@@ -1,4 +1,4 @@
-@import '../variables';
+@import '../variables', '../reset';
 
 // 모바일 360~ 767 태블릿 767~1199 데스크톱 1200~
 @mixin flex-center {
@@ -75,80 +75,6 @@
   background-color: $accent-background-light;
 }
 
-.background-form__color-picker {
-  input {
-    display: none;
-  }
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  #orange + label {
-    border: 1px solid $orange300;
-    background-color: $orange200;
-  }
-  #purple + label {
-    border: 1px solid $purple300;
-    background-color: $purple200;
-  }
-  #blue + label {
-    border: 1px solid $blue300;
-    background-color: $blue200;
-  }
-  #green + label {
-    border: 1px solid $green300;
-    background-color: $green200;
-  }
-}
-
-.background-form__image-picker {
-  input {
-    display: none;
-  }
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  #wallpaper01 + label {
-    background-image: url(../../assets/image/wallpaper/img_wallpaper_01.svg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    position: relative;
-  }
-  #wallpaper02 + label {
-    background-image: url(../../assets/image/wallpaper/img_wallpaper_02.svg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    position: relative;
-  }
-  #wallpaper03 + label {
-    background-image: url(../../assets/image/wallpaper/img_wallpaper_03.svg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    position: relative;
-  }
-  #wallpaper04 + label {
-    background-image: url(../../assets/image/wallpaper/img_wallpaper_04.svg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    position: relative;
-  }
-}
-.background-form__radio-color-label {
-  display: block;
-  width: 154px;
-  height: 154px;
-  border-radius: 16px;
-}
-.background-form__radio-image-label {
-  display: block;
-  width: 154px;
-  height: 154px;
-  border-radius: 16px;
-}
-
 .background-form__check-icon {
   background-color: $gray500;
   width: 40px;
@@ -157,18 +83,7 @@
   display: none;
   z-index: 1;
 }
-.background-form__radio-color--active {
-  @include flex-center;
-}
-.background-form__radio-image--active {
-  @include flex-center;
-}
-.background-form__radio-image--translucent {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-}
+
 .background-form__submit {
   width: 100%;
   height: 56px;
@@ -186,14 +101,5 @@
 @media #{$tablet-screen} {
   .background-form {
     width: 720px;
-  }
-  .background-form__color-picker,
-  .background-form__image-picker {
-    gap: 16px;
-  }
-  .background-form__radio-color-label,
-  .background-form__radio-image-label {
-    width: 168px;
-    height: 168px;
   }
 }

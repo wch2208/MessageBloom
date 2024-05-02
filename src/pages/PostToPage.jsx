@@ -1,22 +1,13 @@
 import '../styles/create-message-form/PostToPage.scss';
-import checkIcon from '../assets/icon/ic_check.svg';
 import { useState } from 'react';
+import ColorPicker from '../components/create-message-form/ColorPicker';
+import ImagePicker from '../components/create-message-form/ImagePicker';
 
 export default function PostToPage() {
   const [selectedValue, setSelectedValue] = useState('color');
-  const [selectedColor, setSelectedColor] = useState('orange');
-  const [selectedImage, setSelectedImage] = useState('wallpaper01');
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
-  };
-
-  const handleColorChange = (event) => {
-    setSelectedColor(event.target.value);
-  };
-
-  const handleImageChange = (event) => {
-    setSelectedImage(event.target.value);
   };
 
   return (
@@ -66,178 +57,7 @@ export default function PostToPage() {
             onChange={handleChange}
           />
         </div>
-        {selectedValue === 'color' ? (
-          <div className='background-form__color-picker'>
-            <input
-              type='radio'
-              id='orange'
-              name='colors'
-              value='orange'
-              onChange={handleColorChange}
-            />
-            <label
-              className={`background-form__radio-color-label ${
-                selectedColor === 'orange' && 'background-form__radio-color--active'
-              }`}
-              htmlFor='orange'>
-              <div
-                className={`background-form__check-icon ${
-                  selectedColor === 'orange' && 'background-form__radio-color--active'
-                }`}>
-                <img src={checkIcon} alt='체크 아이콘' />
-              </div>
-            </label>
-            <input
-              type='radio'
-              id='purple'
-              name='colors'
-              value='purple'
-              onChange={handleColorChange}
-            />
-            <label
-              className={`background-form__radio-color-label ${
-                selectedColor === 'purple' && 'background-form__radio-color--active'
-              }`}
-              htmlFor='purple'>
-              <div
-                className={`background-form__check-icon ${
-                  selectedColor === 'purple' && 'background-form__radio-color--active'
-                }`}>
-                <img src={checkIcon} alt='체크 아이콘' />
-              </div>
-            </label>
-            <input type='radio' id='blue' name='colors' value='blue' onChange={handleColorChange} />
-            <label
-              className={`background-form__radio-color-label ${
-                selectedColor === 'blue' && 'background-form__radio-color--active'
-              }`}
-              htmlFor='blue'>
-              <div
-                className={`background-form__check-icon ${
-                  selectedColor === 'blue' && 'background-form__radio-color--active'
-                }`}>
-                <img src={checkIcon} alt='체크 아이콘' />
-              </div>
-            </label>
-            <input
-              type='radio'
-              id='green'
-              name='colors'
-              value='green'
-              onChange={handleColorChange}
-            />
-            <label
-              className={`background-form__radio-color-label ${
-                selectedColor === 'green' && 'background-form__radio-color--active'
-              }`}
-              htmlFor='green'>
-              <div
-                className={`background-form__check-icon ${
-                  selectedColor === 'green' && 'background-form__radio-color--active'
-                }`}>
-                <img src={checkIcon} alt='체크 아이콘' />
-              </div>
-            </label>
-          </div>
-        ) : (
-          <div className='background-form__image-picker'>
-            <input
-              type='radio'
-              id='wallpaper01'
-              name='images'
-              value='wallpaper01'
-              onChange={handleImageChange}
-            />
-            <label
-              className={`background-form__radio-image-label ${
-                selectedImage === 'wallpaper01' && 'background-form__radio-image--active'
-              }`}
-              htmlFor='wallpaper01'>
-              <div
-                className={`${
-                  selectedImage === 'wallpaper01' && 'background-form__radio-image--translucent'
-                }`}></div>
-              <div
-                className={`background-form__check-icon ${
-                  selectedImage === 'wallpaper01' && 'background-form__radio-image--active'
-                }`}>
-                <img src={checkIcon} alt='체크 아이콘' />
-              </div>
-            </label>
-            <input
-              type='radio'
-              id='wallpaper02'
-              name='images'
-              value='wallpaper02'
-              onChange={handleImageChange}
-            />
-            <label
-              className={`background-form__radio-image-label ${
-                selectedImage === 'wallpaper02' && 'background-form__radio-image--active'
-              }`}
-              htmlFor='wallpaper02'>
-              <div
-                className={`${
-                  selectedImage === 'wallpaper02' && 'background-form__radio-image--translucent'
-                }`}
-              />
-              <div
-                className={`background-form__check-icon ${
-                  selectedImage === 'wallpaper02' && 'background-form__radio-image--active'
-                }`}>
-                <img src={checkIcon} alt='체크 아이콘' />
-              </div>
-            </label>
-            <input
-              type='radio'
-              id='wallpaper03'
-              name='images'
-              value='wallpaper03'
-              onChange={handleImageChange}
-            />
-            <label
-              className={`background-form__radio-image-label ${
-                selectedImage === 'wallpaper03' && 'background-form__radio-image--active'
-              }`}
-              htmlFor='wallpaper03'>
-              <div
-                className={`${
-                  selectedImage === 'wallpaper03' && 'background-form__radio-image--translucent'
-                }`}
-              />
-              <div
-                className={`background-form__check-icon ${
-                  selectedImage === 'wallpaper03' && 'background-form__radio-image--active'
-                }`}>
-                <img src={checkIcon} alt='체크 아이콘' />
-              </div>
-            </label>
-            <input
-              type='radio'
-              id='wallpaper04'
-              name='images'
-              value='wallpaper04'
-              onChange={handleImageChange}
-            />
-            <label
-              className={`background-form__radio-image-label ${
-                selectedImage === 'wallpaper04' && 'background-form__radio-image--active '
-              }`}
-              htmlFor='wallpaper04'>
-              <div
-                className={`${
-                  selectedImage === 'wallpaper04' && 'background-form__radio-image--translucent'
-                }`}
-              />
-              <div
-                className={`background-form__check-icon ${
-                  selectedImage === 'wallpaper04' && 'background-form__radio-image--active'
-                }`}>
-                <img src={checkIcon} alt='체크 아이콘' />
-              </div>
-            </label>
-          </div>
-        )}
+        {selectedValue === 'color' ? <ColorPicker /> : <ImagePicker />}
 
         <button className='background-form__submit'>생성하기</button>
       </div>

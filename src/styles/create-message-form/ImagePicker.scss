@@ -1,0 +1,72 @@
+@import '../variables', '../reset';
+
+// 모바일 360~ 767 태블릿 767~1199 데스크톱 1200~
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-form__image-picker {
+  input {
+    display: none;
+  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  #wallpaper01 + label {
+    background-image: url(../../assets/image/wallpaper/img_wallpaper_01.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+  }
+  #wallpaper02 + label {
+    background-image: url(../../assets/image/wallpaper/img_wallpaper_02.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+  }
+  #wallpaper03 + label {
+    background-image: url(../../assets/image/wallpaper/img_wallpaper_03.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+  }
+  #wallpaper04 + label {
+    background-image: url(../../assets/image/wallpaper/img_wallpaper_04.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+  }
+}
+
+.background-form__radio-image-label {
+  display: block;
+  width: 154px;
+  height: 154px;
+  border-radius: 16px;
+}
+
+.background-form__radio-image--active {
+  @include flex-center;
+}
+.background-form__radio-image--translucent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media #{$tablet-screen} {
+  .background-form__image-picker {
+    gap: 16px;
+  }
+  .background-form__radio-image-label {
+    width: 168px;
+    height: 168px;
+  }
+}
