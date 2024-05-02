@@ -7,12 +7,24 @@ $desktop-screen: 'screen and (min-width: 1200px)';
   font-family: 'pretendard';
   src: url('../public/Pretendard-Regular.ttf');
 }
+@font-face {
+  font-family: 'Noto-Sans';
+  src: url('../public/NotoSansKR-Regular.ttf');
+}
+@font-face {
+  font-family: 'NanumMyengjo';
+  src: url('../public/NanumMyengjo-Regular.ttf');
+}
+@font-face {
+  font-family: 'NanumSonPyeonJiCe';
+  src: url('../public/NanumSonPyeonJiCe-Regular.ttf');
+}
 
 // font sizes
 $font-sizes: (
   28: 28px,
   24: 24px,
-  s 20: 20px,
+  20: 20px,
   18: 18px,
   16: 16px,
   15: 15px,
