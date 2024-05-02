@@ -5,6 +5,8 @@ import imgpofile01 from '../assets/image/profile/img_profile_01.svg';
 import imgwallpaper from '../assets/image/wallpaper/img_wallpaper_01.svg';
 import plusicon from '../assets/icon/ic_plus.svg';
 import Modal from '../components/posted-page/Modal';
+import Header from '../components/header/Header';
+import HeaderPost from '../components/headerPost/HeaderPost';
 
 const mockData = [
   {
@@ -105,27 +107,31 @@ function PostedPage() {
   }, []);
 
   return (
-    <div className={`post-wrapper ${background}`}>
-      <div className='posted-page-container'>
-        <div className='add-post-card'>
-          <div className='add-post-card__plus-icon'>
-            <img src={plusicon} alt='포스트 카드 추가 버튼' />
-          </div>
-        </div>
-        {mockData.map((data) => {
-          return (
-            <div key={data.id}>
-              <PostCard
-                setModalDataByData={setModalDataByData}
-                handleModalOpen={handleModalOpen}
-                data={data}
-              />
+    <>
+      <Header />
+      <HeaderPost />
+      <div className={`post-wrapper ${background}`}>
+        <div className='posted-page-container'>
+          <div className='add-post-card'>
+            <div className='add-post-card__plus-icon'>
+              <img src={plusicon} alt='포스트 카드 추가 버튼' />
             </div>
-          );
-        })}
-        {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
+          </div>
+          {mockData.map((data) => {
+            return (
+              <div key={data.id}>
+                <PostCard
+                  setModalDataByData={setModalDataByData}
+                  handleModalOpen={handleModalOpen}
+                  data={data}
+                />
+              </div>
+            );
+          })}
+          {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
