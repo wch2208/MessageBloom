@@ -1,12 +1,11 @@
 @import '../variables';
 
 .headerPost__container {
-  height: 52px;
+  height: 68px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #dddddd;
 }
 
 .headerPost__toname {
@@ -27,6 +26,10 @@
   display: flex;
   justify-content: space-between;
   gap: 15px;
+}
+
+.headerPost__person-wrapper {
+  padding-top: 3px;
 }
 
 .headerPost__post-btn {

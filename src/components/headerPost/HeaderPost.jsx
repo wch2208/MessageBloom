@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../styles/headerPost/HeaderPost.scss';
 import CountPerson from './CountPerson';
 import Emojis from './DropDownEmojis';
@@ -11,6 +11,7 @@ const HeaderPost = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -23,15 +24,26 @@ const HeaderPost = () => {
     setDropdownOpen(false);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className='headerPost'>
       <div className='headerPost__container'>
         <div className='headerPost__toname'>To. Ashley Kim</div>
 
         <div className='headerPost__info-wrapper'>
-          <div className='headerPost__person-wrapper'>
-            <CountPerson />
-          </div>
+          {/* 창의 넓이가 1200px 이상이면 CountPerson 컴포넌트를 렌더링 */}
+          {windowWidth >= 1200 && (
+            <div className='headerPost__person-wrapper'>
+              <CountPerson />
+            </div>
+          )}
 
           <div className='headerPost__emoji-wrapper'>
             <Emojis />
