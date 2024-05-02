@@ -30,7 +30,7 @@ function Modal({ modalData, handleModalOpen }) {
         </div>
         <div className='modal__underline'></div>
         <div className='modal__content-container'>
-          <p className='modal__content'>{modalData.content}</p>
+          <p className={`modal__content ${modalData.font}`}>{modalData.content}</p>
         </div>
         <button
           onClick={() => {
