@@ -1,14 +1,6 @@
 @import '../variables', '../reset';
 
-// 모바일 360~ 767 태블릿 767~1199 데스크톱 1200~
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .background-form {
-  //
   width: 320px;
   margin: 0 auto;
 }
@@ -47,32 +39,6 @@
   & > p:nth-child(2) {
     @include font-style(16, Regular);
   }
-}
-
-.background-form__radio-group {
-  display: flex;
-  margin: 24px 0 28px 0;
-}
-.background-form__radio {
-  display: none;
-}
-.background-form__radio-label {
-  cursor: pointer;
-  @include flex-center;
-  width: 118px;
-  height: 40px;
-  padding: 7px 14px;
-  border-radius: 6px;
-  @include font-style(16, Regular);
-  text-align: center;
-  border: none;
-  background-color: $gray100;
-}
-.background-form__radio--active {
-  @include font-style(16, Bold);
-  border: 2px solid $accent-background-thick;
-  color: $accent-color;
-  background-color: $accent-background-light;
 }
 
 .background-form__check-icon {
