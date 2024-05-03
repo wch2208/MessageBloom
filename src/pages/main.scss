@@ -40,6 +40,7 @@ body {
       width: 100%;
       padding: 0 24px;
       margin-bottom: 50px;
+      word-break: keep-all;
 
       .container__btn-point {
         @include font-style(14, Bold);
