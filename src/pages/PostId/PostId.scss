@@ -1,4 +1,4 @@
-@import '../variables', '../reset';
+@import '../../styles/variables', '../../styles/reset';
 
 $background-colors: (
   orange: $orange200,
@@ -7,19 +7,8 @@ $background-colors: (
   green: $green200,
 );
 
-$background-images: (
-  wallpaper01: url(../../assets/image/wallpaper/img_wallpaper_01.svg),
-  wallpaper02: url(../../assets/image/wallpaper/img_wallpaper_02.svg),
-  wallpaper03: url(../../assets/image/wallpaper/img_wallpaper_03.svg),
-  wallpaper04: url(../../assets/image/wallpaper/img_wallpaper_04.svg),
-);
-
 @mixin background-color-style($color: none) {
   background-color: map-get($background-colors, $color);
-}
-
-@mixin background-image-style($image: none) {
-  background-image: map-get($background-images, $image);
 }
 
 .post-wrapper {
@@ -39,18 +28,6 @@ $background-images: (
   }
   &.orange {
     @include background-color-style(orange);
-  }
-  &.wallpaper01 {
-    @include background-image-style(wallpaper01);
-  }
-  &.wallpaper02 {
-    @include background-image-style(wallpaper02);
-  }
-  &.wallpaper03 {
-    @include background-image-style(wallpaper03);
-  }
-  &.wallpaper04 {
-    @include background-image-style(wallpaper04);
   }
 }
 
