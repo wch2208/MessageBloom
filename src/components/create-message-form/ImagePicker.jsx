@@ -1,7 +1,7 @@
 import checkIcon from '../../assets/icon/ic_check.svg';
 import { useState } from 'react';
 import '../../styles/create-message-form/ImagePicker.scss';
-import { IMAGE_NAMES } from './FormConfig';
+import { IMAGE_NAMES, IMAGE_URLS } from './FormConfig';
 
 function ImageOption({ handleImageChange, imageName, selectedImage }) {
   return (
@@ -33,11 +33,12 @@ function ImageOption({ handleImageChange, imageName, selectedImage }) {
   );
 }
 
-export default function ImagePicker() {
-  const [selectedImage, setSelectedImage] = useState(IMAGE_NAMES[0]);
+export default function ImagePicker({ setRecipient }) {
+  const [selectedImage, setSelectedImage] = useState();
 
   const handleImageChange = (e) => {
     setSelectedImage(e.target.value);
+    setRecipient((prev) => ({ ...prev, backgroundImageURL: IMAGE_URLS[e.target.value] }));
   };
 
   return (

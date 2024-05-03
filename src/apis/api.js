@@ -27,3 +27,13 @@ export async function getCommenterCount() {
     console.error(`error : ${e}`);
   }
 }
+
+export async function postMessage(formData) {
+  console.log('formData:', formData);
+  try {
+    const response = await instance.post(`6-6/recipients/`, formData);
+    return response.data;
+  } catch (error) {
+    console.error(`error : ${error}`);
+  }
+}

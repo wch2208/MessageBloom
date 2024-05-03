@@ -3,11 +3,17 @@ import ColorPicker from '../create-message-form/ColorPicker';
 import ImagePicker from '../create-message-form/ImagePicker';
 import '../../styles/create-message-form/ToggleOption.scss';
 
-export default function ToggleOption() {
+export default function ToggleOption({ setRecipient }) {
   const [selectedValue, setSelectedValue] = useState('color');
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
+    const isColor = event.target.value === 'color';
+    if (isColor) {
+      setRecipient((prevRecipient) => ({ ...prevRecipient, backgroundImageURL: null }));
+    } else {
+      setRecipient((prevRecipient) => ({ ...prevRecipient, backgroundColor: 'beige' }));
+    }
   };
 
   return (
@@ -44,7 +50,11 @@ export default function ToggleOption() {
           onChange={handleChange}
         />
       </div>
-      {selectedValue === 'color' ? <ColorPicker /> : <ImagePicker />}
+      {selectedValue === 'color' ? (
+        <ColorPicker setRecipient={setRecipient} />
+      ) : (
+        <ImagePicker setRecipient={setRecipient} />
+      )}
     </>
   );
 }

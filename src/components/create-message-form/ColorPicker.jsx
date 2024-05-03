@@ -29,11 +29,12 @@ function ColorOption({ handleColorChange, colorName, selectedColor }) {
   );
 }
 
-export default function ColorPicker() {
+export default function ColorPicker({ setRecipient }) {
   const [selectedColor, setSelectedColor] = useState(COLOR_NAMES[0]);
 
   const handleColorChange = (event) => {
     setSelectedColor(event.target.value);
+    setRecipient((prev) => ({ ...prev, backgroundColor: event.target.value }));
   };
 
   return (
