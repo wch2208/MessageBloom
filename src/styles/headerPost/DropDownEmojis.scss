@@ -1,5 +1,6 @@
 @import '../reset', '../variables';
 
+.headerPost__addition-emojis-container,
 .headerPost__dropdown-emojis-container {
   position: relative;
   display: flex;
@@ -19,6 +20,7 @@
   width: 177px;
   display: flex;
   justify-content: space-between;
+  gap: 5px;
 }
 
 .headerPost__dropdown-icon {
@@ -59,28 +61,79 @@
 }
 
 .headerPost__post-btn {
-  width: 36px;
-  height: 32px;
+  position: relative;
+  width: auto;
+  height: 36px;
   border-radius: 6px;
   border: 1px solid $gray300;
-  padding: 6px 8px;
+  padding: 6px 16px;
   background-color: $white;
 }
 
-.falsetest {
-  width: 251px;
-  height: 36px;
+.headerPost__post-text {
+  width: 28px;
+  height: 24px;
+  padding-left: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+}
+
+@media #{$tablet-screen} {
+  .headerPost__dropdown-button {
+    width: 246px;
+  }
+
+  .headerPost__popularemoji {
+    width: 208px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+  }
+
+  .headerPost__emoji-dropdown-menu {
+    width: 248px;
+    height: 134px;
+    top: 40px;
+    gap: 10px;
+  }
+
+  .headerPost__emoji,
+  .headerPost__emoji-dropdown {
+    width: auto;
+    padding: 8px 12px;
+    height: 36px;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0px;
+  }
 }
 
 @media #{$desktop-screen} {
+  .headerPost__dropdown-button {
+    width: 246px;
+  }
+
   .headerPost__emoji-dropdown-menu {
     width: 312px;
     height: 134px;
+    margin-top: 8px;
+    margin-right: 100px;
   }
 
   .headerPost__emoji,
   .headerPost__emoji-dropdown {
     width: 66px;
     height: 36px;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0px;
+  }
+
+  .headerPost__popularemoji {
+    width: 208px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
   }
 }

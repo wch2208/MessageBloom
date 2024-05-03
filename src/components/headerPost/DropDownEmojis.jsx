@@ -19,6 +19,7 @@ function DropDownEmojis() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [maxIcons, setMaxIcons] = useState(6);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const toggleDropDown = () => {
     setIsOpen(!isOpen);
@@ -26,7 +27,9 @@ function DropDownEmojis() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 1200) {
+      const width = window.innerWidth;
+      setWindowWidth(width);
+      if (width < 1200) {
         setMaxIcons(6);
       } else {
         setMaxIcons(8);
@@ -46,41 +49,48 @@ function DropDownEmojis() {
     .slice(0, 3);
 
   return (
-    <div className='headerPost__dropdown-emojis-container'>
-      <button className='headerPost__dropdown-button'>
-        <div className='headerPost__popularemoji'>
-          {topEmojis.map((set, index) => (
-            <span key={index} className='headerPost__emoji'>
-              {set.emoji}
-              {set.count}
-            </span>
-          ))}
-        </div>
-        <img
-          src={arrowDownIcon}
-          alt='Dropdown'
-          className='headerPost__dropdown-icon'
-          onClick={toggleDropDown}
-        />
-      </button>
-
-      {isOpen && (
-        <div className='headerPost__emoji-dropdown-menu'>
-          {emojiSets
-            .slice(0)
-            .sort((a, b) => b.count - a.count)
-            .slice(0, maxIcons)
-            .map((set, index) => (
-              <div key={index} className='headerPost__emoji-dropdown'>
-                <span>{set.emoji}</span>
-                <span>{set.count}</span>
-              </div>
+    <div className='headerPost__addition-emojis-container'>
+      <div className='headerPost__dropdown-emojis-container'>
+        <button className='headerPost__dropdown-button'>
+          <div className='headerPost__popularemoji'>
+            {topEmojis.map((set, index) => (
+              <span key={index} className='headerPost__emoji'>
+                {set.emoji}
+                {set.count}
+              </span>
             ))}
-        </div>
-      )}
+          </div>
+          <img
+            src={arrowDownIcon}
+            alt='Dropdown'
+            className='headerPost__dropdown-icon'
+            onClick={toggleDropDown}
+          />
+        </button>
+
+        {isOpen && (
+          <div className='headerPost__emoji-dropdown-menu'>
+            {emojiSets
+              .slice(0)
+              .sort((a, b) => b.count - a.count)
+              .slice(0, maxIcons)
+              .map((set, index) => (
+                <div key={index} className='headerPost__emoji-dropdown'>
+                  <span>{set.emoji}</span>
+                  <span>{set.count}</span>
+                </div>
+              ))}
+          </div>
+        )}
+      </div>
+
       <button className='headerPost__post-btn'>
         <img src={addicon} alt='이모지추가' />
-        <span style={{ display: windowWidth >= 768 ? 'inline' : 'none' }}>추가</span>
+        <span
+          className='headerPost__post-text'
+          style={{ display: windowWidth >= 768 ? 'inline' : 'none' }}>
+          추가
+        </span>
       </button>
     </div>
   );

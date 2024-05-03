@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/headerPost/HeaderPost.scss';
 import CountPerson from './CountPerson';
-
+import Emojis from './DropDownEmojis';
 import Toast from './PostToast';
 import shareicon from '../../assets/icon/ic_share_20.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
@@ -45,7 +45,7 @@ const HeaderPost = () => {
 
           <div className='headerPost__emoji-Share-Control'>
             <div className='headerPost__emoji-Control'>
-              <button className='falsetest'>여기에 이모지 올거</button>
+              <Emojis />
             </div>
             <img className='headerPost__rectangle' src={rectangle} alt='가림막' />
             <div className='headerPost__Share-Control'>
