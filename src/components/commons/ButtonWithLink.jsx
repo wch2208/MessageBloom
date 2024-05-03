@@ -1,17 +1,14 @@
-import { useNavigate } from 'react-router-dom';
-import '../../styles/commons/ButtonWithLink.scss';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './ButtonWithLink.scss';
 
 const ButtonWithLink = ({ to, buttonText }) => {
-  const navigate = useNavigate();
-
-  const handleButtonClick = () => {
-    navigate(to);
-  };
-
   return (
-    <button className='btnwithlink' onClick={handleButtonClick}>
-      {buttonText}
-    </button>
+    <div className='link-wrapper'>
+      <Link to={to} className='button-wrapper'>
+        <button className='btnwithlink'>{buttonText}</button>
+      </Link>
+    </div>
   );
 };
 

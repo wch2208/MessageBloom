@@ -1,4 +1,4 @@
-import '../styles/main/main.scss';
+import './main.scss';
 import section01 from '../assets/main/section01.svg';
 import section02 from '../assets/main/section02.png';
 import ButtonWithLink from '../components/commons/ButtonWithLink';
