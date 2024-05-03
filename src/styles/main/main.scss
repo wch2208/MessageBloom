@@ -14,6 +14,10 @@ $font-btn-color: $white;
 $btn-width-mobile: calc(100% - 48px);
 $btn-width-desktop: 280px;
 
+body {
+  min-width: 360px;
+}
+
 //공통 스타일
 .alignment {
   display: flex;
