@@ -8,7 +8,8 @@ import Modal from '../components/posted-page/Modal';
 
 function PostedPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [background, setBackground] = useState('');
+  const [backgroundImg, setBackgroundImg] = useState('');
+  const [backgroundColor, setBackgroundColor] = useState('');
   const [messagesData, setMessagesData] = useState([]);
   const [recipientData, setRecipientData] = useState([]);
   const [modalData, setModalData] = useState([]);
@@ -24,6 +25,10 @@ function PostedPage() {
     getInfosFromData(id);
   }, []);
 
+  useEffect(() => {
+    selectBackgroundTypeByData(recipientData);
+  }, [recipientData]);
+
   const setModalDataByData = (modalId) => {
     const [modalItem] = messagesData.filter((data) => data.id == modalId);
     setModalData(modalItem);
@@ -33,18 +38,18 @@ function PostedPage() {
     setIsModalOpen(value);
   };
 
-  const setBackgroundByData = () => {
+  const selectBackgroundTypeByData = (recipientData) => {
     recipientData.backgroundImageURL === null
-      ? setBackground(recipientData.backgroundColor)
-      : setBackground(recipientData.backgroundImageURL);
+      ? setBackgroundColor(recipientData.backgroundColor)
+      : setBackgroundImg(recipientData.backgroundImageURL);
   };
 
   const backgroundImageStyle = {
-    backgroundImage: `url(${background})`,
+    backgroundImage: `url(${backgroundImg})`,
   };
 
   return (
-    <div className='post-wrapper' style={backgroundImageStyle}>
+    <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
       <div className='posted-page-container'>
         <div className='add-post-card'>
           <div className='add-post-card__plus-icon'>
