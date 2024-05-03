@@ -1,8 +1,8 @@
 import React from 'react';
-import getClassByRole from '../../utils/getClassByRole';
+import getClassByRole from '../../utils/posted-page/getClassByRole';
 import '../../styles/posted-page/Modal.scss';
-import getTimeLocale from '../../utils/getTimeLocale';
-import getFontByData from '../../utils/getFontByData';
+import getTimeLocale from '../../utils/posted-page/getTimeLocale';
+import getFontByData from '../../utils/posted-page/getFontByData';
 
 function Modal({ modalData, handleModalOpen }) {
   const handleWrapperClick = () => {

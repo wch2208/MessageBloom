@@ -1,10 +1,10 @@
 import React from 'react';
 import '../../styles/posted-page/PostCard.scss';
-import getClassByRole from '../../utils/getClassByRole';
+import getClassByRole from '../../utils/posted-page/getClassByRole';
 import deletedicon from '../../assets/icon/ic_deleted.svg';
-import contentSlice from '../../utils/contentSlice';
-import getTimeLocale from '../../utils/getTimeLocale';
-import getFontByData from '../../utils/getFontByData';
+import contentSlice from '../../utils/posted-page/contentSlice';
+import getTimeLocale from '../../utils/posted-page/getTimeLocale';
+import getFontByData from '../../utils/posted-page/getFontByData';
 
 function PostCard({ data, setModalDataByData, handleModalOpen }) {
   const handleCardClick = () => {
