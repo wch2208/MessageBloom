@@ -3,6 +3,8 @@ import '../../styles/posted-page/PostCard.scss';
 import getClassByRole from '../../utils/getClassByRole';
 import deletedicon from '../../assets/icon/ic_deleted.svg';
 import contentSlice from '../../utils/contentSlice';
+import getTimeLocale from '../../utils/getTimeLocale';
+import getFontByData from '../../utils/getFontByData';
 
 function PostCard({ data, setModalDataByData, handleModalOpen }) {
   const handleCardClick = () => {
@@ -29,8 +31,8 @@ function PostCard({ data, setModalDataByData, handleModalOpen }) {
         </button>
       </div>
       <div className='card__underline'></div>
-      <p className={`card__content ${data.font}`}>{contentSlice(data.content)}</p>
-      <span className='card__date'>{data.createdAt}</span>
+      <p className={`card__content ${getFontByData(data.font)}`}>{contentSlice(data.content)}</p>
+      <span className='card__date'>{getTimeLocale(data.createdAt)}</span>
     </div>
   );
 }
