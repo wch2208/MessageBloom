@@ -17,3 +17,13 @@ export async function getRecipient(id) {
     console.error(`error : ${e}`);
   }
 }
+
+// 편지 쓴 사람 몇명인지 체크할 때 사용하세요~
+export async function getCommenterCount() {
+  try {
+    const response = await instance.get(`6-6/recipients/`);
+    return response.data;
+  } catch (e) {
+    console.error(`error : ${e}`);
+  }
+}
