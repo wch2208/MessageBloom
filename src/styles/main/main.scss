@@ -40,6 +40,7 @@ body {
     .text-box {
       width: 100%;
       padding: 0 24px;
+      margin-bottom: 50px;
 
       .point-btn {
         @include font-style(14, Bold);
@@ -81,6 +82,7 @@ body {
       .text-box {
         width: 100%;
         padding: 0 40px;
+        margin-bottom: 36px;
         .section-title {
           @include font-style(24, Bold);
         }
