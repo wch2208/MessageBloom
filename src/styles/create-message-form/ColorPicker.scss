@@ -1,0 +1,53 @@
+@import '../variables', '../reset';
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-form__color-picker {
+  input {
+    display: none;
+  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  #orange + label {
+    border: 1px solid $orange300;
+    background-color: $orange200;
+  }
+  #purple + label {
+    border: 1px solid $purple300;
+    background-color: $purple200;
+  }
+  #blue + label {
+    border: 1px solid $blue300;
+    background-color: $blue200;
+  }
+  #green + label {
+    border: 1px solid $green300;
+    background-color: $green200;
+  }
+}
+
+.background-form__radio-color-label {
+  display: block;
+  width: 154px;
+  height: 154px;
+  border-radius: 16px;
+}
+
+.background-form__radio-color--active {
+  @include flex-center;
+}
+
+@media #{$tablet-screen} {
+  .background-form__color-picker {
+    gap: 16px;
+  }
+  .background-form__radio-color-label {
+    width: 168px;
+    height: 168px;
+  }
+}
