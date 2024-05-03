@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/headerPost/DropDownEmojis.scss';
 import arrowDownIcon from '../../assets/icon/ic_arrow_down.svg';
+import addicon from '../../assets/icon/ic_add_20.svg';
 
 function DropDownEmojis() {
   const emojiSets = [
@@ -17,7 +18,7 @@ function DropDownEmojis() {
   ];
 
   const [isOpen, setIsOpen] = useState(false);
-  const [maxIcons, setMaxIcons] = useState(6); // Default max icons to show
+  const [maxIcons, setMaxIcons] = useState(6);
 
   const toggleDropDown = () => {
     setIsOpen(!isOpen);
@@ -34,16 +35,15 @@ function DropDownEmojis() {
 
     window.addEventListener('resize', handleResize);
 
-    // Cleanup function
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); // Run only once on component mount
+  }, []);
 
   const topEmojis = emojiSets
     .slice(0)
     .sort((a, b) => b.count - a.count)
-    .slice(0, 3); // Top 3 emojis
+    .slice(0, 3);
 
   return (
     <div className='headerPost__dropdown-emojis-container'>
@@ -78,6 +78,10 @@ function DropDownEmojis() {
             ))}
         </div>
       )}
+      <button className='headerPost__post-btn'>
+        <img src={addicon} alt='이모지추가' />
+        <span style={{ display: windowWidth >= 768 ? 'inline' : 'none' }}>추가</span>
+      </button>
     </div>
   );
 }

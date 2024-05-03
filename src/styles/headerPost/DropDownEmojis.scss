@@ -58,8 +58,18 @@
   justify-content: center;
 }
 
-.headerPost__emoji-share {
-  margin-right: 3px;
+.headerPost__post-btn {
+  width: 36px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid $gray300;
+  padding: 6px 8px;
+  background-color: $white;
+}
+
+.falsetest {
+  width: 251px;
+  height: 36px;
 }
 
 @media #{$desktop-screen} {

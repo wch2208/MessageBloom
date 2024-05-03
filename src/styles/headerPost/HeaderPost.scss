@@ -1,7 +1,11 @@
 @import '../reset', '../variables';
 
+.hidden {
+  display: none;
+}
+
 .headerPost__container {
-  height: 52px;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -22,17 +26,17 @@
 
 .headerPost__person-wrapper {
   padding-top: 3px;
+  margin-right: 12px;
 }
 
-.headerPost__button-wrapper {
-  max-width: 171px;
-  height: 32px;
+.headerPost__emoji-Share-Control {
+  height: auto;
+  min-width: 320px;
   display: flex;
   justify-content: space-between;
   gap: 15px;
 }
 
-.headerPost__post-btn,
 .headerPost__share-btn {
   width: 36px;
   height: 32px;
@@ -42,7 +46,7 @@
   background-color: $white;
 }
 
-.headerPost__dropdown {
+.headerPost__Share-dropdown {
   position: relative;
 }
 
