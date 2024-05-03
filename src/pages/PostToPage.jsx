@@ -2,25 +2,26 @@ import '../styles/create-message-form/PostToPage.scss';
 import ToggleOption from '../components/create-message-form/ToggleOption';
 import { useState } from 'react';
 import { DEFAULT_RECIPIENT } from '../components/create-message-form/FormConfig';
+import { postMessage } from '../apis/api';
+import { useNavigate } from 'react-router-dom';
 
 export default function PostToPage() {
   const [recipient, setRecipient] = useState(DEFAULT_RECIPIENT);
-  const [recipientName, setRecipientName] = useState('');
+  const navigate = useNavigate();
 
-  const updateRecipientName = () => {
-    setRecipient({ ...recipient, name: recipientName });
-    document.getElementById('toInput').value = '';
+  const navigateToNewPaper = (id) => {
+    navigate(`/post/${id}`);
   };
 
-  const handleCreateClick = () => {
-    updateRecipientName();
+  const handleCreateClick = async () => {
     const formData = new FormData();
     formData.append('data', JSON.stringify(recipient));
-    // TODO: api post 요청
+    const result = await postMessage(formData.get('data'));
+    navigateToNewPaper(result.id);
   };
 
   const handleChange = (e) => {
-    setRecipientName(e.target.value);
+    setRecipient({ ...recipient, name: e.target.value });
     //TODO: 유효성 검사 추가
   };
 
