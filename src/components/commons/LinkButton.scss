@@ -10,7 +10,12 @@ $font-btn-color: $white;
 //버튼 너비 변수
 $btn-width-desktop: 280px;
 
-.btnwithlink {
+.link-button {
+  display: inline-block;
+  width: 100%;
+}
+
+.link-button__button {
   @include font-style(18, Regular);
   height: 56px;
   border-radius: 12px;
@@ -29,7 +34,12 @@ $btn-width-desktop: 280px;
 
 /*desktop version*/
 @media #{$desktop-screen} {
-  .btnwithlink {
+  .link-button {
+    display: inline;
+    text-align: center;
+  }
+
+  .link-button__button {
     width: $btn-width-desktop;
   }
 }
