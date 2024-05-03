@@ -17,15 +17,15 @@ $btn-width-desktop: 280px;
 
 .link-button__button {
   @include font-style(18, Regular);
+  color: $font-btn-color;
+  white-space: nowrap;
+  width: 100%;
   height: 56px;
   border-radius: 12px;
   background-color: $btn-bg-color;
   margin-top: 30px;
   cursor: pointer;
   border: none;
-  width: 100%;
-  color: $font-btn-color;
-  white-space: nowrap;
 
   &:hover {
     background-color: $accent-background-thick;
@@ -37,9 +37,14 @@ $btn-width-desktop: 280px;
   .link-button {
     display: inline;
     text-align: center;
-  }
 
-  .link-button__button {
-    width: $btn-width-desktop;
+    .link-button__button {
+      width: $btn-width-desktop;
+    }
+
+    .link-button__button.full-width {
+      width: 100%;
+      max-width: 720px;
+    }
   }
 }
