@@ -1,6 +1,6 @@
 import './main.scss';
-import section01 from '../assets/main/section01.svg';
-import section02 from '../assets/main/section02.png';
+import section01 from '../assets/image/main/section01.svg';
+import section02 from '../assets/image/main/section02.png';
 import LinkButton from '../components/commons/LinkButton';
 
 export default function Main() {
