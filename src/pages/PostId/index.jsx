@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import PostCard from '../../components/posted-page/PostCard';
 import { getMessages, getRecipient } from '../../apis/api';
 import './PostId.scss';
@@ -14,6 +14,7 @@ function PostId() {
   const [recipientData, setRecipientData] = useState([]);
   const [modalData, setModalData] = useState([]);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const getInfosFromData = async (id) => {
     const [messages, recipient] = await Promise.all([getMessages(id), getRecipient(id)]);
@@ -51,7 +52,7 @@ function PostId() {
   return (
     <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
       <div className='posted-page-container'>
-        <div className='add-post-card'>
+        <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
           <div className='add-post-card__plus-icon'>
             <img src={plusicon} alt='포스트 카드 추가 버튼' />
           </div>
