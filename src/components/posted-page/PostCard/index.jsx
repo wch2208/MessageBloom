@@ -12,6 +12,10 @@ function PostCard({ data, setModalDataByData, handleModalOpen, handleDeleteMessa
     setModalDataByData(data.id);
   };
 
+  const stopBubbling = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <div className='card-container' onClick={handleCardClick}>
       <div className='card-info-container'>
@@ -26,7 +30,11 @@ function PostCard({ data, setModalDataByData, handleModalOpen, handleDeleteMessa
             {data.relationship}
           </span>
         </div>
-        <DeleteButton id={data.id} handleDeleteMessage={handleDeleteMessage} />
+        <DeleteButton
+          id={data.id}
+          handleDeleteMessage={handleDeleteMessage}
+          stopBubbling={stopBubbling}
+        />
       </div>
       <div className='card__underline'></div>
       <p className={`card__content ${getFontByData(data.font)}`}>{contentSlice(data.content)}</p>
