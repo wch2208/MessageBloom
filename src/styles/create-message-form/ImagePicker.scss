@@ -1,6 +1,5 @@
 @import '../variables', '../reset';
 
-// 모바일 360~ 767 태블릿 767~1199 데스크톱 1200~
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -15,28 +14,28 @@
   flex-wrap: wrap;
   gap: 12px;
   #wallpaper01 + label {
-    background-image: url(../../assets/image/wallpaper/img_wallpaper_01.svg);
+    background-image: url(https://picsum.photos/id/683/3840/2160);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     position: relative;
   }
   #wallpaper02 + label {
-    background-image: url(../../assets/image/wallpaper/img_wallpaper_02.svg);
+    background-image: url(https://picsum.photos/id/24/3840/2160);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     position: relative;
   }
   #wallpaper03 + label {
-    background-image: url(../../assets/image/wallpaper/img_wallpaper_03.svg);
+    background-image: url(https://picsum.photos/id/599/3840/2160);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     position: relative;
   }
   #wallpaper04 + label {
-    background-image: url(../../assets/image/wallpaper/img_wallpaper_04.svg);
+    background-image: url(https://picsum.photos/id/1058/3840/2160);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

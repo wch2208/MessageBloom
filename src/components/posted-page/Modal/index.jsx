@@ -1,6 +1,8 @@
 import React from 'react';
-import getClassByRole from '../../utils/getClassByRole';
-import '../../styles/posted-page/Modal.scss';
+import getClassByRole from '../../../utils/posted-page/getClassByRole';
+import './Modal.scss';
+import getTimeLocale from '../../../utils/posted-page/getTimeLocale';
+import getFontByData from '../../../utils/posted-page/getFontByData';
 
 function Modal({ modalData, handleModalOpen }) {
   const handleWrapperClick = () => {
@@ -26,11 +28,11 @@ function Modal({ modalData, handleModalOpen }) {
               {modalData.relationship}
             </span>
           </div>
-          <span className='modal__date'>{modalData.createdAt}</span>
+          <span className='modal__date'>{getTimeLocale(modalData.createdAt)}</span>
         </div>
         <div className='modal__underline'></div>
         <div className='modal__content-container'>
-          <p className={`modal__content ${modalData.font}`}>{modalData.content}</p>
+          <p className={`modal__content ${getFontByData(modalData.font)}`}>{modalData.content}</p>
         </div>
         <button
           onClick={() => {
