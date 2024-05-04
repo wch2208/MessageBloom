@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import '../../styles/headerPost/DropDownEmojis.scss';
 import arrowDownIcon from '../../assets/icon/ic_arrow_down.svg';
 import addicon from '../../assets/icon/ic_add_20.svg';

@@ -10,7 +10,7 @@ $font-btn-color: $white;
 //버튼 너비 변수
 $btn-width-desktop: 280px;
 
-.CommonButton {
+.btnwithlink {
   @include font-style(18, Regular);
   height: 56px;
   border-radius: 12px;
@@ -19,13 +19,8 @@ $btn-width-desktop: 280px;
   cursor: pointer;
   border: none;
   width: 100%;
-
-  a {
-    text-decoration: none;
-    text-align: center;
-    color: $font-btn-color;
-    white-space: nowrap;
-  }
+  color: $font-btn-color;
+  white-space: nowrap;
 
   &:hover {
     background-color: $accent-background-thick;
@@ -34,7 +29,7 @@ $btn-width-desktop: 280px;
 
 /*desktop version*/
 @media #{$desktop-screen} {
-  .CommonButton {
+  .btnwithlink {
     width: $btn-width-desktop;
   }
 }

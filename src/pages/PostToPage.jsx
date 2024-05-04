@@ -1,5 +1,6 @@
 import '../styles/create-message-form/PostToPage.scss';
 import ToggleOption from '../components/create-message-form/ToggleOption';
+import Header from '../components/header/Header';
 
 export default function PostToPage() {
   return (

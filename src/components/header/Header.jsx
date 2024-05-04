@@ -5,14 +5,13 @@ import { PiFlowerDuotone } from 'react-icons/pi';
 
 const Header = () => {
   const location = useLocation();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    handleResize(); // initial check
     window.addEventListener('resize', handleResize);
 
     return () => {
@@ -21,12 +20,15 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`header ${isMobile ? 'hidden' : ''}`}>
+    <header
+      className={`header ${
+        isMobile && location.pathname !== '/' && location.pathname !== '/list' ? 'hidden' : ''
+      }`}>
       <div className='left'>
         <Link to='/' aria-label='홈으로 이동'>
           <picture className='logo'>
             <PiFlowerDuotone />
-            <span className='logo-text'>Rolling</span>
+            <span className='logo-text'>MessageBloom</span>
           </picture>
         </Link>
       </div>
