@@ -6,7 +6,13 @@ import contentSlice from '../../../utils/posted-page/contentSlice';
 import getTimeLocale from '../../../utils/posted-page/getTimeLocale';
 import getFontByData from '../../../utils/posted-page/getFontByData';
 
-function PostCard({ data, setModalDataByData, handleModalOpen, handleDeleteMessage }) {
+function PostCard({
+  data,
+  setModalDataByData,
+  handleModalOpen,
+  setIsDeleteModalOpen,
+  handleDeleteDataId,
+}) {
   const handleCardClick = () => {
     handleModalOpen(true);
     setModalDataByData(data.id);
@@ -32,7 +38,8 @@ function PostCard({ data, setModalDataByData, handleModalOpen, handleDeleteMessa
         </div>
         <DeleteButton
           id={data.id}
-          handleDeleteMessage={handleDeleteMessage}
+          setIsDeleteModalOpen={setIsDeleteModalOpen}
+          handleDeleteDataId={handleDeleteDataId}
           stopBubbling={stopBubbling}
         />
       </div>
