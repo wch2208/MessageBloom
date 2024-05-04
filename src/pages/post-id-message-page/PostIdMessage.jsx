@@ -1,9 +1,9 @@
-import '../styles/create-message-form/PostFromPage.scss';
-import basicProfile from '../assets/image/profile/img_profile_basic.svg';
-import profile1 from '../assets/image/profile/img_profile_01.svg';
-import CustomDropdown from '../components/create-message-form/CustomDropdown';
+import './PostIdMessage.scss';
+import basicProfile from '../../assets/image/profile/img_profile_basic.svg';
+import profile1 from '../../assets/image/profile/img_profile_01.svg';
+import CustomDropdown from '../../components/post-id-message-page/CustomDropdown';
 
-export default function PostFromPage() {
+export default function PostIdMessage() {
   const items = [
     { text: 'Noto Sans', id: 1 },
     { text: 'Pretendard', id: 2 },

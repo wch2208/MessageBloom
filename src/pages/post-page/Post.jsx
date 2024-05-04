@@ -1,11 +1,11 @@
-import '../styles/create-message-form/PostToPage.scss';
-import ToggleOption from '../components/create-message-form/ToggleOption';
+import './Post.scss';
+import ToggleOption from '../../components/post-page/ToggleOption';
 import { useState } from 'react';
-import { DEFAULT_RECIPIENT } from '../components/create-message-form/FormConfig';
-import { postMessage } from '../apis/api';
+import { DEFAULT_RECIPIENT } from '../../components/post-page/postPageConstants';
+import { postMessage } from '../../apis/api';
 import { useNavigate } from 'react-router-dom';
 
-export default function PostToPage() {
+export default function Post() {
   const [recipient, setRecipient] = useState(DEFAULT_RECIPIENT);
   const navigate = useNavigate();
 

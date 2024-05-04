@@ -1,6 +1,5 @@
-@import '../variables';
+@import '../../styles/variables';
 
-// 모바일 360~ 767 태블릿 767~1199 데스크톱 1200~
 @mixin flex-center {
   display: flex;
   justify-content: center;
