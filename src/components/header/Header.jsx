@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import '../../styles/header/Header.scss';
+import './Header.scss';
 import { PiFlowerDuotone } from 'react-icons/pi';
+import flowericon from '../../assets/logo/ic_flower_RemoveBg.svg';
+import writeicon from '../../assets/logo/ic_flower_WithLetter.svg';
 
 const Header = () => {
   const location = useLocation();
@@ -27,8 +29,9 @@ const Header = () => {
       <div className='left'>
         <Link to='/' aria-label='홈으로 이동'>
           <picture className='logo'>
-            <PiFlowerDuotone />
-            <span className='logo-text'>MessageBloom</span>
+            <img src={writeicon} alt='로고 아이콘' className='ic_flower' />
+            {/*<PiFlowerDuotone />*/}
+            {/*<span className='logo-text'>MessageBloom</span>*/}
           </picture>
         </Link>
       </div>

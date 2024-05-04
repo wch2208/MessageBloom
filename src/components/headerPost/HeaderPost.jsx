@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import '../../styles/headerPost/HeaderPost.scss';
-import CountPerson from './CountPerson';
-import Emojis from './DropDownEmojis';
-import Toast from './PostToast';
+import '.HeaderPost.scss';
+import CountPerson from './components/CountPerson.jsx';
+import Emojis from './components/DropDownEmojis.jsx';
+import Toast from './components/PostToast.jsx';
 import shareicon from '../../assets/icon/ic_share_20.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
 

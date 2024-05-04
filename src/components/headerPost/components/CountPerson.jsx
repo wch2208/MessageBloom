@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/headerPost/CountPerson.scss';
+import './CountPerson.scss';
 import profileimg1 from '../../assets/image/profile/img_profile_01.svg';
 import profileimg2 from '../../assets/image/profile/img_profile_02.svg';
 

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { DEFAULT_RECIPIENT } from '../components/create-message-form/FormConfig';
 import { postMessage } from '../apis/api';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/header/Header';
 
 export default function PostToPage() {
   const [recipient, setRecipient] = useState(DEFAULT_RECIPIENT);
@@ -27,6 +28,7 @@ export default function PostToPage() {
 
   return (
     <>
+      <Header />
       <div className='background-form'>
         <div className='background-form__header'>
           <label className='background-form__title'>To.</label>

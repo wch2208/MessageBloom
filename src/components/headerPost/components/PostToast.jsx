@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../styles/headerPost/PostToast.scss';
+import './PostToast.scss';
 import completedIcon from '../../assets/icon/ic_completed.svg';
 import closeIcon from '../../assets/icon/ic_close.svg';
 
