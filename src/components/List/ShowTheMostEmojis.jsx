@@ -1,4 +1,3 @@
-import React from 'react';
 import '../../styles/List/ShowTheMostEmojis.scss';
 
 export default function ShowTheMostEmojis() {
