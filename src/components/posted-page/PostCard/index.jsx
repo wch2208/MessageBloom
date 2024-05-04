@@ -6,7 +6,7 @@ import contentSlice from '../../../utils/posted-page/contentSlice';
 import getTimeLocale from '../../../utils/posted-page/getTimeLocale';
 import getFontByData from '../../../utils/posted-page/getFontByData';
 
-function PostCard({ data, setModalDataByData, handleModalOpen }) {
+function PostCard({ data, setModalDataByData, handleModalOpen, handleDeleteMessage }) {
   const handleCardClick = () => {
     handleModalOpen(true);
     setModalDataByData(data.id);
@@ -26,7 +26,7 @@ function PostCard({ data, setModalDataByData, handleModalOpen }) {
             {data.relationship}
           </span>
         </div>
-        <DeleteButton />
+        <DeleteButton id={data.id} handleDeleteMessage={handleDeleteMessage} />
       </div>
       <div className='card__underline'></div>
       <p className={`card__content ${getFontByData(data.font)}`}>{contentSlice(data.content)}</p>
