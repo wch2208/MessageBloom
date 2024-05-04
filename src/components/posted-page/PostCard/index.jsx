@@ -1,7 +1,7 @@
 import React from 'react';
 import './PostCard.scss';
+import DeleteButton from '../DeleteButton';
 import getClassByRole from '../../../utils/posted-page/getClassByRole';
-import deletedicon from '../../../assets/icon/ic_deleted.svg';
 import contentSlice from '../../../utils/posted-page/contentSlice';
 import getTimeLocale from '../../../utils/posted-page/getTimeLocale';
 import getFontByData from '../../../utils/posted-page/getFontByData';
@@ -26,9 +26,7 @@ function PostCard({ data, setModalDataByData, handleModalOpen }) {
             {data.relationship}
           </span>
         </div>
-        <button id='card__delete-btn'>
-          <img src={deletedicon} alt='포스트 카드 삭제 버튼' />
-        </button>
+        <DeleteButton />
       </div>
       <div className='card__underline'></div>
       <p className={`card__content ${getFontByData(data.font)}`}>{contentSlice(data.content)}</p>
