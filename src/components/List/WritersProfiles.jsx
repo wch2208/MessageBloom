@@ -73,7 +73,7 @@ export default function WritersProfiles() {
       <div className='list-card__writers__profiles-img'>
         <img
           className='list-card__writers__profiles-img3'
-          src={data.recentMessages[1].profileImageURL || null}
+          src={data.recentMessages[1].profileImageURL}
           alt='이미지'
         />
       </div>
