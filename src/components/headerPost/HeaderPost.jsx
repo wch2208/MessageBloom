@@ -3,7 +3,8 @@ import './HeaderPost.scss';
 import CountPerson from './components/CountPerson.jsx';
 import Emojis from './components/DropDownEmojis.jsx';
 import Toast from './components/PostToast.jsx';
-import shareicon from '../../assets/icon/ic_share_20.svg';
+import shareicon20 from '../../assets/icon/ic_share_20.svg';
+import shareicon24 from '../../assets/icon/ic_share_24.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
 
 const HeaderPost = () => {
@@ -11,6 +12,8 @@ const HeaderPost = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const fakeTo = { id: 123, name: '6팀 화이팅!!' };
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -31,27 +34,34 @@ const HeaderPost = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const shareicon = windowWidth >= 767 ? shareicon24 : shareicon20;
+
   return (
     <div className='headerPost'>
       <div className='headerPost__container'>
-        <div className='headerPost__toname'>To. Ashley Kim</div>
-
+        <div className='headerPost__toname'>To. {fakeTo.name}</div>
         <div className='headerPost__info-wrapper'>
           {windowWidth >= 1200 && (
-            <div className='headerPost__person-wrapper'>
-              <CountPerson />
-            </div>
+            <>
+              <div className='headerPost__person-wrapper'>
+                <CountPerson />
+              </div>
+              <img className='headerPost__rectangle1' src={rectangle} alt='가림막' />
+            </>
           )}
 
           <div className='headerPost__emoji-Share-Control'>
             <div className='headerPost__emoji-Control'>
               <Emojis />
             </div>
-            <img className='headerPost__rectangle' src={rectangle} alt='가림막' />
+            <img className='headerPost__rectangle2' src={rectangle} alt='가림막' />
             <div className='headerPost__Share-Control'>
               <div className='headerPost__Share-dropdown'>
-                <button className='headerPost__share-btn' onClick={toggleDropdown}>
-                  <img src={shareicon} alt='페이지공유' style={{ cursor: 'pointer' }} />
+                <button
+                  className='headerPost__share-btn'
+                  onClick={toggleDropdown}
+                  style={{ cursor: 'pointer' }}>
+                  <img src={shareicon} alt='페이지공유' />
                 </button>
                 {dropdownOpen && (
                   <ul className='headerPost__share-dropdown-menu'>

@@ -5,46 +5,53 @@
 }
 
 .headerPost__container {
-  height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  height: auto;
 }
 
 .headerPost__toname {
-  width: 320px;
-  height: 28px;
+  align-self: center;
   margin: 12px 20px;
+  width: 320px;
   @include font-style(18, Bold);
+  height: 28px;
 }
 
 .headerPost__info-wrapper {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   margin: 8px;
 }
 
 .headerPost__person-wrapper {
-  padding-top: 3px;
   margin-right: 12px;
+  padding-top: 3px;
+}
+
+.headerPost__rectangle1 {
+  margin-right: 14px;
 }
 
 .headerPost__emoji-Share-Control {
-  height: auto;
-  min-width: 320px;
   display: flex;
   justify-content: space-between;
   gap: 15px;
+  height: auto;
+  min-width: 320px;
+  cursor: pointer;
 }
 
 .headerPost__share-btn {
-  width: 36px;
-  height: 32px;
-  border-radius: 6px;
-  border: 1px solid $gray300;
-  padding: 6px 8px;
   background-color: $white;
+  border: 1px solid $gray300;
+  border-radius: 6px;
+  height: 32px;
+  margin-right: 20px;
+  padding: 6px 8px;
+  width: 36px;
 }
 
 .headerPost__Share-dropdown {
@@ -52,25 +59,21 @@
 }
 
 .headerPost__share-dropdown-menu {
-  width: 140px;
-  height: 120px;
-  border: 1px solid $gray300;
+  align-items: center;
   background-color: $white;
-  padding: 10px 16px;
+  border: 1px solid $gray300;
   border-radius: 8px;
   display: flex;
-  margin-top: 5px;
   flex-wrap: wrap;
-  align-items: center;
+  height: 120px;
+  margin-top: 5px;
+  padding: 10px 16px;
   position: absolute;
   right: 20px;
+  width: 140px;
+  z-index: 2000;
 }
 
-.headerPost__share-btn {
-  margin-right: 20px;
-}
-
-/*tablet version*/
 @media #{$tablet-screen} {
   .headerPost__container {
     height: 65px;
@@ -80,9 +83,13 @@
     @include font-style(28, Bold);
     width: auto;
   }
+
+  .headerPost__share-btn {
+    height: 36px;
+    width: 56px;
+  }
 }
 
-/*tablet version*/
 @media #{$desktop-screen} {
   .headerPost__container {
     height: 68px;

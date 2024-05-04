@@ -5,42 +5,47 @@
 }
 
 .header {
-  text-decoration: none;
   height: 64px;
   padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #dddddd;
+  text-decoration: none;
+}
 
-  .left {
-    position: static;
-    .logo {
-      cursor: pointer;
-      min-width: 130px;
-      height: 30px;
-      display: flex;
-      gap: 8px;
-      margin-top: 5px;
-    }
-  }
+.header__left {
+  position: static;
+}
 
-  .post-button {
-    cursor: pointer;
-    width: 142px;
-    height: 40px;
-    border: 1px solid #cccccc;
-    border-radius: 8px;
+.header__logo {
+  cursor: pointer;
+  min-width: 130px;
+  height: 30px;
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+}
 
-    .post-btn {
-      justify-content: center;
-      display: flex;
-      margin-top: 8px;
-      @include font-style(14, Regular);
-      background-color: #ffffff;
-      line-height: 20px;
-      letter-spacing: -0.005em;
-      text-align: center;
-      color: #000000;
-    }
-  }
+.header__post-button {
+  width: 142px;
+  height: 40px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.header__post-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  background-color: #ffffff;
+  @include font-style(14, Regular);
+  line-height: 20px;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: #000000;
+}
+
+.header--hidden {
+  display: none;
 }

@@ -19,24 +19,24 @@
 .headerPost__profile-restcount {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
-  border: 1px solid $gray300; /* 변수 사용 */
-  background-color: $white; /* 변수 사용 */
   padding: 5px;
+  background-color: $white;
+  border: 1px solid $gray300;
+  border-radius: 50%;
   @include font-style(12, Regular);
   line-height: 18px;
 }
 
 .headerPost__profile-totalcount {
-  width: 141px;
   display: flex;
   justify-content: flex-end;
-  @include font-style(18, Regular); /* 변수 사용 */
-  line-height: 27px;
   align-items: center;
+  width: 141px;
+  @include font-style(18, Regular);
+  line-height: 27px;
 }
 
 .headerPost__profile-count {
-  @include font-style(18, Bold); /* 변수 사용 */
+  @include font-style(18, Bold);
   line-height: 27px;
 }

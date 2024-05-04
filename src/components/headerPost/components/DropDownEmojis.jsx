@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import EmojiPicker from 'emoji-picker-react';
 import './DropDownEmojis.scss';
 import arrowDownIcon from '../../../assets/icon/ic_arrow_down.svg';
-import addicon from '../../../assets/icon/ic_add_20.svg';
-import EmojiPicker from 'emoji-picker-react';
+import addicon20 from '../../../assets/icon/ic_add_20.svg';
+import addicon24 from '../../../assets/icon/ic_add_24.svg';
 
 function DropDownEmojis() {
   const emojiSets = [
@@ -13,9 +14,9 @@ function DropDownEmojis() {
     { id: 5, recipientId: 1, emoji: '🤫', count: 1 },
     { id: 6, recipientId: 1, emoji: '🤫', count: 9 },
     { id: 7, recipientId: 1, emoji: '😎', count: 1 },
-    { id: 8, recipientId: 1, emoji: '🥰', count: 1 },
+    { id: 8, recipientId: 1, emoji: '🥰', count: 19 },
     { id: 9, recipientId: 1, emoji: '🥰', count: 1 },
-    { id: 10, recipientId: 1, emoji: '🥰', count: 5 },
+    { id: 10, recipientId: 1, emoji: '🥰', count: 50 },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +52,7 @@ function DropDownEmojis() {
 
   const [showPicker, setShowPicker] = useState(false);
 
-  const handleEmojiClick = (emojiData, event) => {
+  const handleEmojiClick = (emojiData) => {
     console.log('Selected emoji data:', emojiData);
     console.log('Selected emoji ID:', emojiData.unified);
     console.log('Selected emoji character:', emojiData.emoji);
@@ -61,14 +62,23 @@ function DropDownEmojis() {
     setShowPicker((prevState) => !prevState);
   };
 
+  const addicon = windowWidth >= 767 ? addicon24 : addicon20;
+
   return (
     <div>
-      <div className='headerPost__emojis-container'>
-        <div className='headerPost__addition-emojis-container'>
-          <button className='headerPost__dropdown-button'>
-            <div className='headerPost__popularemoji'>
+      <div className='headermojis__emojis-container'>
+        <div className='headermojis__addition-emojis-container'>
+          <button className='headermojis__dropdown-button'>
+            <div>
+              {topEmojis.length === 0 && (
+                <div className='headermojis__no-data'>
+                  <span className='headermojis__no-data_text'>당신의 반응을 남겨주세요!</span>
+                </div>
+              )}
+            </div>
+            <div className='headermojis__popularemoji'>
               {topEmojis.map((set, index) => (
-                <span key={index} className='headerPost__emoji'>
+                <span key={index} className='headermojis__emoji'>
                   {set.emoji}
                   {set.count}
                 </span>
@@ -77,20 +87,20 @@ function DropDownEmojis() {
             <img
               src={arrowDownIcon}
               alt='Dropdown'
-              className='headerPost__dropdown-icon'
+              className='headermojis__dropdown-icon'
               onClick={toggleDropDown}
             />
           </button>
 
           {isOpen && (
-            <div className='headerPost__emoji-dropdown-container'>
-              <div className='headerPost__emoji-dropdown-menu'>
+            <div className='headermojis__emoji-dropdown-container'>
+              <div className='headermojis__emoji-dropdown-menu'>
                 {emojiSets
                   .slice(0)
                   .sort((a, b) => b.count - a.count)
                   .slice(0, maxIcons)
                   .map((set, index) => (
-                    <div key={index} className='headerPost__emoji-dropdown'>
+                    <div key={index} className='headermojis__emoji-dropdown'>
                       <span>{set.emoji}</span>
                       <span>{set.count}</span>
                     </div>
@@ -100,17 +110,29 @@ function DropDownEmojis() {
           )}
         </div>
         <div>
-          <button className='headerPost__emoji-add-btn' onClick={togglePicker}>
-            <img src={addicon} className='headerPost__add-btn' alt='이모지추가' />
+          <button
+            className='headermojis__emoji-add-btn'
+            onClick={togglePicker}
+            style={{ cursor: 'pointer' }}>
+            <img src={addicon} className='headermojis__add-btn' alt='이모지추가' />
             <span
-              className='headerPost__post-text'
+              className='headermojis__add-text'
               style={{ display: windowWidth >= 768 ? 'inline' : 'none' }}>
               추가
             </span>
           </button>
+          <div className='headermojis__emojipicker-container'>
+            {showPicker && (
+              <EmojiPicker
+                onEmojiClick={handleEmojiClick}
+                className='headermojis__emojipicker'
+                width={300}
+                height={500}
+              />
+            )}
+          </div>
         </div>
       </div>
-      {showPicker && <EmojiPicker onEmojiClick={handleEmojiClick} />}
     </div>
   );
 }
