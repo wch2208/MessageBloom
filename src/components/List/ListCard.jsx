@@ -2,16 +2,23 @@ import '../../styles/List/ListCard.scss';
 import './ShowTheMostEmojis';
 import ShowTheMostEmojis from './ShowTheMostEmojis';
 import WritersProfiles from './WritersProfiles';
+import { useState, useEffect } from 'react';
 
-export default function ListCard() {
+export default function ListCard({ name, backgroundColor, backgroundImageURL, messageCount }) {
+  const [background, setBackground] = useState('');
+
+  useEffect(() => {
+    backgroundColor.length > 0 ? setBackground(backgroundColor) : setBackground(backgroundImageURL);
+  }, [backgroundColor, backgroundImageURL]);
+
   return (
-    <div className='list-card'>
+    <div className={`list-card ${background ? `--${background}` : ''}`}>
       <div className='list-card__writers'>
-        <p className='list-card__writers__to'>To.Sowon</p>
+        <p className='list-card__writers__to'>To.{name}</p>
         <WritersProfiles />
 
         <div className='list-card__text'>
-          <span>30</span>명이 작성했어요!
+          <span>{messageCount}</span>명이 작성했어요!
         </div>
       </div>
 
