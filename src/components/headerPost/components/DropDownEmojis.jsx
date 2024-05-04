@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './DropDownEmojis.scss';
-import arrowDownIcon from '../../assets/icon/ic_arrow_down.svg';
-import addicon from '../../assets/icon/ic_add_20.svg';
+import arrowDownIcon from '../../../assets/icon/ic_arrow_down.svg';
+import addicon from '../../../assets/icon/ic_add_20.svg';
 import EmojiPicker from 'emoji-picker-react';
 
 function DropDownEmojis() {

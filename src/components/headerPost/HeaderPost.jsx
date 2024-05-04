@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '.HeaderPost.scss';
+import './HeaderPost.scss';
 import CountPerson from './components/CountPerson.jsx';
 import Emojis from './components/DropDownEmojis.jsx';
 import Toast from './components/PostToast.jsx';

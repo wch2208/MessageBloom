@@ -24,7 +24,12 @@ const Header = () => {
   return (
     <header
       className={`header ${
-        isMobile && location.pathname !== '/' && location.pathname !== '/list' ? 'hidden' : ''
+        isMobile &&
+        location.pathname !== '/' &&
+        location.pathname !== '/list' &&
+        location.pathname !== '/post'
+          ? 'hidden'
+          : ''
       }`}>
       <div className='left'>
         <Link to='/' aria-label='홈으로 이동'>

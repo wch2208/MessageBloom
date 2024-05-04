@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './PostToast.scss';
-import completedIcon from '../../assets/icon/ic_completed.svg';
-import closeIcon from '../../assets/icon/ic_close.svg';
+import completedIcon from '../../../assets/icon/ic_completed.svg';
+import closeIcon from '../../../assets/icon/ic_close.svg';
 
 const Toast = ({ message }) => {
   const [showToast, setShowToast] = useState(true);
