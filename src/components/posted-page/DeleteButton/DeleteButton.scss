@@ -11,4 +11,7 @@
   img {
     color: $black;
   }
+  &:hover {
+    background-color: $gray200;
+  }
 }
