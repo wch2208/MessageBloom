@@ -44,6 +44,11 @@ function PostId() {
       : setBackgroundImg(recipientData.backgroundImageURL);
   };
 
+  const handleDeleteMessage = (messageId) => {
+    setMessagesData(messagesData.filter((data) => data.id !== messageId));
+    console.log('hi');
+  };
+
   const backgroundImageStyle = {
     backgroundImage: `url(${backgroundImg})`,
   };
@@ -63,6 +68,7 @@ function PostId() {
                 setModalDataByData={setModalDataByData}
                 handleModalOpen={handleModalOpen}
                 data={data}
+                handleDeleteMessage={handleDeleteMessage}
               />
             </div>
           );
