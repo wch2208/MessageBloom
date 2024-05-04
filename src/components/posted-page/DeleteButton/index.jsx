@@ -3,13 +3,14 @@ import './DeleteButton.scss';
 import deletedicon from '../../../assets/icon/ic_deleted.svg';
 import { deleteMessage } from '../../../apis/api';
 
-function DeleteButton({ id, handleDeleteMessage }) {
+function DeleteButton({ id, handleDeleteMessage, stopBubbling }) {
   const handleDelete = async (id) => {
-    // await deleteMessage(id);
+    await deleteMessage(id);
     handleDeleteMessage(id);
   };
 
-  const handleDeleteClick = () => {
+  const handleDeleteClick = (e) => {
+    stopBubbling(e);
     handleDelete(id);
   };
 
