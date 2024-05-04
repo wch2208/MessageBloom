@@ -4,14 +4,18 @@ import deletedicon from '../../../assets/icon/ic_deleted.svg';
 import { deleteMessage } from '../../../apis/api';
 
 function DeleteButton({ id, handleDeleteMessage, stopBubbling }) {
-  const handleDelete = async (id) => {
+  const handleDeleteData = async (id) => {
     await deleteMessage(id);
+    handleDeleteCard(id);
+  };
+
+  const handleDeleteCard = (id) => {
     handleDeleteMessage(id);
   };
 
   const handleDeleteClick = (e) => {
     stopBubbling(e);
-    handleDelete(id);
+    handleDeleteData(id);
   };
 
   return (
