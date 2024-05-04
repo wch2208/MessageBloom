@@ -12,10 +12,12 @@
 .list__newest-cards {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   overflow: auto;
   white-space: nowrap;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  height: 280px;
 }
 
 .list__best-title,
