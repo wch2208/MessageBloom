@@ -15,7 +15,9 @@ function DeleteButton({ id, handleDeleteMessage, stopBubbling }) {
 
   const handleDeleteClick = (e) => {
     stopBubbling(e);
-    handleDeleteData(id);
+    if (window.confirm('정말 삭제하시겠어요?')) {
+      handleDeleteData(id);
+    }
   };
 
   return (
