@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import './DropDownEmojis.scss';
 import arrowDownIcon from '../../../assets/icon/ic_arrow_down.svg';
 import addicon from '../../../assets/icon/ic_add_20.svg';
@@ -7,16 +6,16 @@ import EmojiPicker from 'emoji-picker-react';
 
 function DropDownEmojis() {
   const emojiSets = [
-    { emoji: '🥹', count: 20 },
-    { emoji: '🤩', count: 15 },
-    { emoji: '😊', count: 10 },
-    { emoji: '🤫', count: 3 },
-    { emoji: '🤫', count: 25 },
-    { emoji: '🤫', count: 9 },
-    { emoji: '😎', count: 30 },
-    { emoji: '🥰', count: 24 },
-    { emoji: '🥰', count: 27 },
-    { emoji: '🥰', count: 5 },
+    { id: 1, recipientId: 1, emoji: '🥹', count: 20 },
+    { id: 2, recipientId: 1, emoji: '🤩', count: 15 },
+    { id: 3, recipientId: 1, emoji: '😊', count: 10 },
+    { id: 4, recipientId: 1, emoji: '🤫', count: 3 },
+    { id: 5, recipientId: 1, emoji: '🤫', count: 1 },
+    { id: 6, recipientId: 1, emoji: '🤫', count: 9 },
+    { id: 7, recipientId: 1, emoji: '😎', count: 1 },
+    { id: 8, recipientId: 1, emoji: '🥰', count: 1 },
+    { id: 9, recipientId: 1, emoji: '🥰', count: 1 },
+    { id: 10, recipientId: 1, emoji: '🥰', count: 5 },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
@@ -64,8 +63,8 @@ function DropDownEmojis() {
 
   return (
     <div>
-      <div className='headerPost__addition-emojis-container'>
-        <div className='headerPost__dropdown-emojis-container'>
+      <div className='headerPost__emojis-container'>
+        <div className='headerPost__addition-emojis-container'>
           <button className='headerPost__dropdown-button'>
             <div className='headerPost__popularemoji'>
               {topEmojis.map((set, index) => (
@@ -84,17 +83,19 @@ function DropDownEmojis() {
           </button>
 
           {isOpen && (
-            <div className='headerPost__emoji-dropdown-menu'>
-              {emojiSets
-                .slice(0)
-                .sort((a, b) => b.count - a.count)
-                .slice(0, maxIcons)
-                .map((set, index) => (
-                  <div key={index} className='headerPost__emoji-dropdown'>
-                    <span>{set.emoji}</span>
-                    <span>{set.count}</span>
-                  </div>
-                ))}
+            <div className='headerPost__emoji-dropdown-container'>
+              <div className='headerPost__emoji-dropdown-menu'>
+                {emojiSets
+                  .slice(0)
+                  .sort((a, b) => b.count - a.count)
+                  .slice(0, maxIcons)
+                  .map((set, index) => (
+                    <div key={index} className='headerPost__emoji-dropdown'>
+                      <span>{set.emoji}</span>
+                      <span>{set.count}</span>
+                    </div>
+                  ))}
+              </div>
             </div>
           )}
         </div>

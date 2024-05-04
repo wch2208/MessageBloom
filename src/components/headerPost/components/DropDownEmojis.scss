@@ -1,7 +1,7 @@
 @import '../../../styles/reset', '../../../styles/variables';
 
-.headerPost__addition-emojis-container,
-.headerPost__dropdown-emojis-container {
+.headerPost__emojis-container,
+.headerPost__addition-emojis-container {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -30,18 +30,23 @@
   cursor: pointer;
 }
 
-.headerPost__emoji-dropdown-menu {
+.headerPost__emoji-dropdown-container {
   position: absolute;
   width: 203px;
   height: 98px;
   top: 40px;
-  gap: 10px;
-  justify-content: flex-end;
   left: 6px;
+}
+
+.headerPost__emoji-dropdown-menu {
+  justify-content: flex-end;
   border-radius: 8px;
   border: 1px solid $gray300;
   background-color: $white;
   padding: 16px;
+  display: grid;
+  gap: 3px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .headerPost__emoji,
@@ -59,15 +64,24 @@
   align-items: center;
   justify-content: center;
 }
+.headerPost__emoji-dropdown {
+  padding-left: 4px;
+  width: 55px;
+}
 
 .headerPost__emoji-add-btn {
   position: relative;
-  width: auto;
-  height: 36px;
+  width: 36px;
+  height: 32px;
   border-radius: 6px;
   border: 1px solid $gray300;
-  padding: 6px 16px;
+  padding: 6px 8px;
   background-color: $white;
+}
+
+.headerPost__add-btn {
+  width: 20px;
+  height: 20px;
 }
 
 .headerPost__post-text {
@@ -91,21 +105,35 @@
     gap: 5px;
   }
 
-  .headerPost__emoji-dropdown-menu {
+  .headerPost__emoji-dropdown-container {
+    position: absolute;
     width: 248px;
     height: 134px;
-    top: 40px;
-    gap: 10px;
+    top: 48px;
+    left: -2px;
+  }
+
+  .headerPost__emoji-dropdown-menu {
+    position: absolute;
+    gap: 5px;
+    padding: 16px;
+    align-items: center;
   }
 
   .headerPost__emoji,
   .headerPost__emoji-dropdown {
     width: auto;
-    padding: 8px 12px;
+    padding: 6px 12px;
     height: 36px;
     font-size: 16px;
     font-weight: 400;
     margin: 0px;
+  }
+
+  .headerPost__emoji-add-btn {
+    width: auto;
+    height: 36px;
+    padding: 6px 16px;
   }
 }
 
@@ -114,11 +142,22 @@
     width: 246px;
   }
 
-  .headerPost__emoji-dropdown-menu {
+  .headerPost__emoji-dropdown-container {
+    position: absolute;
     width: 312px;
     height: 134px;
-    margin-top: 8px;
-    margin-right: 100px;
+    left: -85px;
+  }
+
+  .headerPost__emoji-dropdown-menu {
+    gap: 10px;
+    justify-content: flex-end;
+    border-radius: 8px;
+    border: 1px solid $gray300;
+    background-color: $white;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .headerPost__emoji,
