@@ -45,3 +45,12 @@ export async function postMessage(formData) {
     console.error(`error : ${error}`);
   }
 }
+
+export async function postMessageToRecipient(formData, id) {
+  try {
+    const response = await instance.post(`6-6/recipients/${id}/messages/`, formData);
+    return response.data;
+  } catch (error) {
+    console.error(`error : ${error}`);
+  }
+}
