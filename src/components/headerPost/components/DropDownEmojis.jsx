@@ -5,7 +5,7 @@ import arrowDownIcon from '../../../assets/icon/ic_arrow_down.svg';
 import addicon20 from '../../../assets/icon/ic_add_20.svg';
 import addicon24 from '../../../assets/icon/ic_add_24.svg';
 
-function DropDownEmojis() {
+export default function DropDownEmojis() {
   const emojiSets = [
     { id: 1, recipientId: 1, emoji: '🥹', count: 20 },
     { id: 2, recipientId: 1, emoji: '🤩', count: 15 },
@@ -136,5 +136,3 @@ function DropDownEmojis() {
     </div>
   );
 }
-
-export default DropDownEmojis;

@@ -7,7 +7,7 @@ import plusicon from '../../assets/icon/ic_plus.svg';
 import Modal from '../../components/posted-page/Modal';
 import DeleteModal from '../../components/posted-page/DeleteModal';
 import Header from '../../components/header/Header.jsx';
-import HeaderPost from '../../components/headerPost/HeaderPost.jsx';
+import HeaderPost from '../../components/headerPost/HeaderPost';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);

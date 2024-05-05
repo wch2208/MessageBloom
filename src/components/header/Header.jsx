@@ -3,14 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 import './Header.scss';
 import writeicon from '../../assets/logo/ic_flower_WithLetter.svg';
 
-const Header = () => {
+export default function Header() {
   const location = useLocation();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    const handleResize = () => {
+    function handleResize() {
       setIsMobile(window.innerWidth < 768);
-    };
+    }
 
     window.addEventListener('resize', handleResize);
 
@@ -48,6 +48,4 @@ const Header = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}

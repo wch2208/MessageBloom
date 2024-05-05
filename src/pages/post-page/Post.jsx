@@ -5,7 +5,7 @@ import { DEFAULT_RECIPIENT } from '../../components/post-page/postPageConstants'
 import { postRecipient } from '../../apis/api';
 import { useNavigate } from 'react-router-dom';
 import LinkButton from '../../components/commons/LinkButton';
-import Header from '../../components/header/Header.jsx';
+import Header from '../../components/header/Header';
 
 export default function Post() {
   const [recipient, setRecipient] = useState(DEFAULT_RECIPIENT);

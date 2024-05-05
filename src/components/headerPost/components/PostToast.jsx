@@ -3,7 +3,7 @@ import './PostToast.scss';
 import completedIcon from '../../../assets/icon/ic_completed.svg';
 import closeIcon from '../../../assets/icon/ic_close.svg';
 
-const Toast = ({ message }) => {
+export default function Toast({ message }) {
   const [showToast, setShowToast] = useState(true);
 
   useEffect(() => {
@@ -14,9 +14,9 @@ const Toast = ({ message }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleClose = () => {
+  function handleClose() {
     setShowToast(false);
-  };
+  }
 
   return (
     <div className={`sharetoast ${showToast ? '' : 'hide'}`}>
@@ -35,6 +35,4 @@ const Toast = ({ message }) => {
       </div>
     </div>
   );
-};
-
-export default Toast;
+}

@@ -7,7 +7,7 @@ import shareicon20 from '../../assets/icon/ic_share_20.svg';
 import shareicon24 from '../../assets/icon/ic_share_24.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
 
-const HeaderPost = () => {
+export default function HeaderPost() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
@@ -15,21 +15,21 @@ const HeaderPost = () => {
 
   const fakeTo = { id: 123, name: '6팀 화이팅!!' };
 
-  const toggleDropdown = () => {
+  function toggleDropdown() {
     setDropdownOpen(!dropdownOpen);
-  };
+  }
 
-  const handleShareOptionClick = (option) => {
+  function handleShareOptionClick(option) {
     console.log('Selected option:', option);
     setToastMessage(`${option}이 복사되었습니다.`);
     setShowToast(true);
     setDropdownOpen(false);
-  };
+  }
 
   useEffect(() => {
-    const handleResize = () => {
+    function handleResize() {
       setWindowWidth(window.innerWidth);
-    };
+    }
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -88,6 +88,4 @@ const HeaderPost = () => {
       {dropdownOpen || (showToast && <Toast message={toastMessage} />)}
     </div>
   );
-};
-
-export default HeaderPost;
+}
