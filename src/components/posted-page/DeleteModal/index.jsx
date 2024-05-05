@@ -30,7 +30,7 @@ function DeleteModal({ handleDeleteMessage, deleteDataId, handleDeleteModalOpen 
         }}>
         <p className='delete-modal-container__message'>정말 삭제하시겠어요?</p>
         <div className='delete-modal-container__btns'>
-          <button id='delete-modal-container__btns-check-btn' onClick={handleCheckClick}>
+          <button id='delete-modal-container__btns-check-btn' onClick={handleCheckClick} autoFocus>
             확인
           </button>
           <button id='delete-modal-container__btns-cancel-btn' onClick={handleCancelClick}>
