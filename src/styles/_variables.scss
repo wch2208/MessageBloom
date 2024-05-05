@@ -6,19 +6,19 @@ $desktop-screen: 'screen and (min-width: 1200px)';
 // font
 @font-face {
   font-family: 'pretendard';
-  src: url('../public/Pretendard-Regular.ttf');
+  src: url('/Pretendard-Regular.ttf');
 }
 @font-face {
   font-family: 'Noto-Sans';
-  src: url('../public/NotoSansKR-Regular.ttf');
+  src: url('/NotoSansKR-Regular.ttf');
 }
 @font-face {
   font-family: 'NanumMyengjo';
-  src: url('../public/NanumMyengjo-Regular.ttf');
+  src: url('/NanumMyengjo-Regular.ttf');
 }
 @font-face {
   font-family: 'NanumSonPyeonJiCe';
-  src: url('../public/NanumSonPyeonJiCe-Regular.ttf');
+  src: url('/NanumSonPyeonJiCe-Regular.ttf');
 }
 
 // font sizes

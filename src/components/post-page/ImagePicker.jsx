@@ -1,7 +1,7 @@
 import checkIcon from '../../assets/icon/ic_check.svg';
 import { useState } from 'react';
-import '../../styles/create-message-form/ImagePicker.scss';
-import { IMAGE_NAMES, IMAGE_URLS } from './FormConfig';
+import './ImagePicker.scss';
+import { IMAGE_NAMES, IMAGE_URLS } from './postPageConstants';
 
 function ImageOption({ handleImageChange, imageName, selectedImage }) {
   return (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import ColorPicker from '../create-message-form/ColorPicker';
-import ImagePicker from '../create-message-form/ImagePicker';
-import '../../styles/create-message-form/ToggleOption.scss';
+import ColorPicker from './ColorPicker';
+import ImagePicker from './ImagePicker';
+import './ToggleOption.scss';
 
 export default function ToggleOption({ setRecipient }) {
   const [selectedValue, setSelectedValue] = useState('color');
