@@ -1,24 +1,21 @@
-import '../styles/create-message-form/PostToPage.scss';
-import ToggleOption from '../components/create-message-form/ToggleOption';
+import './Post.scss';
+import ToggleOption from '../../components/post-page/ToggleOption';
 import { useState } from 'react';
-import { DEFAULT_RECIPIENT } from '../components/create-message-form/FormConfig';
-import { postMessage } from '../apis/api';
+import { DEFAULT_RECIPIENT } from '../../components/post-page/postPageConstants';
+import { postRecipient } from '../../apis/api';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/header/Header';
+import LinkButton from '../../components/commons/LinkButton';
+import Header from '../../components/header/Header.jsx';
 
-export default function PostToPage() {
+export default function Post() {
   const [recipient, setRecipient] = useState(DEFAULT_RECIPIENT);
   const navigate = useNavigate();
-
-  const navigateToNewPaper = (id) => {
-    navigate(`/post/${id}`);
-  };
 
   const handleCreateClick = async () => {
     const formData = new FormData();
     formData.append('data', JSON.stringify(recipient));
-    const result = await postMessage(formData.get('data'));
-    navigateToNewPaper(result.id);
+    const { id } = await postRecipient(formData.get('data'));
+    navigate(`/post/${id}`);
   };
 
   const handleChange = (e) => {
@@ -37,6 +34,8 @@ export default function PostToPage() {
             id='toInput'
             placeholder='받는 사람 이름을 입력해 주세요'
             onChange={handleChange}
+            autoFocus
+            autoComplete='off'
           />
         </div>
         <div className='background-form-group'>
@@ -45,9 +44,10 @@ export default function PostToPage() {
         </div>
         <ToggleOption setRecipient={setRecipient} />
 
-        <button className='background-form__submit' onClick={handleCreateClick}>
+        {/* <button className='background-form__submit' onClick={handleCreateClick}>
           생성하기
-        </button>
+        </button> */}
+        <LinkButton buttonText={'생성하기'} onClick={handleCreateClick} />
       </div>
     </>
   );

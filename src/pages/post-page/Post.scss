@@ -1,4 +1,4 @@
-@import '../variables', '../reset';
+@import '../../styles/variables', '../../styles/reset';
 
 .background-form {
   width: 320px;
@@ -61,6 +61,7 @@
   background-color: $accent-color;
   border: none;
   color: $white;
+  cursor: pointer;
   @include font-style(18, Bold);
 }
 

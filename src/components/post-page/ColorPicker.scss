@@ -1,4 +1,4 @@
-@import '../variables', '../reset';
+@import '../../styles/variables', '../../styles/variables';
 
 @mixin flex-center {
   display: flex;
@@ -14,8 +14,8 @@
   flex-wrap: wrap;
   gap: 12px;
   #beige + label {
-    border: 1px solid $orange300;
-    background-color: $orange200;
+    border: 1px solid $beige300;
+    background-color: $beige200;
   }
   #purple + label {
     border: 1px solid $purple300;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import checkIcon from '../../assets/icon/ic_check.svg';
-import '../../styles/create-message-form/ColorPicker.scss';
-import { COLOR_NAMES } from './FormConfig';
+import './ColorPicker.scss';
+import { COLOR_NAMES } from './postPageConstants';
 
 function ColorOption({ handleColorChange, colorName, selectedColor }) {
   return (
