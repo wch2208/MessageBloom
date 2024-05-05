@@ -38,7 +38,8 @@ function Modal({ modalData, handleModalOpen }) {
           onClick={() => {
             handleModalOpen(false);
           }}
-          id='modal-confirm__btn'>
+          id='modal-confirm__btn'
+          autoFocus>
           확인
         </button>
       </div>
