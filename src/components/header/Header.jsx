@@ -29,21 +29,23 @@ const Header = () => {
           ? 'header--hidden'
           : ''
       }`}>
-      <div className='header__left'>
-        <Link to='/' aria-label='홈으로 이동'>
-          <picture className='header__logo'>
-            <img src={writeicon} alt='로고 아이콘' className='header__logo-icon' />
-          </picture>
-        </Link>
-      </div>
-
-      {(location.pathname === '/' || location.pathname === '/list') && (
-        <div className='header__post-button'>
-          <Link to='/post' className='header__post-btn'>
-            롤링 페이지 만들기
+      <div className='header-container'>
+        <div className='header__left'>
+          <Link to='/' aria-label='홈으로 이동'>
+            <picture className='header__logo'>
+              <img src={writeicon} alt='로고 아이콘' className='header__logo-icon' />
+            </picture>
           </Link>
         </div>
-      )}
+
+        {(location.pathname === '/' || location.pathname === '/list') && (
+          <div className='header__post-button'>
+            <Link to='/post' className='header__post-btn'>
+              롤링 페이지 만들기
+            </Link>
+          </div>
+        )}
+      </div>
     </header>
   );
 };

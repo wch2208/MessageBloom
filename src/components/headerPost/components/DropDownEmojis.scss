@@ -1,7 +1,6 @@
 @import '../../../styles/reset', '../../../styles/variables';
 
-.headermojis__emojis-container,
-.headermojis__addition-emojis-container {
+.headermojis__emojis-container {
   position: relative;
   display: flex;
 }
@@ -15,16 +14,16 @@
   height: 36px;
 }
 
+.headermojis__no-data {
+  font-size: 16px;
+  width: 177px;
+}
+
 .headermojis__popularemoji {
   display: flex;
   justify-content: flex-end;
   width: 177px;
   gap: 5px;
-}
-
-.headermojis__no-data {
-  font-size: 16px;
-  width: 177px;
 }
 
 .headermojis__dropdown-icon {
