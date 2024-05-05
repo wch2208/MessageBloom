@@ -1,7 +1,7 @@
 @import '../../styles/variables', '../../styles/reset';
 
 $background-colors: (
-  orange: $orange200,
+  beige: $beige200,
   purple: $purple200,
   blue: $blue200,
   green: $green200,
@@ -26,8 +26,8 @@ $background-colors: (
   &.blue {
     @include background-color-style(blue);
   }
-  &.orange {
-    @include background-color-style(orange);
+  &.beige {
+    @include background-color-style(beige);
   }
 }
 
