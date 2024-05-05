@@ -9,6 +9,15 @@ export async function getMessages(id) {
   }
 }
 
+export async function deleteMessage(id) {
+  try {
+    const response = await instance.delete(`6-6/messages/${id}/`);
+    console.log(`delete successfully!`);
+  } catch (e) {
+    console.error(`error : ${e}`);
+  }
+}
+
 export async function getRecipient(id) {
   try {
     const response = await instance.get(`6-6/recipients/${id}/`);
@@ -28,7 +37,7 @@ export async function getCommenterCount() {
   }
 }
 
-export async function postRecipient(formData) {
+export async function postMessage(formData) {
   try {
     const response = await instance.post(`6-6/recipients/`, formData);
     return response.data;

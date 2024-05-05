@@ -5,14 +5,20 @@ import { getMessages, getRecipient } from '../../apis/api';
 import './PostId.scss';
 import plusicon from '../../assets/icon/ic_plus.svg';
 import Modal from '../../components/posted-page/Modal';
+import DeleteModal from '../../components/posted-page/DeleteModal';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
   const [backgroundImg, setBackgroundImg] = useState('');
   const [backgroundColor, setBackgroundColor] = useState('');
+
   const [messagesData, setMessagesData] = useState([]);
   const [recipientData, setRecipientData] = useState([]);
+  const [deleteDataId, setDeleteDataId] = useState('');
   const [modalData, setModalData] = useState([]);
+
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -45,6 +51,19 @@ function PostId() {
       : setBackgroundImg(recipientData.backgroundImageURL);
   };
 
+  const handleDeleteMessage = (messageId) => {
+    setMessagesData(messagesData.filter((data) => data.id !== messageId));
+    console.log('hi');
+  };
+
+  const handleDeleteModalOpen = (value) => {
+    setIsDeleteModalOpen(value);
+  };
+
+  const handleDeleteDataId = (id) => {
+    setDeleteDataId(id);
+  };
+
   const backgroundImageStyle = {
     backgroundImage: `url(${backgroundImg})`,
   };
@@ -63,12 +82,21 @@ function PostId() {
               <PostCard
                 setModalDataByData={setModalDataByData}
                 handleModalOpen={handleModalOpen}
+                setIsDeleteModalOpen={setIsDeleteModalOpen}
                 data={data}
+                handleDeleteDataId={handleDeleteDataId}
               />
             </div>
           );
         })}
         {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
+        {isDeleteModalOpen && (
+          <DeleteModal
+            handleDeleteMessage={handleDeleteMessage}
+            deleteDataId={deleteDataId}
+            handleDeleteModalOpen={handleDeleteModalOpen}
+          />
+        )}
       </div>
     </div>
   );
