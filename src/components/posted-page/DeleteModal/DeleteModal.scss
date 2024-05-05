@@ -31,11 +31,13 @@
         padding: 5px 15px;
         border: none;
         color: $white;
-        background-color: $accent-color;
+        background-color: $gray400;
         border-radius: 6px;
         cursor: pointer;
-        &:hover {
-          transform: translateY(-2px);
+        outline: none;
+        &:focus {
+          border: solid 2px $error;
+          background-color: $accent-color;
         }
       }
     }
