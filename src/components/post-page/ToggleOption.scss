@@ -15,6 +15,7 @@
 }
 .background-form__radio-label {
   cursor: pointer;
+  user-select: none;
   @include flex-center;
   width: 118px;
   height: 40px;

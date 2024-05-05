@@ -41,11 +41,7 @@ export default function Post() {
           <p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
         </div>
         <ToggleOption setRecipient={setRecipient} />
-
-        {/* <button className='background-form__submit' onClick={handleCreateClick}>
-          생성하기
-        </button> */}
-        <LinkButton buttonText={'생성하기'} onClick={handleCreateClick} />
+        <LinkButton buttonText={'생성하기'} onClick={handleCreateClick} fullWidth />
       </div>
     </>
   );

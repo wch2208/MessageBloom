@@ -15,6 +15,12 @@ const isFontOption = (e) => {
   return firstChar === 'N' || firstChar === 'P' || firstChar === '나';
 };
 
+const scrollToBottom = (e) => {
+  if (isFontOption(e)) {
+    scrollTarget.current.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 export default function PostIdMessage() {
   const navigate = useNavigate();
   const scrollTarget = useRef(null);
@@ -22,16 +28,10 @@ export default function PostIdMessage() {
   const [formData, setFormData] = useState(initialFormData(id));
 
   const sendMessage = async () => {
-    let newFormData = new FormData();
+    const newFormData = new FormData();
     newFormData.append('data', JSON.stringify(formData));
     await postMessageToRecipient(newFormData.get('data'), id);
     navigate(`/post/${id}`);
-  };
-
-  const scrollToBottom = (e) => {
-    if (isFontOption(e)) {
-      scrollTarget.current.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   return (
