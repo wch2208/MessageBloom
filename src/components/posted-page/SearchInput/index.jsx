@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './SearchInput.scss';
 import ArrowIcon from '../../../assets/icon/ic_arrow_down.svg';
 
-function SearchInput(props) {
+function SearchInput({ getSearchValue }) {
   const [isSearchCategoryOpen, setIsSearchCategoryOpen] = useState(false);
   const [searchCategory, setSearchCategroy] = useState('전체');
 
@@ -10,6 +10,11 @@ function SearchInput(props) {
     const { textContent } = e.target;
     setSearchCategroy(textContent);
     setIsSearchCategoryOpen(false);
+  };
+
+  const handleSearchInput = (e) => {
+    const { value } = e.target;
+    getSearchValue(searchCategory, value);
   };
 
   return (
@@ -47,7 +52,12 @@ function SearchInput(props) {
       </div>
 
       <label htmlFor='search-input'></label>
-      <input type='text' id='serach-input' className='search-container__input' />
+      <input
+        type='text'
+        id='search-input'
+        className='search-container__input'
+        onChange={handleSearchInput}
+      />
     </div>
   );
 }
