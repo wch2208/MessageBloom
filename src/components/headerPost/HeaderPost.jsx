@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './HeaderPost.scss';
-import CountPerson from './components/CountPerson.jsx';
+import WriterCounter from '../commons/WriterCounter.jsx';
 import Emojis from './components/DropDownEmojis.jsx';
 import Toast from './components/PostToast.jsx';
 import shareicon20 from '../../assets/icon/ic_share_20.svg';
@@ -20,8 +20,8 @@ export default function HeaderPost() {
   }
 
   function handleShareOptionClick(option) {
-    console.log('Selected option:', option);
-    setToastMessage(`${option}이 복사되었습니다.`);
+    const message = `${option}이 복사되었습니다.`;
+    setToastMessage(message);
     setShowToast(true);
     setDropdownOpen(false);
   }
@@ -37,47 +37,43 @@ export default function HeaderPost() {
   const shareicon = windowWidth >= 767 ? shareicon24 : shareicon20;
 
   return (
-    <div className='headerPost'>
-      <div className='headerPost__container'>
-        <div className='headerPost__toname'>To. {fakeTo.name}</div>
-        <div className='headerPost__info-wrapper'>
+    <div className='header-post'>
+      <div className='header-post__container'>
+        <div className='header-post__container_to-name'>To. {fakeTo.name}</div>
+        <div className='header-post__container_info'>
           {windowWidth >= 1200 && (
             <>
-              <div className='headerPost__person-wrapper'>
-                <CountPerson />
+              <div className='header-post__container_info_person-wrapper'>
+                <WriterCounter />
               </div>
-              <img className='headerPost__rectangle1' src={rectangle} alt='가림막' />
+              <img
+                className='header-post__container_info_rectangle-1'
+                src={rectangle}
+                alt='가림막'
+              />
             </>
           )}
 
-          <div className='headerPost__emoji-Share-Control'>
-            <div className='headerPost__emoji-Control'>
+          <div className='header-post__container_info_container'>
+            <div className='header-post__container_info_container-emoji'>
               <Emojis />
             </div>
-            <img className='headerPost__rectangle2' src={rectangle} alt='가림막' />
-            <div className='headerPost__Share-Control'>
-              <div className='headerPost__Share-dropdown'>
+            <img
+              className='header-post__container_info_container_rectangle-2'
+              src={rectangle}
+              alt='가림막'
+            />
+            <div className='header-post__container_info_container_share'>
+              <div className='header-post__container_info_container_share-dropdown'>
                 <button
-                  className='headerPost__share-btn'
-                  onClick={toggleDropdown}
-                  style={{ cursor: 'pointer' }}>
+                  className='header-post__container_info_container_share-dropdown_btn'
+                  onClick={toggleDropdown}>
                   <img src={shareicon} alt='페이지공유' />
                 </button>
                 {dropdownOpen && (
-                  <ul className='headerPost__share-dropdown-menu'>
-                    <li
-                      className='headerPost__dropdown-menu-item'
-                      onClick={() => handleShareOptionClick('KakaoTalk')}
-                      style={{ cursor: 'pointer' }}>
-                      카카오톡 공유
-                    </li>
-
-                    <li
-                      className='headerPost__dropdown-menu-item'
-                      onClick={() => handleShareOptionClick('URL')}
-                      style={{ cursor: 'pointer' }}>
-                      URL 공유
-                    </li>
+                  <ul className='header-post__container_info_container_share-dropdown_menu'>
+                    <li onClick={() => handleShareOptionClick('KakaoTalk')}>카카오톡 공유</li>
+                    <li onClick={() => handleShareOptionClick('URL')}>URL 공유</li>
                   </ul>
                 )}
               </div>

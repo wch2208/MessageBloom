@@ -33,8 +33,7 @@ export default function Post() {
 
   return (
     <>
-      <Header />
-      <form className='background-form'>
+      <div className='background-form'>
         <div className='background-form__header'>
           <label className='background-form__title'>To.</label>
           <input

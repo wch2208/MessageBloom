@@ -1,202 +1,202 @@
 @import '../../../styles/reset', '../../../styles/variables';
 
-.headermojis__emojis-container {
+.headeremojis {
   position: relative;
   display: flex;
-}
 
-.headermojis__dropdown-button {
-  display: flex;
-  justify-content: flex-end;
-  border: none;
-  background-color: $white;
-  width: 215px;
-  height: 36px;
-}
+  &-container__dropdown {
+    display: flex;
+    justify-content: flex-end;
+    border: none;
+    background-color: $white;
+    width: 215px;
+    height: 36px;
 
-.headermojis__no-data {
-  font-size: 16px;
-  width: 177px;
-}
+    &__no-data {
+      font-size: 16px;
+      width: 177px;
+    }
 
-.headermojis__popularemoji {
-  display: flex;
-  justify-content: flex-end;
-  width: 177px;
-  gap: 5px;
-}
+    &__popular {
+      display: flex;
+      justify-content: flex-end;
+      width: 177px;
+      gap: 5px;
+    }
 
-.headermojis__dropdown-icon {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  margin: 6px;
-}
+    &-icon {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      margin: 6px;
+    }
 
-.headermojis__emoji-dropdown-container {
-  position: absolute;
-  width: 203px;
-  height: 98px;
-  top: 40px;
-  left: 6px;
-}
+    &-container {
+      position: absolute;
+      width: 203px;
+      height: 98px;
+      top: 40px;
+      left: 6px;
 
-.headermojis__emoji-dropdown-menu {
-  display: grid;
-  gap: 3px;
-  justify-content: flex-end;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 16px;
-  border-radius: 8px;
-  border: 1px solid $gray300;
-  background-color: $white;
-}
+      &_menu {
+        display: grid;
+        gap: 3px;
+        justify-content: flex-end;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid $gray300;
+        background-color: $white;
+      }
+    }
 
-.headermojis__emoji,
-.headermojis__emoji-dropdown {
-  position: relative;
-  display: inline-block;
-  width: 53px;
-  height: 28px;
-  gap: 10px;
-  border-radius: 32px;
-  color: $white;
-  margin-top: 5px;
-  padding-top: 4px;
-  background-color: rgba(0, 0, 0, 0.54);
-  align-items: center;
-  justify-content: center;
-}
+    &__popular-emoji,
+    &-container_menu-emoji {
+      position: relative;
+      display: inline-block;
+      width: 53px;
+      height: 28px;
+      gap: 10px;
+      border-radius: 32px;
+      color: $white;
+      margin-top: 5px;
+      padding-top: 4px;
+      background-color: rgba(0, 0, 0, 0.54);
+      align-items: center;
+      justify-content: center;
+    }
 
-.headermojis__emoji-dropdown {
-  padding-top: 2px;
-  padding-left: 5px;
-  width: 55px;
-}
+    &-container_menu-emoji {
+      padding-top: 2px;
+      padding-left: 5px;
+      width: 55px;
+    }
+  }
 
-.headermojis__emoji-add-btn {
-  position: relative;
-  width: 36px;
-  height: 32px;
-  border-radius: 6px;
-  border: 1px solid $gray300;
-  padding: 6px 8px;
-  background-color: $white;
-}
+  &__add-btn {
+    position: relative;
+    width: 36px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid $gray300;
+    padding: 6px 8px;
+    background-color: $white;
 
-.headermojis__add-btn {
-  position: relative;
-  width: 20px;
-  height: 20px;
-}
+    &-icon {
+      position: relative;
+      width: 20px;
+      height: 20px;
+    }
+  }
 
-.headermojis__emojipicker-container {
-  position: absolute;
-  z-index: 1000;
-  top: 40px;
-  right: -100px;
+  &__emojipicker {
+    position: absolute;
+    z-index: 1000;
+    top: 40px;
+    right: -100px;
+  }
 }
 
 @media #{$tablet-screen} {
-  .headermojis__dropdown-button {
+  .headeremojis-container__dropdown {
     width: 246px;
+
+    &__popular {
+      width: 208px;
+      gap: 5px;
+    }
+
+    &-container {
+      width: 248px;
+      height: 134px;
+      top: 48px;
+      left: -2px;
+
+      &_menu {
+        position: absolute;
+        gap: 5px;
+        padding: 16px;
+        align-items: center;
+      }
+    }
+
+    &__popular-emoji,
+    &-container_menu-emoji {
+      width: auto;
+      height: 36px;
+      font-size: 16px;
+      font-weight: 400;
+      margin: 0px;
+      padding: 6px 12px;
+    }
   }
 
-  .headermojis__popularemoji {
-    width: 208px;
-    gap: 5px;
-  }
-
-  .headermojis__emoji-dropdown-container {
-    width: 248px;
-    height: 134px;
-    top: 48px;
-    left: -2px;
-  }
-
-  .headermojis__emoji-dropdown-menu {
-    position: absolute;
-    gap: 5px;
-    padding: 16px;
-    align-items: center;
-  }
-
-  .headermojis__emoji,
-  .headermojis__emoji-dropdown {
-    width: auto;
-    height: 36px;
-    font-size: 16px;
-    font-weight: 400;
-    margin: 0px;
-    padding: 6px 12px;
-  }
-
-  .headermojis__emoji-add-btn {
+  .headeremojis__add-btn {
     display: inline-block;
     width: 88px;
     height: 36px;
     padding: 6px 16px;
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+      right: 15px;
+    }
+
+    &-text {
+      position: absolute;
+      width: 28px;
+      height: 24px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      right: 15px;
+    }
   }
 
-  .headermojis__add-btn {
-    width: 24px;
-    height: 24px;
-    right: 15px;
-  }
-
-  .headermojis__add-text {
-    position: absolute;
-    width: 28px;
-    height: 24px;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    right: 15px;
-  }
-
-  .headermojis__emojipicker-container {
+  .headeremojis__emojipicker {
     z-index: 9999;
     right: 10px;
   }
 }
 
 @media #{$desktop-screen} {
-  .headermojis__dropdown-button {
+  .headeremojis-container__dropdown {
     width: 246px;
+
+    &-container {
+      width: 312px;
+      height: 134px;
+      left: -85px;
+
+      &_menu {
+        gap: 10px;
+        justify-content: flex-end;
+        border-radius: 8px;
+        border: 1px solid $gray300;
+        background-color: $white;
+        padding: 16px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    &__popular {
+      width: 208px;
+      gap: 5px;
+    }
+
+    &__popular-emoji,
+    &-container_menu-emoji {
+      width: 66px;
+      height: 36px;
+      font-size: 16px;
+      font-weight: 400;
+      margin: 0px;
+    }
   }
 
-  .headermojis__emoji-dropdown-container {
-    width: 312px;
-    height: 134px;
-    left: -85px;
-  }
-
-  .headermojis__emoji-dropdown-menu {
-    gap: 10px;
-    justify-content: flex-end;
-    border-radius: 8px;
-    border: 1px solid $gray300;
-    background-color: $white;
-    padding: 16px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .headermojis__emoji,
-  .headermojis__emoji-dropdown {
-    width: 66px;
-    height: 36px;
-    font-size: 16px;
-    font-weight: 400;
-    margin: 0px;
-  }
-
-  .headermojis__popularemoji {
-    width: 208px;
-    gap: 5px;
-  }
-
-  .headermojis__emojipicker-container {
+  .headeremojis__emojipicker {
     z-index: 9999;
     right: 10px;
   }
