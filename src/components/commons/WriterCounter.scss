@@ -1,0 +1,51 @@
+@import '../../styles/reset', '../../styles/variables';
+
+.writer-counter {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  .writer-counter__profile-images {
+    display: flex;
+    align-items: flex-start;
+
+    .writer-counter__profile-image-img {
+      width: 28px;
+      height: 28px;
+      border: 1.4px solid $white;
+      border-radius: 50%;
+      background-color: $white;
+    }
+
+    .writer-counter__remaining-profiles {
+      @include font-style(12, Regular);
+      line-height: 18px;
+      width: 28px;
+      height: 28px;
+      background-color: $white;
+      color: $gray600;
+      padding: 4px;
+      border: 2px solid $gray200;
+      border-radius: 50%;
+    }
+
+    .writer-counter__profile-image,
+    .writer-counter__remaining-profiles {
+      position: relative;
+
+      &:not(:last-child) {
+        margin-right: -10px;
+      }
+    }
+  }
+
+  .writer-counter__message {
+    .writer-counter__message-count-number {
+      @include font-style(18, Bold);
+    }
+
+    .writer-counter__message-count-text {
+      @include font-style(18, Regular);
+    }
+  }
+}
