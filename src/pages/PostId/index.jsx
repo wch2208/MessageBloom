@@ -21,6 +21,7 @@ function PostId() {
   const [recipientData, setRecipientData] = useState([]);
   const [deleteDataId, setDeleteDataId] = useState('');
   const [modalData, setModalData] = useState([]);
+  const [searchData, setSearchData] = useState([]);
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -56,7 +57,6 @@ function PostId() {
 
   const handleDeleteMessage = (messageId) => {
     setMessagesData(messagesData.filter((data) => data.id !== messageId));
-    console.log('hi');
   };
 
   const handleDeleteModalOpen = (value) => {
@@ -71,31 +71,42 @@ function PostId() {
     backgroundImage: `url(${backgroundImg})`,
   };
 
+  const setSearchInfo = (category, value) => {
+    showSearchResult(category, value);
+  };
+
+  const showSearchResult = (category, value) => {
+    const filteredMessages = messagesData.filter((data) => {
+      if (category === '전체') return data.sender.includes(value) || data.content.includes(value);
+      if (category === '이름') return data.sender.includes(value);
+      if (category === '내용') return data.content.includes(value);
+    });
+    setSearchData(filteredMessages);
+  };
+
   return (
     <>
       <Header />
       <HeaderPost />
       <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
-        <SearchInput />
+        <SearchInput setSearchInfo={setSearchInfo} />
         <div className='posted-page-container'>
           <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
             <div className='add-post-card__plus-icon'>
               <img src={plusicon} alt='포스트 카드 추가 버튼' />
             </div>
           </div>
-          {messagesData.map((data) => {
-            return (
-              <div key={data.id}>
-                <PostCard
-                  setModalDataByData={setModalDataByData}
-                  handleModalOpen={handleModalOpen}
-                  setIsDeleteModalOpen={setIsDeleteModalOpen}
-                  data={data}
-                  handleDeleteDataId={handleDeleteDataId}
-                />
-              </div>
-            );
-          })}
+          {(searchData.length > 0 ? searchData : messagesData).map((data) => (
+            <div key={data.id}>
+              <PostCard
+                data={data}
+                handleModalOpen={handleModalOpen}
+                handleDeleteDataId={handleDeleteDataId}
+                setModalDataByData={setModalDataByData}
+                setIsDeleteModalOpen={setIsDeleteModalOpen}
+              />
+            </div>
+          ))}
           {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
           {isDeleteModalOpen && (
             <DeleteModal
