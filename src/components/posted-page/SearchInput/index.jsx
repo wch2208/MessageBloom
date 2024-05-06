@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './SearchInput.scss';
-import ArrowIcon from '../../../assets/icon/ic_arrow_down.svg';
+import arrowicon from '../../../assets/icon/ic_arrow_down.svg';
+import searchicon from '../../../assets/icon/ic_search.svg';
 
-function SearchInput({ getSearchValue }) {
+function SearchInput({ setSearchInfo }) {
   const [isSearchCategoryOpen, setIsSearchCategoryOpen] = useState(false);
   const [searchCategory, setSearchCategroy] = useState('전체');
 
@@ -13,8 +14,17 @@ function SearchInput({ getSearchValue }) {
   };
 
   const handleSearchInput = (e) => {
+    if (e.key === 'Enter') {
+      const { value } = e.target;
+      setSearchInfo(searchCategory, value);
+    }
+  };
+
+  const resetSearchValue = (e) => {
     const { value } = e.target;
-    getSearchValue(searchCategory, value);
+    if (value === '') {
+      setSearchInfo(searchCategory, value);
+    }
   };
 
   return (
@@ -30,7 +40,7 @@ function SearchInput({ getSearchValue }) {
                 ? 'search-container__dropdown-menu-img-active'
                 : 'search-container__dropdown-menu-img'
             }
-            src={ArrowIcon}
+            src={arrowicon}
             alt=' 검색창 드롭다운 화살표 아이콘'
           />
         </div>
@@ -56,8 +66,13 @@ function SearchInput({ getSearchValue }) {
         type='text'
         id='search-input'
         className='search-container__input'
-        onChange={handleSearchInput}
+        onKeyDown={handleSearchInput}
+        onChange={resetSearchValue}
       />
+      <button className='search-container__btn'>
+        <img className='search-container__btn-img' src={searchicon} alt='검색창 버튼 아이콘' />
+        <span className='search-container__btn-word'>검색</span>
+      </button>
     </div>
   );
 }
