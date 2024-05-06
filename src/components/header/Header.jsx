@@ -21,14 +21,7 @@ export default function Header() {
 
   return (
     <header
-      className={`header ${
-        isMobile &&
-        location.pathname !== '/' &&
-        location.pathname !== '/list' &&
-        location.pathname !== '/post'
-          ? 'header--hidden'
-          : ''
-      }`}>
+      className={`header ${isMobile && location.pathname !== '/post' ? 'header--hidden' : ''}`}>
       <div className='header-container'>
         <div className='header__left'>
           <Link to='/' aria-label='홈으로 이동'>
