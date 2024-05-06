@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/List/ArrowButton.scss';
+import './ArrowButton.scss';
 
 export default function ArrowButton({ btnType, onClick, children }) {
   return (
