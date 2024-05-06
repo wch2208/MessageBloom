@@ -1,24 +1,41 @@
+import { useEffect } from 'react';
 import './SenderInput.scss';
+import { useForm } from 'react-hook-form';
 
 export default function SenderInput({ setFormData }) {
-  const handleNameChange = (e) => {
+  const {
+    register,
+    formState: { errors },
+    trigger,
+  } = useForm({
+    mode: 'onChange',
+  });
+
+  const onChange = (e) => {
     setFormData((prevFromData) => ({ ...prevFromData, sender: e.target.value }));
-    //TODO: 유효성 검사
   };
 
+  useEffect(() => {
+    trigger();
+  }, [trigger]);
+
   return (
-    <div className='message-form__sender'>
+    <form className='message-form__sender'>
       <label htmlFor='nameInput' className='message-form__title'>
         From.
       </label>
       <input
-        className='message-form__inputs'
+        className={`message-form__inputs ${errors.nameInput && `message-form__inputs--error`}`}
         id='nameInput'
         placeholder='이름을 입력해 주세요.'
-        onChange={handleNameChange}
         autoComplete='off'
         autoFocus
+        onChange={onChange}
+        {...register('nameInput', { required: 'Name is required' })}
       />
-    </div>
+      {errors.nameInput && (
+        <p className='message-form__inputs--error'>{errors.nameInput.message}</p>
+      )}
+    </form>
   );
 }
