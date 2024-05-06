@@ -8,6 +8,7 @@ import Modal from '../../components/posted-page/Modal';
 import DeleteModal from '../../components/posted-page/DeleteModal';
 import Header from '../../components/header/Header.jsx';
 import HeaderPost from '../../components/headerPost/HeaderPost';
+import SearchInput from '../../components/posted-page/SearchInput';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -75,6 +76,7 @@ function PostId() {
       <Header />
       <HeaderPost />
       <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
+        <SearchInput />
         <div className='posted-page-container'>
           <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
             <div className='add-post-card__plus-icon'>
