@@ -1,5 +1,9 @@
 @import '../../../styles/variables';
 
+.arrow-button__container {
+  position: relative;
+}
+
 .arrow-button {
   z-index: 1;
   display: flex;
@@ -19,13 +23,13 @@
 }
 
 .left {
-  position: relative;
-  top: 160px;
-  right: 10px;
+  position: absolute;
+  top: 120px;
+  left: -10px;
 }
 
 .right {
-  position: relative;
-  bottom: 160px;
-  left: 1170px;
+  position: absolute;
+  top: 120px;
+  right: -10px;
 }
