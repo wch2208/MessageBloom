@@ -45,10 +45,7 @@ export default function DropDownEmojis() {
     };
   }, []);
 
-  const topEmojis = emojiSets
-    .slice(0)
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 3);
+  const topEmojis = emojiSets.sort((a, b) => b.count - a.count).slice(0, 3);
 
   const [showPicker, setShowPicker] = useState(false);
 
