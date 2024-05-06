@@ -6,14 +6,37 @@ import Toast from './components/PostToast.jsx';
 import shareicon20 from '../../assets/icon/ic_share_20.svg';
 import shareicon24 from '../../assets/icon/ic_share_24.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
+import { getRecipient } from '../../apis/api.js';
+import { useParams } from 'react-router-dom';
 
 export default function HeaderPost() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [recipientData, setRecipientData] = useState(null);
+  const { id } = useParams();
 
-  const fakeTo = { id: 123, name: '6팀 화이팅!!' };
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const recipient = await getRecipient(id);
+        setRecipientData(recipient);
+      } catch (error) {
+        console.error('Error fetching recipient data:', error);
+      }
+    }
+
+    fetchData();
+
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [id]);
+
+  const shareicon = windowWidth >= 767 ? shareicon24 : shareicon20;
 
   function toggleDropdown() {
     setDropdownOpen(!dropdownOpen);
@@ -26,20 +49,12 @@ export default function HeaderPost() {
     setDropdownOpen(false);
   }
 
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const shareicon = windowWidth >= 767 ? shareicon24 : shareicon20;
-
   return (
     <div className='header-post'>
       <div className='header-post__container'>
-        <div className='header-post__container_to-name'>To. {fakeTo.name}</div>
+        {recipientData && (
+          <div className='header-post__container_to-name'>To. {recipientData.name}</div>
+        )}
         <div className='header-post__container_info'>
           {windowWidth >= 1200 && (
             <>
@@ -56,7 +71,7 @@ export default function HeaderPost() {
 
           <div className='header-post__container_info_container'>
             <div className='header-post__container_info_container-emoji'>
-              <Emojis />
+              {recipientData && <Emojis recipientId={recipientData.id} />}
             </div>
             <img
               className='header-post__container_info_container_rectangle-2'
