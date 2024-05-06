@@ -70,3 +70,13 @@
     padding-left: 10px;
   }
 }
+
+@media #{$tablet-screen} {
+  .search-container {
+    padding-top: 70px;
+    width: 700px;
+    &__input {
+      flex-basis: 500px;
+    }
+  }
+}
