@@ -45,10 +45,7 @@ export default function DropDownEmojis() {
     };
   }, []);
 
-  const topEmojis = emojiSets
-    .slice(0)
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 3);
+  const topEmojis = emojiSets.sort((a, b) => b.count - a.count).slice(0, 3);
 
   const [showPicker, setShowPicker] = useState(false);
 
@@ -65,72 +62,72 @@ export default function DropDownEmojis() {
   const addicon = windowWidth >= 767 ? addicon24 : addicon20;
 
   return (
-    <div>
-      <div className='headermojis__emojis-container'>
-        <div className='headermojis__addition-emojis-container'>
-          <button className='headermojis__dropdown-button'>
-            <div>
-              {topEmojis.length === 0 && (
-                <div className='headermojis__no-data'>
-                  <span className='headermojis__no-data_text'>당신의 반응을 남겨주세요!</span>
-                </div>
-              )}
-            </div>
-            <div className='headermojis__popularemoji'>
-              {topEmojis.map((set, index) => (
-                <span key={index} className='headermojis__emoji'>
-                  {set.emoji}
-                  {set.count}
-                </span>
-              ))}
-            </div>
-            <img
-              src={arrowDownIcon}
-              alt='Dropdown'
-              className='headermojis__dropdown-icon'
-              onClick={toggleDropDown}
-            />
-          </button>
-
-          {isOpen && (
-            <div className='headermojis__emoji-dropdown-container'>
-              <div className='headermojis__emoji-dropdown-menu'>
-                {emojiSets
-                  .slice(0)
-                  .sort((a, b) => b.count - a.count)
-                  .slice(0, maxIcons)
-                  .map((set, index) => (
-                    <div key={index} className='headermojis__emoji-dropdown'>
-                      <span>{set.emoji}</span>
-                      <span>{set.count}</span>
-                    </div>
-                  ))}
+    <div className='headeremojis'>
+      <div className='headeremojis-container'>
+        <button className='headeremojis-container__dropdown'>
+          <div>
+            {topEmojis.length === 0 && (
+              <div className='headeremojis-container__dropdown__no-data'>
+                <span>당신의 반응을 남겨주세요!</span>
               </div>
-            </div>
-          )}
-        </div>
-        <div>
-          <button
-            className='headermojis__emoji-add-btn'
-            onClick={togglePicker}
-            style={{ cursor: 'pointer' }}>
-            <img src={addicon} className='headermojis__add-btn' alt='이모지추가' />
-            <span
-              className='headermojis__add-text'
-              style={{ display: windowWidth >= 768 ? 'inline' : 'none' }}>
-              추가
-            </span>
-          </button>
-          <div className='headermojis__emojipicker-container'>
-            {showPicker && (
-              <EmojiPicker
-                onEmojiClick={handleEmojiClick}
-                className='headermojis__emojipicker'
-                width={300}
-                height={500}
-              />
             )}
           </div>
+          <div className='headeremojis-container__dropdown__popular'>
+            {topEmojis.map((set, index) => (
+              <span key={index} className='headeremojis-container__dropdown__popular-emoji'>
+                {set.emoji}
+                {set.count}
+              </span>
+            ))}
+          </div>
+          <img
+            src={arrowDownIcon}
+            alt='Dropdown'
+            className='headeremojis-container__dropdown-icon'
+            onClick={toggleDropDown}
+          />
+        </button>
+
+        {isOpen && (
+          <div className='headeremojis-container__dropdown-container'>
+            <div className='headeremojis-container__dropdown-container_menu'>
+              {emojiSets
+                .slice(0)
+                .sort((a, b) => b.count - a.count)
+                .slice(0, maxIcons)
+                .map((set, index) => (
+                  <div
+                    key={index}
+                    className='headeremojis-container__dropdown-container_menu-emoji'>
+                    <span>{set.emoji}</span>
+                    <span>{set.count}</span>
+                  </div>
+                ))}
+            </div>
+          </div>
+        )}
+      </div>
+      <div>
+        <button
+          className='headeremojis__add-btn'
+          onClick={togglePicker}
+          style={{ cursor: 'pointer' }}>
+          <img src={addicon} className='headeremojis__add-btn-icon' alt='이모지추가' />
+          <span
+            className='headeremojis__add-btn-text'
+            style={{ display: windowWidth >= 768 ? 'inline' : 'none' }}>
+            추가
+          </span>
+        </button>
+        <div className='headeremojis__emojipicker'>
+          {showPicker && (
+            <EmojiPicker
+              onEmojiClick={handleEmojiClick}
+              className='headeremojis__emojipicker-container'
+              width={300}
+              height={500}
+            />
+          )}
         </div>
       </div>
     </div>
