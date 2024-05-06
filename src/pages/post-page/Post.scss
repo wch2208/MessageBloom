@@ -65,6 +65,10 @@
   @include font-style(18, Bold);
 }
 
+.form--error {
+  @include form-error-style;
+}
+
 @media #{$tablet-screen} {
   .background-form {
     width: 720px;
