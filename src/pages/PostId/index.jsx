@@ -6,6 +6,8 @@ import './PostId.scss';
 import plusicon from '../../assets/icon/ic_plus.svg';
 import Modal from '../../components/posted-page/Modal';
 import DeleteModal from '../../components/posted-page/DeleteModal';
+import Header from '../../components/header/Header.jsx';
+import HeaderPost from '../../components/headerPost/HeaderPost';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -69,36 +71,40 @@ function PostId() {
   };
 
   return (
-    <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
-      <div className='posted-page-container'>
-        <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
-          <div className='add-post-card__plus-icon'>
-            <img src={plusicon} alt='포스트 카드 추가 버튼' />
-          </div>
-        </div>
-        {messagesData.map((data) => {
-          return (
-            <div key={data.id}>
-              <PostCard
-                setModalDataByData={setModalDataByData}
-                handleModalOpen={handleModalOpen}
-                setIsDeleteModalOpen={setIsDeleteModalOpen}
-                data={data}
-                handleDeleteDataId={handleDeleteDataId}
-              />
+    <>
+      <Header />
+      <HeaderPost />
+      <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
+        <div className='posted-page-container'>
+          <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
+            <div className='add-post-card__plus-icon'>
+              <img src={plusicon} alt='포스트 카드 추가 버튼' />
             </div>
-          );
-        })}
-        {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
-        {isDeleteModalOpen && (
-          <DeleteModal
-            handleDeleteMessage={handleDeleteMessage}
-            deleteDataId={deleteDataId}
-            handleDeleteModalOpen={handleDeleteModalOpen}
-          />
-        )}
+          </div>
+          {messagesData.map((data) => {
+            return (
+              <div key={data.id}>
+                <PostCard
+                  setModalDataByData={setModalDataByData}
+                  handleModalOpen={handleModalOpen}
+                  setIsDeleteModalOpen={setIsDeleteModalOpen}
+                  data={data}
+                  handleDeleteDataId={handleDeleteDataId}
+                />
+              </div>
+            );
+          })}
+          {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
+          {isDeleteModalOpen && (
+            <DeleteModal
+              handleDeleteMessage={handleDeleteMessage}
+              deleteDataId={deleteDataId}
+              handleDeleteModalOpen={handleDeleteModalOpen}
+            />
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

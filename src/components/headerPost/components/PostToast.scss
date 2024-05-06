@@ -1,0 +1,66 @@
+@import '../../../styles/reset', '../../../styles/variables';
+
+.sharetoast {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 64px;
+  z-index: 9999;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: $white;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.sharetoast.hide {
+  opacity: 0;
+}
+
+.sharetoast__message {
+  display: flex;
+  justify-content: center;
+  width: 320px;
+  height: 26px;
+  margin-top: 19px;
+}
+
+.sharetoast__message_left {
+  display: flex;
+  align-items: center;
+}
+
+.sharetoast__completed-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.sharetoast__completed-text {
+  margin-right: 15px;
+  @include font-style(16, Regular);
+  line-height: 26px;
+  letter-spacing: -0.01em;
+}
+
+.sharetoast__close-icon {
+  width: 24px;
+  height: 24px;
+}
+
+@media #{$tablet-screen} {
+  .sharetoast {
+    width: 524px;
+    height: 64px;
+  }
+
+  .sharetoast__message {
+    width: 524px;
+  }
+
+  .sharetoast__close-icon {
+    margin-left: 170px;
+  }
+}
