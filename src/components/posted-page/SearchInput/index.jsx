@@ -27,6 +27,10 @@ function SearchInput({ setSearchInfo }) {
     }
   };
 
+  const handleBtnClick = () => {
+    handleSearchInput();
+  };
+
   return (
     <div className='search-container'>
       <div className='search-container__dropdown'>
@@ -69,7 +73,7 @@ function SearchInput({ setSearchInfo }) {
         onKeyDown={handleSearchInput}
         onChange={resetSearchValue}
       />
-      <button className='search-container__btn'>
+      <button className='search-container__btn' onClick={handleBtnClick}>
         <img className='search-container__btn-img' src={searchicon} alt='검색창 버튼 아이콘' />
         <span className='search-container__btn-word'>검색</span>
       </button>
