@@ -1,63 +1,56 @@
 import { useState, useEffect } from 'react';
-import { getMessages, getCommenterCount } from '../../apis/api';
+import { useParams } from 'react-router-dom';
+import { getMessages, getMessageCount } from '../../apis/api'; // 수정 필요
 import './WriterCounter.scss';
 
 const WriterCounter = () => {
   const [profileImages, setProfileImages] = useState([]);
   const [messageCount, setMessageCount] = useState(0);
   const [error, setError] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const messages = await getMessages();
-        const commenterCount = await getCommenterCount();
-        console.log('Commenter count:', commenterCount);
-        setMessageCount(commenterCount.count);
-        // 프로필 이미지가 최대 3개
-        const limitedProfileImages =
-          commenterCount.count > 3
-            ? [
-                profileImages[0],
-                profileImages[1],
-                profileImages[2],
-                `+(${commenterCount.count - 3})`,
-              ]
-            : profileImages;
-        setProfileImages(limitedProfileImages);
+        const messages = await getMessages(id);
+        const count = await getMessageCount(id);
+        setMessageCount(count);
+
+        const sortedProfileImages = messages.map((message) => message.profileImageURL).slice(0, 3); // 최신순으로 3개만 가져오기
+        setProfileImages(sortedProfileImages);
       } catch (error) {
         setError(error);
       }
     };
 
     fetchData();
-  }, []);
-
+  }, [id]);
   if (error) {
     return <div>Error: {error.message}</div>;
   }
 
   return (
-    <div>
-      <h2>Writer Counter</h2>
-      <div>
-        {/* 프로필 이미지 */}
-        <div>
-          {profileImages.map((imageUrl, index) => (
-            <div key={index}>
-              {/* 인원수를 보여주는 경우 */}
-              {index === 3 ? (
-                <span>{imageUrl}</span>
-              ) : (
-                <img src={imageUrl} alt={`Profile ${index + 1}`} height={28} width={28} />
-              )}
-            </div>
-          ))}
-        </div>
-        {/* 메시지 수 */}
-        <span>
-          <span>{messageCount}</span> 명이 작성했어요!
-        </span>
+    <div className='writer-counter'>
+      {/* 프로필 이미지 */}
+      <div className='writer-counter__profile-images'>
+        {profileImages.map((imageUrl, index) => (
+          <div className='writer-counter__profile-image' key={index}>
+            <img
+              src={imageUrl}
+              alt={`Profile ${index + 1}`}
+              className='writer-counter__profile-image-img'
+            />
+          </div>
+        ))}
+        {/* 남은 프로필 이미지 수 */}
+        {messageCount > 3 && (
+          <span className='writer-counter__remaining-profiles'>+{messageCount - 3}</span>
+        )}
+      </div>
+      {/* 메시지 수 */}
+      <div className='writer-counter__message'>
+        <span className='writer-counter__message-count-number'>{messageCount}</span>
+        <span className='writer-counter__message-count-text'>명이 작성했어요!</span>
       </div>
     </div>
   );

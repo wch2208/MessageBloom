@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './HeaderPost.scss';
-import CountPerson from './components/CountPerson.jsx';
 import Emojis from './components/DropDownEmojis.jsx';
 import Toast from './components/PostToast.jsx';
 import shareicon20 from '../../assets/icon/ic_share_20.svg';
 import shareicon24 from '../../assets/icon/ic_share_24.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
+import WriterCounter from '../commons/WriterCounter';
 
 export default function HeaderPost() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -41,14 +41,9 @@ export default function HeaderPost() {
       <div className='headerPost__container'>
         <div className='headerPost__toname'>To. {fakeTo.name}</div>
         <div className='headerPost__info-wrapper'>
-          {windowWidth >= 1200 && (
-            <>
-              <div className='headerPost__person-wrapper'>
-                <CountPerson />
-              </div>
-              <img className='headerPost__rectangle1' src={rectangle} alt='가림막' />
-            </>
-          )}
+          <div className='headerPost__WriterCounter-wrapper'>
+            {windowWidth >= 1200 && <WriterCounter />}
+          </div>
 
           <div className='headerPost__emoji-Share-Control'>
             <div className='headerPost__emoji-Control'>
