@@ -23,6 +23,7 @@
     position: relative;
     &-menu {
       flex-basis: 70px;
+      margin-right: 8px;
       width: 70px;
       height: 35px;
       background-color: $white;
@@ -112,6 +113,9 @@
     width: 700px;
     &__dropdown {
       margin-right: 15px;
+      &-menu {
+        margin-right: 0;
+      }
     }
     &__input {
       flex-basis: 450px;
