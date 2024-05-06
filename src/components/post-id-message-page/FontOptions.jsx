@@ -1,11 +1,14 @@
+import { forwardRef } from 'react';
 import CustomDropdown from './CustomDropdown';
 import { FONTS } from './messageConstants';
 
-export default function FontOptions({ setFormData }) {
+function FontOptions(_, fontOptionsRef) {
   return (
     <div className='message-form__font'>
       <span className='message-form__title'>폰트 선택</span>
-      <CustomDropdown props={FONTS} setFormData={setFormData} />
+      <CustomDropdown props={FONTS} ref={fontOptionsRef} />
     </div>
   );
 }
+
+export default forwardRef(FontOptions);

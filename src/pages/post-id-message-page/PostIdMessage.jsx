@@ -1,8 +1,8 @@
 import './PostIdMessage.scss';
-import { useState, useRef } from 'react';
+import { useRef, useState } from 'react';
 import { postMessageToRecipient } from '../../apis/api';
-import { initialFormData } from '../../components/post-id-message-page/messageConstants';
 import { useParams, useNavigate } from 'react-router-dom';
+import { getFormDataInit } from '../../components/post-id-message-page/messageConstants';
 import ProfileOptions from '../../components/post-id-message-page/ProfileOptions';
 import RelationshipOptions from '../../components/post-id-message-page/RelationshipOptions';
 import SenderInput from '../../components/post-id-message-page/SenderInput';
@@ -16,10 +16,20 @@ const isFontOption = (e) => {
 };
 
 export default function PostIdMessage() {
-  const navigate = useNavigate();
   const scrollTarget = useRef(null);
+  const senderInputRef = useRef();
+  const profileOptionsRef = useRef();
+  const relationshipOptionsRef = useRef();
+  const contentTextareaRef = useRef();
+  const fontOptionsRef = useRef();
+  const navigate = useNavigate();
   const { id } = useParams();
-  const [formData, setFormData] = useState(initialFormData(id));
+  const [error, setError] = useState({
+    sender: false,
+    content: false,
+  });
+
+  const anyInvalid = Object.values(error).some((value) => !value);
 
   const scrollToBottom = (e) => {
     if (isFontOption(e)) {
@@ -28,20 +38,30 @@ export default function PostIdMessage() {
   };
 
   const sendMessage = async () => {
+    const formData = getFormDataInit(
+      id,
+      senderInputRef,
+      profileOptionsRef,
+      relationshipOptionsRef,
+      contentTextareaRef,
+      fontOptionsRef,
+    );
+
     const newFormData = new FormData();
     newFormData.append('data', JSON.stringify(formData));
     await postMessageToRecipient(newFormData.get('data'), id);
+
     navigate(`/post/${id}`);
   };
 
   return (
     <div className='message-form' onClick={scrollToBottom}>
-      <SenderInput setFormData={setFormData} />
-      <ProfileOptions formData={formData} setFormData={setFormData} />
-      <RelationshipOptions setFormData={setFormData} />
-      <ContentTextarea setFormData={setFormData} />
-      <FontOptions setFormData={setFormData} />
-      <LinkButton buttonText={'생성하기'} fullWidth onClick={sendMessage} />
+      <SenderInput ref={senderInputRef} setError={setError} />
+      <ProfileOptions ref={profileOptionsRef} />
+      <RelationshipOptions ref={relationshipOptionsRef} />
+      <ContentTextarea ref={contentTextareaRef} setError={setError} />
+      <FontOptions ref={fontOptionsRef} />
+      <LinkButton buttonText={'생성하기'} fullWidth onClick={sendMessage} disabled={anyInvalid} />
       <div ref={scrollTarget} style={{ marginTop: '160px' }} />
     </div>
   );

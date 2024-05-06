@@ -1,19 +1,18 @@
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import ArrowIcon from '../../assets/icon/ic_arrow_down.svg';
 import './CustomDropdown.scss';
 
-export default function CustomDropdown({ props, setFormData }) {
+function CustomDropdown({ props }, ref) {
   if (!props || props.length === 0) {
     return <p>No items available</p>; // 아이템이 없을 경우의 처리
   }
-
   const [selected, setSelected] = useState(props[0].text);
   const [active, setActive] = useState(false);
 
-  const handleChange = (e) => {
+  const handleClick = (e) => {
     const { innerText } = e.target;
     setSelected(innerText);
-    setFormData((prevFormData) => ({ ...prevFormData, font: innerText }));
+    ref.current = innerText;
   };
 
   const handleToggle = () => {
@@ -32,7 +31,7 @@ export default function CustomDropdown({ props, setFormData }) {
         className={`message-form__drop-down-menu-box ${
           active ? 'message-form__drop-down-menu-box--down' : 'message-form__drop-down-menu-box--up'
         }`}
-        onClick={handleChange}>
+        onClick={handleClick}>
         {props.map((value) => {
           return (
             <div className='message-form__drop-down-menu' key={value.id}>
@@ -44,3 +43,5 @@ export default function CustomDropdown({ props, setFormData }) {
     </div>
   );
 }
+
+export default forwardRef(CustomDropdown);

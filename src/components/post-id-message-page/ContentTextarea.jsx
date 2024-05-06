@@ -1,9 +1,24 @@
 import './ContentTextarea.scss';
+import { forwardRef, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 
-export default function ContentTextarea({ setFormData }) {
-  const handleChange = (e) => {
-    setFormData((prevFormData) => ({ ...prevFormData, content: e.target.value }));
-  };
+function ContentTextarea({ setError }, contentTextareaRef) {
+  const {
+    register,
+    trigger,
+    formState: { errors },
+  } = useForm({ mode: 'all' });
+
+  useEffect(() => {
+    setError((prev) => ({
+      ...prev,
+      content: !errors.content,
+    }));
+  }, [errors.content]);
+
+  useEffect(() => {
+    trigger('content');
+  }, []);
 
   return (
     <div className='message-form__content'>
@@ -15,7 +30,13 @@ export default function ContentTextarea({ setFormData }) {
         name='content'
         id='textarea'
         placeholder='I am your reach text editor.'
-        onChange={handleChange}></textarea>
+        {...register('content', {
+          required: 'Content is required',
+          onChange: (e) => (contentTextareaRef.current = e.target.value),
+        })}
+      />
+      {errors.content && <p className='form--error'>{errors.content.message}</p>}
     </div>
   );
 }
+export default forwardRef(ContentTextarea);
