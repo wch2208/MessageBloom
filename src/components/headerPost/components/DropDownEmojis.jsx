@@ -6,18 +6,7 @@ import addicon20 from '../../../assets/icon/ic_add_20.svg';
 import addicon24 from '../../../assets/icon/ic_add_24.svg';
 
 export default function DropDownEmojis() {
-  const emojiSets = [
-    { id: 1, recipientId: 1, emoji: '🥹', count: 20 },
-    { id: 2, recipientId: 1, emoji: '🤩', count: 15 },
-    { id: 3, recipientId: 1, emoji: '😊', count: 10 },
-    { id: 4, recipientId: 1, emoji: '🤫', count: 3 },
-    { id: 5, recipientId: 1, emoji: '🤫', count: 1 },
-    { id: 6, recipientId: 1, emoji: '🤫', count: 9 },
-    { id: 7, recipientId: 1, emoji: '😎', count: 1 },
-    { id: 8, recipientId: 1, emoji: '🥰', count: 19 },
-    { id: 9, recipientId: 1, emoji: '🥰', count: 1 },
-    { id: 10, recipientId: 1, emoji: '🥰', count: 50 },
-  ];
+  const [emojiSets, setEmojiSets] = useState([]);
 
   const [isOpen, setIsOpen] = useState(false);
   const [maxIcons, setMaxIcons] = useState(6);
@@ -50,9 +39,22 @@ export default function DropDownEmojis() {
   const [showPicker, setShowPicker] = useState(false);
 
   const handleEmojiClick = (emojiData) => {
-    console.log('Selected emoji data:', emojiData);
-    console.log('Selected emoji ID:', emojiData.unified);
-    console.log('Selected emoji character:', emojiData.emoji);
+    setEmojiSets((prevEmojiSets) => {
+      const existingEmoji = prevEmojiSets.find((set) => set.emoji === emojiData.emoji);
+      if (existingEmoji) {
+        return prevEmojiSets.map((set) =>
+          set.emoji === emojiData.emoji ? { ...set, count: set.count + 1 } : set,
+        );
+      } else {
+        const newEmojiSet = {
+          id: emojiData.unified,
+          recipientId: 1,
+          emoji: emojiData.emoji,
+          count: 1,
+        };
+        return [...prevEmojiSets, newEmojiSet];
+      }
+    });
   };
 
   const togglePicker = () => {
