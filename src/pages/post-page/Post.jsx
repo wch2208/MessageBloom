@@ -5,7 +5,6 @@ import { DEFAULT_RECIPIENT } from '../../components/post-page/postPageConstants'
 import { postRecipient } from '../../apis/api';
 import { useNavigate } from 'react-router-dom';
 import LinkButton from '../../components/commons/LinkButton';
-import Header from '../../components/header/Header';
 import { useForm } from 'react-hook-form';
 
 export default function Post() {
@@ -33,7 +32,7 @@ export default function Post() {
 
   return (
     <>
-      <div className='background-form'>
+      <form className='background-form'>
         <div className='background-form__header'>
           <label className='background-form__title'>To.</label>
           <input
