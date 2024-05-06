@@ -71,16 +71,20 @@ function PostId() {
   };
 
   const setSearchInfo = (category, value) => {
-    showSearchResult(category, value);
+    setFilteredData(category, value);
   };
 
-  const showSearchResult = (category, value) => {
-    const filteredMessages = messagesData.filter((data) => {
+  const setFilteredData = (category, value) => {
+    const filteredData = messagesData.filter((data) => {
       if (category === '전체') return data.sender.includes(value) || data.content.includes(value);
       if (category === '이름') return data.sender.includes(value);
       if (category === '내용') return data.content.includes(value);
     });
-    setSearchData(filteredMessages);
+    applyFilterToSearchData(filteredData);
+  };
+
+  const applyFilterToSearchData = (data) => {
+    setSearchData(data);
   };
 
   return (
