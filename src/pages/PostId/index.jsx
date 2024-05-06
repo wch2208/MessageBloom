@@ -6,7 +6,6 @@ import './PostId.scss';
 import plusicon from '../../assets/icon/ic_plus.svg';
 import Modal from '../../components/posted-page/Modal';
 import DeleteModal from '../../components/posted-page/DeleteModal';
-import Header from '../../components/header/Header.jsx';
 import HeaderPost from '../../components/headerPost/HeaderPost';
 import SearchInput from '../../components/posted-page/SearchInput';
 
@@ -86,7 +85,6 @@ function PostId() {
 
   return (
     <>
-      <Header />
       <HeaderPost />
       <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
         <SearchInput setSearchInfo={setSearchInfo} />
