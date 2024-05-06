@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './HeaderPost.scss';
-import CountPerson from './components/CountPerson.jsx';
+import WriterCounter from '../commons/WriterCounter.jsx';
 import Emojis from './components/DropDownEmojis.jsx';
 import Toast from './components/PostToast.jsx';
 import shareicon20 from '../../assets/icon/ic_share_20.svg';
@@ -44,7 +44,7 @@ export default function HeaderPost() {
           {windowWidth >= 1200 && (
             <>
               <div className='header-post__container_info_person-wrapper'>
-                <CountPerson />
+                <WriterCounter />
               </div>
               <img
                 className='header-post__container_info_rectangle-1'
