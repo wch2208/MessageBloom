@@ -6,6 +6,7 @@ import './PostId.scss';
 import plusicon from '../../assets/icon/ic_plus.svg';
 import Modal from '../../components/posted-page/Modal';
 import DeleteModal from '../../components/posted-page/DeleteModal';
+import HeaderPost from '../../components/headerPost/HeaderPost';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,6 +71,7 @@ function PostId() {
 
   return (
     <>
+      <HeaderPost />
       <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
         <div className='posted-page-container'>
           <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>

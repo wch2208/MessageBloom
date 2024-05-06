@@ -19,16 +19,20 @@ export default function Toast({ message }) {
   }
 
   return (
-    <div className={`sharetoast ${showToast ? '' : 'hide'}`}>
+    <div className={`sharetoast ${showToast ? '' : 'sharetoast--hide'}`}>
       <div className='sharetoast__message'>
-        <div className='sharetoast__message_left'>
-          <img src={completedIcon} alt='URL 복사 성공' className='sharetoast__completed-icon' />
-          <span className='sharetoast__completed-text'>{message}</span>
+        <div className='sharetoast__message-left'>
+          <img
+            src={completedIcon}
+            alt='URL 복사 성공'
+            className='sharetoast__message-left__completed-icon'
+          />
+          <span className='sharetoast__message-left__completed-text'>{message}</span>
         </div>
         <img
           src={closeIcon}
           alt='닫기 아이콘'
-          className='sharetoast__close-icon'
+          className='sharetoast__message__close-icon'
           onClick={handleClose}
           style={{ cursor: 'pointer' }}
         />
