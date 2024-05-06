@@ -54,3 +54,14 @@ export async function postMessageToRecipient(formData, id) {
     console.error(`error : ${error}`);
   }
 }
+
+// 리스트 페이지네이션 용
+export const getRecipients = async (limit, offset, isSortLike) => {
+  const query = `limit=${limit}&offset=${offset}&sort=${isSortLike}`;
+  try {
+    const response = await instance.get(`6-6/recipients/?${query}`);
+    return response.data.results;
+  } catch (error) {
+    throw new Error('데이터를 불러오는데 실패했습니다');
+  }
+};

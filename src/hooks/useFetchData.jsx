@@ -1,26 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
-export default function useFetchData(apiFunc, params = []) {
-  const [loading, setLoading] = useState(false);
+export default function useFetchData(apiFunction, params = []) {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState([]);
-
-  const fetchData = async () => {
-    setLoading(true);
-    setError(undefined);
-    try {
-      const res = await apiFunc(...params);
-      setData(res);
-    } catch (err) {
-      setError(`에러가 발생! ${e}`);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const response = await apiFunction(...params);
+        setData(response);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  return [loading, error, data];
+    fetchData();
+  }, [apiFunction, ...params]);
+
+  return { data, isLoading, error };
 }
