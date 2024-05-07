@@ -1,4 +1,4 @@
-import '../../styles/List/ShowTheMostEmojis.scss';
+import './ShowTheMostEmojis.scss';
 
 export default function ShowTheMostEmojis() {
   return (

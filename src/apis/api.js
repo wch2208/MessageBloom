@@ -64,3 +64,38 @@ export async function postMessageToRecipient(formData, id) {
     console.error(`error : ${error}`);
   }
 }
+
+// 리스트 페이지네이션 용
+export const getRecipients = async (limit, offset, order) => {
+  const query = `sort=${order}&limit=${limit}&offset=${offset}`;
+  try {
+    const response = await instance.get(`6-6/recipients/?${query}`);
+    return response.data.results;
+  } catch (error) {
+    throw new Error('데이터를 불러오는데 실패했습니다');
+  }
+};
+
+//------------------이모지 서버 데이터 보내고 가져오기--------------------------------
+export async function addReaction(recipientId, emoji, type) {
+  try {
+    const response = await instance.post(`6-6/recipients/${recipientId}/reactions/`, {
+      emoji,
+      type,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(`error : ${error}`);
+  }
+}
+
+export async function getReactions(recipientId, limit = 8, offset = 0) {
+  try {
+    const response = await instance.get(
+      `6-6/recipients/${recipientId}/reactions/?limit=${limit}&offset=${offset}`,
+    );
+    return response.data;
+  } catch (error) {
+    console.error(`error : ${error}`);
+  }
+}

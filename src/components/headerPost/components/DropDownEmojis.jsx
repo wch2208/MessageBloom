@@ -4,28 +4,52 @@ import './DropDownEmojis.scss';
 import arrowDownIcon from '../../../assets/icon/ic_arrow_down.svg';
 import addicon20 from '../../../assets/icon/ic_add_20.svg';
 import addicon24 from '../../../assets/icon/ic_add_24.svg';
+import { addReaction, getReactions } from '../../../apis/api';
 
-export default function DropDownEmojis() {
-  const emojiSets = [
-    { id: 1, recipientId: 1, emoji: '🥹', count: 20 },
-    { id: 2, recipientId: 1, emoji: '🤩', count: 15 },
-    { id: 3, recipientId: 1, emoji: '😊', count: 10 },
-    { id: 4, recipientId: 1, emoji: '🤫', count: 3 },
-    { id: 5, recipientId: 1, emoji: '🤫', count: 1 },
-    { id: 6, recipientId: 1, emoji: '🤫', count: 9 },
-    { id: 7, recipientId: 1, emoji: '😎', count: 1 },
-    { id: 8, recipientId: 1, emoji: '🥰', count: 19 },
-    { id: 9, recipientId: 1, emoji: '🥰', count: 1 },
-    { id: 10, recipientId: 1, emoji: '🥰', count: 50 },
-  ];
-
+export default function DropDownEmojis({ recipientId }) {
+  const [emojiSets, setEmojiSets] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [maxIcons, setMaxIcons] = useState(6);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [showPicker, setShowPicker] = useState(false);
+
+  const topEmojis = emojiSets.sort((a, b) => b.count - a.count).slice(0, 3);
+
+  useEffect(() => {
+    (async () => setEmojiSets((await getReactions(recipientId)).results))();
+  }, [recipientId]);
+
+  const handleEmojiClick = (emojiData) => {
+    addReaction(recipientId, emojiData.emoji, 'increase').then((response) => {
+      setEmojiSets((prevEmojiSets) => {
+        const existingEmoji = prevEmojiSets.find((set) => set.emoji === emojiData.emoji);
+        if (existingEmoji) {
+          return prevEmojiSets.map((set) =>
+            set.emoji === emojiData.emoji ? { ...set, count: set.count + 1 } : set,
+          );
+        } else {
+          const newEmojiSet = {
+            id: response.id,
+            emoji: emojiData.emoji,
+            count: 1,
+          };
+          return [...prevEmojiSets, newEmojiSet];
+        }
+      });
+    });
+  };
 
   const toggleDropDown = () => {
-    setIsOpen(!isOpen);
+    if (emojiSets.length > 0) {
+      setIsOpen(!isOpen);
+    }
   };
+
+  const togglePicker = () => {
+    setShowPicker((prevState) => !prevState);
+  };
+
+  const addicon = windowWidth >= 767 ? addicon24 : addicon20;
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,27 +63,10 @@ export default function DropDownEmojis() {
     };
 
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  const topEmojis = emojiSets.sort((a, b) => b.count - a.count).slice(0, 3);
-
-  const [showPicker, setShowPicker] = useState(false);
-
-  const handleEmojiClick = (emojiData) => {
-    console.log('Selected emoji data:', emojiData);
-    console.log('Selected emoji ID:', emojiData.unified);
-    console.log('Selected emoji character:', emojiData.emoji);
-  };
-
-  const togglePicker = () => {
-    setShowPicker((prevState) => !prevState);
-  };
-
-  const addicon = windowWidth >= 767 ? addicon24 : addicon20;
 
   return (
     <div className='headeremojis'>
@@ -68,7 +75,7 @@ export default function DropDownEmojis() {
           <div>
             {topEmojis.length === 0 && (
               <div className='headeremojis-container__dropdown__no-data'>
-                <span>당신의 반응을 남겨주세요!</span>
+                <span>이모티콘을 남겨주세요!</span>
               </div>
             )}
           </div>

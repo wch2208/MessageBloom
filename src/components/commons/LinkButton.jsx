@@ -2,12 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './LinkButton.scss';
 
-const LinkButton = ({ to, buttonText, fullWidth, onClick }) => {
-  const buttonClass = `link-button__button ${fullWidth ? 'full-width' : ''}`;
+const LinkButton = ({ to, buttonText, fullWidth, onClick, disabled }) => {
+  const disabledClass = `${disabled ? `link-button--disabled` : ''}`;
+  const fullWidthClass = `${fullWidth ? 'full-width' : ''}`;
+
+  const buttonClasses = ['link-button__button', fullWidthClass, disabledClass]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <div className='link-button'>
-      <Link to={to}>
-        <button className={buttonClass} onClick={onClick}>
+      <Link to={disabled ? '#' : to}>
+        <button className={buttonClasses} onClick={disabled ? (e) => e.preventDefault() : onClick}>
           {buttonText}
         </button>
       </Link>
