@@ -4,12 +4,12 @@ import WritersProfiles from '../writers-profiles';
 import { useState, useEffect } from 'react';
 
 export default function ListCard({ name, backgroundColor, backgroundImageURL, messageCount }) {
-  const backgroundImageStyle = {
-    backgroundImage: `url(${backgroundImageURL})`,
-  };
+  const [backgroundStyle] = useState(
+    backgroundImageURL ? { backgroundImage: `url(${backgroundImageURL})`, color: '#fff' } : {},
+  );
 
   return (
-    <div className={`list-card ${`--${backgroundColor}`}`} style={backgroundImageStyle}>
+    <div className={`list-card ${`--${backgroundColor}`}`} style={backgroundStyle}>
       <div className='list-card__writers'>
         <p className='list-card__writers__to'>To.{name}</p>
         <WritersProfiles />
