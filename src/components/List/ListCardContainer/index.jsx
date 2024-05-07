@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { getRecipients } from '../../../apis/api';
 
 const MAX_SCREEN_WIDTH = 1200;
-const MAX_LIST_LENGTH = 8;
+const MAX_LIST_LENGTH = 12;
 const LIMIT = 4;
 const OFFSET = 0;
 
@@ -52,7 +52,7 @@ export default function ListCardContainer({ sortLike }) {
   return (
     <>
       {!scroll && offset > 0 && <ArrowButtonLeft onClick={handlePrevious} />}
-      {!scroll && offset + 4 < 8 && <ArrowButtonRight onClick={handleNext} />}
+      {!scroll && offset < 12 && <ArrowButtonRight onClick={handleNext} />}
       <div className='list__best-cards'>{data && data.map((card) => <ListCard {...card} />)}</div>
     </>
   );
