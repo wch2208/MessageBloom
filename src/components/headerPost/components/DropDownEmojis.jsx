@@ -11,12 +11,45 @@ export default function DropDownEmojis({ recipientId }) {
   const [isOpen, setIsOpen] = useState(false);
   const [maxIcons, setMaxIcons] = useState(6);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [showPicker, setShowPicker] = useState(false);
+
+  const topEmojis = emojiSets.sort((a, b) => b.count - a.count).slice(0, 3);
+
+  useEffect(() => {
+    (async () => setEmojiSets((await getReactions(recipientId)).results))();
+  }, [recipientId]);
+
+  const handleEmojiClick = (emojiData) => {
+    addReaction(recipientId, emojiData.emoji, 'increase').then((response) => {
+      setEmojiSets((prevEmojiSets) => {
+        const existingEmoji = prevEmojiSets.find((set) => set.emoji === emojiData.emoji);
+        if (existingEmoji) {
+          return prevEmojiSets.map((set) =>
+            set.emoji === emojiData.emoji ? { ...set, count: set.count + 1 } : set,
+          );
+        } else {
+          const newEmojiSet = {
+            id: response.id,
+            emoji: emojiData.emoji,
+            count: 1,
+          };
+          return [...prevEmojiSets, newEmojiSet];
+        }
+      });
+    });
+  };
 
   const toggleDropDown = () => {
     if (emojiSets.length > 0) {
       setIsOpen(!isOpen);
     }
   };
+
+  const togglePicker = () => {
+    setShowPicker((prevState) => !prevState);
+  };
+
+  const addicon = windowWidth >= 767 ? addicon24 : addicon20;
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,61 +67,6 @@ export default function DropDownEmojis({ recipientId }) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getReactions(recipientId);
-        setEmojiSets(data.results);
-      } catch (error) {
-        console.error('Error fetching reactions:', error);
-      }
-    };
-
-    fetchData();
-  }, [recipientId]);
-
-  const topEmojis = emojiSets
-    .slice(0)
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 3);
-
-  const [showPicker, setShowPicker] = useState(false);
-  const [selectedEmoji, setSelectedEmoji] = useState('');
-  const [selectedEmojiCount, setSelectedEmojiCount] = useState(0);
-
-  const handleEmojiClick = (emojiData) => {
-    setSelectedEmoji(emojiData.emoji);
-    setSelectedEmojiCount((prevCount) => prevCount + 1);
-
-    addReaction(recipientId, emojiData.emoji, 'increase')
-      .then((response) => {
-        setEmojiSets((prevEmojiSets) => {
-          const existingEmoji = prevEmojiSets.find((set) => set.emoji === emojiData.emoji);
-          if (existingEmoji) {
-            return prevEmojiSets.map((set) =>
-              set.emoji === emojiData.emoji ? { ...set, count: set.count + 1 } : set,
-            );
-          } else {
-            const newEmojiSet = {
-              id: response.id,
-              emoji: emojiData.emoji,
-              count: 1,
-            };
-            return [...prevEmojiSets, newEmojiSet];
-          }
-        });
-      })
-      .catch((error) => {
-        console.error('Error adding reaction:', error);
-      });
-  };
-
-  const togglePicker = () => {
-    setShowPicker((prevState) => !prevState);
-  };
-
-  const addicon = windowWidth >= 767 ? addicon24 : addicon20;
 
   return (
     <div className='headeremojis'>

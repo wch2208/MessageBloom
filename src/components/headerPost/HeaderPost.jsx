@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import './HeaderPost.scss';
 import WriterCounter from '../commons/WriterCounter.jsx';
 import Emojis from './components/DropDownEmojis.jsx';
@@ -7,7 +8,6 @@ import shareicon20 from '../../assets/icon/ic_share_20.svg';
 import shareicon24 from '../../assets/icon/ic_share_24.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
 import { getRecipient } from '../../apis/api.js';
-import { useParams } from 'react-router-dom';
 
 export default function HeaderPost() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -18,16 +18,10 @@ export default function HeaderPost() {
   const { id } = useParams();
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const recipient = await getRecipient(id);
-        setRecipientData(recipient);
-      } catch (error) {
-        console.error('Error fetching recipient data:', error);
-      }
-    }
-
-    fetchData();
+    (async function () {
+      const recipient = await getRecipient(id);
+      setRecipientData(recipient);
+    })();
 
     function handleResize() {
       setWindowWidth(window.innerWidth);

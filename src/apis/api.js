@@ -65,7 +65,7 @@ export async function postMessageToRecipient(formData, id) {
   }
 }
 
-//------------------이모지 서버 데이터 가져오기--------------------------------
+//------------------이모지 서버 데이터 보내고 가져오기--------------------------------
 export async function addReaction(recipientId, emoji, type) {
   try {
     const response = await instance.post(`6-6/recipients/${recipientId}/reactions/`, {
@@ -74,7 +74,7 @@ export async function addReaction(recipientId, emoji, type) {
     });
     return response.data;
   } catch (error) {
-    console.error(`Error adding reaction: ${error}`);
+    console.error(`error : ${error}`);
   }
 }
 
@@ -85,6 +85,6 @@ export async function getReactions(recipientId, limit = 8, offset = 0) {
     );
     return response.data;
   } catch (error) {
-    console.error(`Error getting reactions: ${error}`);
+    console.error(`error : ${error}`);
   }
 }
