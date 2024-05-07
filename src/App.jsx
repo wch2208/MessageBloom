@@ -6,7 +6,7 @@ import PostId from './pages/post-id';
 import List from './pages/list-page';
 import PostIdMessage from './pages/post-id-message-page/PostIdMessage';
 import Post from './pages/post-page/Post';
-import Layout from './pages/layout/Layout';
+import Layout from './layouts/Layout';
 
 function App() {
   return (
