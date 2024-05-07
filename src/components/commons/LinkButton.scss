@@ -32,6 +32,10 @@ $btn-width-desktop: 280px;
   }
 }
 
+.link-button--disabled {
+  background-color: $gray300;
+}
+
 /*desktop version*/
 @media #{$desktop-screen} {
   .link-button {

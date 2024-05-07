@@ -5,3 +5,7 @@
     cursor: auto;
   }
 }
+
+.form--error {
+  @include form-error-style;
+}
