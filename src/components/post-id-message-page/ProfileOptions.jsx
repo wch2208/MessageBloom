@@ -1,11 +1,15 @@
 import { PROFILES } from './messageConstants';
+import { forwardRef, useState } from 'react';
+import basicImg from '../../assets/image/profile/img_profile_basic.svg';
 import './ProfileOptions.scss';
 
-export default function ProfileOptions({ formData, setFormData }) {
+function ProfileOptions(_, profileOptionsRef) {
+  const [selectedImg, setSelected] = useState(basicImg);
   const handleProfileClick = (e) => {
     const profile = e.target.src;
     if (profile) {
-      setFormData({ ...formData, profileImageURL: profile });
+      profileOptionsRef.current.value = profile;
+      setSelected(profile);
     }
   };
 
@@ -15,7 +19,7 @@ export default function ProfileOptions({ formData, setFormData }) {
       <div className='message-form__profile-container'>
         <img
           className='message-form__profile--selected'
-          src={formData.profileImageURL}
+          src={selectedImg}
           alt='선택된 프로필 이미지'
         />
         <div className='message-form__profile-options'>
@@ -28,6 +32,7 @@ export default function ProfileOptions({ formData, setFormData }) {
                   className='message-form__profile--preview'
                   src={profile.src}
                   alt={profile.alt}
+                  ref={profileOptionsRef}
                 />
               );
             })}
@@ -37,3 +42,5 @@ export default function ProfileOptions({ formData, setFormData }) {
     </div>
   );
 }
+
+export default forwardRef(ProfileOptions);
