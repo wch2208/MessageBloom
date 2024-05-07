@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../styles/List/WritersProfiles.scss';
+import './WritersProfiles.scss';
 
 const mock = {
   id: 2639,

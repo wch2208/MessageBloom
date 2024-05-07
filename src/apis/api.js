@@ -65,6 +65,17 @@ export async function postMessageToRecipient(formData, id) {
   }
 }
 
+// 리스트 페이지네이션 용
+export const getRecipients = async (limit, offset, order) => {
+  const query = `sort=${order}&limit=${limit}&offset=${offset}`;
+  try {
+    const response = await instance.get(`6-6/recipients/?${query}`);
+    return response.data.results;
+  } catch (error) {
+    throw new Error('데이터를 불러오는데 실패했습니다');
+  }
+};
+
 //------------------이모지 서버 데이터 보내고 가져오기--------------------------------
 export async function addReaction(recipientId, emoji, type) {
   try {
