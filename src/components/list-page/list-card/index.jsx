@@ -1,6 +1,6 @@
 import './ListCard.scss';
-import ShowTheMostEmojis from '../ShowTheMostEmoji';
-import WritersProfiles from '../WritersProfile';
+import ShowTheMostEmojis from '../show-the-most-emojis';
+import WritersProfiles from '../writers-profiles';
 import { useState, useEffect } from 'react';
 
 export default function ListCard({ name, backgroundColor, backgroundImageURL, messageCount }) {

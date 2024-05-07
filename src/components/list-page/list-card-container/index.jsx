@@ -1,6 +1,6 @@
 import './ListCardContainer.scss';
-import ListCard from '../ListCard/index';
-import { ArrowButtonLeft, ArrowButtonRight } from '../ArrowButton/index';
+import ListCard from '../list-card/index';
+import { ArrowButtonLeft, ArrowButtonRight } from '../arrow-button/index';
 import useFetchData from '../../../hooks/useFetchData';
 import { useState, useEffect } from 'react';
 import { getRecipients } from '../../../apis/api';
