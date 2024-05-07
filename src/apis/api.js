@@ -2,7 +2,7 @@ import { instance } from './axiosInstance';
 
 export async function getMessages(id) {
   try {
-    const response = await instance.get(`6-6/recipients/${id}/messages/`);
+    const response = await instance.get(`6-6/recipients/${id}/messages/?limit=100`);
     return response.data.results;
   } catch (e) {
     console.error(`error : ${e}`);
