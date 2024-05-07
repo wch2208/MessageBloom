@@ -1,18 +1,5 @@
 @import '../../../styles/variables';
 
-.list-card__writers {
-  width: 125px;
-  height: 114px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.list-card__writers__to {
-  @include font-style(18, Bold);
-  color: $gray900;
-}
-
 .list-card__writers__profiles {
   display: flex;
 }
