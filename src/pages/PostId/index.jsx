@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import PostCard from '../../components/posted-page/PostCard';
+import PostCard from '../../components/posted-page/post-card';
 import { getMessages, getRecipient } from '../../apis/api';
 import './PostId.scss';
 import plusicon from '../../assets/icon/ic_plus.svg';
-import Modal from '../../components/posted-page/Modal';
-import DeleteModal from '../../components/posted-page/DeleteModal';
+import Modal from '../../components/posted-page/modal';
+import DeleteModal from '../../components/posted-page/delete-modal';
 import HeaderPost from '../../components/headerPost/HeaderPost';
-import SearchInput from '../../components/posted-page/SearchInput';
+import SearchInput from '../../components/posted-page/search-input';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);

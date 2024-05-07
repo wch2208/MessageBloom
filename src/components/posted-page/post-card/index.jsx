@@ -1,6 +1,6 @@
 import React from 'react';
 import './PostCard.scss';
-import DeleteButton from '../DeleteButton';
+import DeleteButton from '../delete-button';
 import getClassByRole from '../../../utils/posted-page/getClassByRole';
 import contentSlice from '../../../utils/posted-page/contentSlice';
 import getTimeLocale from '../../../utils/posted-page/getTimeLocale';
