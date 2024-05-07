@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.scss';
 import Main from './pages/Main';
 import PostId from './pages/PostId';
-import List from './pages/List';
+import List from './pages/list-page';
 import PostIdMessage from './pages/post-id-message-page/PostIdMessage';
 import Post from './pages/post-page/Post';
 import Layout from './pages/layout/Layout';
