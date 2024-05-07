@@ -1,5 +1,5 @@
 import './List.scss';
-import ListCardContainer from '../../components/List/ListCardContainer/index';
+import ListCardContainer from '../../components/list-page/list-card-container/index';
 import Header from '../../components/header/Header';
 import { useState } from 'react';
 
