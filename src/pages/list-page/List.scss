@@ -17,16 +17,26 @@
   padding-bottom: 12px;
 }
 
+.list__create-btn__wrap {
+  margin: auto;
+  width: 320px;
+}
+
 .list__create-btn {
   border: 0px;
   background-color: #f26d85;
   color: $white;
-  min-width: 320px;
+  width: 100%;
   height: 56px;
   padding: 14px 24px;
   margin: 24px auto;
   border-radius: 12px;
   @include font-style(18, Regular);
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba($accent-color, $alpha: 0.75);
+  }
 }
 
 @media #{$tablet-screen} {
@@ -34,7 +44,7 @@
     width: 720px;
   }
 
-  .list__create-btn {
+  .list__create-btn__wrap {
     width: 720px;
   }
 }
@@ -44,7 +54,7 @@
     width: 1200px;
   }
 
-  .list__create-btn {
+  .list__create-btn__wrap {
     width: 280px;
   }
 }
