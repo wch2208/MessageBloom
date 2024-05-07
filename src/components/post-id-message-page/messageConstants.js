@@ -1,5 +1,3 @@
-import BasicProfile from '../../assets/image/profile/img_profile_basic.svg';
-
 export const FONTS = [
   { text: 'Noto Sans', id: 1 },
   { text: 'Pretendard', id: 2 },
@@ -13,16 +11,6 @@ export const MEMBERS = [
   { text: '동료', id: 3 },
   { text: '가족', id: 4 },
 ];
-
-export const initialFormData = (id) => ({
-  team: '6-6',
-  recipientId: id,
-  sender: '',
-  profileImageURL: BasicProfile,
-  relationship: MEMBERS[0].text,
-  content: '',
-  font: FONTS[0].text,
-});
 
 export const PROFILES = [
   {
@@ -66,3 +54,20 @@ export const PROFILES = [
     alt: '프로필 이미지',
   },
 ];
+
+export const getFormDataInit = (
+  id,
+  senderInputRef,
+  profileOptionsRef,
+  relationshipOptionsRef,
+  contentTextareaRef,
+  fontOptionsRef,
+) => ({
+  team: '6-6',
+  recipientId: id,
+  sender: senderInputRef.current,
+  profileImageURL: profileOptionsRef.current.value || PROFILES[0].src,
+  relationship: relationshipOptionsRef.current || MEMBERS[0].text,
+  content: contentTextareaRef.current,
+  font: fontOptionsRef.current || FONTS[0].text,
+});
