@@ -36,7 +36,6 @@
         cursor: pointer;
         outline: none;
         &:focus {
-          border: solid 2px $error;
           background-color: $accent-color;
         }
       }
