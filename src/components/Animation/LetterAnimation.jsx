@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './LetterAnimation.scss';
-import flower from '../..//assets/logo/ic_flower_RemoveBg.svg';
 
 const LetterAnimation = () => {
   useEffect(() => {
@@ -21,16 +20,18 @@ const LetterAnimation = () => {
 
   return (
     <div className='falling-letter-container'>
-      <img className='falling-letter' src={flower}></img>
-      <div className='falling-letter'>💌</div>
-      <div className='falling-letter'>💌</div>
-      <div className='falling-letter'>💌</div>
       <div className='falling-letter'>💌</div>
       <div className='falling-letter'>💌</div>
       <div className='falling-letter'>🌸</div>
+      <div className='falling-letter'>💌</div>
       <div className='falling-letter'>🌸</div>
+      <div className='falling-letter'>💌</div>
+      <div className='falling-letter'>💌</div>
       <div className='falling-letter'>🌸</div>
+      <div className='falling-letter'>💌</div>
+      <div className='falling-letter'>💌</div>
       <div className='falling-letter'>🌸</div>
+      <div className='falling-letter'>💌</div>
       <div className='falling-letter'>🌸</div>
       <div className='falling-letter'>💌</div>
     </div>
