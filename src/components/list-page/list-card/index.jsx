@@ -1,17 +1,15 @@
 import './ListCard.scss';
-import ShowTheMostEmojis from '../ShowTheMostEmoji';
-import WritersProfiles from '../WritersProfile';
+import ShowTheMostEmojis from '../show-the-most-emojis';
+import WritersProfiles from '../writers-profiles';
 import { useState, useEffect } from 'react';
 
 export default function ListCard({ name, backgroundColor, backgroundImageURL, messageCount }) {
-  const [background, setBackground] = useState('');
-
-  useEffect(() => {
-    backgroundColor.length > 0 ? setBackground(backgroundColor) : setBackground(backgroundImageURL);
-  }, [backgroundColor, backgroundImageURL]);
+  const backgroundImageStyle = {
+    backgroundImage: `url(${backgroundImageURL})`,
+  };
 
   return (
-    <div className={`list-card ${background ? `--${background}` : ''}`}>
+    <div className={`list-card ${`--${backgroundColor}`}`} style={backgroundImageStyle}>
       <div className='list-card__writers'>
         <p className='list-card__writers__to'>To.{name}</p>
         <WritersProfiles />
