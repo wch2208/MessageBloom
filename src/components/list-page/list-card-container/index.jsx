@@ -53,7 +53,9 @@ export default function ListCardContainer({ sortLike }) {
     <>
       {!scroll && offset > 0 && <ArrowButtonLeft onClick={handlePrevious} />}
       {!scroll && offset < 12 && <ArrowButtonRight onClick={handleNext} />}
-      <div className='list__best-cards'>{data && data.map((card) => <ListCard {...card} />)}</div>
+      <div className='list__best-cards'>
+        {data && data.map((card) => <ListCard key={card.id} {...card} />)}
+      </div>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import './List.scss';
 import ListCardContainer from '../../components/list-page/list-card-container/index';
-import Header from '../../components/header/Header';
-import { useState } from 'react';
+import LinkButton from '../../components/commons/LinkButton';
+import { Link } from 'react-router-dom';
 
 export default function List() {
   return (
@@ -15,7 +15,11 @@ export default function List() {
         <p className='list__newest-title'>최근에 만든 롤링 페이퍼 ⭐️</p>
         <ListCardContainer sortLike='' />
       </div>
-      <button className='list__create-btn'>나도 만들어보기</button>
+      <div className='list__create-btn__wrap'>
+        <Link to='/post'>
+          <button className='list__create-btn'>나도 만들어보기</button>
+        </Link>
+      </div>
     </div>
   );
 }
