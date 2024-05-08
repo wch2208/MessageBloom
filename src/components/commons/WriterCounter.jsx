@@ -30,7 +30,7 @@ const WriterCounter = ({ id, displayOption }) => {
   }
 
   return (
-    <div className='writer-counter'>
+    <div className={`writer-counter ${displayOption === 'vertical' ? 'vertical' : ''}`}>
       <div className='writer-counter__profile-images'>
         {profileImages.map((imageUrl, index) => (
           <div className='writer-counter__profile-image' key={index}>
@@ -45,6 +45,7 @@ const WriterCounter = ({ id, displayOption }) => {
           <span className='writer-counter__remaining-profiles'>+{messageCount - 3}</span>
         )}
       </div>
+      {displayOption === 'vertical' && <br />}
       <div className='writer-counter__message'>
         <span className='writer-counter__message-count-number'>{messageCount}</span>
         <span className='writer-counter__message-count-text'>명이 작성했어요!</span>

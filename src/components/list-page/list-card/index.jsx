@@ -22,9 +22,7 @@ export default function ListCard({ name, backgroundColor, backgroundImageURL, me
       <div className='list-card__writers'>
         <p className='list-card__writers__to'>To.{name}</p>
 
-        <WriterCounter id={id} displayOption='separated' />
-
-        <div className='list-card__text'></div>
+        <WriterCounter id={id} displayOption='vertical' />
       </div>
 
       <div className='list-card__emoji-container'>
