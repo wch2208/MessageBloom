@@ -1,10 +1,10 @@
 @import '../../styles/variables', '../../styles/reset';
 
 $background-colors: (
-  beige: $beige200,
-  purple: $purple200,
-  blue: $blue200,
-  green: $green200,
+  beige: $bg-beige,
+  purple: $bg-purple,
+  blue: $bg-blue,
+  green: $bg-green,
 );
 
 @mixin background-color-style($color: none) {
