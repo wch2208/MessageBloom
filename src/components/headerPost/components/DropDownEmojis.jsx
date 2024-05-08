@@ -107,7 +107,9 @@ export default function DropDownEmojis({ recipientId }) {
                     key={index}
                     className='headeremojis-container__dropdown-container_menu-emoji'>
                     <span>{set.emoji}</span>
-                    <span>{set.count}</span>
+                    <span className='headeremojis-container__dropdown-container_menu-emoji-text'>
+                      {set.count}
+                    </span>
                   </div>
                 ))}
             </div>

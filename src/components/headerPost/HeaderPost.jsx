@@ -3,25 +3,32 @@ import { useParams } from 'react-router-dom';
 import './HeaderPost.scss';
 import WriterCounter from '../commons/WriterCounter.jsx';
 import Emojis from './components/DropDownEmojis.jsx';
-import Toast from './components/PostToast.jsx';
 import shareicon20 from '../../assets/icon/ic_share_20.svg';
 import shareicon24 from '../../assets/icon/ic_share_24.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
 import { getRecipient } from '../../apis/api.js';
 
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+
 export default function HeaderPost() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [showToast, setShowToast] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [recipientData, setRecipientData] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
-    (async function () {
-      const recipient = await getRecipient(id);
-      setRecipientData(recipient);
-    })();
+    async function fetchData() {
+      try {
+        const recipient = await getRecipient(id);
+        setRecipientData(recipient);
+      } catch (error) {
+        console.error('Error fetching recipient data:', error);
+      }
+    }
+
+    fetchData();
 
     function handleResize() {
       setWindowWidth(window.innerWidth);
@@ -31,17 +38,15 @@ export default function HeaderPost() {
   }, [id]);
 
   const shareicon = windowWidth >= 767 ? shareicon24 : shareicon20;
+  const notify = (message) => toast.info(message);
 
-  function toggleDropdown() {
-    setDropdownOpen(!dropdownOpen);
-  }
-
-  function handleShareOptionClick(option) {
-    const message = `${option}이 복사되었습니다.`;
-    setToastMessage(message);
-    setShowToast(true);
-    setDropdownOpen(false);
-  }
+  const copyURLToClipboard = () => {
+    const currentURL = window.location.href;
+    navigator.clipboard
+      .writeText(currentURL)
+      .then(() => notify('URL이 복사되었습니다!'))
+      .catch((error) => console.error('Failed to copy URL:', error));
+  };
 
   return (
     <div className='header-post'>
@@ -76,21 +81,33 @@ export default function HeaderPost() {
               <div className='header-post__container_info_container_share-dropdown'>
                 <button
                   className='header-post__container_info_container_share-dropdown_btn'
-                  onClick={toggleDropdown}>
+                  onClick={() => setDropdownOpen(!dropdownOpen)}>
                   <img src={shareicon} alt='페이지공유' />
                 </button>
                 {dropdownOpen && (
                   <ul className='header-post__container_info_container_share-dropdown_menu'>
-                    <li onClick={() => handleShareOptionClick('KakaoTalk')}>카카오톡 공유</li>
-                    <li onClick={() => handleShareOptionClick('URL')}>URL 공유</li>
+                    <li onClick={() => notify('kakaotalk이 복사되었습니다!')}>카카오톡 공유</li>
+                    <li onClick={copyURLToClipboard}>URL 공유</li>
                   </ul>
                 )}
+                <ToastContainer
+                  position='bottom-center'
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  toastClassName='custom-toast' // 사용자 정의 클래스명 추가
+                  theme='colored'
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
-      {dropdownOpen || (showToast && <Toast message={toastMessage} />)}
     </div>
   );
 }
