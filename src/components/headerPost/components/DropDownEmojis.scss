@@ -38,6 +38,7 @@
       height: 98px;
       top: 40px;
       left: 6px;
+      z-index: map-get($z-indexes, level2);
 
       &_menu {
         display: grid;
@@ -153,7 +154,7 @@
   }
 
   .headeremojis__emojipicker {
-    z-index: 9999;
+    z-index: map-get($z-indexes, level3);
     right: 10px;
   }
 }
@@ -195,7 +196,7 @@
   }
 
   .headeremojis__emojipicker {
-    z-index: 9999;
+    z-index: map-get($z-indexes, level3);
     right: 10px;
   }
 }

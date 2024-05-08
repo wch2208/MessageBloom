@@ -82,7 +82,7 @@
             position: absolute;
             right: 0px;
             width: 140px;
-            z-index: 2000;
+            z-index: map-get($z-indexes, level5);
           }
         }
       }
@@ -103,6 +103,7 @@
   border-radius: 8px !important;
   bottom: 88px !important;
   margin: 0 auto;
+  z-index: map-get($z-indexes, level5);
 
   @media #{$tablet-screen} {
     width: 524px;
