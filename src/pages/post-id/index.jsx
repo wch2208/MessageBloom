@@ -9,7 +9,6 @@ import DeleteModal from '../../components/post-id/postcard-delete-modal';
 import HeaderPost from '../../components/headerPost/HeaderPost';
 import SearchInput from '../../components/post-id/search-input';
 import PostDeleteModal from '../../components/post-id/post-delete-modal';
-import PostPwModal from '../../components/post-id/post-pw-modal';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,7 +23,6 @@ function PostId() {
   const [deleteDataId, setDeleteDataId] = useState('');
   const [modalData, setModalData] = useState([]);
   const [searchData, setSearchData] = useState([]);
-  const [hasPassword, setHasPassword] = useState(false);
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -44,13 +42,6 @@ function PostId() {
     selectBackgroundTypeByData(recipientData);
   }, [recipientData]);
 
-  useEffect(() => {
-    const pwValue = localStorage.getItem(id);
-    if (pwValue === null) {
-      setHasPassword(false);
-    } else setHasPassword(true);
-  }, []);
-
   // 모달 데이터 관리함수
   const setModalDataByData = (modalId) => {
     const [modalItem] = messagesData.filter((data) => data.id == modalId);
@@ -68,10 +59,6 @@ function PostId() {
 
   const handlePostDeleteModalOpen = (value) => {
     setIsPostDeleteModalOpen(value);
-  };
-
-  const handleSetPwModalOpen = (value) => {
-    setHasPassword(value);
   };
 
   // 배경화면 상태값 관리함수
@@ -150,7 +137,6 @@ function PostId() {
           {isPostDeleteModalOpen && (
             <PostDeleteModal handlePostDeleteModalOpen={handlePostDeleteModalOpen} id={id} />
           )}
-          {hasPassword || <PostPwModal id={id} handleSetPwModalOpen={handleSetPwModalOpen} />}
         </div>
       </div>
     </>
