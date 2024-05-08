@@ -55,7 +55,7 @@ function PostPwModal({ id, handleSetPwModalOpen }) {
             />
           )}
           <button id='post-pw-modal-container__check-btn' onClick={setPwToLocalStorage}>
-            확인
+            생성
           </button>
         </div>
       </div>
