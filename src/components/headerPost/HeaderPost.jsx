@@ -49,7 +49,7 @@ export default function HeaderPost() {
   };
 
   // 배포한 자신의 사이트
-  const realUrl = import.meta.env.VITE_BASE_URL;
+  const realUrl = 'https://rolling-api.vercel.app/';
   // 로컬 주소 (localhost 3000 같은거)
   const resultUrl = window.location.href;
 
