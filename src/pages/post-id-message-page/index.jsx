@@ -1,12 +1,12 @@
 import './PostIdMessage.scss';
-import { useRef, useState } from 'react';
 import { postMessageToRecipient } from '../../apis/api';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getFormDataInit } from '../../components/post-id-message-page/messageConstants';
-import ProfileOptions from '../../components/post-id-message-page/ProfileOptions';
+import { useRef, useState } from 'react';
+import { getFormData } from '../../components/post-id-message-page/messageConstants';
 import RelationshipOptions from '../../components/post-id-message-page/RelationshipOptions';
-import SenderInput from '../../components/post-id-message-page/SenderInput';
 import ContentTextarea from '../../components/post-id-message-page/ContentTextarea';
+import ProfileOptions from '../../components/post-id-message-page/ProfileOptions';
+import SenderInput from '../../components/post-id-message-page/SenderInput';
 import FontOptions from '../../components/post-id-message-page/FontOptions';
 import LinkButton from '../../components/commons/LinkButton';
 
@@ -38,7 +38,7 @@ export default function PostIdMessage() {
   };
 
   const sendMessage = async () => {
-    const formData = getFormDataInit(
+    const formData = getFormData(
       id,
       senderInputRef,
       profileOptionsRef,
