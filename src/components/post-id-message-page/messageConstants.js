@@ -55,7 +55,7 @@ export const PROFILES = [
   },
 ];
 
-export const getFormDataInit = (
+export const getFormData = (
   id,
   senderInputRef,
   profileOptionsRef,

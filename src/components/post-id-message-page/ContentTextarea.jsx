@@ -29,9 +29,9 @@ function ContentTextarea({ setError }, contentTextareaRef) {
         className='message-form__text-area'
         name='content'
         id='textarea'
-        placeholder='I am your reach text editor.'
+        placeholder='좋은 추억이나 감사의 메세지를 작성해 주세요!'
         {...register('content', {
-          required: 'Content is required',
+          required: '내용을 입력해주세요.',
           onChange: (e) => (contentTextareaRef.current = e.target.value),
         })}
       />
