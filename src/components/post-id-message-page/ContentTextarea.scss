@@ -7,11 +7,11 @@
   border-radius: 8px;
   border: 1px solid $gray300;
   resize: none;
+  @include font-style(16, Regular);
+  color: $gray800;
 }
 
 .message-form__text-area::placeholder {
-  @include font-style(16, Regular);
-  line-height: 26px;
-  letter-spacing: -0.01em;
-  color: $gray900;
+  @include font-style(14, Regular);
+  color: $gray400;
 }
