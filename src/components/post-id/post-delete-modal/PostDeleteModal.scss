@@ -14,18 +14,37 @@
     margin: 100px auto 0 auto;
     background-color: $white;
     gap: 15px;
+    position: relative;
+    right: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     animation: modalUp 0.5s ease-in-out;
-    &__pw-container__input {
-      height: 25px;
-      width: 180px;
-      border: 1px solid $gray300;
-      border-radius: 6px;
-      padding-left: 10px;
-      font-size: 16px;
+    &.fail {
+      .post-delete-modal-container__message {
+        color: $error;
+      }
+      .post-delete-modal-container__pw-container__input {
+        border: solid 1px $error;
+      }
+    }
+    &__pw-container {
+      &__pw-icon {
+        position: absolute;
+        width: 18px;
+        top: 73px;
+        right: 85px;
+        cursor: pointer;
+      }
+      &__input {
+        height: 25px;
+        width: 180px;
+        border: 1px solid $gray300;
+        border-radius: 6px;
+        padding-left: 10px;
+        font-size: 16px;
+      }
     }
     &__message {
       margin-top: 15px;
@@ -55,21 +74,33 @@
   .post-delete-modal-wrapper {
     .post-delete-modal-container {
       width: 540px;
-      height: 240px;
+      height: 220px;
       gap: 40px;
-      &__pw-container__input {
-        height: 35px;
-        width: 250px;
-        border: 1px solid $gray300;
-        border-radius: 6px;
-        padding-left: 10px;
-        font-size: 16px;
+      &__pw-container {
+        position: relative;
+        &__pw-icon {
+          width: 22px;
+          cursor: pointer;
+          position: absolute;
+          top: -1px;
+          right: 10px;
+        }
+        &__input {
+          height: 35px;
+          width: 250px;
+          margin-top: -15px;
+          border: 1px solid $gray300;
+          border-radius: 6px;
+          padding-left: 10px;
+          font-size: 16px;
+        }
       }
       &__message {
         margin-top: 20px;
         @include font-style(24, Bold);
       }
       &__btns {
+        margin-top: -15px;
         display: flex;
         gap: 50px;
         #post-delete-modal-container__btns-check-btn,
