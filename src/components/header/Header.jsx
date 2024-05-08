@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <header className={`header`}>
       <div className='header-container'>
-        <div className='header-container__leftsid'>
+        <div className='header-container__left-side'>
           <Link to='/' aria-label='홈으로 이동'>
             <picture className='header-container__logo'>
               <img src={writeicon} alt='로고 아이콘' className='header-container__logo-icon' />
@@ -24,22 +24,29 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className='toggle-container'>
-          <button
-            className={`toggle-button ${animationOn ? 'on' : 'off'}`}
-            onClick={toggleAnimation}>
-            {animationOn ? '편지왔어요!' : '편지왔어요?'}
-          </button>
-          {animationOn && <LetterAnimation />}
-        </div>
-
-        {(location.pathname === '/' || location.pathname === '/list') && (
-          <div className='header-container__post-btn'>
-            <Link to='/post' className='header-container__post-btn-text'>
-              롤링 페이지 만들기
-            </Link>
+        <div className='header-container__right-side'>
+          <div className='toggle-container'>
+            <input
+              type='checkbox'
+              id='switch'
+              className='toggle-input'
+              onChange={toggleAnimation}
+              checked={animationOn}
+            />
+            <label htmlFor='switch' className='toggle-label'>
+              <span className='onf_btn'></span>
+            </label>
+            {animationOn && <LetterAnimation />}
           </div>
-        )}
+
+          {(location.pathname === '/' || location.pathname === '/list') && (
+            <div className='header-container__post-btn'>
+              <Link to='/post' className='header-container__post-btn-text'>
+                롤링 페이퍼 만들기
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
