@@ -32,30 +32,21 @@ function PostDeleteModal({ handlePostDeleteModalOpen, id }) {
   const handleCheckClick = () => {
     const { value } = pwRef.current;
     if (!value) {
-      console.log('hi');
       setIsFailConfirm(true);
       setTimeout(() => {
         setIsFailConfirm(false);
       }, 1000);
-    } else if (value !== localStorage.getItem(`${id}`)) {
-      console.log('hi');
+    } else if (value !== id) {
       setIsFailConfirm(true);
       setTimeout(() => {
         setIsFailConfirm(false);
       }, 1000);
     } else {
       deleteRecipientData(id);
-      handlePostDeleteModalOpen(false);
-      removeLocalStorageKey(id);
       setTimeout(() => {
         navigate(`/list`);
       }, 500);
     }
-  };
-
-  // localStorage에 저장된 key 값 제거함수
-  const removeLocalStorageKey = (id) => {
-    localStorage.removeItem(`${id}`);
   };
 
   const handleKeyDown = (e) => {
