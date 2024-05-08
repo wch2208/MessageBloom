@@ -14,43 +14,43 @@ export const MEMBERS = [
 
 export const PROFILES = [
   {
-    src: 'https://cdn.pixabay.com/photo/2020/06/21/06/00/bohemian-5323332_640.png',
+    src: 'https://cdn.icon-icons.com/icons2/1736/PNG/512/4043232-avatar-batman-comics-hero_113278.png',
     alt: '프로필 이미지',
   },
   {
-    src: 'https://cdn.pixabay.com/photo/2017/12/25/22/52/tiger-3039280_640.jpg',
+    src: 'https://cdn.icon-icons.com/icons2/1736/PNG/512/4043233-anime-away-face-no-nobody-spirited_113254.png',
     alt: '프로필 이미지',
   },
   {
-    src: 'https://cdn.pixabay.com/photo/2017/01/31/15/12/avatar-2024924_640.png',
+    src: 'https://cdn.icon-icons.com/icons2/1736/PNG/512/4043234-animal-avatar-bear-russian_113283.png',
     alt: '프로필 이미지',
   },
   {
-    src: 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359554_640.png',
+    src: 'https://cdn.icon-icons.com/icons2/1736/PNG/512/4043272-avatar-lazybones-sloth-sluggard_113274.png',
     alt: '프로필 이미지',
   },
   {
-    src: 'https://cdn.pixabay.com/photo/2012/04/13/21/07/user-33638_640.png',
+    src: 'https://cdn.icon-icons.com/icons2/1736/PNG/512/4043270-avatar-joker-squad-suicide-woman_113256.png',
     alt: '프로필 이미지',
   },
   {
-    src: 'https://cdn.pixabay.com/photo/2014/03/25/16/24/female-296990_640.png',
+    src: 'https://cdn.icon-icons.com/icons2/1736/PNG/512/4043250-avatar-child-girl-kid_113270.png',
     alt: '프로필 이미지',
   },
   {
-    src: 'https://cdn.pixabay.com/photo/2020/10/11/19/51/cat-5646889_640.jpg',
+    src: 'https://cdn.icon-icons.com/icons2/1736/PNG/512/4043251-avatar-female-girl-woman_113291.png',
     alt: '프로필 이미지',
   },
   {
-    src: 'https://cdn.pixabay.com/photo/2016/03/31/19/58/avatar-1295429_640.png',
+    src: 'https://cdn.icon-icons.com/icons2/1736/PNG/96/4043260-avatar-male-man-portrait_113269.png',
     alt: '프로필 이미지',
   },
   {
-    src: 'https://cdn.pixabay.com/photo/2016/08/16/03/23/blue-popeyes-1597028_640.png',
+    src: 'https://cdn.icon-icons.com/icons2/1736/PNG/96/4043255-beard-hipster-male-man_113243.png',
     alt: '프로필 이미지',
   },
   {
-    src: 'https://cdn.pixabay.com/photo/2022/09/06/20/31/profile-pic-7437435_640.png',
+    src: 'https://cdn.icon-icons.com/icons2/1736/PNG/96/4043276-christmas-clous-santa_113290.png',
     alt: '프로필 이미지',
   },
 ];
