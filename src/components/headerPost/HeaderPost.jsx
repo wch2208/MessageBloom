@@ -100,7 +100,7 @@ export default function HeaderPost() {
                   pauseOnFocusLoss
                   draggable
                   pauseOnHover
-                  toastClassName='custom-toast' // 사용자 정의 클래스명 추가
+                  toastClassName='custom-toast'
                   theme='colored'
                 />
               </div>
