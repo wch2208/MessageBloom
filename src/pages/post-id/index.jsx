@@ -8,11 +8,13 @@ import Modal from '../../components/post-id/postcard-modal';
 import DeleteModal from '../../components/post-id/postcard-delete-modal';
 import HeaderPost from '../../components/headerPost/HeaderPost';
 import SearchInput from '../../components/post-id/search-input';
-import PostDeleteButton from '../../components/post-id/post-delete-button';
+import PostDeleteModal from '../../components/post-id/post-delete-modal';
+import PostPwModal from '../../components/post-id/post-pw-modal';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isPostDeleteModalOpen, setIsPostDeleteModalOpen] = useState(false);
 
   const [backgroundImg, setBackgroundImg] = useState('');
   const [backgroundColor, setBackgroundColor] = useState('');
@@ -22,6 +24,7 @@ function PostId() {
   const [deleteDataId, setDeleteDataId] = useState('');
   const [modalData, setModalData] = useState([]);
   const [searchData, setSearchData] = useState([]);
+  const [hasPassword, setHasPassword] = useState(false);
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -32,6 +35,7 @@ function PostId() {
     setRecipientData(recipient);
   };
 
+  // 마운트 시 실행 로직
   useEffect(() => {
     getInfosFromData(id);
   }, []);
@@ -40,37 +44,57 @@ function PostId() {
     selectBackgroundTypeByData(recipientData);
   }, [recipientData]);
 
+  useEffect(() => {
+    const pwValue = localStorage.getItem(id);
+    if (pwValue === null) {
+      setHasPassword(false);
+    } else setHasPassword(true);
+  }, []);
+
+  // 모달 데이터 관리함수
   const setModalDataByData = (modalId) => {
     const [modalItem] = messagesData.filter((data) => data.id == modalId);
     setModalData(modalItem);
   };
 
+  // 모달창 오픈용 boolean 상태값 관리 함수
   const handleModalOpen = (value) => {
     setIsModalOpen(value);
-  };
-
-  const selectBackgroundTypeByData = (recipientData) => {
-    recipientData.backgroundImageURL === null
-      ? setBackgroundColor(recipientData.backgroundColor)
-      : setBackgroundImg(recipientData.backgroundImageURL);
-  };
-
-  const handleDeleteMessage = (messageId) => {
-    setMessagesData(messagesData.filter((data) => data.id !== messageId));
   };
 
   const handleDeleteModalOpen = (value) => {
     setIsDeleteModalOpen(value);
   };
 
-  const handleDeleteDataId = (id) => {
-    setDeleteDataId(id);
+  const handlePostDeleteModalOpen = (value) => {
+    setIsPostDeleteModalOpen(value);
+  };
+
+  const handleSetPwModalOpen = (value) => {
+    setHasPassword(value);
+  };
+
+  // 배경화면 상태값 관리함수
+  const selectBackgroundTypeByData = (recipientData) => {
+    recipientData.backgroundImageURL === null
+      ? setBackgroundColor(recipientData.backgroundColor)
+      : setBackgroundImg(recipientData.backgroundImageURL);
   };
 
   const backgroundImageStyle = {
     backgroundImage: `url(${backgroundImg})`,
   };
 
+  // 메세지 삭제 함수
+  const handleDeleteMessage = (messageId) => {
+    setMessagesData(messagesData.filter((data) => data.id !== messageId));
+  };
+
+  const handleDeleteDataId = (id) => {
+    setDeleteDataId(id);
+  };
+
+  // 검색결과 반영 및 카테고리 관리 함수
   const setSearchInfo = (category, value) => {
     setFilteredData(category, value);
   };
@@ -93,7 +117,11 @@ function PostId() {
       <HeaderPost />
       <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
         <SearchInput setSearchInfo={setSearchInfo} />
-        <PostDeleteButton />
+        <div className='post-delete-container'>
+          <button className='post-delete-container__delete-btn' onClick={handlePostDeleteModalOpen}>
+            포스트 삭제하기
+          </button>
+        </div>
         <div className='posted-page-container'>
           <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
             <div className='add-post-card__plus-icon'>
@@ -119,6 +147,10 @@ function PostId() {
               handleDeleteModalOpen={handleDeleteModalOpen}
             />
           )}
+          {isPostDeleteModalOpen && (
+            <PostDeleteModal handlePostDeleteModalOpen={handlePostDeleteModalOpen} id={id} />
+          )}
+          {hasPassword || <PostPwModal id={id} handleSetPwModalOpen={handleSetPwModalOpen} />}
         </div>
       </div>
     </>
