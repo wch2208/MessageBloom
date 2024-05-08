@@ -1,10 +1,10 @@
 @import '../../styles/variables', '../../styles/reset';
 
 $background-colors: (
-  beige: $beige200,
-  purple: $purple200,
-  blue: $blue200,
-  green: $green200,
+  beige: $bg-beige,
+  purple: $bg-purple,
+  blue: $bg-blue,
+  green: $bg-green,
 );
 
 @mixin background-color-style($color: none) {
@@ -28,6 +28,27 @@ $background-colors: (
   }
   &.beige {
     @include background-color-style(beige);
+  }
+}
+
+.post-delete-container {
+  display: flex;
+  justify-content: end;
+  width: 340px;
+  padding: 0 24px;
+  margin: 0 auto 10px auto;
+  &__delete-btn {
+    padding: 7px 16px 9px 16px;
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+    background-color: $accent-color;
+    color: $white;
+    cursor: pointer;
+    &:active {
+      transform: scale(0.8);
+      transition: 0.3s ease;
+    }
   }
 }
 
@@ -58,6 +79,7 @@ $background-colors: (
     cursor: pointer;
     align-items: center;
     justify-content: center;
+    position: relative;
     padding: 87px;
     width: 320px;
     height: 230px;
@@ -85,6 +107,13 @@ $background-colors: (
   .post-wrapper {
     min-height: calc(100vh - 117px);
   }
+  .post-delete-container {
+    width: 730px;
+    &__delete-btn {
+      height: 50px;
+      font-size: 16px;
+    }
+  }
   .posted-page-container {
     padding: 10px 24px;
     height: 620px;
@@ -93,6 +122,7 @@ $background-colors: (
     justify-content: center;
     grid-template-columns: repeat(2, 352px);
     .add-post-card {
+      right: 5px;
       width: 352px;
       height: 284px;
     }
@@ -103,6 +133,9 @@ $background-colors: (
   .post-wrapper {
     min-height: calc(100vh - 132px);
   }
+  .post-delete-container {
+    width: 1200px;
+  }
   .posted-page-container {
     margin: 0 auto;
     width: 100%;
@@ -110,7 +143,7 @@ $background-colors: (
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     .add-post-card {
-      width: 380px;
+      width: 384px;
       height: 280px;
     }
   }

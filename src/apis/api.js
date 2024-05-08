@@ -12,7 +12,14 @@ export async function getMessages(id) {
 export async function deleteMessage(id) {
   try {
     const response = await instance.delete(`6-6/messages/${id}/`);
-    console.log(`delete successfully!`);
+  } catch (e) {
+    console.error(`error : ${e}`);
+  }
+}
+
+export async function deleteRecipient(id) {
+  try {
+    const response = await instance.delete(`6-6/recipients/${id}/`);
   } catch (e) {
     console.error(`error : ${e}`);
   }
