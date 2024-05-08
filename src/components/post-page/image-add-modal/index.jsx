@@ -28,27 +28,27 @@ function ImageAddModal({ setHandleModalOpen, setRecipient, setCustomImg }) {
   };
 
   return (
-    <div className='post-delete-modal-wrapper' onClick={handleCancelClick}>
+    <div className='custom-image-modal-wrapper' onClick={handleCancelClick}>
       <div
-        className={'post-delete-modal-container'}
+        className={'custom-image-modal-container'}
         onClick={(e) => {
           e.stopPropagation();
         }}>
-        <p className='post-delete-modal-container__message'>이미지 주소를 입력해주세요!</p>
+        <p className='custom-image-modal-container__message'>이미지 주소를 입력해주세요!</p>
         <input
           type='text'
           placeholder='https://images.pexels.com/photos/3183132/...'
-          className='post-delete-modal-container__input'
+          className='custom-image-modal-container__input'
           id='urlInput'
           ref={urlInput}
           onKeyDown={handleKeyDown}
           autoFocus
         />
-        <div className='post-delete-modal-container__btns'>
-          <button id='post-delete-modal-container__btns-check-btn' onClick={handleConfirmClick}>
+        <div className='custom-image-modal-container__btns'>
+          <button id='custom-image-modal-container__btns-check-btn' onClick={handleConfirmClick}>
             확인
           </button>
-          <button id='post-delete-modal-container__btns-cancel-btn' onClick={handleCancelClick}>
+          <button id='custom-image-modal-container__btns-cancel-btn' onClick={handleCancelClick}>
             취소
           </button>
         </div>

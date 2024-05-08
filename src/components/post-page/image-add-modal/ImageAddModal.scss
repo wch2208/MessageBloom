@@ -1,6 +1,6 @@
 @import '../../../styles/reset', '../../../styles/variables';
 
-.post-delete-modal-wrapper {
+.custom-image-modal-wrapper {
   z-index: 10;
   position: fixed;
   display: flex;
@@ -8,7 +8,7 @@
   justify-content: center;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.4);
-  .post-delete-modal-container {
+  .custom-image-modal-container {
     width: 320px;
     height: 160px;
     border-radius: 16px;
@@ -34,14 +34,10 @@
     &__input::placeholder {
       color: $gray200;
     }
-    &__inpu &__message {
-      margin-top: 15px;
-      @include font-style(16, Bold);
-    }
     &__btns {
       display: flex;
       gap: 30px;
-      #post-delete-modal-container__btns-check-btn {
+      #custom-image-modal-container__btns-check-btn {
         padding: 5px 15px;
         border: none;
         color: $white;
@@ -50,7 +46,7 @@
         cursor: pointer;
         outline: none;
       }
-      #post-delete-modal-container__btns-cancel-btn {
+      #custom-image-modal-container__btns-cancel-btn {
         padding: 5px 15px;
         border: none;
         color: $white;
@@ -67,30 +63,22 @@
 }
 
 @media #{$tablet-screen} {
-  .post-delete-modal-wrapper {
-    .post-delete-modal-container {
+  .custom-image-modal-wrapper {
+    .custom-image-modal-container {
       width: 540px;
       height: 220px;
       gap: 40px;
-      &__pw-container {
-        position: relative;
-        &__pw-icon {
-          width: 22px;
-          cursor: pointer;
-          position: absolute;
-          top: -1px;
-          right: 10px;
-        }
-        &__input {
-          height: 35px;
-          width: 250px;
-          margin-top: -15px;
-          border: 1px solid $gray300;
-          border-radius: 6px;
-          padding-left: 10px;
-          font-size: 16px;
-        }
+
+      &__input {
+        height: 35px;
+        width: 250px;
+        margin-top: -15px;
+        border: 1px solid $gray300;
+        border-radius: 6px;
+        padding-left: 10px;
+        font-size: 16px;
       }
+
       &__message {
         margin-top: 20px;
         @include font-style(24, Bold);
@@ -99,8 +87,8 @@
         margin-top: -15px;
         display: flex;
         gap: 50px;
-        #post-delete-modal-container__btns-check-btn,
-        #post-delete-modal-container__btns-cancel-btn {
+        #custom-image-modal-container__btns-check-btn,
+        #custom-image-modal-container__btns-cancel-btn {
           padding: 10px 25px;
         }
       }
