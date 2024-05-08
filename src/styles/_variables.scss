@@ -21,6 +21,16 @@ $desktop-screen: 'screen and (min-width: 1200px)';
   src: url('/NanumSonPyeonJiCe-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'poppins-bold';
+  src: url('/public/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'poppins-regular';
+  src: url('/public/Poppins-Regular.ttf');
+}
+
 // font sizes
 $font-sizes: (
   28: 28px,
