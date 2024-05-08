@@ -4,10 +4,11 @@ import PostCard from '../../components/post-id/post-card';
 import { getMessages, getRecipient } from '../../apis/api';
 import './PostId.scss';
 import plusicon from '../../assets/icon/ic_plus.svg';
-import Modal from '../../components/post-id/modal';
-import DeleteModal from '../../components/post-id/delete-modal';
+import Modal from '../../components/post-id/postcard-modal';
+import DeleteModal from '../../components/post-id/postcard-delete-modal';
 import HeaderPost from '../../components/headerPost/HeaderPost';
 import SearchInput from '../../components/post-id/search-input';
+import PostDeleteButton from '../../components/post-id/post-delete-button';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -92,6 +93,7 @@ function PostId() {
       <HeaderPost />
       <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
         <SearchInput setSearchInfo={setSearchInfo} />
+        <PostDeleteButton />
         <div className='posted-page-container'>
           <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
             <div className='add-post-card__plus-icon'>
