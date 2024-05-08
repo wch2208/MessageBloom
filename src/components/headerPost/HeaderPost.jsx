@@ -48,38 +48,16 @@ export default function HeaderPost() {
       .catch((error) => console.error('Failed to copy URL:', error));
   };
 
-  // 배포한 자신의 사이트
   const realUrl = window.location.href;
-
   useEffect(() => {
-    // init 해주기 전에 clean up 을 해준다.
     window.Kakao.cleanup();
-    // 자신의 js 키를 넣어준다.
     window.Kakao.init('8859f57551eb726e1f0cbda932511b53');
-    // 잘 적용되면 true 를 뱉는다.
     console.log(window.Kakao.isInitialized());
   }, []);
 
   const shareKakao = () => {
-    Kakao.Share.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: '오늘의 디저트',
-        description: '아메리카노, 빵, 케익',
-        imageUrl:
-          'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
-        link: {
-          mobileWebUrl: realUrl,
-        },
-      },
-      buttons: [
-        {
-          title: '나도 테스트 하러가기',
-          link: {
-            mobileWebUrl: realUrl,
-          },
-        },
-      ],
+    window.Kakao.Share.sendCustom({
+      templateId: 107707,
     });
   };
 
