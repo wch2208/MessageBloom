@@ -25,11 +25,16 @@ export default function Header() {
         </div>
 
         <div className='toggle-container'>
-          <button
-            className={`toggle-button ${animationOn ? 'on' : 'off'}`}
-            onClick={toggleAnimation}>
-            {animationOn ? '편지왔어요!' : '편지왔어요?'}
-          </button>
+          <input
+            type='checkbox'
+            id='switch'
+            className='toggle-input'
+            onChange={toggleAnimation}
+            checked={animationOn}
+          />
+          <label htmlFor='switch' className='toggle-label'>
+            <span className='onf_btn'></span>
+          </label>
           {animationOn && <LetterAnimation />}
         </div>
 
