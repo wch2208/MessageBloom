@@ -38,7 +38,7 @@ export default function HeaderPost() {
   }, [id]);
 
   const shareicon = windowWidth >= 767 ? shareicon24 : shareicon20;
-  const notify = (message) => toast.info(message);
+  const notify = (message) => toast.success(message);
 
   const copyURLToClipboard = () => {
     const currentURL = window.location.href;
@@ -108,13 +108,14 @@ export default function HeaderPost() {
                   autoClose={5000}
                   hideProgressBar={false}
                   newestOnTop={false}
-                  closeOnClick
+                  closeOnClick={false}
                   rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
+                  pauseOnFocusLoss={false}
+                  draggable={true}
+                  pauseOnHover={false}
                   toastClassName='custom-toast'
-                  theme='colored'
+                  theme='dark'
+                  limit={3}
                 />
               </div>
             </div>
