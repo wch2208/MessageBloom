@@ -49,15 +49,13 @@ export default function HeaderPost() {
   };
 
   // 배포한 자신의 사이트
-  const realUrl = 'https://rolling-api.vercel.app/';
-  // 로컬 주소 (localhost 3000 같은거)
-  const resultUrl = window.location.href;
+  const realUrl = window.location.href;
 
   useEffect(() => {
     // init 해주기 전에 clean up 을 해준다.
     window.Kakao.cleanup();
     // 자신의 js 키를 넣어준다.
-    window.Kakao.init(import.meta.env.VITE_KAKAO_JS_SDK_KEY);
+    window.Kakao.init('8859f57551eb726e1f0cbda932511b53');
     // 잘 적용되면 true 를 뱉는다.
     console.log(window.Kakao.isInitialized());
   }, []);
