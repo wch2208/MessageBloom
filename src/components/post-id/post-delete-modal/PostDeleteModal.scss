@@ -1,0 +1,82 @@
+@import '../../../styles/reset', '../../../styles/variables';
+
+.post-delete-modal-wrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  .post-delete-modal-container {
+    width: 320px;
+    height: 160px;
+    border-radius: 16px;
+    margin: 100px auto 0 auto;
+    background-color: $white;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    animation: modalUp 0.5s ease-in-out;
+    &__pw-container__input {
+      height: 25px;
+      width: 180px;
+      border: 1px solid $gray300;
+      border-radius: 6px;
+      padding-left: 10px;
+      font-size: 16px;
+    }
+    &__message {
+      margin-top: 15px;
+      @include font-style(16, Bold);
+    }
+    &__btns {
+      display: flex;
+      gap: 30px;
+      #post-delete-modal-container__btns-check-btn,
+      #post-delete-modal-container__btns-cancel-btn {
+        padding: 5px 15px;
+        border: none;
+        color: $white;
+        background-color: $gray400;
+        border-radius: 6px;
+        cursor: pointer;
+        outline: none;
+        &:hover {
+          background-color: $accent-color;
+        }
+      }
+    }
+  }
+}
+
+@media #{$tablet-screen} {
+  .post-delete-modal-wrapper {
+    .post-delete-modal-container {
+      width: 540px;
+      height: 240px;
+      gap: 40px;
+      &__pw-container__input {
+        height: 35px;
+        width: 250px;
+        border: 1px solid $gray300;
+        border-radius: 6px;
+        padding-left: 10px;
+        font-size: 16px;
+      }
+      &__message {
+        margin-top: 20px;
+        @include font-style(24, Bold);
+      }
+      &__btns {
+        display: flex;
+        gap: 50px;
+        #post-delete-modal-container__btns-check-btn,
+        #post-delete-modal-container__btns-cancel-btn {
+          padding: 10px 25px;
+        }
+      }
+    }
+  }
+}
