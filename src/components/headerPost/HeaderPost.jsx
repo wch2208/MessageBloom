@@ -48,6 +48,43 @@ export default function HeaderPost() {
       .catch((error) => console.error('Failed to copy URL:', error));
   };
 
+  // 배포한 자신의 사이트
+  const realUrl = import.meta.env.VITE_BASE_URL;
+  // 로컬 주소 (localhost 3000 같은거)
+  const resultUrl = window.location.href;
+
+  useEffect(() => {
+    // init 해주기 전에 clean up 을 해준다.
+    window.Kakao.cleanup();
+    // 자신의 js 키를 넣어준다.
+    window.Kakao.init(import.meta.env.VITE_KAKAO_JS_SDK_KEY);
+    // 잘 적용되면 true 를 뱉는다.
+    console.log(window.Kakao.isInitialized());
+  }, []);
+
+  const shareKakao = () => {
+    Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '오늘의 디저트',
+        description: '아메리카노, 빵, 케익',
+        imageUrl:
+          'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+        link: {
+          mobileWebUrl: realUrl,
+        },
+      },
+      buttons: [
+        {
+          title: '나도 테스트 하러가기',
+          link: {
+            mobileWebUrl: realUrl,
+          },
+        },
+      ],
+    });
+  };
+
   return (
     <div className='header-post'>
       <div className='header-post__container'>
@@ -86,7 +123,7 @@ export default function HeaderPost() {
                 </button>
                 {dropdownOpen && (
                   <ul className='header-post__container_info_container_share-dropdown_menu'>
-                    <li onClick={() => notify('kakaotalk이 복사되었습니다!')}>카카오톡 공유</li>
+                    <li onClick={shareKakao}>카카오톡 공유</li>
                     <li onClick={copyURLToClipboard}>URL 공유</li>
                   </ul>
                 )}
