@@ -31,50 +31,24 @@ const WriterCounter = ({ id, displayOption }) => {
 
   return (
     <div className='writer-counter'>
-      {displayOption === 'grouped' && (
-        <div className='writer-counter__grouped'>
-          <div className='writer-counter__profile-images'>
-            {profileImages.map((imageUrl, index) => (
-              <div className='writer-counter__profile-image' key={index}>
-                <img
-                  src={imageUrl}
-                  alt={`Profile ${index + 1}`}
-                  className='writer-counter__profile-image-img'
-                />
-              </div>
-            ))}
-            {messageCount > 3 && (
-              <span className='writer-counter__remaining-profiles'>+{messageCount - 3}</span>
-            )}
+      <div className='writer-counter__profile-images'>
+        {profileImages.map((imageUrl, index) => (
+          <div className='writer-counter__profile-image' key={index}>
+            <img
+              src={imageUrl}
+              alt={`Profile ${index + 1}`}
+              className='writer-counter__profile-image-img'
+            />
           </div>
-          <div className='writer-counter__message'>
-            <span className='writer-counter__message-count-number'>{messageCount}</span>
-            <span className='writer-counter__message-count-text'>명이 작성했어요!</span>
-          </div>
-        </div>
-      )}
-      {displayOption === 'separated' && (
-        <div className='writer-counter__separated'>
-          <div className='writer-counter__profile-images'>
-            {profileImages.map((imageUrl, index) => (
-              <div className='writer-counter__profile-image' key={index}>
-                <img
-                  src={imageUrl}
-                  alt={`Profile ${index + 1}`}
-                  className='writer-counter__profile-image-img'
-                />
-              </div>
-            ))}
-            {messageCount > 3 && (
-              <span className='writer-counter__remaining-profiles'>+{messageCount - 3}</span>
-            )}
-          </div>
-          <div className='writer-counter__message'>
-            <span className='writer-counter__message-count-number'>{messageCount}</span>
-            <span className='writer-counter__message-count-text'>명이 작성했어요!</span>
-          </div>
-        </div>
-      )}
+        ))}
+        {messageCount > 3 && (
+          <span className='writer-counter__remaining-profiles'>+{messageCount - 3}</span>
+        )}
+      </div>
+      <div className='writer-counter__message'>
+        <span className='writer-counter__message-count-number'>{messageCount}</span>
+        <span className='writer-counter__message-count-text'>명이 작성했어요!</span>
+      </div>
     </div>
   );
 };

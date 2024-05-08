@@ -53,7 +53,7 @@ export default function HeaderPost() {
           {windowWidth >= 1200 && (
             <>
               <div className='header-post__container_info_person-wrapper'>
-                <WriterCounter id={id} />
+                <WriterCounter id={id} displayOption='grouped' />
               </div>
               <img
                 className='header-post__container_info_rectangle-1'
