@@ -18,7 +18,7 @@ function SenderInput({ setError }, senderInputRef) {
   }, [errors.nameInput]);
 
   return (
-    <form className='message-form__sender'>
+    <form className='message-form__sender' onSubmit={(e) => e.preventDefault()}>
       <label htmlFor='nameInput' className='message-form__title'>
         From.
       </label>
@@ -29,7 +29,7 @@ function SenderInput({ setError }, senderInputRef) {
         autoComplete='off'
         autoFocus
         {...register('nameInput', {
-          required: 'Name is required',
+          required: '이름을 입력해주세요.',
           onChange: (e) => (senderInputRef.current = e.target.value),
         })}
       />

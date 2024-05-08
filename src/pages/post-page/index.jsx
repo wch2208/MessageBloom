@@ -1,11 +1,11 @@
 import './Post.scss';
-import ToggleOption from '../../components/post-page/ToggleOption';
 import { useState, useEffect } from 'react';
 import { DEFAULT_RECIPIENT } from '../../components/post-page/postPageConstants';
 import { postRecipient } from '../../apis/api';
 import { useNavigate } from 'react-router-dom';
-import LinkButton from '../../components/commons/LinkButton';
 import { useForm } from 'react-hook-form';
+import ToggleOption from '../../components/post-page/ToggleOption';
+import LinkButton from '../../components/commons/LinkButton';
 
 export default function Post() {
   const [recipient, setRecipient] = useState(DEFAULT_RECIPIENT);
@@ -32,7 +32,7 @@ export default function Post() {
 
   return (
     <>
-      <form className='background-form'>
+      <form className='background-form' onSubmit={(e) => e.preventDefault()}>
         <div className='background-form__header'>
           <label className='background-form__title'>To.</label>
           <input
