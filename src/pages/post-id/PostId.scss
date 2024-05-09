@@ -13,7 +13,7 @@ $background-colors: (
   }
 }
 
-.loading-container {
+.loading-wrapper {
   display: flex;
   height: 100vh;
   align-items: center;
@@ -29,7 +29,8 @@ $background-colors: (
 }
 
 .post-wrapper {
-  min-height: calc(100vh - 178px);
+  // min-height: calc(100vh - 178px);
+  min-height: calc(100vh - 100px);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -123,7 +124,8 @@ $background-colors: (
 
 @media #{$tablet-screen} {
   .post-wrapper {
-    min-height: calc(100vh - 117px);
+    // min-height: calc(100vh - 117px);
+    min-height: 100vh;
   }
   .post-delete-container {
     width: 730px;
@@ -149,7 +151,8 @@ $background-colors: (
 
 @media #{$desktop-screen} {
   .post-wrapper {
-    min-height: calc(100vh - 132px);
+    // min-height: calc(100vh - 132px);
+    min-height: 100vh;
   }
   .post-delete-container {
     width: 1200px;
