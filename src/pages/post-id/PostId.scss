@@ -79,10 +79,11 @@ $background-colors: (
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    position: relative;
     padding: 87px;
     width: 320px;
     height: 230px;
+    position: relative;
+    left: 5px;
     background-color: $white;
     border-radius: 16px;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
@@ -122,9 +123,9 @@ $background-colors: (
     justify-content: center;
     grid-template-columns: repeat(2, 352px);
     .add-post-card {
-      right: 5px;
       width: 352px;
       height: 284px;
+      left: 0;
     }
   }
 }
