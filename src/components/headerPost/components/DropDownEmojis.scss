@@ -38,6 +38,7 @@
       height: 98px;
       top: 40px;
       left: 6px;
+      z-index: map-get($z-indexes, level2);
 
       &_menu {
         display: grid;
@@ -54,23 +55,19 @@
     &__popular-emoji,
     &-container_menu-emoji {
       position: relative;
-      display: inline-block;
-      min-width: 53px;
+      display: inline-flex;
+      min-width: 55px;
       height: 28px;
-      gap: 10px;
+      gap: 3px;
       border-radius: 32px;
       color: $white;
       margin-top: 5px;
-      padding-top: 4px;
       background-color: rgba(0, 0, 0, 0.54);
       align-items: center;
       justify-content: center;
-    }
-
-    &-container_menu-emoji {
-      padding-top: 2px;
-      padding-left: 5px;
-      width: 55px;
+      &-text {
+        padding-top: 2px;
+      }
     }
   }
 
@@ -157,7 +154,7 @@
   }
 
   .headeremojis__emojipicker {
-    z-index: 9999;
+    z-index: map-get($z-indexes, level3);
     right: 10px;
   }
 }
@@ -199,7 +196,7 @@
   }
 
   .headeremojis__emojipicker {
-    z-index: 9999;
+    z-index: map-get($z-indexes, level3);
     right: 10px;
   }
 }

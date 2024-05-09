@@ -83,7 +83,9 @@ export default function DropDownEmojis({ recipientId }) {
             {topEmojis.map((set, index) => (
               <span key={index} className='headeremojis-container__dropdown__popular-emoji'>
                 {set.emoji}
-                {set.count}
+                <span className='headeremojis-container__dropdown__popular-emoji-text'>
+                  {set.count}
+                </span>
               </span>
             ))}
           </div>
@@ -107,7 +109,9 @@ export default function DropDownEmojis({ recipientId }) {
                     key={index}
                     className='headeremojis-container__dropdown-container_menu-emoji'>
                     <span>{set.emoji}</span>
-                    <span>{set.count}</span>
+                    <span className='headeremojis-container__dropdown-container_menu-emoji-text'>
+                      {set.count}
+                    </span>
                   </div>
                 ))}
             </div>
