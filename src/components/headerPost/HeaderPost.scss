@@ -10,6 +10,7 @@
   &__container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -17,10 +18,14 @@
 
     &_to-name {
       align-self: center;
-      margin: 12px 20px;
+      margin: 12px 0;
       width: 320px;
       @include font-style(18, Bold);
       height: 28px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: calc(100% - 510px); /* 화면 폭에서 510px을 뺀 값으로 최대 너비 설정 */
 
       @media #{$tablet-screen} {
         @include font-style(28, Bold);
@@ -32,7 +37,7 @@
       align-items: center;
       display: flex;
       flex-wrap: wrap;
-      margin: 8px;
+      margin: 8px 0;
 
       &_person-wrapper {
         margin-right: 12px;
@@ -89,9 +94,17 @@
     }
   }
 
+  @media #{$tablet-screen} {
+    .header-post__container {
+      height: 68px;
+      margin: 0 auto;
+    }
+  }
+
   @media #{$desktop-screen} {
     .header-post__container {
       height: 68px;
+      margin: 0 auto;
     }
   }
 }
