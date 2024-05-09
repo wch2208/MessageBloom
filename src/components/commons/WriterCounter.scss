@@ -5,6 +5,20 @@
   align-items: center;
   gap: 11px;
 
+  &.vertical {
+    gap: 12px;
+    display: inline;
+  }
+
+  .writer-counter__profile-images {
+    align-items: flex-start;
+
+    .writer-counter__profile-image,
+    .writer-counter__remaining-profiles {
+      margin-right: 0;
+    }
+  }
+
   .writer-counter__profile-images {
     display: flex;
     align-items: flex-start;
