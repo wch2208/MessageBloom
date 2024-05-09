@@ -4,6 +4,7 @@ import './Header.scss';
 import writeicon from '../../assets/logo/ic_flower_WithLetter.svg';
 import logo from '../../assets/logo/ic_flower_RemoveBg.svg';
 import LetterAnimation from '../Animation/LetterAnimation';
+import MouseTracker from '../commons/mouseTracker';
 
 export default function Header() {
   const location = useLocation();
@@ -18,12 +19,14 @@ export default function Header() {
     <header className={`header`}>
       <div className='header-container'>
         <Link to='/' aria-label='홈으로 이동'>
-          <div className='header-container__logo'>
-            <picture className='header-container__logo__img-wrap'>
-              <img src={logo} alt='로고 아이콘' className='header-container__logo__img' />
-            </picture>
-            <span className='header-container__logo__title'> Message Bloom</span>
-          </div>
+          <MouseTracker>
+            <div className='header-container__logo'>
+              <picture className='header-container__logo__img-wrap'>
+                <img src={logo} alt='로고 아이콘' className='header-container__logo__img' />
+              </picture>
+              <span className='header-container__logo__title'> Message Bloom</span>
+            </div>
+          </MouseTracker>
         </Link>
 
         <div className='header-container__right-side'>
