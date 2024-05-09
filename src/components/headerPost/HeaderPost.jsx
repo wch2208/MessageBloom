@@ -38,7 +38,7 @@ export default function HeaderPost() {
     return () => window.removeEventListener('resize', handleResize);
   }, [id]);
 
-  const shareicon = windowWidth >= 767 ? shareicon24 : shareicon20;
+  const shareicon = windowWidth >= 768 ? shareicon24 : shareicon20;
   const notify = (message) => toast.success(message);
 
   const copyURLToClipboard = () => {

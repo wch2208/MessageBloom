@@ -49,7 +49,7 @@ export default function DropDownEmojis({ recipientId }) {
     setShowPicker((prevState) => !prevState);
   };
 
-  const addicon = windowWidth >= 767 ? addicon24 : addicon20;
+  const addicon = windowWidth >= 768 ? addicon24 : addicon20;
 
   useEffect(() => {
     const handleResize = () => {
