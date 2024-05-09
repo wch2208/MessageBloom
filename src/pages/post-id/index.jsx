@@ -103,54 +103,56 @@ function PostId() {
     setSearchData(data);
   };
 
-  if (loading) {
-    return (
-      <div className='loading-container'>
-        <img className='loading-container__spinner' src={loadingicon} alt='로딩 중' />
-      </div>
-    );
-  }
-
   return (
     <>
-      <HeaderPost />
-      <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
-        <SearchInput setSearchInfo={setSearchInfo} />
-        <div className='post-delete-container'>
-          <button className='post-delete-container__delete-btn' onClick={handlePostDeleteModalOpen}>
-            포스트 삭제하기
-          </button>
+      {loading ? (
+        <div className='loading-wrapper'>
+          <img className='loading-wrapper__spinner' src={loadingicon} alt='로딩 중' />
         </div>
-        <div className='posted-page-container'>
-          <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
-            <div className='add-post-card__plus-icon'>
-              <img src={plusicon} alt='포스트 카드 추가 버튼' />
+      ) : (
+        <>
+          <HeaderPost />
+          <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
+            <SearchInput setSearchInfo={setSearchInfo} />
+            <div className='post-delete-container'>
+              <button
+                className='post-delete-container__delete-btn'
+                onClick={handlePostDeleteModalOpen}>
+                포스트 삭제하기
+              </button>
+            </div>
+            <div className='posted-page-container'>
+              <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
+                <div className='add-post-card__plus-icon'>
+                  <img src={plusicon} alt='포스트 카드 추가 버튼' />
+                </div>
+              </div>
+              {(searchData.length > 0 ? searchData : messagesData).map((data) => (
+                <div key={data.id}>
+                  <PostCard
+                    data={data}
+                    handleModalOpen={handleModalOpen}
+                    handleDeleteDataId={handleDeleteDataId}
+                    setModalDataByData={setModalDataByData}
+                    setIsDeleteModalOpen={setIsDeleteModalOpen}
+                  />
+                </div>
+              ))}
+              {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
+              {isDeleteModalOpen && (
+                <DeleteModal
+                  handleDeleteMessage={handleDeleteMessage}
+                  deleteDataId={deleteDataId}
+                  handleDeleteModalOpen={handleDeleteModalOpen}
+                />
+              )}
+              {isPostDeleteModalOpen && (
+                <PostDeleteModal handlePostDeleteModalOpen={handlePostDeleteModalOpen} id={id} />
+              )}
             </div>
           </div>
-          {(searchData.length > 0 ? searchData : messagesData).map((data) => (
-            <div key={data.id}>
-              <PostCard
-                data={data}
-                handleModalOpen={handleModalOpen}
-                handleDeleteDataId={handleDeleteDataId}
-                setModalDataByData={setModalDataByData}
-                setIsDeleteModalOpen={setIsDeleteModalOpen}
-              />
-            </div>
-          ))}
-          {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
-          {isDeleteModalOpen && (
-            <DeleteModal
-              handleDeleteMessage={handleDeleteMessage}
-              deleteDataId={deleteDataId}
-              handleDeleteModalOpen={handleDeleteModalOpen}
-            />
-          )}
-          {isPostDeleteModalOpen && (
-            <PostDeleteModal handlePostDeleteModalOpen={handlePostDeleteModalOpen} id={id} />
-          )}
-        </div>
-      </div>
+        </>
+      )}
     </>
   );
 }
