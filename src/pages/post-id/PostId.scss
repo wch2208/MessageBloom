@@ -20,7 +20,7 @@ $background-colors: (
   justify-content: center;
   &__spinner {
     width: 50px;
-    animation: loading 20s infinite;
+    animation: loading 10s infinite;
   }
 }
 
