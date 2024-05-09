@@ -1,7 +1,40 @@
 @import '../../../styles/variables';
 
+.list-card__emoji-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list-card__emoji-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba($color: $black, $alpha: 0.12);
+}
+
 .list-card__emoji-wrap {
   display: flex;
+  gap: 4px;
+}
+
+.list-card__emoji {
+  text-align: center;
+  width: 55px;
+  height: 32px;
+  padding: 6px 8px;
+  border-radius: 32px;
+  background-color: rgba($color: $black, $alpha: 0.54);
+  color: white;
+  @include font-style(14, 400);
+
+  & span {
+    padding: 2px;
+  }
+}
+
+.list-card__emoji-wrap {
+  display: flex;
+  height: 32px;
   gap: 4px;
 }
 

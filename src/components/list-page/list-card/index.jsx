@@ -21,13 +21,10 @@ export default function ListCard({ name, backgroundColor, backgroundImageURL, me
       onClick={() => nav(`/post/${id}`)}>
       <div className='list-card__writers'>
         <p className='list-card__writers__to'>To.{name}</p>
-
         <WriterCounter id={id} displayOption='vertical' />
       </div>
-
-      <div className='list-card__emoji-container'>
-        <div className='list-card__divider'></div>
-        <ShowTheMostEmojis />
+      <div>
+        <ShowTheMostEmojis id={id} />
       </div>
     </div>
   );
