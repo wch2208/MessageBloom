@@ -41,7 +41,7 @@ export default function Post() {
             placeholder='받는 사람 이름을 입력해 주세요'
             autoFocus
             autoComplete='off'
-            {...register('toInput', { required: 'Name is required' })}
+            {...register('toInput', { required: '이름을 입력해주세요' })}
           />
         </div>
         {errors.toInput && <p className='form--error'>{errors.toInput.message}</p>}
