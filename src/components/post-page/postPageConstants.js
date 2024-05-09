@@ -1,12 +1,13 @@
 export const IMAGE_NAMES = ['wallpaper01', 'wallpaper02', 'wallpaper03', 'wallpaper04'];
 export const IMAGE_URLS = {
-  wallpaper01: 'https://images.pexels.com/photos/1749303/pexels-photo-1749303.jpeg',
+  wallpaper01:
+    'https://images.unsplash.com/photo-1605003179269-c446bb939f00?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   wallpaper02:
-    'https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?q=80&w=2113&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   wallpaper03:
-    'https://images.pexels.com/photos/845242/pexels-photo-845242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'https://images.unsplash.com/photo-1521245585918-35fd32bf376f?q=80&w=1910&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   wallpaper04:
-    'https://images.pexels.com/photos/1480347/pexels-photo-1480347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    'https://images.unsplash.com/photo-1533371452382-d45a9da51ad9?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 };
 export const COLOR_NAMES = ['beige', 'purple', 'blue', 'green'];
 export const DEFAULT_RECIPIENT = {
