@@ -121,3 +121,12 @@ $bg-purple: #ffdde1;
 $bg-beige: #ffedbc;
 $bg-green: #e1eec3;
 $bg-blue: #e0eafc;
+
+// z-index 변수
+$z-indexes: (
+  level1: 10,
+  level2: 20,
+  level3: 30,
+  level4: 40,
+  level5: 50,
+);

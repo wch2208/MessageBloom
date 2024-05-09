@@ -55,6 +55,7 @@
           position: relative;
 
           &_btn {
+            cursor: pointer;
             background-color: $white;
             border: 1px solid $gray300;
             border-radius: 6px;
@@ -79,9 +80,9 @@
             margin-top: 5px;
             padding: 10px 16px;
             position: absolute;
-            right: 20px;
+            right: 0px;
             width: 140px;
-            z-index: 2000;
+            z-index: map-get($z-indexes, level5);
           }
         }
       }
@@ -92,5 +93,20 @@
     .header-post__container {
       height: 68px;
     }
+  }
+}
+
+.custom-toast {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  width: 320px;
+  height: 64px;
+  border-radius: 8px !important;
+  bottom: 88px !important;
+  margin: 0 auto;
+  z-index: map-get($z-indexes, level5);
+
+  @media #{$tablet-screen} {
+    width: 524px;
+    bottom: 40px !important;
   }
 }
