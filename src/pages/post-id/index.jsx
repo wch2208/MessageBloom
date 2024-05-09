@@ -4,6 +4,7 @@ import PostCard from '../../components/post-id/post-card';
 import { getMessages, getRecipient } from '../../apis/api';
 import './PostId.scss';
 import plusicon from '../../assets/icon/ic_plus.svg';
+import loadingicon from '../../assets/icon/ic_loading.svg';
 import Modal from '../../components/post-id/postcard-modal';
 import DeleteModal from '../../components/post-id/postcard-delete-modal';
 import HeaderPost from '../../components/headerPost/HeaderPost';
@@ -24,6 +25,8 @@ function PostId() {
   const [modalData, setModalData] = useState([]);
   const [searchData, setSearchData] = useState([]);
 
+  const [loading, setLoading] = useState(true);
+
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -31,6 +34,7 @@ function PostId() {
     const [messages, recipient] = await Promise.all([getMessages(id), getRecipient(id)]);
     setMessagesData(messages);
     setRecipientData(recipient);
+    setLoading(false);
   };
 
   // 마운트 시 실행 로직
@@ -98,6 +102,14 @@ function PostId() {
   const applyFilterToSearchData = (data) => {
     setSearchData(data);
   };
+
+  if (loading) {
+    return (
+      <div className='loading-container'>
+        <img className='loading-container__spinner' src={loadingicon} alt='로딩 중' />
+      </div>
+    );
+  }
 
   return (
     <>
