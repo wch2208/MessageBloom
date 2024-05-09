@@ -42,11 +42,16 @@ const WriterCounter = ({ id, displayOption }) => {
           </div>
         ))}
         {messageCount > 3 && (
-          <span className='writer-counter__remaining-profiles'>+{messageCount - 3}</span>
+          <span
+            className={`writer-counter__remaining-profiles ${
+              displayOption === 'vertical' ? 'vertical' : ''
+            }`}>
+            +{messageCount - 3}
+          </span>
         )}
       </div>
       {displayOption === 'vertical' && <br />}
-      <div className='writer-counter__message'>
+      <div className={`writer-counter__message ${displayOption === 'vertical' ? 'vertical' : ''}`}>
         <span className='writer-counter__message-count-number'>{messageCount}</span>
         <span className='writer-counter__message-count-text'>명이 작성했어요!</span>
       </div>
