@@ -32,15 +32,19 @@ const WriterCounter = ({ id, displayOption }) => {
   return (
     <div className={`writer-counter ${displayOption === 'vertical' ? 'vertical' : ''}`}>
       <div className='writer-counter__profile-images'>
-        {profileImages.map((imageUrl, index) => (
-          <div className='writer-counter__profile-image' key={index}>
-            <img
-              src={imageUrl}
-              alt={`Profile ${index + 1}`}
-              className='writer-counter__profile-image-img'
-            />
-          </div>
-        ))}
+        {profileImages.length > 0 ? (
+          profileImages.map((imageUrl, index) => (
+            <div className='writer-counter__profile-image' key={index}>
+              <img
+                src={imageUrl}
+                alt={`Profile ${index + 1}`}
+                className='writer-counter__profile-image-img'
+              />
+            </div>
+          ))
+        ) : (
+          <div className='writer-counter__profile-image-null'></div>
+        )}
         {messageCount > 3 && (
           <span
             className={`writer-counter__remaining-profiles ${
