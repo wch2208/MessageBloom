@@ -63,6 +63,15 @@ export async function postRecipient(formData) {
   }
 }
 
+export async function patchBackgroundInfo(recipientid, backgroundData) {
+  try {
+    const response = await instance.patch(`6-6/recipients/${recipientid}`, backgroundData);
+    return response.data;
+  } catch (error) {
+    console.error(`error : ${error}`);
+  }
+}
+
 export async function postMessageToRecipient(formData, id) {
   try {
     const response = await instance.post(`6-6/recipients/${id}/messages/`, formData);
