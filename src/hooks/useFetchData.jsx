@@ -1,7 +1,8 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function useFetchData(apiFunction, params = []) {
   const [data, setData] = useState(null);
+  const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -11,6 +12,8 @@ export default function useFetchData(apiFunction, params = []) {
       try {
         const response = await apiFunction(...params);
         setData(response);
+        setResults(response.results);
+        console.log(response);
       } catch (err) {
         setError(err);
       } finally {
@@ -21,5 +24,5 @@ export default function useFetchData(apiFunction, params = []) {
     fetchData();
   }, [apiFunction, ...params]);
 
-  return { data, isLoading, error };
+  return { results, data, isLoading, error };
 }
