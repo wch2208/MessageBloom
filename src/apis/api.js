@@ -1,33 +1,33 @@
 import { instance } from './axiosInstance';
 
-export async function getMessages(id) {
+export async function getMessages(recipientId) {
   try {
-    const response = await instance.get(`6-6/recipients/${id}/messages/?limit=100`);
+    const response = await instance.get(`6-6/recipients/${recipientId}/messages/?limit=100`);
     return response.data.results;
   } catch (e) {
     console.error(`error : ${e}`);
   }
 }
 
-export async function deleteMessage(id) {
+export async function deleteMessage(messageId) {
   try {
-    const response = await instance.delete(`6-6/messages/${id}/`);
+    const response = await instance.delete(`6-6/messages/${messageId}/`);
   } catch (e) {
     console.error(`error : ${e}`);
   }
 }
 
-export async function deleteRecipient(id) {
+export async function deleteRecipient(recipientId) {
   try {
-    const response = await instance.delete(`6-6/recipients/${id}/`);
+    const response = await instance.delete(`6-6/recipients/${recipientId}/`);
   } catch (e) {
     console.error(`error : ${e}`);
   }
 }
 
-export async function getRecipient(id) {
+export async function getRecipient(recipientId) {
   try {
-    const response = await instance.get(`6-6/recipients/${id}/`);
+    const response = await instance.get(`6-6/recipients/${recipientId}/`);
     return response.data;
   } catch (e) {
     console.error(`error : ${e}`);
