@@ -7,12 +7,30 @@ $background-colors: (
   green: $bg-green,
 );
 
+@keyframes loading {
+  to {
+    transform: rotate(3600deg);
+  }
+}
+
+.loading-wrapper {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  &__spinner {
+    width: 50px;
+    animation: loading 10s infinite;
+  }
+}
+
 @mixin background-color-style($color: none) {
   background-color: map-get($background-colors, $color);
 }
 
 .post-wrapper {
-  min-height: calc(100vh - 178px);
+  // min-height: calc(100vh - 178px);
+  min-height: calc(100vh - 100px);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -55,7 +73,7 @@ $background-colors: (
 .posted-page-container {
   max-width: 1248px;
   padding: 10px;
-  height: 750px;
+  height: 515px;
   margin: 0 auto;
   overflow: scroll;
   background: transparent;
@@ -79,10 +97,11 @@ $background-colors: (
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    position: relative;
     padding: 87px;
     width: 320px;
     height: 230px;
+    position: relative;
+    left: 5px;
     background-color: $white;
     border-radius: 16px;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.08);
@@ -105,7 +124,8 @@ $background-colors: (
 
 @media #{$tablet-screen} {
   .post-wrapper {
-    min-height: calc(100vh - 117px);
+    // min-height: calc(100vh - 117px);
+    min-height: 100vh;
   }
   .post-delete-container {
     width: 730px;
@@ -122,16 +142,17 @@ $background-colors: (
     justify-content: center;
     grid-template-columns: repeat(2, 352px);
     .add-post-card {
-      right: 5px;
       width: 352px;
       height: 284px;
+      left: 0;
     }
   }
 }
 
 @media #{$desktop-screen} {
   .post-wrapper {
-    min-height: calc(100vh - 132px);
+    // min-height: calc(100vh - 132px);
+    min-height: 100vh;
   }
   .post-delete-container {
     width: 1200px;
@@ -139,7 +160,7 @@ $background-colors: (
   .posted-page-container {
     margin: 0 auto;
     width: 100%;
-    height: 610px;
+    height: 615px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     .add-post-card {

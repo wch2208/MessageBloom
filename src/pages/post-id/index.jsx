@@ -4,6 +4,7 @@ import PostCard from '../../components/post-id/post-card';
 import { getMessages, getRecipient } from '../../apis/api';
 import './PostId.scss';
 import plusicon from '../../assets/icon/ic_plus.svg';
+import loadingicon from '../../assets/icon/ic_loading.svg';
 import Modal from '../../components/post-id/postcard-modal';
 import DeleteModal from '../../components/post-id/postcard-delete-modal';
 import HeaderPost from '../../components/headerPost/HeaderPost';
@@ -24,6 +25,8 @@ function PostId() {
   const [modalData, setModalData] = useState([]);
   const [searchData, setSearchData] = useState([]);
 
+  const [loading, setLoading] = useState(true);
+
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -31,6 +34,7 @@ function PostId() {
     const [messages, recipient] = await Promise.all([getMessages(id), getRecipient(id)]);
     setMessagesData(messages);
     setRecipientData(recipient);
+    setLoading(false);
   };
 
   // 마운트 시 실행 로직
@@ -101,44 +105,54 @@ function PostId() {
 
   return (
     <>
-      <HeaderPost />
-      <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
-        <SearchInput setSearchInfo={setSearchInfo} />
-        <div className='post-delete-container'>
-          <button className='post-delete-container__delete-btn' onClick={handlePostDeleteModalOpen}>
-            포스트 삭제하기
-          </button>
+      {loading ? (
+        <div className='loading-wrapper'>
+          <img className='loading-wrapper__spinner' src={loadingicon} alt='로딩 중' />
         </div>
-        <div className='posted-page-container'>
-          <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
-            <div className='add-post-card__plus-icon'>
-              <img src={plusicon} alt='포스트 카드 추가 버튼' />
+      ) : (
+        <>
+          <HeaderPost />
+          <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
+            <SearchInput setSearchInfo={setSearchInfo} />
+            <div className='post-delete-container'>
+              <button
+                className='post-delete-container__delete-btn'
+                onClick={handlePostDeleteModalOpen}>
+                포스트 삭제하기
+              </button>
+            </div>
+            <div className='posted-page-container'>
+              <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
+                <div className='add-post-card__plus-icon'>
+                  <img src={plusicon} alt='포스트 카드 추가 버튼' />
+                </div>
+              </div>
+              {(searchData.length > 0 ? searchData : messagesData).map((data) => (
+                <div key={data.id}>
+                  <PostCard
+                    data={data}
+                    handleModalOpen={handleModalOpen}
+                    handleDeleteDataId={handleDeleteDataId}
+                    setModalDataByData={setModalDataByData}
+                    setIsDeleteModalOpen={setIsDeleteModalOpen}
+                  />
+                </div>
+              ))}
+              {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
+              {isDeleteModalOpen && (
+                <DeleteModal
+                  handleDeleteMessage={handleDeleteMessage}
+                  deleteDataId={deleteDataId}
+                  handleDeleteModalOpen={handleDeleteModalOpen}
+                />
+              )}
+              {isPostDeleteModalOpen && (
+                <PostDeleteModal handlePostDeleteModalOpen={handlePostDeleteModalOpen} id={id} />
+              )}
             </div>
           </div>
-          {(searchData.length > 0 ? searchData : messagesData).map((data) => (
-            <div key={data.id}>
-              <PostCard
-                data={data}
-                handleModalOpen={handleModalOpen}
-                handleDeleteDataId={handleDeleteDataId}
-                setModalDataByData={setModalDataByData}
-                setIsDeleteModalOpen={setIsDeleteModalOpen}
-              />
-            </div>
-          ))}
-          {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
-          {isDeleteModalOpen && (
-            <DeleteModal
-              handleDeleteMessage={handleDeleteMessage}
-              deleteDataId={deleteDataId}
-              handleDeleteModalOpen={handleDeleteModalOpen}
-            />
-          )}
-          {isPostDeleteModalOpen && (
-            <PostDeleteModal handlePostDeleteModalOpen={handlePostDeleteModalOpen} id={id} />
-          )}
-        </div>
-      </div>
+        </>
+      )}
     </>
   );
 }
