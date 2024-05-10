@@ -44,11 +44,9 @@ export default function Header() {
           </div>
 
           {(location.pathname === '/' || location.pathname === '/list') && (
-            <div className='header-container__post-btn'>
-              <Link to='/post' className='header-container__post-btn-text'>
-                롤링 페이퍼 만들기
-              </Link>
-            </div>
+            <Link to='/post'>
+              <button className='header-container__post-btn'>롤링 페이퍼 만들기</button>
+            </Link>
           )}
         </div>
       </div>

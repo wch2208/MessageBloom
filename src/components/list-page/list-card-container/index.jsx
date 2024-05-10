@@ -6,17 +6,13 @@ import { useState, useEffect } from 'react';
 import { getRecipients } from '../../../apis/api';
 import useWindowWidth from '../../../hooks/useWindowWidth';
 import { DESKTOP_WIDTH } from '../../../utils/windowWidthConstants';
-
-const MAX_LIST_LENGTH = 12;
-const LIMIT = 4;
-const OFFSET = 0;
-
+import { constants } from '../../../utils/constants';
 import React from 'react';
 
 export default function ListCardContainer({ sortLike }) {
   const [scroll, setScroll] = useState(false);
-  const [limit, setLimit] = useState(LIMIT);
-  const [offset, setOffset] = useState(OFFSET);
+  const [limit, setLimit] = useState(constants.LIMIT);
+  const [offset, setOffset] = useState(constants.OFFSET);
   const windowWidth = useWindowWidth();
 
   const { data, error } = useFetchData(getRecipients, [limit, offset, sortLike]);
@@ -29,10 +25,10 @@ export default function ListCardContainer({ sortLike }) {
     const isSmallScreen = windowWidth < DESKTOP_WIDTH;
     setScroll(isSmallScreen);
     if (isSmallScreen) {
-      setLimit(MAX_LIST_LENGTH);
-      setOffset(OFFSET);
+      setLimit(constants.MAX_LIST_LENGTH);
+      setOffset(constants.OFFSET);
     } else {
-      setLimit(LIMIT);
+      setLimit(constants.LIMIT);
     }
   };
 
