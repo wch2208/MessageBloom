@@ -17,7 +17,7 @@ function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isPostDeleteModalOpen, setIsPostDeleteModalOpen] = useState(false);
-  const [isChangeBackModalOpen, setIsChangeBackModalOpen] = useState(false);
+  const [isSettingActive, setIsSettingActive] = useState(false);
 
   const [backgroundImg, setBackgroundImg] = useState('');
   const [backgroundColor, setBackgroundColor] = useState('');
@@ -68,8 +68,8 @@ function PostId() {
     setIsPostDeleteModalOpen(value);
   };
 
-  const handleChangeBackModalOpen = (value) => {
-    setIsChangeBackModalOpen(value);
+  const handleChangeBackModalOpen = () => {
+    setIsSettingActive(!isSettingActive);
   };
 
   // 배경화면 상태값 관리함수
@@ -122,16 +122,18 @@ function PostId() {
           <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
             <SearchInput setSearchInfo={setSearchInfo} />
             <div className='post-edit-btn-container'>
+              {isSettingActive && (
+                <button
+                  className='post-edit-btn-container__delete-btn'
+                  onClick={handlePostDeleteModalOpen}>
+                  포스트 삭제하기
+                </button>
+              )}
               <button
-                className='post-edit-btn-container__delete-btn'
-                onClick={handlePostDeleteModalOpen}>
-                포스트 삭제하기
-              </button>
-              <button
-                className='post-edit-btn-container__change-background-btn'
+                className={`post-edit-btn-container__setting-btn ${isSettingActive && 'active'}`}
                 onClick={handleChangeBackModalOpen}>
                 <img
-                  className='post-edit-btn-container__change-background-btn-img'
+                  className='post-edit-btn-container__setting-btn-img'
                   src={settingicon}
                   alt='포스트 배경화면 설정 버튼'
                 />
@@ -165,9 +167,9 @@ function PostId() {
               {isPostDeleteModalOpen && (
                 <PostDeleteModal handlePostDeleteModalOpen={handlePostDeleteModalOpen} id={id} />
               )}
-              {isChangeBackModalOpen && (
+              {/* {isChangeBackModalOpen && (
                 <ChangeBackModal handleChangeBackModalOpen={handleChangeBackModalOpen} id={id} />
-              )}
+              )} */}
             </div>
           </div>
         </>
