@@ -4,7 +4,7 @@ import { ArrowButtonLeft, ArrowButtonRight } from '../arrow-button/index';
 import useFetchData from '../../../hooks/useFetchData';
 import { useState, useEffect } from 'react';
 import { getRecipients } from '../../../apis/api';
-import { constants } from '../../../utils/posted-page/constants';
+import { constants } from '../../../utils/constants';
 
 export default function ListCardContainer({ sortLike }) {
   const [scroll, setScroll] = useState(false);
