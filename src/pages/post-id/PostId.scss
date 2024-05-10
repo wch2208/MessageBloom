@@ -49,12 +49,32 @@ $background-colors: (
   }
 }
 
-.post-delete-container {
+.post-edit-btn-container {
   display: flex;
   justify-content: end;
   width: 340px;
   padding: 0 24px;
+  position: relative;
+  left: 10px;
   margin: 0 auto 10px auto;
+  &__change-background-btn {
+    padding: 0;
+    height: 35px;
+    padding: 0 10px;
+    border: none;
+    margin-left: 10px;
+    border-radius: 6px;
+    background-color: $accent-color;
+    color: $white;
+    cursor: pointer;
+    &:active {
+      transform: scale(0.8);
+      transition: 0.3s ease;
+    }
+    &-img {
+      width: 15px;
+    }
+  }
   &__delete-btn {
     padding: 7px 16px 9px 16px;
     height: 35px;
@@ -75,6 +95,8 @@ $background-colors: (
   padding: 10px;
   height: 515px;
   margin: 0 auto;
+  position: relative;
+  left: 5px;
   overflow: scroll;
   background: transparent;
   width: 360px;
@@ -127,8 +149,17 @@ $background-colors: (
     // min-height: calc(100vh - 117px);
     min-height: 100vh;
   }
-  .post-delete-container {
+  .post-edit-btn-container {
     width: 730px;
+    &__change-background-btn {
+      width: 50px;
+      &-img {
+        position: relative;
+        top: 1px;
+        width: 20px;
+      }
+    }
+    &__change-background-btn,
     &__delete-btn {
       height: 50px;
       font-size: 16px;
@@ -154,7 +185,7 @@ $background-colors: (
     // min-height: calc(100vh - 132px);
     min-height: 100vh;
   }
-  .post-delete-container {
+  .post-edit-btn-container {
     width: 1200px;
   }
   .posted-page-container {
