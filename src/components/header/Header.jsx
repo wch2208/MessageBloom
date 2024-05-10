@@ -6,6 +6,7 @@ import logo from '../../assets/logo/ic_flower_RemoveBg.svg';
 import LetterAnimation from '../Animation/LetterAnimation';
 import MouseTracker from '../commons/mouseTracker';
 
+
 export default function Header() {
   const location = useLocation();
 
