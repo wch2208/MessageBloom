@@ -12,10 +12,16 @@ $font-btn-color: $white;
 
 .header {
   padding: 10px;
-  height: 64px;
   width: 100%;
   border-bottom: 1px solid #dddddd;
 
+  @media #{$tablet-screen} {
+    padding: 10px 24px;
+  }
+
+  @media #{$desktop-screen} {
+    padding: 10px 24px;
+  }
   &-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -28,8 +34,15 @@ $font-btn-color: $white;
       display: flex;
       align-items: center;
       gap: 5px;
-      width: 210px;
       cursor: pointer;
+
+      @media #{$tablet-screen} {
+        width: 210px;
+      }
+
+      @media #{$desktop-screen} {
+        width: 210px;
+      }
 
       &__img {
         width: 40px;
@@ -39,7 +52,15 @@ $font-btn-color: $white;
       &__title {
         font-family: 'poppins-bold';
         color: $gray700;
-        font-size: 20px;
+        font-size: 16px;
+
+        @media #{$tablet-screen} {
+          font-size: 20px;
+        }
+
+        @media #{$desktop-screen} {
+          font-size: 20px;
+        }
       }
     }
 
