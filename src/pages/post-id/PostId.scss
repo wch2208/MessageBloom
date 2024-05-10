@@ -23,6 +23,23 @@ $background-colors: (
     opacity: 1;
   }
 }
+@keyframes goback {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
 
 .loading-wrapper {
   display: flex;
@@ -63,11 +80,20 @@ $background-colors: (
 .post-edit-btn-container {
   display: flex;
   justify-content: end;
+  align-items: center;
   width: 340px;
   padding: 0 24px;
   position: relative;
   left: 10px;
   margin: 0 auto 10px auto;
+  &__back-btn {
+    color: $white;
+    margin-right: auto;
+    position: relative;
+    right: 10px;
+    animation: goback 1.5s infinite linear;
+    cursor: pointer;
+  }
   &__setting-btn {
     padding: 0;
     height: 35px;
@@ -167,6 +193,9 @@ $background-colors: (
   }
   .post-edit-btn-container {
     width: 730px;
+    &__back-btn {
+      font-size: 24px;
+    }
     &__setting-btn {
       width: 50px;
       &-img {
