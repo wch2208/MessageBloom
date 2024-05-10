@@ -5,15 +5,17 @@ import arrowDownIcon from '../../../assets/icon/ic_arrow_down.svg';
 import addicon20 from '../../../assets/icon/ic_add_20.svg';
 import addicon24 from '../../../assets/icon/ic_add_24.svg';
 import { addReaction, getReactions } from '../../../apis/api';
+import useWindowWidth from '../../../hooks/useWindowWidth';
+import { DESKTOP_WIDTH, TABLET_WIDTH } from '../../../utils/windowWidthConstants';
 
 export default function DropDownEmojis({ recipientId }) {
   const [emojiSets, setEmojiSets] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [maxIcons, setMaxIcons] = useState(6);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [showPicker, setShowPicker] = useState(false);
-
   const topEmojis = emojiSets.sort((a, b) => b.count - a.count).slice(0, 3);
+  const windowWidth = useWindowWidth();
+  const maxIcons = windowWidth >= DESKTOP_WIDTH ? 8 : 6;
+  const addicon = windowWidth >= TABLET_WIDTH ? addicon24 : addicon20;
 
   useEffect(() => {
     (async () => setEmojiSets((await getReactions(recipientId)).results))();
@@ -48,25 +50,6 @@ export default function DropDownEmojis({ recipientId }) {
   const togglePicker = () => {
     setShowPicker((prevState) => !prevState);
   };
-
-  const addicon = windowWidth >= 767 ? addicon24 : addicon20;
-
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setWindowWidth(width);
-      if (width < 1200) {
-        setMaxIcons(6);
-      } else {
-        setMaxIcons(8);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <div className='headeremojis'>
