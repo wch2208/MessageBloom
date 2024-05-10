@@ -15,3 +15,8 @@
   @include font-style(14, Regular);
   color: $gray400;
 }
+
+.toastui-editor-defaultUI .ProseMirror {
+  padding: 18px 25px;
+  @include font-style(16, Regular);
+}
