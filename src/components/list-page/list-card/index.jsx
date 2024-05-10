@@ -19,12 +19,14 @@ export default function ListCard({ name, backgroundColor, backgroundImageURL, me
         color: `${baseColor}`,
       }}
       onClick={() => nav(`/post/${id}`)}>
-      <div className='list-card__writers'>
-        <p className='list-card__writers__to'>To.{name}</p>
-        <WriterCounter id={id} displayOption='vertical' />
-      </div>
-      <div>
-        <ShowTheMostEmojis id={id} />
+      <div className='list-card__container'>
+        <div className='list-card__writers'>
+          <p className='list-card__writers__to'>To.{name}</p>
+          <WriterCounter id={id} displayOption='vertical' />
+        </div>
+        <div>
+          <ShowTheMostEmojis id={id} />
+        </div>
       </div>
     </div>
   );
