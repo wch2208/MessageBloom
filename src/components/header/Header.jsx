@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.scss';
-import writeicon from '../../assets/logo/ic_flower_WithLetter.svg';
 import logo from '../../assets/logo/ic_flower_RemoveBg.svg';
-import LetterAnimation from '../Animation/LetterAnimation';
+import LetterAnimation from '../animation/LetterAnimation';
 import MouseTracker from '../commons/mouseTracker';
-
 
 export default function Header() {
   const location = useLocation();

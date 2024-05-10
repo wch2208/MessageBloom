@@ -13,7 +13,6 @@ export default function useFetchData(apiFunction, params = []) {
         const response = await apiFunction(...params);
         setData(response);
         setResults(response.results);
-        console.log(response);
       } catch (err) {
         setError(err);
       } finally {
