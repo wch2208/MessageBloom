@@ -9,6 +9,16 @@ function Modal({ modalData, handleModalOpen }) {
     handleModalOpen(false);
   };
 
+  const editText = (text) => {
+    const lines = text.split(/<br>|\n/);
+    const paragraphs = lines.map((line, index) => (
+      <p className={`modal__content ${getFontByData(modalData.font)}`} key={index}>
+        {line === '' ? ' ' : line}
+      </p>
+    ));
+    return <div>{paragraphs}</div>;
+  };
+
   return (
     <div className='modal-wrapper' onClick={handleWrapperClick}>
       <div
@@ -31,9 +41,7 @@ function Modal({ modalData, handleModalOpen }) {
           <span className='modal__date'>{getTimeLocale(modalData.createdAt)}</span>
         </div>
         <div className='modal__underline'></div>
-        <div className='modal__content-container'>
-          <p className={`modal__content ${getFontByData(modalData.font)}`}>{modalData.content}</p>
-        </div>
+        <div className='modal__content-container'>{editText(modalData.content)}</div>
         <button
           onClick={() => {
             handleModalOpen(false);
