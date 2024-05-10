@@ -1,10 +1,10 @@
 import React from 'react';
 import './PostCard.scss';
 import DeleteButton from '../postcard-delete-button';
-import getClassByRole from '../../../utils/posted-page/getClassByRole';
-import contentSlice from '../../../utils/posted-page/contentSlice';
-import getTimeLocale from '../../../utils/posted-page/getTimeLocale';
-import getFontByData from '../../../utils/posted-page/getFontByData';
+import getClassByRole from '../../../utils/post-id/getClassByRole';
+import contentSlice from '../../../utils/post-id/contentSlice';
+import getTimeLocale from '../../../utils/post-id/getTimeLocale';
+import getFontByData from '../../../utils/post-id/getFontByData';
 
 function PostCard({
   data,
