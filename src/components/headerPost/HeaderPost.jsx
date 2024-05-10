@@ -105,8 +105,7 @@ export default function HeaderPost() {
                   </ul>
                 )}
                 <ToastContainer
-                  position='fixed'
-                  style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+                  position='bottom-center'
                   autoClose={5000}
                   hideProgressBar={false}
                   newestOnTop={false}

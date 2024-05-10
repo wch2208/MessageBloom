@@ -32,21 +32,30 @@ const WriterCounter = ({ id, displayOption }) => {
   return (
     <div className={`writer-counter ${displayOption === 'vertical' ? 'vertical' : ''}`}>
       <div className='writer-counter__profile-images'>
-        {profileImages.map((imageUrl, index) => (
-          <div className='writer-counter__profile-image' key={index}>
-            <img
-              src={imageUrl}
-              alt={`Profile ${index + 1}`}
-              className='writer-counter__profile-image-img'
-            />
-          </div>
-        ))}
+        {profileImages.length > 0 ? (
+          profileImages.map((imageUrl, index) => (
+            <div className='writer-counter__profile-image' key={index}>
+              <img
+                src={imageUrl}
+                alt={`Profile ${index + 1}`}
+                className='writer-counter__profile-image-img'
+              />
+            </div>
+          ))
+        ) : (
+          <div className='writer-counter__profile-image-null'></div>
+        )}
         {messageCount > 3 && (
-          <span className='writer-counter__remaining-profiles'>+{messageCount - 3}</span>
+          <span
+            className={`writer-counter__remaining-profiles ${
+              displayOption === 'vertical' ? 'vertical' : ''
+            }`}>
+            +{messageCount - 3}
+          </span>
         )}
       </div>
       {displayOption === 'vertical' && <br />}
-      <div className='writer-counter__message'>
+      <div className={`writer-counter__message ${displayOption === 'vertical' ? 'vertical' : ''}`}>
         <span className='writer-counter__message-count-number'>{messageCount}</span>
         <span className='writer-counter__message-count-text'>명이 작성했어요!</span>
       </div>

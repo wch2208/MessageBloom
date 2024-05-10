@@ -18,10 +18,12 @@
 }
 
 .list-card__emoji {
+  display: flex;
+  align-items: center;
   text-align: center;
-  width: 55px;
+  width: fit-content;
   height: 32px;
-  padding: 6px 8px;
+  padding: 4px 6px;
   border-radius: 32px;
   background-color: rgba($color: $black, $alpha: 0.54);
   color: white;
@@ -38,17 +40,12 @@
   gap: 4px;
 }
 
-.list-card__emoji {
-  text-align: center;
-  width: 55px;
-  height: 32px;
-  padding: 6px 8px;
-  border-radius: 32px;
-  background-color: rgba($color: $black, $alpha: 0.54);
-  color: white;
-  @include font-style(14, 400);
+@media #{$tablet-screen} {
+  .list-card__emoji {
+    padding: 6px 8px;
+  }
 
-  & span {
-    padding: 2px;
+  .list-card__emoji-wrap {
+    gap: 8px;
   }
 }
