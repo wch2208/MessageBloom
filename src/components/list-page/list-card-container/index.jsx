@@ -4,18 +4,12 @@ import { ArrowButtonLeft, ArrowButtonRight } from '../arrow-button/index';
 import useFetchData from '../../../hooks/useFetchData';
 import { useState, useEffect } from 'react';
 import { getRecipients } from '../../../apis/api';
-
-const MAX_SCREEN_WIDTH = 1200;
-const MAX_LIST_LENGTH = 12;
-const LIMIT = 4;
-const OFFSET = 0;
-
-import React from 'react';
+import { constants } from '../../../utils/constants';
 
 export default function ListCardContainer({ sortLike }) {
   const [scroll, setScroll] = useState(false);
-  const [limit, setLimit] = useState(LIMIT);
-  const [offset, setOffset] = useState(OFFSET);
+  const [limit, setLimit] = useState(constants.LIMIT);
+  const [offset, setOffset] = useState(constants.OFFSET);
 
   const { data, error } = useFetchData(getRecipients, [limit, offset, sortLike]);
 
@@ -27,13 +21,13 @@ export default function ListCardContainer({ sortLike }) {
   });
 
   const updateScroll = () => {
-    const smallScreen = document.documentElement.clientWidth < MAX_SCREEN_WIDTH;
+    const smallScreen = document.documentElement.clientWidth < constants.MAX_SCREEN_WIDTH;
     setScroll(smallScreen);
     if (smallScreen) {
-      setLimit(MAX_LIST_LENGTH);
-      setOffset(OFFSET);
+      setLimit(constants.MAX_LIST_LENGTH);
+      setOffset(constants.OFFSET);
     } else {
-      setLimit(LIMIT);
+      setLimit(constants.LIMIT);
     }
   };
 
