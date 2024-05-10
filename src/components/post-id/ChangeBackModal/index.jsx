@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ChangeBackModal.scss';
 import { COLOR_NAMES, DEFAULT_RECIPIENT } from './ModalConstants';
-import { patchBackgroundInfo } from '../../../apis/api';
+// import { patchBackgroundInfo } from '../../../apis/api';
 
 function ColorOption({ color, selectedColor, onColorChange }) {
   return (
