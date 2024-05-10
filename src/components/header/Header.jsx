@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.scss';
-import writeicon from '../../assets/logo/ic_flower_WithLetter.svg';
 import logo from '../../assets/logo/ic_flower_RemoveBg.svg';
-import LetterAnimation from '../Animation/LetterAnimation';
+import LetterAnimation from '../animation/LetterAnimation';
+import MouseTracker from '../commons/mouseTracker';
 
 export default function Header() {
   const location = useLocation();
@@ -18,12 +18,14 @@ export default function Header() {
     <header className={`header`}>
       <div className='header-container'>
         <Link to='/' aria-label='홈으로 이동'>
-          <div className='header-container__logo'>
-            <picture className='header-container__logo__img-wrap'>
-              <img src={logo} alt='로고 아이콘' className='header-container__logo__img' />
-            </picture>
-            <span className='header-container__logo__title'> Message Bloom</span>
-          </div>
+          <MouseTracker>
+            <div className='header-container__logo'>
+              <picture className='header-container__logo__img-wrap'>
+                <img src={logo} alt='로고 아이콘' className='header-container__logo__img' />
+              </picture>
+              <span className='header-container__logo__title'> Message Bloom</span>
+            </div>
+          </MouseTracker>
         </Link>
 
         <div className='header-container__right-side'>
@@ -42,11 +44,9 @@ export default function Header() {
           </div>
 
           {(location.pathname === '/' || location.pathname === '/list') && (
-            <div className='header-container__post-btn'>
-              <Link to='/post' className='header-container__post-btn-text'>
-                롤링 페이퍼 만들기
-              </Link>
-            </div>
+            <Link to='/post'>
+              <button className='header-container__post-btn'>롤링 페이퍼 만들기</button>
+            </Link>
           )}
         </div>
       </div>

@@ -5,6 +5,11 @@
   src: url('/public/Poppins-Regular.ttf');
 }
 
+//색상변수
+$box-bg-color: $accent-background-light;
+$btn-bg-color: $accent-color;
+$font-btn-color: $white;
+
 .header {
   padding: 10px;
   width: 100%;
@@ -65,22 +70,20 @@
     }
 
     &__post-btn {
+      @include font-style(14, Regular);
+      color: $font-btn-color;
+      text-align: center;
+      line-height: 20px;
+      letter-spacing: -0.005em;
       cursor: pointer;
       width: 142px;
       height: 40px;
-      border: 1px solid #cccccc;
+      background-color: $btn-bg-color;
+      border: 1px solid $btn-bg-color;
       border-radius: 8px;
       padding: 10px;
-      text-align: center;
-
-      &-text {
-        background-color: #ffffff;
-        font-size: 14px;
-        font-weight: Regular;
-        line-height: 20px;
-        letter-spacing: -0.005em;
-        text-align: center;
-        color: $gray900;
+      &:hover {
+        transform: scale(1.02);
       }
     }
   }

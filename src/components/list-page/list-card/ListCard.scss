@@ -5,9 +5,8 @@
   display: flex;
   flex-direction: column;
   gap: 43px;
-  width: 208px;
+  min-width: 208px;
   height: 232px;
-  padding: 30px 24px 20px 24px;
   margin: 0 10px;
   border-radius: 16px;
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
@@ -45,7 +44,7 @@
   height: 114px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 11px;
 }
 
 .list-card__writers__to {
@@ -75,11 +74,25 @@
   }
 }
 
+.list-card__container {
+  width: 162px;
+  height: 182px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 @media #{$tablet-screen} {
   .list-card {
     min-width: 275px;
     height: 260px;
-    padding: 30px 24px 20px 24px;
+  }
+
+  .list-card__container {
+    width: 227px;
+    height: 210px;
+    margin: 30px 24px 20px 24px;
   }
 
   .list-card__writers__to {

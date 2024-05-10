@@ -5,16 +5,19 @@ import { getMessages, getRecipient } from '../../apis/api';
 import './PostId.scss';
 import plusicon from '../../assets/icon/ic_plus.svg';
 import loadingicon from '../../assets/icon/ic_loading.svg';
+import settingicon from '../../assets/icon/ic_setting.svg';
 import Modal from '../../components/post-id/postcard-modal';
 import DeleteModal from '../../components/post-id/postcard-delete-modal';
 import HeaderPost from '../../components/headerPost/HeaderPost';
 import SearchInput from '../../components/post-id/search-input';
 import PostDeleteModal from '../../components/post-id/post-delete-modal';
+import ChangeBackModal from '../../components/post-id/ChangeBackModal';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isPostDeleteModalOpen, setIsPostDeleteModalOpen] = useState(false);
+  const [isChangeBackModalOpen, setIsChangeBackModalOpen] = useState(false);
 
   const [backgroundImg, setBackgroundImg] = useState('');
   const [backgroundColor, setBackgroundColor] = useState('');
@@ -63,6 +66,10 @@ function PostId() {
 
   const handlePostDeleteModalOpen = (value) => {
     setIsPostDeleteModalOpen(value);
+  };
+
+  const handleChangeBackModalOpen = (value) => {
+    setIsChangeBackModalOpen(value);
   };
 
   // 배경화면 상태값 관리함수
@@ -114,11 +121,20 @@ function PostId() {
           <HeaderPost />
           <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
             <SearchInput setSearchInfo={setSearchInfo} />
-            <div className='post-delete-container'>
+            <div className='post-edit-btn-container'>
               <button
-                className='post-delete-container__delete-btn'
+                className='post-edit-btn-container__delete-btn'
                 onClick={handlePostDeleteModalOpen}>
                 포스트 삭제하기
+              </button>
+              <button
+                className='post-edit-btn-container__change-background-btn'
+                onClick={handleChangeBackModalOpen}>
+                <img
+                  className='post-edit-btn-container__change-background-btn-img'
+                  src={settingicon}
+                  alt='포스트 배경화면 설정 버튼'
+                />
               </button>
             </div>
             <div className='posted-page-container'>
@@ -148,6 +164,9 @@ function PostId() {
               )}
               {isPostDeleteModalOpen && (
                 <PostDeleteModal handlePostDeleteModalOpen={handlePostDeleteModalOpen} id={id} />
+              )}
+              {isChangeBackModalOpen && (
+                <ChangeBackModal handleChangeBackModalOpen={handleChangeBackModalOpen} id={id} />
               )}
             </div>
           </div>

@@ -7,16 +7,20 @@ import shareicon20 from '../../assets/icon/ic_share_20.svg';
 import shareicon24 from '../../assets/icon/ic_share_24.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
 import { getRecipient } from '../../apis/api.js';
-
+import useWindowWidth from '../../hooks/useWindowWidth.js';
+import { DESKTOP_WIDTH, TABLET_WIDTH } from '../../utils/windowWidthConstants.js';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 
 export default function HeaderPost() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [recipientData, setRecipientData] = useState(null);
   const { id } = useParams();
+  const windowWidth = useWindowWidth();
+  const isDesktopSize = windowWidth >= DESKTOP_WIDTH;
+  const isTabletSize = windowWidth >= TABLET_WIDTH;
+  const shareicon = isTabletSize ? shareicon24 : shareicon20;
 
   useEffect(() => {
     async function fetchData() {
@@ -29,16 +33,8 @@ export default function HeaderPost() {
     }
 
     fetchData();
-
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, [id]);
 
-  const shareicon = windowWidth >= 768 ? shareicon24 : shareicon20;
   const notify = (message) => toast.success(message);
 
   const copyURLToClipboard = () => {
@@ -49,11 +45,9 @@ export default function HeaderPost() {
       .catch((error) => console.error('Failed to copy URL:', error));
   };
 
-  const realUrl = window.location.href;
   useEffect(() => {
     window.Kakao.cleanup();
     window.Kakao.init('8859f57551eb726e1f0cbda932511b53');
-    console.log(window.Kakao.isInitialized());
   }, []);
 
   const shareKakao = () => {
@@ -69,7 +63,7 @@ export default function HeaderPost() {
           <div className='header-post__container_to-name'>To. {recipientData.name}</div>
         )}
         <div className='header-post__container_info'>
-          {windowWidth >= 1200 && (
+          {isDesktopSize && (
             <>
               <div className='header-post__container_info_person-wrapper'>
                 <WriterCounter id={id} />

@@ -29,7 +29,7 @@ $btn-width-desktop: 280px;
   border: none;
 
   &:hover {
-    background-color: $accent-background-thick;
+    transform: scale(1.02);
   }
 }
 
@@ -43,11 +43,11 @@ $btn-width-desktop: 280px;
     display: inline;
     text-align: center;
 
-    .link-button__button {
+    &__button {
       width: $btn-width-desktop;
     }
 
-    .link-button__button.full-width {
+    &__button.full-width {
       width: 100%;
       max-width: 720px;
     }
