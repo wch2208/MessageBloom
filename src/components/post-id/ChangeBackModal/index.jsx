@@ -33,15 +33,15 @@ function ChangeBackModal({ id, handleChangeBackModalOpen }) {
     DEFAULT_RECIPIENT.backgroundImageURL = backgroundURL;
   }, [selectedColor, backgroundURL]);
 
-  const patchBackgroundData = async () => {
-    const formData = new FormData();
-    formData.append('data', DEFAULT_RECIPIENT);
-    await patchBackgroundInfo(id, formData);
-  };
+  // const patchBackgroundData = async () => {
+  //   const formData = new FormData();
+  //   formData.append('data', DEFAULT_RECIPIENT);
+  //   await patchBackgroundInfo(id, formData);
+  // };
   // 확인, 취소 버튼 핸들링 함수
   const handleCheckClick = () => {
     handleChangeBackModalOpen(false);
-    patchBackgroundData();
+    // patchBackgroundData();
   };
 
   const handleCancelClick = () => {
