@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import './HeaderPost.scss';
 import WriterCounter from '../commons/WriterCounter.jsx';
@@ -21,6 +21,7 @@ export default function HeaderPost() {
   const isDesktopSize = windowWidth >= DESKTOP_WIDTH;
   const isTabletSize = windowWidth >= TABLET_WIDTH;
   const shareicon = isTabletSize ? shareicon24 : shareicon20;
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -36,7 +37,6 @@ export default function HeaderPost() {
   }, [id]);
 
   const notify = (message) => toast.success(message);
-
   const copyURLToClipboard = () => {
     const currentURL = window.location.href;
     navigator.clipboard
@@ -55,6 +55,18 @@ export default function HeaderPost() {
       templateId: 107707,
     });
   };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   return (
     <div className='header-post'>
@@ -86,7 +98,9 @@ export default function HeaderPost() {
               alt='가림막'
             />
             <div className='header-post__container_info_container_share'>
-              <div className='header-post__container_info_container_share-dropdown'>
+              <div
+                ref={dropdownRef}
+                className='header-post__container_info_container_share-dropdown'>
                 <button
                   className='header-post__container_info_container_share-dropdown_btn'
                   onClick={() => setDropdownOpen(!dropdownOpen)}>

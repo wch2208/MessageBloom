@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import EmojiPicker from 'emoji-picker-react';
 import './DropDownEmojis.scss';
 import arrowDownIcon from '../../../assets/icon/ic_arrow_down.svg';
@@ -16,6 +16,7 @@ export default function DropDownEmojis({ recipientId }) {
   const windowWidth = useWindowWidth();
   const maxIcons = windowWidth >= DESKTOP_WIDTH ? 8 : 6;
   const addicon = windowWidth >= TABLET_WIDTH ? addicon24 : addicon20;
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     (async () => setEmojiSets((await getReactions(recipientId)).results))();
@@ -44,15 +45,35 @@ export default function DropDownEmojis({ recipientId }) {
   const toggleDropDown = () => {
     if (emojiSets.length > 0) {
       setIsOpen(!isOpen);
+      setShowPicker(false);
     }
   };
 
   const togglePicker = () => {
-    setShowPicker((prevState) => !prevState);
+    setShowPicker((prevState) => {
+      if (isOpen) {
+        setIsOpen(false);
+      }
+      return !prevState;
+    });
   };
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+        setShowPicker(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
+
   return (
-    <div className='headeremojis'>
+    <div className='headeremojis' ref={dropdownRef}>
       <div className='headeremojis-container'>
         <button className='headeremojis-container__dropdown'>
           <div>

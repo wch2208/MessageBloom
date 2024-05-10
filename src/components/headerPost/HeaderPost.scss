@@ -129,9 +129,11 @@
   bottom: 88px !important;
   margin: 0 auto;
   z-index: map-get($z-indexes, level5);
+  right: 5px;
 
   @media #{$tablet-screen} {
     width: 524px;
     bottom: 40px !important;
+    right: 80px;
   }
 }
