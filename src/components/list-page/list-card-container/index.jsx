@@ -1,13 +1,12 @@
 import './ListCardContainer.scss';
-import ListCard from '../list-card/index';
-import { ArrowButtonLeft, ArrowButtonRight } from '../arrow-button/index';
-import useFetchData from '../../../hooks/useFetchData';
 import { useState, useEffect } from 'react';
-import { getRecipients } from '../../../apis/api';
+import useFetchData from '../../../hooks/useFetchData';
 import useWindowWidth from '../../../hooks/useWindowWidth';
+import { getRecipients } from '../../../apis/api';
 import { DESKTOP_WIDTH } from '../../../utils/windowWidthConstants';
 import { constants } from '../../../utils/constants';
-import React from 'react';
+import { ArrowButtonLeft, ArrowButtonRight } from '../arrow-button/index';
+import ListCard from '../list-card/index';
 
 export default function ListCardContainer({ sortLike }) {
   const [scroll, setScroll] = useState(false);
