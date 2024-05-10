@@ -5,6 +5,7 @@ import './ToggleOption.scss';
 
 export default function ToggleOption({ setRecipient }) {
   const [selectedValue, setSelectedValue] = useState('color');
+  const [customImg, setCustomImg] = useState();
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -53,7 +54,11 @@ export default function ToggleOption({ setRecipient }) {
       {selectedValue === 'color' ? (
         <ColorPicker setRecipient={setRecipient} />
       ) : (
-        <ImagePicker setRecipient={setRecipient} />
+        <ImagePicker
+          setRecipient={setRecipient}
+          customImg={customImg}
+          setCustomImg={setCustomImg}
+        />
       )}
     </>
   );
