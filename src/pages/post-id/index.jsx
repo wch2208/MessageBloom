@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import PostCard from '../../components/post-id/post-card';
 import { getMessages, getRecipient } from '../../apis/api';
 import './PostId.scss';
@@ -122,6 +122,9 @@ function PostId() {
           <div className={`post-wrapper ${backgroundColor}`} style={backgroundImageStyle}>
             <SearchInput setSearchInfo={setSearchInfo} />
             <div className='post-edit-btn-container'>
+              <Link to='/list' className='post-edit-btn-container__back-btn'>
+                <span className='post-edit-btn-container__back-btn'>←뒤로가기</span>
+              </Link>
               {isSettingActive && (
                 <button
                   className='post-edit-btn-container__delete-btn'
