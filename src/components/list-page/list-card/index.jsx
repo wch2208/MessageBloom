@@ -1,7 +1,5 @@
 import './ListCard.scss';
 import ShowTheMostEmojis from '../show-the-most-emojis';
-import WritersProfiles from '../writers-profiles';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import WriterCounter from '../../commons/WriterCounter.jsx';
 

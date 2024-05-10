@@ -1,6 +1,5 @@
 import './List.scss';
 import ListCardContainer from '../../components/list-page/list-card-container/index';
-import LinkButton from '../../components/commons/LinkButton';
 import { Link } from 'react-router-dom';
 import star_emoji from '../../assets/image/list/star_emoji.png';
 import fire_emoji from '../../assets/image/list/fire_emoji.png';
