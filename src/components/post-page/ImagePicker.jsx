@@ -3,6 +3,8 @@ import { useState } from 'react';
 import './ImagePicker.scss';
 import { IMAGE_NAMES, IMAGE_URLS } from './postPageConstants';
 import ImageAddModal from './image-add-modal';
+import { PROFILES } from '../post-id-message-page/messageConstants';
+import delIcon from '../../assets/icon/ic_deleted.svg';
 
 function ImageOption({ handleImageChange, imageName, selectedImage }) {
   return (
@@ -34,9 +36,8 @@ function ImageOption({ handleImageChange, imageName, selectedImage }) {
   );
 }
 
-export default function ImagePicker({ setRecipient }) {
+export default function ImagePicker({ setRecipient, customImg, setCustomImg }) {
   const [selectedImage, setSelectedImage] = useState('');
-  const [customImg, setCustomImg] = useState();
   const [handleModalOpen, setHandleModalOpen] = useState(false);
 
   const handleImageChange = (e) => {
@@ -45,8 +46,12 @@ export default function ImagePicker({ setRecipient }) {
   };
 
   const handleCustomClick = (e) => {
-    //
     setHandleModalOpen(true);
+  };
+
+  const handleDeleteClick = () => {
+    setCustomImg('');
+    setRecipient((prev) => ({ ...prev, backgroundImageURL: null }));
   };
 
   return (
@@ -64,8 +69,24 @@ export default function ImagePicker({ setRecipient }) {
           className='background-form__custom-image'
           style={{
             backgroundImage: `url(${customImg})`,
-          }}
-        />
+          }}>
+          <img
+            src={delIcon}
+            className='background-form__custom-image__del-btn'
+            onClick={handleDeleteClick}
+          />
+          <div className='example__container'>
+            <div className='example__writers'>
+              <p className='example__writers__to'>To. 받는 사람 이름</p>
+            </div>
+            <img
+              className='example__writers__profile'
+              src={PROFILES[0].src}
+              alt='프로필 이미지 예시'
+            />
+            <p className='example__writers__to'>1명이 작성했어요!</p>
+          </div>
+        </div>
       ) : (
         <button onClick={handleCustomClick} className='background-form__add-image-btn'>
           이미지 직접 추가하기
