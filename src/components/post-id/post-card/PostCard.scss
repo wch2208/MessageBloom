@@ -113,6 +113,7 @@
       height: 130px;
       line-height: 25px;
       .card__content {
+        height: 25px;
         &.Noto-Sans {
           font-family: 'Noto-Sans', sans-serif;
           @include font-style(18, Regular);
