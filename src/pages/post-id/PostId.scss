@@ -16,6 +16,7 @@ $background-colors: (
 @keyframes deleteBtn {
   from {
     transform: translateX(20px);
+    height: 20px;
     opacity: 0.5;
   }
   to {
