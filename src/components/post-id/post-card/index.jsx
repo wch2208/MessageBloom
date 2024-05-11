@@ -22,7 +22,7 @@ function PostCard({
     e.stopPropagation();
   };
 
-  const editText = (text) => {
+  const editTextOfCard = (text) => {
     const lines = text.split(/<br>|\n/);
     const filteredLines = lines.filter((line) => line !== '<br>');
     const paragraphs = filteredLines.map((line, index) => (
@@ -55,7 +55,7 @@ function PostCard({
         />
       </div>
       <div className='card__underline'></div>
-      <div className='card__contents'>{editText(data.content)}</div>
+      <div className='card__contents'>{editTextOfCard(data.content)}</div>
       <span className='card__date'>{getTimeLocale(data.createdAt)}</span>
     </div>
   );
