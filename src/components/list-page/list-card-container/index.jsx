@@ -1,13 +1,13 @@
 import './ListCardContainer.scss';
-import ListCard from '../list-card/index';
-import { ArrowButtonLeft, ArrowButtonRight } from '../arrow-button/index';
-import useFetchData from '../../../hooks/useFetchData';
 import { useState, useEffect } from 'react';
-import { getRecipients } from '../../../apis/api';
+import useFetchData from '../../../hooks/useFetchData';
 import useWindowWidth from '../../../hooks/useWindowWidth';
+import { getRecipients } from '../../../apis/api';
 import { DESKTOP_WIDTH } from '../../../utils/windowWidthConstants';
 import { constants } from '../../../utils/constants';
-import React from 'react';
+import { ArrowButtonLeft, ArrowButtonRight } from '../arrow-button/index';
+import ListCard from '../list-card/index';
+import Loading from '../loading';
 
 export default function ListCardContainer({ sortLike }) {
   const [scroll, setScroll] = useState(false);
@@ -15,7 +15,7 @@ export default function ListCardContainer({ sortLike }) {
   const [offset, setOffset] = useState(constants.OFFSET);
   const windowWidth = useWindowWidth();
 
-  const { data, error } = useFetchData(getRecipients, [limit, offset, sortLike]);
+  const { data, error, isLoading } = useFetchData(getRecipients, [limit, offset, sortLike]);
 
   useEffect(() => {
     updateScroll(windowWidth);
@@ -49,7 +49,14 @@ export default function ListCardContainer({ sortLike }) {
       {!scroll && offset > 0 && <ArrowButtonLeft onClick={handlePrevious} />}
       {!scroll && offset < 12 && <ArrowButtonRight onClick={handleNext} />}
       <div className='list__best-cards'>
-        {data && data.map((card) => <ListCard key={card.id} {...card} />)}
+        {data &&
+          data.map((card) => {
+            if (isLoading) {
+              return <Loading key={card.id} />;
+            } else {
+              return <ListCard key={card.id} {...card} />;
+            }
+          })}
       </div>
     </>
   );
