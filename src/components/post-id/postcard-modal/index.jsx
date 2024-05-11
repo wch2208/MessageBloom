@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import getClassByRole from '../../../utils/post-id/getClassByRole';
 import './Modal.scss';
 import getTimeLocale from '../../../utils/post-id/getTimeLocale';
 import getFontByData from '../../../utils/post-id/getFontByData';
 
-function Modal({ modalData, handleModalOpen }) {
+function Modal({ modalData, handleModalOpen, isModalOpen }) {
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 27) {
+        handleModalOpen(false);
+      }
+    };
+
+    if (isModalOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen]);
+
   const handleWrapperClick = () => {
     handleModalOpen(false);
   };

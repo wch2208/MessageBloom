@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './DeleteModal.scss';
 import { deleteMessage } from '../../../apis/api';
 
-function DeleteModal({ handleDeleteMessage, deleteDataId, handleDeleteModalOpen }) {
+function DeleteModal({
+  handleDeleteMessage,
+  deleteDataId,
+  handleDeleteModalOpen,
+  isDeleteModalOpen,
+}) {
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 27) {
+        handleDeleteModalOpen(false);
+      }
+    };
+
+    if (isDeleteModalOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isDeleteModalOpen]);
+
   const handleDeleteData = async (id) => {
     await deleteMessage(id);
     handleDeleteCard(id);

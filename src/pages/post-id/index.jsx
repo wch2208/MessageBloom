@@ -159,16 +159,27 @@ function PostId() {
                   />
                 </div>
               ))}
-              {isModalOpen && <Modal handleModalOpen={handleModalOpen} modalData={modalData} />}
+              {isModalOpen && (
+                <Modal
+                  handleModalOpen={handleModalOpen}
+                  modalData={modalData}
+                  isModalOpen={isModalOpen}
+                />
+              )}
               {isDeleteModalOpen && (
                 <DeleteModal
                   handleDeleteMessage={handleDeleteMessage}
                   deleteDataId={deleteDataId}
                   handleDeleteModalOpen={handleDeleteModalOpen}
+                  isDeleteModalOpen={isDeleteModalOpen}
                 />
               )}
               {isPostDeleteModalOpen && (
-                <PostDeleteModal handlePostDeleteModalOpen={handlePostDeleteModalOpen} id={id} />
+                <PostDeleteModal
+                  handlePostDeleteModalOpen={handlePostDeleteModalOpen}
+                  id={id}
+                  isPostDeleteModalOpen={isPostDeleteModalOpen}
+                />
               )}
               {/* {isChangeBackModalOpen && (
                 <ChangeBackModal handleChangeBackModalOpen={handleChangeBackModalOpen} id={id} />
