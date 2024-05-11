@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import './HeaderPost.scss';
-import WriterCounter from '../commons/WriterCounter.jsx';
+import WriterCounter from '../commons/WriterCounter.jsx'; //ProfileMessageCounter 성공시 삭제
+import ProfileMessageCounter from '../commons/ProfileMessageCounter/ProfileMessageCounter.jsx';
 import Emojis from './components/DropDownEmojis.jsx';
 import shareicon20 from '../../assets/icon/ic_share_20.svg';
 import shareicon24 from '../../assets/icon/ic_share_24.svg';
