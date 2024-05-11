@@ -44,16 +44,19 @@ export default function ListCardContainer({ sortLike }) {
     return <div>Error: {error.message}</div>;
   }
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
   return (
     <>
       {!scroll && offset > 0 && <ArrowButtonLeft onClick={handlePrevious} />}
       {!scroll && offset < 12 && <ArrowButtonRight onClick={handleNext} />}
       <div className='list__best-cards'>
-        {data && data.map((card) => <ListCard key={card.id} {...card} />)}
+        {data &&
+          data.map((card) => {
+            if (isLoading) {
+              return <Loading key={card.id} />;
+            } else {
+              return <ListCard key={card.id} {...card} />;
+            }
+          })}
       </div>
     </>
   );
