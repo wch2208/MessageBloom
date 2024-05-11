@@ -23,10 +23,10 @@ function PostId() {
   const [backgroundColor, setBackgroundColor] = useState('');
 
   const [messagesData, setMessagesData] = useState([]);
+  const [firstMessagesData, setFirstMessagesData] = useState([]);
   const [recipientData, setRecipientData] = useState([]);
   const [deleteDataId, setDeleteDataId] = useState('');
   const [modalData, setModalData] = useState([]);
-  const [searchData, setSearchData] = useState([]);
 
   const [loading, setLoading] = useState(true);
 
@@ -36,6 +36,7 @@ function PostId() {
   const getInfosFromData = async (id) => {
     const [messages, recipient] = await Promise.all([getMessages(id), getRecipient(id)]);
     setMessagesData(messages);
+    setFirstMessagesData(messages);
     setRecipientData(recipient);
     setLoading(false);
   };
@@ -94,20 +95,24 @@ function PostId() {
 
   // 검색결과 반영 및 카테고리 관리 함수
   const setSearchInfo = (category, value) => {
-    setFilteredData(category, value);
+    if (value === null) {
+      setMessagesData(firstMessagesData);
+    } else {
+      setFilteredData(category, value);
+    }
   };
 
   const setFilteredData = (category, value) => {
-    const filteredData = messagesData.filter((data) => {
-      if (category === '전체') return data.sender.includes(value) || data.content.includes(value);
-      if (category === '이름') return data.sender.includes(value);
-      if (category === '내용') return data.content.includes(value);
+    const regex = new RegExp(value.replace(/\s/g, ''), 'i');
+    const filteredData = firstMessagesData.filter((data) => {
+      const senderWithoutSpace = data.sender.replace(/\s/g, '');
+      const contentWithoutSpace = data.content.replace(/\s/g, '');
+      if (category === '전체')
+        return regex.test(senderWithoutSpace) || regex.test(contentWithoutSpace);
+      if (category === '이름') return regex.test(senderWithoutSpace);
+      if (category === '내용') return regex.test(contentWithoutSpace);
     });
-    applyFilterToSearchData(filteredData);
-  };
-
-  const applyFilterToSearchData = (data) => {
-    setSearchData(data);
+    setMessagesData(filteredData);
   };
 
   return (
@@ -148,7 +153,7 @@ function PostId() {
                   <img src={plusicon} alt='포스트 카드 추가 버튼' />
                 </div>
               </div>
-              {(searchData.length > 0 ? searchData : messagesData).map((data) => (
+              {messagesData.map((data) => (
                 <div key={data.id}>
                   <PostCard
                     data={data}
