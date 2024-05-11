@@ -18,7 +18,7 @@ export default function Header() {
     <header className={`header`}>
       <div className='header-container'>
         <Link to='/' aria-label='홈으로 이동'>
-          <MouseTracker>
+          <MouseTracker text='💌'>
             <div className='header-container__logo'>
               <picture className='header-container__logo__img-wrap'>
                 <img src={logo} alt='로고 아이콘' className='header-container__logo__img' />
