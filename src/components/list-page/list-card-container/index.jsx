@@ -15,7 +15,7 @@ export default function ListCardContainer({ sortLike }) {
   const [offset, setOffset] = useState(constants.OFFSET);
   const windowWidth = useWindowWidth();
 
-  const { data, error, loading } = useFetchData(getRecipients, [limit, offset, sortLike]);
+  const { data, error, isLoading } = useFetchData(getRecipients, [limit, offset, sortLike]);
 
   useEffect(() => {
     updateScroll(windowWidth);
@@ -42,6 +42,10 @@ export default function ListCardContainer({ sortLike }) {
 
   if (error) {
     return <div>Error: {error.message}</div>;
+  }
+
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (
