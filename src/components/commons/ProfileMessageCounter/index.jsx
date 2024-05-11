@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ProfileMessageCounter.scss';
 
 const ProfileMessageCounter = ({ count = 0, profiles = [], displayOption, fetchData }) => {
@@ -17,8 +17,8 @@ const ProfileMessageCounter = ({ count = 0, profiles = [], displayOption, fetchD
           <div className='profile-message-counter__profile-image' key={index}>
             <img
               src={profile.profileImageURL}
-              alt={`Profile ${index + 1}`}
               className='profile-message-counter__profile-image-img'
+              alt={`Profile ${index + 1}`} // 여기서 alt 속성을 추가합니다.
             />
           </div>
         ))}
