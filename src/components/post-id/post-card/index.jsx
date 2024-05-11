@@ -22,6 +22,17 @@ function PostCard({
     e.stopPropagation();
   };
 
+  const editTextOfCard = (text) => {
+    const lines = text.split(/<br>|\n/);
+    const filteredLines = lines.filter((line) => line !== '<br>');
+    const paragraphs = filteredLines.map((line, index) => (
+      <p className={`card__content ${getFontByData(data.font)}`} key={index}>
+        {line === '' ? ' ' : line}
+      </p>
+    ));
+    return <div>{paragraphs}</div>;
+  };
+
   return (
     <div className='card-container' onClick={handleCardClick}>
       <div className='card-info-container'>
@@ -44,7 +55,7 @@ function PostCard({
         />
       </div>
       <div className='card__underline'></div>
-      <p className={`card__content ${getFontByData(data.font)}`}>{contentSlice(data.content)}</p>
+      <div className='card__contents'>{editTextOfCard(data.content)}</div>
       <span className='card__date'>{getTimeLocale(data.createdAt)}</span>
     </div>
   );
