@@ -1,7 +1,7 @@
 import './ListCard.scss';
 import ShowTheMostEmojis from '../show-the-most-emojis';
 import { useNavigate } from 'react-router-dom';
-import WriterCounter from '../../commons/WriterCounter.jsx';
+import ProfileMessageCounter from '../../commons/ProfileMessageCounter';
 
 export default function ListCard({ name, backgroundColor, backgroundImageURL, messageCount, id }) {
   const nav = useNavigate();
@@ -20,7 +20,11 @@ export default function ListCard({ name, backgroundColor, backgroundImageURL, me
       <div className='list-card__container'>
         <div className='list-card__writers'>
           <p className='list-card__writers__to'>To.{name}</p>
-          <WriterCounter id={id} displayOption='vertical' />
+          <ProfileMessageCounter
+            count={messageCount}
+            profileImageURL={backgroundImageURL}
+            displayOption='vertical'
+          />
         </div>
         <div>
           <ShowTheMostEmojis id={id} />

@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import './ProfileMessageCounter.scss';
 
 const ProfileMessageCounter = ({ count = 0, profiles = [], displayOption, fetchData }) => {
@@ -6,10 +5,6 @@ const ProfileMessageCounter = ({ count = 0, profiles = [], displayOption, fetchD
   const recentProfiles = profiles.slice(0, 3);
 
   // fetchData 함수를 호출하여 데이터를 가져옵니다.
-  React.useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-
   return (
     <div className='profile-message-counter'>
       <div className='profile-message-counter__profile-images'>
@@ -18,7 +13,7 @@ const ProfileMessageCounter = ({ count = 0, profiles = [], displayOption, fetchD
             <img
               src={profile.profileImageURL}
               className='profile-message-counter__profile-image-img'
-              alt={`Profile ${index + 1}`} // 여기서 alt 속성을 추가합니다.
+              alt={`Profile ${index + 1}: ${profile.username}`} // 여기서 alt 속성을 추가합니다.
             />
           </div>
         ))}
