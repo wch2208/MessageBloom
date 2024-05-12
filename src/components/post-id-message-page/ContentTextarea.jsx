@@ -49,7 +49,7 @@ function ContentTextarea({ setError }, contentTextareaRef) {
       </label>
       <Editor
         id='textarea'
-        height='400px'
+        minHeight='400px'
         initialEditType='wysiwyg'
         placeholder='좋은 추억이나 감사의 메세지를 작성해 주세요!'
         ref={ref}

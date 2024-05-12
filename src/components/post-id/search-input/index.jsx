@@ -23,7 +23,7 @@ function SearchInput({ setSearchInfo }) {
   const resetSearchValue = (e) => {
     const { value } = e.target;
     if (value === '') {
-      setSearchInfo(searchCategory, value);
+      setSearchInfo(null, null);
     }
   };
 
