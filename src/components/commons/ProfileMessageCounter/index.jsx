@@ -8,12 +8,12 @@ const ProfileMessageCounter = ({ count = 0, profiles = [], displayOption, fetchD
   return (
     <div className='profile-message-counter'>
       <div className='profile-message-counter__profile-images'>
-        {recentProfiles.map((profile, index) => (
+        {profiles.map((profileImageURL, index) => (
           <div className='profile-message-counter__profile-image' key={index}>
             <img
-              src={profile.profileImageURL}
+              src={profileImageURL}
               className='profile-message-counter__profile-image-img'
-              alt={`Profile ${index + 1}: ${profile.username}`} // 여기서 alt 속성을 추가합니다.
+              alt={`Profile ${index + 1}: ${profileImageURL}`}
             />
           </div>
         ))}
