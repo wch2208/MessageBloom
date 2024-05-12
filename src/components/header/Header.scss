@@ -95,12 +95,19 @@ $font-btn-color: $white;
 
 //토글버튼 스타일
 .toggle-container {
-  width: 100px;
+  width: 80px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-left: 10px;
+  @media #{$tablet-screen} {
+    width: 100px;
+  }
+
+  @media #{$desktop-screen} {
+    width: 100px;
+  }
 
   .toggle-input {
     display: none;

@@ -91,7 +91,8 @@
     position: absolute;
     z-index: 1000;
     top: 40px;
-    right: -1px;
+    right: 0px;
+    left: 30px;
   }
 }
 
@@ -155,7 +156,6 @@
 
   .headeremojis__emojipicker {
     z-index: map-get($z-indexes, level3);
-    right: 0px;
   }
 }
 
@@ -197,6 +197,5 @@
 
   .headeremojis__emojipicker {
     z-index: map-get($z-indexes, level3);
-    right: 0px;
   }
 }
