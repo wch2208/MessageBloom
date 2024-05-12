@@ -1,15 +1,30 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './PostDeleteModal.scss';
 import { useNavigate } from 'react-router-dom';
 import { deleteRecipient } from '../../../apis/api';
 import showpwicon from '../../../assets/icon/ic_show_pw.svg';
 import noneshowpwicon from '../../../assets/icon/ic_none_show_pw.svg';
 
-function PostDeleteModal({ handlePostDeleteModalOpen, id }) {
+function PostDeleteModal({ handlePostDeleteModalOpen, id, isPostDeleteModalOpen }) {
   const [isShowPw, setIsShowPw] = useState(false);
   const [isFailConfirm, setIsFailConfirm] = useState(false);
   const pwRef = useRef();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 27) {
+        handlePostDeleteModalOpen(false);
+      }
+    };
+
+    if (isPostDeleteModalOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isPostDeleteModalOpen]);
 
   const showPwIconClick = () => {
     setIsShowPw(true);

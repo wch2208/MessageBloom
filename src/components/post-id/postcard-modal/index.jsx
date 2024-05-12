@@ -1,12 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import getClassByRole from '../../../utils/post-id/getClassByRole';
 import './Modal.scss';
 import getTimeLocale from '../../../utils/post-id/getTimeLocale';
 import getFontByData from '../../../utils/post-id/getFontByData';
 
-function Modal({ modalData, handleModalOpen }) {
+function Modal({ modalData, handleModalOpen, isModalOpen }) {
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 27) {
+        handleModalOpen(false);
+      }
+    };
+
+    if (isModalOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen]);
+
   const handleWrapperClick = () => {
     handleModalOpen(false);
+  };
+
+  const editTextOfModal = (text) => {
+    const lines = text.split(/<br>|\n/);
+    const paragraphs = lines.map((line, index) => (
+      <p className={`modal__content ${getFontByData(modalData.font)}`} key={index}>
+        {line === '' ? ' ' : line}
+      </p>
+    ));
+    return <div>{paragraphs}</div>;
   };
 
   return (
@@ -31,9 +56,7 @@ function Modal({ modalData, handleModalOpen }) {
           <span className='modal__date'>{getTimeLocale(modalData.createdAt)}</span>
         </div>
         <div className='modal__underline'></div>
-        <div className='modal__content-container'>
-          <p className={`modal__content ${getFontByData(modalData.font)}`}>{modalData.content}</p>
-        </div>
+        <div className='modal__content-container'>{editTextOfModal(modalData.content)}</div>
         <button
           onClick={() => {
             handleModalOpen(false);

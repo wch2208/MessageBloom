@@ -158,6 +158,7 @@
         height: 240px;
         .modal__content {
           line-height: 27px;
+          height: 25px;
           &.Noto-Sans {
             font-family: 'Noto-Sans', sans-serif;
             @include font-style(18, Regular);

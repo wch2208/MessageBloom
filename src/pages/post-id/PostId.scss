@@ -13,6 +13,35 @@ $background-colors: (
   }
 }
 
+@keyframes deleteBtn {
+  from {
+    transform: translateX(20px);
+    height: 20px;
+    opacity: 0.5;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes goback {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
 .loading-wrapper {
   display: flex;
   height: 100vh;
@@ -52,21 +81,34 @@ $background-colors: (
 .post-edit-btn-container {
   display: flex;
   justify-content: end;
+  align-items: center;
   width: 340px;
   padding: 0 24px;
   position: relative;
   left: 10px;
   margin: 0 auto 10px auto;
-  &__change-background-btn {
+  &__back-btn {
+    color: $white;
+    margin-right: auto;
+    position: relative;
+    right: 10px;
+    animation: goback 1.5s infinite linear;
+    cursor: pointer;
+  }
+  &__setting-btn {
     padding: 0;
     height: 35px;
     padding: 0 10px;
     border: none;
     margin-left: 10px;
     border-radius: 6px;
-    background-color: $accent-color;
-    color: $white;
+    background-color: $gray300;
     cursor: pointer;
+    &.active {
+      background-color: $accent-color;
+      transform: rotate(90deg);
+      color: $white;
+    }
     &:active {
       transform: scale(0.8);
       transition: 0.3s ease;
@@ -82,6 +124,7 @@ $background-colors: (
     border-radius: 6px;
     background-color: $accent-color;
     color: $white;
+    animation: deleteBtn 0.3s ease;
     cursor: pointer;
     &:active {
       transform: scale(0.8);
@@ -151,7 +194,10 @@ $background-colors: (
   }
   .post-edit-btn-container {
     width: 730px;
-    &__change-background-btn {
+    &__back-btn {
+      font-size: 24px;
+    }
+    &__setting-btn {
       width: 50px;
       &-img {
         position: relative;
@@ -159,7 +205,7 @@ $background-colors: (
         width: 20px;
       }
     }
-    &__change-background-btn,
+    &__setting-btn,
     &__delete-btn {
       height: 50px;
       font-size: 16px;
