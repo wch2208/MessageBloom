@@ -2,16 +2,13 @@
 
 .profile-message-counter {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
   gap: 11px;
 
-  &.vertical {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    position: relative;
-    top: 2px;
+  &.horizontal {
+    /* 세로 옵션이 있는 경우에만 적용되는 스타일 */
+    flex-direction: row;
   }
 
   .profile-message-counter__profile-images {
@@ -52,7 +49,7 @@
       &.vertical {
         width: 33px;
         border-radius: 30px;
-        padding: 5px 6px; // 수정
+        padding: 5px 6px;
         border: 1px solid $white;
         text-align: center;
       }

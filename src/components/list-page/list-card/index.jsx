@@ -29,11 +29,7 @@ export default function ListCard({
       <div className='list-card__container'>
         <div className='list-card__writers'>
           <p className='list-card__writers__to'>To.{name}</p>
-          <ProfileMessageCounter
-            count={messageCount}
-            profiles={profiles}
-            displayOption='vertical'
-          />
+          <ProfileMessageCounter count={messageCount} profiles={profiles} />
         </div>
         <div>
           <ShowTheMostEmojis id={id} />
