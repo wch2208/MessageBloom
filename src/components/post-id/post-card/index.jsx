@@ -2,9 +2,14 @@ import React from 'react';
 import './PostCard.scss';
 import DeleteButton from '../postcard-delete-button';
 import getClassByRole from '../../../utils/post-id/getClassByRole';
-import contentSlice from '../../../utils/post-id/contentSlice';
 import getTimeLocale from '../../../utils/post-id/getTimeLocale';
-import getFontByData from '../../../utils/post-id/getFontByData';
+
+export const fontClass = {
+  'Noto Sans': 'Noto-Sans',
+  Pretendard: 'pretendard',
+  나눔명조: 'NanumMyeongjo',
+  '나눔손글씨 손편지체': 'NanumSonPyeonJiCe',
+};
 
 function PostCard({
   data,
@@ -24,13 +29,15 @@ function PostCard({
 
   const editTextOfCard = (text) => {
     const lines = text.split(/<br>|\n/);
-    const filteredLines = lines.filter((line) => line !== '<br>');
-    const paragraphs = filteredLines.map((line, index) => (
-      <p className={`card__content ${getFontByData(data.font)}`} key={index}>
+    const paragraphs = lines.map((line, index) => (
+      <div
+        className={`card__content ${fontClass[data.font]}`}
+        style={{ fontFamily: `${fontClass[data.font]}, sans-serif` }}
+        key={index}>
         {line === '' ? ' ' : line}
-      </p>
+      </div>
     ));
-    return <div>{paragraphs}</div>;
+    return <div className='card__contents'>{paragraphs}</div>;
   };
 
   return (
@@ -55,7 +62,7 @@ function PostCard({
         />
       </div>
       <div className='card__underline'></div>
-      <div className='card__contents'>{editTextOfCard(data.content)}</div>
+      {editTextOfCard(data.content)}
       <span className='card__date'>{getTimeLocale(data.createdAt)}</span>
     </div>
   );

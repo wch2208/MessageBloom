@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import getClassByRole from '../../../utils/post-id/getClassByRole';
 import './Modal.scss';
 import getTimeLocale from '../../../utils/post-id/getTimeLocale';
-import getFontByData from '../../../utils/post-id/getFontByData';
+import { fontClass } from '../post-card';
 
 function Modal({ modalData, handleModalOpen, isModalOpen }) {
   useEffect(() => {
@@ -27,11 +27,11 @@ function Modal({ modalData, handleModalOpen, isModalOpen }) {
   const editTextOfModal = (text) => {
     const lines = text.split(/<br>|\n/);
     const paragraphs = lines.map((line, index) => (
-      <p className={`modal__content ${getFontByData(modalData.font)}`} key={index}>
+      <p className={`modal__content ${fontClass[modalData.font]}`} key={index}>
         {line === '' ? ' ' : line}
       </p>
     ));
-    return <div>{paragraphs}</div>;
+    return <div className='modal__content-container'>{paragraphs}</div>;
   };
 
   return (
@@ -56,7 +56,7 @@ function Modal({ modalData, handleModalOpen, isModalOpen }) {
           <span className='modal__date'>{getTimeLocale(modalData.createdAt)}</span>
         </div>
         <div className='modal__underline'></div>
-        <div className='modal__content-container'>{editTextOfModal(modalData.content)}</div>
+        {editTextOfModal(modalData.content)}
         <button
           onClick={() => {
             handleModalOpen(false);
