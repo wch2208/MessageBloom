@@ -90,7 +90,9 @@ export default function HeaderPost() {
                 {recipientData && (
                   <ProfileMessageCounter
                     count={recipientData.messageCount}
-                    profiles={recipientData.recentMessages}
+                    profiles={recipientData.recentMessages
+                      .slice(0, 3)
+                      .map((message) => message.profileImageURL)}
                     fetchData={fetchRecipientData} // 수정된 부분
                   />
                 )}
