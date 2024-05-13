@@ -1,10 +1,10 @@
 import './Post.scss';
 import { useState, useEffect } from 'react';
-import { DEFAULT_RECIPIENT } from '../../components/post-page/postPageConstants';
+import { DEFAULT_RECIPIENT } from '../../utils/post/postPageConstants';
 import { postRecipient } from '../../apis/api';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import ToggleOption from '../../components/post-page/ToggleOption';
+import ToggleOption from '../../components/post-page/toggle-options';
 import LinkButton from '../../components/commons/LinkButton';
 
 export default function Post() {

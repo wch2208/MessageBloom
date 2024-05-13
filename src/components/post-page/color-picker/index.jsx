@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import checkIcon from '../../assets/icon/ic_check.svg';
+import checkIcon from '../../../assets/icon/ic_check.svg';
 import './ColorPicker.scss';
-import { COLOR_NAMES } from './postPageConstants';
+import { COLOR_NAMES } from '../../../utils/post/postPageConstants';
 
 function ColorOption({ handleColorChange, colorName, selectedColor }) {
   return (
