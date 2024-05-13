@@ -3,6 +3,7 @@ import './PostCard.scss';
 import DeleteButton from '../postcard-delete-button';
 import getClassByRole from '../../../utils/post-id/getClassByRole';
 import getTimeLocale from '../../../utils/post-id/getTimeLocale';
+import contentSlice from '../../../utils/post-id/contentSlice';
 
 export const fontClass = {
   'Noto Sans': 'Noto-Sans',
@@ -62,7 +63,7 @@ function PostCard({
         />
       </div>
       <div className='card__underline'></div>
-      {editTextOfCard(data.content)}
+      {editTextOfCard(contentSlice(data.content.replace(/\\/g, '')))}
       <span className='card__date'>{getTimeLocale(data.createdAt)}</span>
     </div>
   );

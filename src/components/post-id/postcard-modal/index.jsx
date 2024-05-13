@@ -56,7 +56,7 @@ function Modal({ modalData, handleModalOpen, isModalOpen }) {
           <span className='modal__date'>{getTimeLocale(modalData.createdAt)}</span>
         </div>
         <div className='modal__underline'></div>
-        {editTextOfModal(modalData.content)}
+        {editTextOfModal(modalData.content.replace(/\\/g, ''))}
         <button
           onClick={() => {
             handleModalOpen(false);

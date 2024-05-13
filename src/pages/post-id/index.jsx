@@ -11,7 +11,6 @@ import DeleteModal from '../../components/post-id/postcard-delete-modal';
 import HeaderPost from '../../components/headerPost';
 import SearchInput from '../../components/post-id/search-input';
 import PostDeleteModal from '../../components/post-id/post-delete-modal';
-import ChangeBackModal from '../../components/post-id/ChangeBackModal';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -154,15 +153,14 @@ function PostId() {
                 </div>
               </div>
               {messagesData.map((data) => (
-                <div key={data.id}>
-                  <PostCard
-                    data={data}
-                    handleModalOpen={handleModalOpen}
-                    handleDeleteDataId={handleDeleteDataId}
-                    setModalDataByData={setModalDataByData}
-                    setIsDeleteModalOpen={setIsDeleteModalOpen}
-                  />
-                </div>
+                <PostCard
+                  key={data.id}
+                  data={data}
+                  handleModalOpen={handleModalOpen}
+                  handleDeleteDataId={handleDeleteDataId}
+                  setModalDataByData={setModalDataByData}
+                  setIsDeleteModalOpen={setIsDeleteModalOpen}
+                />
               ))}
               {isModalOpen && (
                 <Modal
