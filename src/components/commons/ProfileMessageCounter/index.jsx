@@ -11,18 +11,27 @@ const ProfileMessageCounter = ({ count = 0, profiles = [], displayOption, fetchD
   return (
     <div className={containerClassName}>
       <div className='profile-message-counter__profile-images'>
-        {profiles.map((profileImageURL, index) => (
-          <div className='profile-message-counter__profile-image' key={index}>
-            <img
-              src={profileImageURL}
-              className='profile-message-counter__profile-image-img'
-              alt={`Profile ${index + 1}: ${profileImageURL}`}
-            />
-          </div>
-        ))}
+        {profiles.length > 0 ? (
+          profiles.map((profileImageURL, index) => (
+            <div className='profile-message-counter__profile-image' key={index}>
+              <img
+                src={profileImageURL}
+                className='profile-message-counter__profile-image-img'
+                alt={`Profile ${index + 1}: ${profileImageURL}`}
+              />
+            </div>
+          ))
+        ) : (
+          <div className='profile-message-counter__profile-image-null'></div>
+        )}
         {/* 프로필이 3개 초과일 경우 "+{count-3}"로 남은 프로필 수를 표시합니다. */}
         {count > 3 && (
-          <span className='profile-message-counter__remaining-profiles'>+{count - 3}</span>
+          <span
+            className={`profile-message-counter__remaining-profiles ${
+              displayOption === 'vertical' ? 'vertical' : ''
+            }`}>
+            +{count - 3}
+          </span>
         )}
       </div>
 
