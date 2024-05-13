@@ -1,10 +1,10 @@
-import checkIcon from '../../assets/icon/ic_check.svg';
-import { useState } from 'react';
 import './ImagePicker.scss';
-import { IMAGE_NAMES, IMAGE_URLS } from './postPageConstants';
-import ImageAddModal from './image-add-modal';
-import { PROFILES } from '../post-id-message-page/messageConstants';
-import delIcon from '../../assets/icon/ic_deleted.svg';
+import { IMAGE_NAMES, IMAGE_URLS } from '../../../utils/post/postPageConstants';
+import { PROFILES } from '../../../utils/post-id-message/postMessagePageConstants';
+import { useState } from 'react';
+import ImageAddModal from '../image-add-modal';
+import checkIcon from '../../../assets/icon/ic_check.svg';
+import delIcon from '../../../assets/icon/ic_deleted.svg';
 
 function ImageOption({ handleImageChange, imageName, selectedImage }) {
   return (

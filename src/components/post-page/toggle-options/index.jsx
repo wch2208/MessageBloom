@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import ColorPicker from './ColorPicker';
-import ImagePicker from './ImagePicker';
+import ColorPicker from '../color-picker';
+import ImagePicker from '../image-picker';
 import './ToggleOption.scss';
 
 export default function ToggleOption({ setRecipient }) {

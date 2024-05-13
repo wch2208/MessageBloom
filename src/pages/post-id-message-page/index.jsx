@@ -2,12 +2,12 @@ import './PostIdMessage.scss';
 import { postMessageToRecipient } from '../../apis/api';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
-import { getFormData } from '../../components/post-id-message-page/messageConstants';
-import RelationshipOptions from '../../components/post-id-message-page/RelationshipOptions';
-import ContentTextarea from '../../components/post-id-message-page/ContentTextarea';
-import ProfileOptions from '../../components/post-id-message-page/ProfileOptions';
-import SenderInput from '../../components/post-id-message-page/SenderInput';
-import FontOptions from '../../components/post-id-message-page/FontOptions';
+import { getFormData } from '../../utils/post-id-message/postMessagePageConstants';
+import RelationshipOptions from '../../components/post-id-message-page/relationship-options';
+import ContentTextarea from '../../components/post-id-message-page/content-textarea';
+import ProfileOptions from '../../components/post-id-message-page/profile-options';
+import SenderInput from '../../components/post-id-message-page/sender-input';
+import FontOptions from '../../components/post-id-message-page/font-options';
 import ButtonLink from '../../components/commons/button-link';
 
 const isFontOption = (e) => {

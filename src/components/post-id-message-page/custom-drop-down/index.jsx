@@ -1,5 +1,5 @@
 import { forwardRef, useState } from 'react';
-import ArrowIcon from '../../assets/icon/ic_arrow_down.svg';
+import ArrowIcon from '../../../assets/icon/ic_arrow_down.svg';
 import './CustomDropdown.scss';
 
 function CustomDropdown({ props }, ref) {

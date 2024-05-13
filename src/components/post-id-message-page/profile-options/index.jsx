@@ -1,6 +1,6 @@
-import { PROFILES } from './messageConstants';
+import { PROFILES } from '../../../utils/post-id-message/postMessagePageConstants';
 import { forwardRef, useState } from 'react';
-import basicImg from '../../assets/image/profile/img_profile_basic.svg';
+import basicImg from '../../../assets/image/profile/img_profile_basic.svg';
 import './ProfileOptions.scss';
 
 function ProfileOptions(_, profileOptionsRef) {
