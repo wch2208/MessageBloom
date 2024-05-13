@@ -1,3 +1,8 @@
 export default function (time) {
-  return new Date(time).toLocaleDateString().slice(0, 10);
+  const getTime = new Date(time);
+  const year = getTime.getFullYear();
+  const month = getTime.getMonth() + 1;
+  const date = getTime.getDate();
+
+  return `${year}-${month}-${date}`;
 }
