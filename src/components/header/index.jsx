@@ -7,9 +7,7 @@ import MouseTracker from '../commons/mouseTracker';
 
 export default function Header() {
   const location = useLocation();
-
   const [animationOn, setAnimationOn] = useState(false);
-
   const toggleAnimation = () => {
     setAnimationOn(!animationOn);
   };
