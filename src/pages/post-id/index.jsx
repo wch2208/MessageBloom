@@ -154,15 +154,14 @@ function PostId() {
                 </div>
               </div>
               {messagesData.map((data) => (
-                <div key={data.id}>
-                  <PostCard
-                    data={data}
-                    handleModalOpen={handleModalOpen}
-                    handleDeleteDataId={handleDeleteDataId}
-                    setModalDataByData={setModalDataByData}
-                    setIsDeleteModalOpen={setIsDeleteModalOpen}
-                  />
-                </div>
+                <PostCard
+                  key={data.id}
+                  data={data}
+                  handleModalOpen={handleModalOpen}
+                  handleDeleteDataId={handleDeleteDataId}
+                  setModalDataByData={setModalDataByData}
+                  setIsDeleteModalOpen={setIsDeleteModalOpen}
+                />
               ))}
               {isModalOpen && (
                 <Modal
