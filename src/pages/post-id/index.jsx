@@ -8,7 +8,7 @@ import loadingicon from '../../assets/icon/ic_loading.svg';
 import settingicon from '../../assets/icon/ic_setting.svg';
 import Modal from '../../components/post-id/postcard-modal';
 import DeleteModal from '../../components/post-id/postcard-delete-modal';
-import HeaderPost from '../../components/headerPost/HeaderPost';
+import HeaderPost from '../../components/headerPost';
 import SearchInput from '../../components/post-id/search-input';
 import PostDeleteModal from '../../components/post-id/post-delete-modal';
 import ChangeBackModal from '../../components/post-id/ChangeBackModal';
