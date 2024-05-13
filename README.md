@@ -107,6 +107,7 @@ $ yarn start
 
 | Tools           | 종류               |
 | --------------- | ------------------ |
+| Build Tool      | Vite               |
 | Package Manager | Yarn               |
 | Styling         | SCSS               |
 | Formatting      | ESLint, Prettier   |
