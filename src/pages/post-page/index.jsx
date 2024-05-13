@@ -5,7 +5,6 @@ import { postRecipient } from '../../apis/api';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import ToggleOption from '../../components/post-page/ToggleOption';
-import LinkButton from '../../components/commons/LinkButton';
 import ButtonLink from '../../components/commons/button-link';
 
 export default function Post() {
@@ -51,12 +50,6 @@ export default function Post() {
           <p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
         </div>
         <ToggleOption setRecipient={setRecipient} />
-        <LinkButton
-          buttonText={'생성하기'}
-          onClick={handleCreateClick}
-          fullWidth
-          disabled={!!errors.toInput}
-        />
         <ButtonLink
           buttonText={'생성하기'}
           onClick={handleCreateClick}

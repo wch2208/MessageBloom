@@ -1,7 +1,6 @@
 import './main.scss';
 import section01 from '../assets/image/main/section01.svg';
 import section02 from '../assets/image/main/section02.png';
-import LinkButton from '../components/commons/LinkButton';
 import ButtonLink from '../components/commons/button-link';
 
 export default function Main() {
@@ -37,7 +36,6 @@ export default function Main() {
           />
         </div>
       </section>
-      <LinkButton to='/list' buttonText='구경해보기' />
       <ButtonLink to='/list' buttonText='구경해보기' />
     </div>
   );
