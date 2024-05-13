@@ -1,7 +1,7 @@
 import React from 'react';
 import './NotFound.scss';
-import PostCard from '../components/post-id/post-card';
-import '../components/post-id/post-card/PostCard.scss';
+import PostCard from '../../components/post-id/post-card';
+import '../../components/post-id/post-card/PostCard.scss';
 
 const NotFound = () => {
   const postData = {

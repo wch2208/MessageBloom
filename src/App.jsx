@@ -7,7 +7,7 @@ import List from './pages/list-page';
 import PostIdMessage from './pages/post-id-message-page';
 import Post from './pages/post-page';
 import Layout from './layouts/Layout';
-import NotFound from './pages/NotFound';
+import NotFound from './pages/not-found';
 
 function App() {
   return (
