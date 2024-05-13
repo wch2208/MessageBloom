@@ -1,8 +1,8 @@
 export default function contentSlice(value) {
-  if (value.length <= 65) {
+  if (value.length <= 75) {
     return value;
   } else {
-    const newValue = `${value.slice(0, 65)}...`;
-    return newValue;
+    const slicedValue = `${value.slice(0, 75)}...`;
+    return slicedValue;
   }
 }
