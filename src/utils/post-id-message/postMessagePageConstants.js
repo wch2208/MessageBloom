@@ -1,3 +1,5 @@
+import basicProfile from '../../assets/image/profile/img_profile_basic.svg';
+
 export const FONTS = [
   { text: 'Noto Sans', id: 1 },
   { text: 'Pretendard', id: 2 },
@@ -66,7 +68,9 @@ export const getFormData = (
   team: '6-6',
   recipientId: id,
   sender: senderInputRef.current,
-  profileImageURL: profileOptionsRef.current.value || PROFILES[0].src,
+  profileImageURL:
+    profileOptionsRef.current.value ||
+    'https://raw.githubusercontent.com/6Team-Project/MessageBloom/a7f2c89408ceed7a9abaee3f603e137b638cae34/src/assets/image/profile/img_profile_basic.svg',
   relationship: relationshipOptionsRef.current || MEMBERS[0].text,
   content: contentTextareaRef.current,
   font: fontOptionsRef.current || FONTS[0].text,

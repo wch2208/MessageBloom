@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
-import CustomDropdown from './CustomDropdown';
-import { MEMBERS } from './messageConstants';
+import CustomDropdown from '../custom-drop-down';
+import { MEMBERS } from '../../../utils/post-id-message/postMessagePageConstants';
 
 function RelationshipOptions(_, relationshipOptionsRef) {
   return (

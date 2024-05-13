@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
-import CustomDropdown from './CustomDropdown';
-import { FONTS } from './messageConstants';
+import CustomDropdown from '../custom-drop-down';
+import { FONTS } from '../../../utils/post-id-message/postMessagePageConstants';
 
 function FontOptions(_, fontOptionsRef) {
   return (
