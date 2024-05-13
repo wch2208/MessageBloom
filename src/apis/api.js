@@ -44,16 +44,6 @@ export async function getCommenterCount() {
   }
 }
 
-// 메시지 카운트 하즈아~
-export async function getMessageCount(id) {
-  try {
-    const response = await instance.get(`6-6/recipients/${id}/messages/?limit=100`);
-    return response.data.results.length;
-  } catch (e) {
-    console.error(`error : ${e}`);
-  }
-}
-
 export async function postRecipient(formData) {
   try {
     const response = await instance.post(`6-6/recipients/`, formData);
