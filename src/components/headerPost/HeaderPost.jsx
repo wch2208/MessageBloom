@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import './HeaderPost.scss';
-import WriterCounter from '../commons/WriterCounter.jsx';
-import Emojis from './components/DropDownEmojis.jsx';
 import shareicon20 from '../../assets/icon/ic_share_20.svg';
 import shareicon24 from '../../assets/icon/ic_share_24.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
 import { getRecipient } from '../../apis/api.js';
+import ProfileMessageCounter from '../commons/ProfileMessageCounter';
 import useWindowWidth from '../../hooks/useWindowWidth.js';
 import { DESKTOP_WIDTH, TABLET_WIDTH } from '../../utils/windowWidthConstants.js';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Emojis from './components/DropDownEmojis.jsx';
 
 export default function HeaderPost() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -35,6 +35,15 @@ export default function HeaderPost() {
 
     fetchData();
   }, [id]);
+
+  const fetchRecipientData = async () => {
+    try {
+      const recipient = await getRecipient(id);
+      setRecipientData(recipient);
+    } catch (error) {
+      console.error('Error fetching recipient data:', error);
+    }
+  };
 
   const notify = (message) => toast.success(message);
   const copyURLToClipboard = () => {
@@ -78,7 +87,16 @@ export default function HeaderPost() {
           {isDesktopSize && (
             <>
               <div className='header-post__container_info_person-wrapper'>
-                <WriterCounter id={id} />
+                {recipientData && (
+                  <ProfileMessageCounter
+                    count={recipientData.messageCount}
+                    profiles={recipientData.recentMessages
+                      .slice(0, 3)
+                      .map((message) => message.profileImageURL)}
+                    fetchData={fetchRecipientData} // 수정된 부분
+                    displayOption='horizontal'
+                  />
+                )}
               </div>
               <img
                 className='header-post__container_info_rectangle-1'
