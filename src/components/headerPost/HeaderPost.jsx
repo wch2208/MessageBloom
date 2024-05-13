@@ -9,9 +9,9 @@ import rectangle from '../../assets/icon/ic_rectangle.svg';
 import { getRecipient } from '../../apis/api.js';
 import useWindowWidth from '../../hooks/useWindowWidth.js';
 import { DESKTOP_WIDTH, TABLET_WIDTH } from '../../utils/windowWidthConstants.js';
-import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function HeaderPost() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
