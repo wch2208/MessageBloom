@@ -59,6 +59,15 @@ function SearchInput({ setSearchInfo }) {
     }
   };
 
+  const handleClickResetBtn = () => {
+    const inputNode = searchInputRef.current;
+    if (inputNode) {
+      inputNode.value = '';
+      setHasSearchValue(false);
+      setSearchInfo(null, null);
+    }
+  };
+
   const handleBtnClick = () => {
     handleSearchInput();
   };
@@ -105,9 +114,11 @@ function SearchInput({ setSearchInfo }) {
         className='search-container__input'
         onKeyDown={handleSearchInput}
         onChange={resetSearchValue}
+        ref={searchInputRef}
+        placeholder='보고 싶은 메세지가 있나요?'
       />
       {hasSearchValue && (
-        <button className='search-container__reset-btn'>
+        <button className='search-container__reset-btn' onClick={handleClickResetBtn}>
           <img
             className='search-container__reset-btn-img'
             src={reseticon}
