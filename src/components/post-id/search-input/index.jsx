@@ -13,14 +13,14 @@ function SearchInput({ setSearchInfo }) {
     const handleClickOutside = (event) => {
       const dropMenuBarNode = dropdownMenuBarRef.current;
       const dropMenuNode = dropdownMenuRef.current;
+      const shouldCloseMenu =
+        dropMenuBarNode &&
+        dropMenuNode &&
+        !dropMenuBarNode.contains(event.target) &&
+        !dropMenuNode.contains(event.target);
 
       if (isSearchCategoryOpen) {
-        if (
-          dropMenuBarNode &&
-          dropMenuNode &&
-          !dropMenuBarNode.contains(event.target) &&
-          !dropMenuNode.contains(event.target)
-        ) {
+        if (shouldCloseMenu) {
           setIsSearchCategoryOpen(false);
         }
       }
