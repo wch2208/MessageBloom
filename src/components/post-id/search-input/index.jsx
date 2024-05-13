@@ -6,19 +6,30 @@ import searchicon from '../../../assets/icon/ic_search.svg';
 function SearchInput({ setSearchInfo }) {
   const [isSearchCategoryOpen, setIsSearchCategoryOpen] = useState(false);
   const [searchCategory, setSearchCategroy] = useState('전체');
-  const dropdownRef = useRef(null);
+  const dropdownMenuBarRef = useRef(null);
+  const dropdownMenuRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsSearchCategoryOpen(false);
+      const dropMenuBarNode = dropdownMenuBarRef.current;
+      const dropMenuNode = dropdownMenuRef.current;
+
+      if (isSearchCategoryOpen) {
+        if (
+          dropMenuBarNode &&
+          dropMenuNode &&
+          !dropMenuBarNode.contains(event.target) &&
+          !dropMenuNode.contains(event.target)
+        ) {
+          setIsSearchCategoryOpen(false);
+        }
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [dropdownRef]);
+  }, [isSearchCategoryOpen]);
 
   const handleSearchCategory = (e) => {
     const { textContent } = e.target;
@@ -49,6 +60,7 @@ function SearchInput({ setSearchInfo }) {
       <div className='search-container__dropdown'>
         <div
           className='search-container__dropdown-menu'
+          ref={dropdownMenuBarRef}
           onClick={() => setIsSearchCategoryOpen(!isSearchCategoryOpen)}>
           {searchCategory}
           <img
@@ -62,7 +74,7 @@ function SearchInput({ setSearchInfo }) {
           />
         </div>
         {isSearchCategoryOpen && (
-          <div className='search-container__dropdown-menubar' ref={dropdownRef}>
+          <div className='search-container__dropdown-menubar' ref={dropdownMenuRef}>
             <div className='search-container__dropdown-menubar-all' onClick={handleSearchCategory}>
               전체
             </div>
