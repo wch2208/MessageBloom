@@ -1,7 +1,7 @@
 import './main.scss';
-import section01 from '../assets/image/main/section01.svg';
-import section02 from '../assets/image/main/section02.png';
-import ButtonLink from '../components/commons/button-link';
+import section01 from '../../assets/image/main/section01.svg';
+import section02 from '../../assets/image/main/section02.png';
+import ButtonLink from '../../components/commons/button-link';
 
 export default function Main() {
   return (

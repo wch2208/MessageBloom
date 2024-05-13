@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
-import Main from './pages/Main';
+import Main from './pages/main';
 import PostId from './pages/post-id';
 import List from './pages/list-page';
 import PostIdMessage from './pages/post-id-message-page';
