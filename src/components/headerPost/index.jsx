@@ -4,14 +4,14 @@ import './HeaderPost.scss';
 import shareicon20 from '../../assets/icon/ic_share_20.svg';
 import shareicon24 from '../../assets/icon/ic_share_24.svg';
 import rectangle from '../../assets/icon/ic_rectangle.svg';
+import { DESKTOP_WIDTH, TABLET_WIDTH } from '../../utils/windowWidthConstants.js';
+import useWindowWidth from '../../hooks/useWindowWidth.js';
 import { getRecipient } from '../../apis/api.js';
 import ProfileMessageCounter from '../commons/ProfileMessageCounter';
-import useWindowWidth from '../../hooks/useWindowWidth.js';
-import { DESKTOP_WIDTH, TABLET_WIDTH } from '../../utils/windowWidthConstants.js';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Emojis from './components/DropDownEmojis.jsx';
+import Emojis from './dropdown-emojis';
 
 export default function HeaderPost() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
