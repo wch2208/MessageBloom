@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import ToggleOption from '../../components/post-page/ToggleOption';
 import LinkButton from '../../components/commons/LinkButton';
+import ButtonLink from '../../components/commons/button-link';
 
 export default function Post() {
   const [recipient, setRecipient] = useState(DEFAULT_RECIPIENT);
@@ -51,6 +52,12 @@ export default function Post() {
         </div>
         <ToggleOption setRecipient={setRecipient} />
         <LinkButton
+          buttonText={'생성하기'}
+          onClick={handleCreateClick}
+          fullWidth
+          disabled={!!errors.toInput}
+        />
+        <ButtonLink
           buttonText={'생성하기'}
           onClick={handleCreateClick}
           fullWidth
