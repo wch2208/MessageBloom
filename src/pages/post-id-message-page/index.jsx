@@ -8,7 +8,7 @@ import ContentTextarea from '../../components/post-id-message-page/content-texta
 import ProfileOptions from '../../components/post-id-message-page/profile-options';
 import SenderInput from '../../components/post-id-message-page/sender-input';
 import FontOptions from '../../components/post-id-message-page/font-options';
-import LinkButton from '../../components/commons/LinkButton';
+import ButtonLink from '../../components/commons/button-link';
 
 const isFontOption = (e) => {
   const firstChar = e.target.innerText[0];
@@ -61,7 +61,7 @@ export default function PostIdMessage() {
       <RelationshipOptions ref={relationshipOptionsRef} />
       <ContentTextarea ref={contentTextareaRef} setError={setError} />
       <FontOptions ref={fontOptionsRef} />
-      <LinkButton buttonText={'생성하기'} fullWidth onClick={sendMessage} disabled={anyInvalid} />
+      <ButtonLink buttonText={'생성하기'} fullWidth onClick={sendMessage} disabled={anyInvalid} />
       <div ref={scrollTarget} style={{ marginTop: '160px' }} />
     </div>
   );
