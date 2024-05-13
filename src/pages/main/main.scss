@@ -1,4 +1,4 @@
-@import '../styles/reset', '../styles/variables';
+@import '../../styles/reset', '../../styles/variables';
 
 //박스 투명도
 $box-opacity: 0.3;
@@ -10,9 +10,10 @@ $font-title-color: $gray900;
 $font-description-color: $gray500;
 $font-btn-color: $white;
 
-//버튼 너비 변수
-$btn-width-mobile: calc(100% - 48px);
-$btn-width-desktop: 280px;
+//container width 변수
+$container-width-mobile: 320px;
+$container-width-tablet: 720px;
+$container-width-desktop: 1200px;
 
 body {
   min-width: 360px;
@@ -30,6 +31,7 @@ body {
   padding: 0 24px;
 
   .container {
+    width: $container-width-mobile;
     padding: 24px 0;
     border: 1px solid $box-bg-color;
     border-radius: 16px;
@@ -74,7 +76,7 @@ body {
   // 태블릿 버전
   @media #{$tablet-screen} {
     .container {
-      width: 100%;
+      width: $container-width-tablet;
       padding: 40px 0;
 
       &__text {
@@ -99,7 +101,7 @@ body {
   // 데스크톱 버전
   @media #{$desktop-screen} {
     .container {
-      width: 1200px;
+      width: $container-width-desktop;
       height: 324px;
       display: flex;
       align-items: center;
