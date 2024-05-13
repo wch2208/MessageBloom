@@ -98,7 +98,6 @@
             flex-wrap: wrap;
             height: 120px;
             margin-top: 5px;
-            padding: 10px 16px;
             position: absolute;
             right: 0px;
             width: 140px;
@@ -122,6 +121,21 @@
       margin: 0 auto;
     }
   }
+}
+
+.sharekako,
+.shareurl {
+  width: 140px;
+  height: 50px;
+  justify-items: center;
+  text-align: center;
+  padding-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.sharekako:hover,
+.shareurl:hover {
+  background-color: $bg-purple;
 }
 
 .custom-toast {
