@@ -2,12 +2,15 @@ import React, { useState, useRef, useEffect } from 'react';
 import './SearchInput.scss';
 import arrowicon from '../../../assets/icon/ic_arrow_down.svg';
 import searchicon from '../../../assets/icon/ic_search.svg';
+import reseticon from '../../../assets/icon/ic_search_reset.svg';
 
 function SearchInput({ setSearchInfo }) {
   const [isSearchCategoryOpen, setIsSearchCategoryOpen] = useState(false);
+  const [hasSearchValue, setHasSearchValue] = useState(false);
   const [searchCategory, setSearchCategroy] = useState('전체');
   const dropdownMenuBarRef = useRef(null);
   const dropdownMenuRef = useRef(null);
+  const searchInputRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -48,6 +51,11 @@ function SearchInput({ setSearchInfo }) {
     const { value } = e.target;
     if (value === '') {
       setSearchInfo(null, null);
+    }
+    if (value.length > 0) {
+      setHasSearchValue(true);
+    } else {
+      setHasSearchValue(false);
     }
   };
 
@@ -98,6 +106,15 @@ function SearchInput({ setSearchInfo }) {
         onKeyDown={handleSearchInput}
         onChange={resetSearchValue}
       />
+      {hasSearchValue && (
+        <button className='search-container__reset-btn'>
+          <img
+            className='search-container__reset-btn-img'
+            src={reseticon}
+            alt='검색창에 값이 존재할 경우 생성되는 값 리셋 버튼'
+          />
+        </button>
+      )}
       <button className='search-container__btn' onClick={handleBtnClick}>
         <img className='search-container__btn-img' src={searchicon} alt='검색창 버튼 아이콘' />
         <span className='search-container__btn-word'>검색</span>
