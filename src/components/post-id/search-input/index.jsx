@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './SearchInput.scss';
 import arrowicon from '../../../assets/icon/ic_arrow_down.svg';
 import searchicon from '../../../assets/icon/ic_search.svg';
@@ -6,6 +6,19 @@ import searchicon from '../../../assets/icon/ic_search.svg';
 function SearchInput({ setSearchInfo }) {
   const [isSearchCategoryOpen, setIsSearchCategoryOpen] = useState(false);
   const [searchCategory, setSearchCategroy] = useState('전체');
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsSearchCategoryOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   const handleSearchCategory = (e) => {
     const { textContent } = e.target;
@@ -49,7 +62,7 @@ function SearchInput({ setSearchInfo }) {
           />
         </div>
         {isSearchCategoryOpen && (
-          <div className='search-container__dropdown-menubar'>
+          <div className='search-container__dropdown-menubar' ref={dropdownRef}>
             <div className='search-container__dropdown-menubar-all' onClick={handleSearchCategory}>
               전체
             </div>
