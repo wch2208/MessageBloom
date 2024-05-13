@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './LinkButton.scss';
+import './ButtonLink.scss';
 
-const LinkButton = ({ to, buttonText, fullWidth, onClick, disabled }) => {
-  const disabledClass = `${disabled ? `link-button--disabled` : ''}`;
+const ButtonLink = ({ to, buttonText, fullWidth, onClick, disabled }) => {
+  const disabledClass = `${disabled ? `button-link--disabled` : ''}`;
   const fullWidthClass = `${fullWidth ? 'full-width' : ''}`;
 
-  const buttonClasses = ['link-button__button', fullWidthClass, disabledClass]
+  const buttonClasses = ['button-link__button', fullWidthClass, disabledClass]
     .filter(Boolean)
     .join(' ');
 
   return (
-    <div className='link-button'>
+    <div className='button-link'>
       <Link to={disabled ? '#' : to}>
         <button className={buttonClasses} onClick={disabled ? (e) => e.preventDefault() : onClick}>
           {buttonText}
@@ -21,4 +21,4 @@ const LinkButton = ({ to, buttonText, fullWidth, onClick, disabled }) => {
   );
 };
 
-export default LinkButton;
+export default ButtonLink;
