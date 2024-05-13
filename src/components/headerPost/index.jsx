@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './HeaderPost.scss';
 import shareicon20 from '../../assets/icon/ic_share_20.svg';
 import shareicon24 from '../../assets/icon/ic_share_24.svg';
@@ -8,9 +11,6 @@ import { DESKTOP_WIDTH, TABLET_WIDTH } from '../../utils/windowWidthConstants.js
 import useWindowWidth from '../../hooks/useWindowWidth.js';
 import { getRecipient } from '../../apis/api.js';
 import ProfileMessageCounter from '../commons/ProfileMessageCounter';
-import { toast } from 'react-toastify';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Emojis from './dropdown-emojis';
 
 export default function HeaderPost() {

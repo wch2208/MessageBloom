@@ -5,7 +5,6 @@
   src: url('/public/Poppins-Regular.ttf');
 }
 
-//색상변수
 $box-bg-color: $accent-background-light;
 $btn-bg-color: $accent-color;
 $font-btn-color: $white;
@@ -93,7 +92,6 @@ $font-btn-color: $white;
   }
 }
 
-//토글버튼 스타일
 .toggle-container {
   width: 80px;
   height: 50px;
