@@ -11,7 +11,6 @@ import DeleteModal from '../../components/post-id/postcard-delete-modal';
 import HeaderPost from '../../components/headerPost/HeaderPost';
 import SearchInput from '../../components/post-id/search-input';
 import PostDeleteModal from '../../components/post-id/post-delete-modal';
-import ChangeBackModal from '../../components/post-id/ChangeBackModal';
 
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
