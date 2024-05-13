@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './SearchInput.scss';
 import arrowicon from '../../../assets/icon/ic_arrow_down.svg';
 import searchicon from '../../../assets/icon/ic_search.svg';
@@ -6,6 +6,30 @@ import searchicon from '../../../assets/icon/ic_search.svg';
 function SearchInput({ setSearchInfo }) {
   const [isSearchCategoryOpen, setIsSearchCategoryOpen] = useState(false);
   const [searchCategory, setSearchCategroy] = useState('전체');
+  const dropdownMenuBarRef = useRef(null);
+  const dropdownMenuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const dropMenuBarNode = dropdownMenuBarRef.current;
+      const dropMenuNode = dropdownMenuRef.current;
+      const shouldCloseMenu =
+        dropMenuBarNode &&
+        dropMenuNode &&
+        !dropMenuBarNode.contains(event.target) &&
+        !dropMenuNode.contains(event.target);
+
+      if (isSearchCategoryOpen) {
+        if (shouldCloseMenu) {
+          setIsSearchCategoryOpen(false);
+        }
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isSearchCategoryOpen]);
 
   const handleSearchCategory = (e) => {
     const { textContent } = e.target;
@@ -36,6 +60,7 @@ function SearchInput({ setSearchInfo }) {
       <div className='search-container__dropdown'>
         <div
           className='search-container__dropdown-menu'
+          ref={dropdownMenuBarRef}
           onClick={() => setIsSearchCategoryOpen(!isSearchCategoryOpen)}>
           {searchCategory}
           <img
@@ -49,7 +74,7 @@ function SearchInput({ setSearchInfo }) {
           />
         </div>
         {isSearchCategoryOpen && (
-          <div className='search-container__dropdown-menubar'>
+          <div className='search-container__dropdown-menubar' ref={dropdownMenuRef}>
             <div className='search-container__dropdown-menubar-all' onClick={handleSearchCategory}>
               전체
             </div>

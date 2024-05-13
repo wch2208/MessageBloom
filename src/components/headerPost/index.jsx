@@ -126,8 +126,12 @@ export default function HeaderPost() {
                 </button>
                 {dropdownOpen && (
                   <ul className='header-post__container_info_container_share-dropdown_menu'>
-                    <li onClick={shareKakao}>카카오톡 공유</li>
-                    <li onClick={copyURLToClipboard}>URL 공유</li>
+                    <li className='sharekako' onClick={shareKakao}>
+                      카카오톡 공유
+                    </li>
+                    <li className='shareurl' onClick={copyURLToClipboard}>
+                      URL 공유
+                    </li>
                   </ul>
                 )}
                 <ToastContainer
