@@ -53,19 +53,6 @@
   text-overflow: ellipsis;
 }
 
-.list-card__writers__profiles-count {
-  position: relative;
-  left: -30px;
-  width: 33px;
-  height: 28px;
-  background-color: $white;
-  border-radius: 30px;
-  padding: 5px 6px;
-  @include font-style(12, Regular);
-  color: $gray500;
-  line-height: 18px;
-}
-
 .list-card__text {
   @include font-style(14, Regular);
 

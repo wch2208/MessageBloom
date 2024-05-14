@@ -31,6 +31,7 @@
 
   & span {
     padding: 2px;
+    font-size: 12px;
   }
 }
 
@@ -43,6 +44,10 @@
 @media #{$tablet-screen} {
   .list-card__emoji {
     padding: 6px 8px;
+
+    & span {
+      font-size: 14px;
+    }
   }
 
   .list-card__emoji-wrap {
