@@ -30,7 +30,6 @@ function PostCard({
 
   const editTextOfCard = (text) => {
     const lines = text.split(/<br>|\n/);
-    console.log(lines);
     const paragraphs = lines.map((line, index) => (
       <p
         className={`card__content ${fontClass[data.font]}`}
