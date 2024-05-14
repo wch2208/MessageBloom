@@ -1,7 +1,7 @@
 import './ImagePicker.scss';
 import { IMAGE_NAMES, IMAGE_URLS } from '../../../utils/post/postPageConstants';
 import { PROFILES } from '../../../utils/post-id-message/postMessagePageConstants';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ImageAddModal from '../image-add-modal';
 import checkIcon from '../../../assets/icon/ic_check.svg';
 import delIcon from '../../../assets/icon/ic_deleted.svg';
@@ -37,21 +37,22 @@ function ImageOption({ handleImageChange, imageName, selectedImage }) {
 }
 
 export default function ImagePicker({ setRecipient, customImg, setCustomImg }) {
-  const [selectedImage, setSelectedImage] = useState('');
+  const [selectedImage, setSelectedImage] = useState(customImg ? customImg : IMAGE_NAMES[0]);
   const [handleModalOpen, setHandleModalOpen] = useState(false);
 
   const handleImageChange = (e) => {
-    setSelectedImage(e.target.value);
-    setRecipient((prev) => ({ ...prev, backgroundImageURL: IMAGE_URLS[e.target.value] }));
+    const { value } = e.target;
+    setSelectedImage(value);
+    setRecipient((prev) => ({ ...prev, backgroundImageURL: IMAGE_URLS[value] }));
+    setCustomImg(null);
   };
 
-  const handleCustomClick = (e) => {
-    setHandleModalOpen(true);
-  };
+  const handleCustomClick = () => (setSelectedImage(null), setHandleModalOpen(true));
 
   const handleDeleteClick = () => {
-    setCustomImg('');
-    setRecipient((prev) => ({ ...prev, backgroundImageURL: null }));
+    setRecipient((prev) => ({ ...prev, backgroundImageURL: IMAGE_URLS[0] }));
+    setCustomImg(null);
+    setSelectedImage(IMAGE_NAMES[0]);
   };
 
   return (

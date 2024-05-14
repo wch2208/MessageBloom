@@ -5,15 +5,20 @@ import './ToggleOption.scss';
 
 export default function ToggleOption({ setRecipient }) {
   const [selectedValue, setSelectedValue] = useState('color');
-  const [customImg, setCustomImg] = useState();
+  const [customImg, setCustomImg] = useState(null);
 
   const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-    const isColor = event.target.value === 'color';
+    const { value } = event.target;
+    setSelectedValue(value);
+    const isColor = value === 'color';
+    console.log('isColor?', isColor);
+
     if (isColor) {
-      setRecipient((prevRecipient) => ({ ...prevRecipient, backgroundImageURL: null }));
-    } else {
       setRecipient((prevRecipient) => ({ ...prevRecipient, backgroundColor: 'beige' }));
+    } else {
+      customImg
+        ? setRecipient((prevRecipient) => ({ ...prevRecipient, backgroundImageURL: customImg }))
+        : setRecipient((prevRecipient) => ({ ...prevRecipient, backgroundImageURL: null }));
     }
   };
 
