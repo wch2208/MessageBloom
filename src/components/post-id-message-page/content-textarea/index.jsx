@@ -3,6 +3,7 @@ import './ContentTextarea.scss';
 import { forwardRef, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { Editor } from '@toast-ui/react-editor';
+import { debounce } from 'lodash';
 
 function ContentTextarea({ setError }, contentTextareaRef) {
   const ref = useRef(null);
@@ -35,12 +36,12 @@ function ContentTextarea({ setError }, contentTextareaRef) {
     }));
   }, [errors.content, setError]);
 
-  const getEditorContent = () => {
+  const getEditorContent = debounce(() => {
     const editorInstance = ref.current.getInstance();
     const markdownContent = editorInstance.getMarkdown();
     setValue('content', markdownContent, { shouldValidate: true });
     contentTextareaRef.current = markdownContent;
-  };
+  }, 500);
 
   return (
     <div className='message-form__content'>
@@ -55,6 +56,7 @@ function ContentTextarea({ setError }, contentTextareaRef) {
         ref={ref}
         onChange={getEditorContent}
         hideModeSwitch={true}
+        autofocus={false}
       />
       {errors.content && <p className='form--error'>{errors.content.message}</p>}
     </div>
