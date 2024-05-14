@@ -4,5 +4,5 @@ export default function (time) {
   const month = getTime.getMonth() + 1;
   const date = getTime.getDate();
 
-  return `${year}-${month}-${date}`;
+  return `${year}-${month < 10 ? '0' + month : month}-${date < 10 ? '0' + date : date}`;
 }

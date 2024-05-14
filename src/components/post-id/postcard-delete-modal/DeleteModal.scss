@@ -8,15 +8,13 @@
   inset: 0;
   background-color: rgba(0, 0, 0, 0.4);
   .delete-modal-container {
-    width: 320px;
+    width: 330px;
     height: 120px;
     border-radius: 16px;
     margin: 100px auto 0 auto;
     background-color: $white;
     gap: 15px;
     display: flex;
-    position: relative;
-    right: 5px;
     flex-direction: column;
     align-items: center;
     padding: 20px;

@@ -15,6 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   max-width: 1248px;
   width: 320px;
   padding-top: 45px;
@@ -80,8 +81,22 @@
     font-size: 16px;
     border: none;
     border-radius: 6px;
-    padding-left: 10px;
+    padding-left: 8px;
     margin-right: 8px;
+  }
+
+  &__reset-btn {
+    cursor: pointer;
+    position: absolute;
+    border-radius: 50%;
+    width: 19px;
+    border: none;
+    height: 19px;
+    background-color: $accent-background-thick;
+    right: 50px;
+    &-img {
+      width: 7px;
+    }
   }
 
   &__btn {
@@ -130,13 +145,24 @@
         }
       }
     }
+
+    &__reset-btn {
+      width: 23px;
+      border: none;
+      height: 23px;
+      right: 145px;
+      &-img {
+        width: 7px;
+      }
+    }
     &__input {
       flex-basis: 450px;
       margin-right: 15px;
+      padding-left: 15px;
       height: 50px;
     }
     &__btn {
-      flex-basis: 100px;
+      flex-basis: 90px;
       height: 50px;
       &-img {
         display: none;

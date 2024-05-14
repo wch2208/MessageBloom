@@ -8,6 +8,7 @@ import noneshowpwicon from '../../../assets/icon/ic_none_show_pw.svg';
 function PostDeleteModal({ handlePostDeleteModalOpen, id, isPostDeleteModalOpen }) {
   const [isShowPw, setIsShowPw] = useState(false);
   const [isFailConfirm, setIsFailConfirm] = useState(false);
+  const [isSuccessConfirm, setIsSuccessConfirm] = useState(false);
   const pwRef = useRef();
   const navigate = useNavigate();
 
@@ -58,9 +59,11 @@ function PostDeleteModal({ handlePostDeleteModalOpen, id, isPostDeleteModalOpen 
       }, 1000);
     } else {
       deleteRecipientData(id);
+      setIsSuccessConfirm(true);
       setTimeout(() => {
+        setIsSuccessConfirm(false);
         navigate(`/list`);
-      }, 500);
+      }, 1000);
     }
   };
 
@@ -74,7 +77,11 @@ function PostDeleteModal({ handlePostDeleteModalOpen, id, isPostDeleteModalOpen 
     <div className='post-delete-modal-wrapper' onClick={handleCancelClick}>
       <div
         className={
-          isFailConfirm ? 'post-delete-modal-container fail' : 'post-delete-modal-container'
+          isFailConfirm
+            ? 'post-delete-modal-container fail'
+            : isSuccessConfirm
+            ? 'post-delete-modal-container success'
+            : 'post-delete-modal-container'
         }
         onClick={(e) => {
           e.stopPropagation();
@@ -106,7 +113,10 @@ function PostDeleteModal({ handlePostDeleteModalOpen, id, isPostDeleteModalOpen 
           )}
         </div>
         <div className='post-delete-modal-container__btns'>
-          <button id='post-delete-modal-container__btns-check-btn' onClick={handleCheckClick}>
+          <button
+            id='post-delete-modal-container__btns-check-btn'
+            onClick={handleCheckClick}
+            autoFocus>
             확인
           </button>
           <button id='post-delete-modal-container__btns-cancel-btn' onClick={handleCancelClick}>

@@ -27,7 +27,10 @@ function Modal({ modalData, handleModalOpen, isModalOpen }) {
   const editTextOfModal = (text) => {
     const lines = text.split(/<br>|\n/);
     const paragraphs = lines.map((line, index) => (
-      <p className={`modal__content ${fontClass[modalData.font]}`} key={index}>
+      <p
+        className={`modal__content ${fontClass[modalData.font]}`}
+        style={line.length === 0 ? { height: '25px' } : null}
+        key={index}>
         {line === '' ? ' ' : line}
       </p>
     ));

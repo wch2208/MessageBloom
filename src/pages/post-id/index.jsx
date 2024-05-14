@@ -12,11 +12,41 @@ import HeaderPost from '../../components/headerPost';
 import SearchInput from '../../components/post-id/search-input';
 import PostDeleteModal from '../../components/post-id/post-delete-modal';
 
+function SettingBtn({ handlePostDeleteModalOpen }) {
+  const [isSettingActive, setIsSettingActive] = useState(false);
+
+  const handleSettingBtnClick = () => {
+    setIsSettingActive(!isSettingActive);
+  };
+
+  const handleClickPostDeleteBtn = () => {
+    handlePostDeleteModalOpen(true);
+  };
+
+  return (
+    <>
+      {isSettingActive && (
+        <button className='post-edit-btn-container__delete-btn' onClick={handleClickPostDeleteBtn}>
+          포스트 삭제하기
+        </button>
+      )}
+      <button
+        className={`post-edit-btn-container__setting-btn ${isSettingActive && 'active'}`}
+        onClick={handleSettingBtnClick}>
+        <img
+          className='post-edit-btn-container__setting-btn-img'
+          src={settingicon}
+          alt='포스트 배경화면 설정 버튼'
+        />
+      </button>
+    </>
+  );
+}
+
 function PostId() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isPostDeleteModalOpen, setIsPostDeleteModalOpen] = useState(false);
-  const [isSettingActive, setIsSettingActive] = useState(false);
 
   const [backgroundImg, setBackgroundImg] = useState('');
   const [backgroundColor, setBackgroundColor] = useState('');
@@ -66,10 +96,6 @@ function PostId() {
 
   const handlePostDeleteModalOpen = (value) => {
     setIsPostDeleteModalOpen(value);
-  };
-
-  const handleChangeBackModalOpen = () => {
-    setIsSettingActive(!isSettingActive);
   };
 
   // 배경화면 상태값 관리함수
@@ -129,22 +155,7 @@ function PostId() {
               <Link to='/list' className='post-edit-btn-container__back-btn'>
                 <span className='post-edit-btn-container__back-btn'>←뒤로가기</span>
               </Link>
-              {isSettingActive && (
-                <button
-                  className='post-edit-btn-container__delete-btn'
-                  onClick={handlePostDeleteModalOpen}>
-                  포스트 삭제하기
-                </button>
-              )}
-              <button
-                className={`post-edit-btn-container__setting-btn ${isSettingActive && 'active'}`}
-                onClick={handleChangeBackModalOpen}>
-                <img
-                  className='post-edit-btn-container__setting-btn-img'
-                  src={settingicon}
-                  alt='포스트 배경화면 설정 버튼'
-                />
-              </button>
+              <SettingBtn handlePostDeleteModalOpen={handlePostDeleteModalOpen} />
             </div>
             <div className='posted-page-container'>
               <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
