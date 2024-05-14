@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import './Header.scss';
 import logo from '../../assets/logo/ic_flower_RemoveBg.svg';
 import LetterAnimation from '../animation/LetterAnimation';
-import MouseTracker from '../commons/mouseTracker';
 
 export default function Header() {
   const location = useLocation();
@@ -16,14 +15,12 @@ export default function Header() {
     <header className={`header`}>
       <div className='header-container'>
         <Link to='/' aria-label='홈으로 이동'>
-          <MouseTracker text='💌'>
-            <div className='header-container__logo'>
-              <picture className='header-container__logo__img-wrap'>
-                <img src={logo} alt='로고 아이콘' className='header-container__logo__img' />
-              </picture>
-              <span className='header-container__logo__title'> Message Bloom</span>
-            </div>
-          </MouseTracker>
+          <div className='header-container__logo'>
+            <picture className='header-container__logo__img-wrap'>
+              <img src={logo} alt='로고 아이콘' className='header-container__logo__img' />
+            </picture>
+            <span className='header-container__logo__title'> Message Bloom</span>
+          </div>
         </Link>
 
         <div className='header-container__right-side'>

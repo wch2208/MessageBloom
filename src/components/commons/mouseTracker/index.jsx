@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { throttle } from 'lodash';
 
-export default function MouseTracker({ text, imgUrl, children, alpha = 1 }) {
+export default function MouseTracker({ text, imgUrl, children, alpha = 0.8 }) {
   const targetRef = useRef(null);
   const imageRef = useRef(null);
 
@@ -40,7 +40,6 @@ export default function MouseTracker({ text, imgUrl, children, alpha = 1 }) {
           zIndex: 9999,
           left: 0,
           top: -100,
-          opacity: 0.7,
           backgroundImage: `url(${imgUrl})`,
         }}>
         {text}
