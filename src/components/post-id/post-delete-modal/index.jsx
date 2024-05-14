@@ -106,7 +106,10 @@ function PostDeleteModal({ handlePostDeleteModalOpen, id, isPostDeleteModalOpen 
           )}
         </div>
         <div className='post-delete-modal-container__btns'>
-          <button id='post-delete-modal-container__btns-check-btn' onClick={handleCheckClick}>
+          <button
+            id='post-delete-modal-container__btns-check-btn'
+            onClick={handleCheckClick}
+            autoFocus>
             확인
           </button>
           <button id='post-delete-modal-container__btns-cancel-btn' onClick={handleCancelClick}>
