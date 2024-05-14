@@ -119,11 +119,10 @@ $ yarn start
 
 ## 👥 Collaboration
 
-| Collaboration   | 종류    |
-| --------------- | ------- |
-| Collaboration   | Discord |
-|                 | Notion  |
-| Version Control | GitHub  |
+| Collaboration   | 종류            |
+| --------------- | --------------- |
+| Collaboration   | Discord, Notion |
+| Version Control | GitHub          |
 
 ## Directory 구조
 
@@ -143,14 +142,19 @@ MESSAGEBLOOM/
 │   │   ├── commons/              # 공통 컴포넌트
 │   │   ├── header/
 │   │   ├── headerPost/
-│   │   └── list-page/
+│   │   ├── list-page/
+│   │   ├── post-id-message-page/
+│   │   ├── post-id/
+│   │   └── post-page/
 │   ├── hooks/                    # 커스텀 훅
 │   ├── layouts/                  # 레이아웃 컴포넌트
 │   ├── pages/                    # 페이지 컴포넌트
 │   │   ├── list-page/
+│   │   ├── main/
+│   │   ├── not-found/
+│   │   ├── post-id-message-page/
 │   │   ├── post-id/
-│   │   ├── post-page/
-│   │   └── NotFound.jsx
+│   │   └── post-page/
 │   ├── styles/                   # 전역 스타일
 │   ├── utils/                    # 유틸리티 함수
 │   ├── App.jsx
