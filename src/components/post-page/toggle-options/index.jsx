@@ -11,7 +11,6 @@ export default function ToggleOption({ setRecipient }) {
     const { value } = event.target;
     setSelectedValue(value);
     const isColor = value === 'color';
-    console.log('isColor?', isColor);
 
     if (isColor) {
       setRecipient((prevRecipient) => ({ ...prevRecipient, backgroundColor: 'beige' }));
