@@ -115,7 +115,7 @@ function SearchInput({ setSearchInfo }) {
         onKeyDown={handleSearchInput}
         onChange={resetSearchValue}
         ref={searchInputRef}
-        placeholder='보고 싶은 메세지가 있나요?'
+        placeholder='보고 싶은 메시지가 있나요?'
       />
       {hasSearchValue && (
         <button className='search-container__reset-btn' onClick={handleClickResetBtn}>
