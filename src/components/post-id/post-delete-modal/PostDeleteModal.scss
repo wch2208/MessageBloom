@@ -1,5 +1,35 @@
 @import '../../../styles/reset', '../../../styles/variables';
 
+@keyframes error {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes success {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .post-delete-modal-wrapper {
   position: fixed;
   display: flex;
@@ -22,9 +52,27 @@
     &.fail {
       .post-delete-modal-container__message {
         color: $error;
+        animation: error 0.3s infinite;
       }
       .post-delete-modal-container__pw-container__input {
         border: solid 1px $error;
+        animation: error 0.3s infinite;
+      }
+      .post-delete-modal-container__pw-container__pw-icon {
+        animation: error 0.3s infinite;
+      }
+    }
+    &.success {
+      .post-delete-modal-container__message {
+        color: $success;
+        animation: success 0.5s ease;
+      }
+      .post-delete-modal-container__pw-container__input {
+        border: solid 1px $success;
+        animation: success 0.5s ease;
+      }
+      .post-delete-modal-container__pw-container__pw-icon {
+        animation: success 0.5s ease;
       }
     }
     &__pw-container {
