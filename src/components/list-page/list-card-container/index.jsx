@@ -7,7 +7,6 @@ import { DESKTOP_WIDTH } from '../../../utils/windowWidthConstants';
 import { constants } from '../../../utils/constants';
 import { ArrowButtonLeft, ArrowButtonRight } from '../arrow-button/index';
 import ListCard from '../list-card/index';
-import Loading from '../loading';
 
 export default function ListCardContainer({ sortLike }) {
   const [scroll, setScroll] = useState(false);
@@ -15,7 +14,7 @@ export default function ListCardContainer({ sortLike }) {
   const [offset, setOffset] = useState(constants.OFFSET);
   const windowWidth = useWindowWidth();
 
-  const { data, error, isLoading } = useFetchData(getRecipients, [limit, offset, sortLike]);
+  const { data, error } = useFetchData(getRecipients, [limit, offset, sortLike]);
 
   useEffect(() => {
     updateScroll(windowWidth);
@@ -51,11 +50,7 @@ export default function ListCardContainer({ sortLike }) {
       <div className='list__best-cards'>
         {data &&
           data.map((card) => {
-            if (isLoading) {
-              return <Loading key={card.id} />;
-            } else {
-              return <ListCard key={card.id} {...card} />;
-            }
+            return <ListCard key={card.id} {...card} />;
           })}
       </div>
     </>
