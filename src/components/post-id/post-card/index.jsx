@@ -30,13 +30,14 @@ function PostCard({
 
   const editTextOfCard = (text) => {
     const lines = text.split(/<br>|\n/);
+    console.log(lines);
     const paragraphs = lines.map((line, index) => (
-      <div
+      <p
         className={`card__content ${fontClass[data.font]}`}
-        style={{ fontFamily: `${fontClass[data.font]}, sans-serif` }}
+        style={line.length === 0 ? { height: '25px' } : null}
         key={index}>
         {line === '' ? ' ' : line}
-      </div>
+      </p>
     ));
     return <div className='card__contents'>{paragraphs}</div>;
   };
