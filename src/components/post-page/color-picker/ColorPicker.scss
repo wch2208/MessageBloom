@@ -15,19 +15,19 @@
   gap: 12px;
   #beige + label {
     border: 1px solid $beige300;
-    background-color: $beige200;
+    background-color: $bg-beige;
   }
   #purple + label {
-    border: 1px solid $purple300;
-    background-color: $purple200;
+    border: 1px solid $accent-color;
+    background-color: $bg-purple;
   }
   #blue + label {
     border: 1px solid $blue300;
-    background-color: $blue200;
+    background-color: $bg-blue;
   }
   #green + label {
     border: 1px solid $green300;
-    background-color: $green200;
+    background-color: $bg-green;
   }
 }
 
