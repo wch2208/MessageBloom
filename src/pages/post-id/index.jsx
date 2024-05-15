@@ -60,7 +60,6 @@ function PostId() {
   const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const getInfosFromData = async (id) => {
     const [messages, recipient] = await Promise.all([getMessages(id), getRecipient(id)]);
@@ -158,11 +157,11 @@ function PostId() {
               <SettingBtn handlePostDeleteModalOpen={handlePostDeleteModalOpen} />
             </div>
             <div className='posted-page-container'>
-              <div className='add-post-card' onClick={() => navigate(`/post/${id}/message`)}>
+              <Link to={`/post/${id}/message`} className='add-post-card'>
                 <div className='add-post-card__plus-icon'>
                   <img src={plusicon} alt='포스트 카드 추가 버튼' />
                 </div>
-              </div>
+              </Link>
               {messagesData.map((data) => (
                 <PostCard
                   key={data.id}
