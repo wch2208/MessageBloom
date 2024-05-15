@@ -62,9 +62,9 @@ export default function HeaderPost() {
   const shareKakao = () => {
     window.Kakao.Share.sendCustom({
       templateId: 107707,
-    });
-    Kakao.Link.sendScrap({
-      requestUrl: location.href,
+      templateArgs: {
+        url: window.location.href,
+      },
     });
   };
 
