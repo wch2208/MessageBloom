@@ -1,7 +1,6 @@
 @import '../../../styles/variables';
 
-.list__best-cards,
-.list__newest-cards {
+.list-cards-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,4 +13,10 @@
 
 .loading-box {
   display: flex;
+}
+
+@media #{$desktop-screen} {
+  .list-cards-container {
+    overflow: hidden auto;
+  }
 }

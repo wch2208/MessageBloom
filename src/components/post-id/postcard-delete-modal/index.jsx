@@ -24,12 +24,12 @@ function DeleteModal({
   }, [isDeleteModalOpen]);
 
   const handleDeleteData = async (id) => {
-    await deleteMessage(id);
-    handleDeleteCard(id);
-  };
-
-  const handleDeleteCard = (id) => {
-    handleDeleteMessage(id);
+    try {
+      await deleteMessage(id);
+      handleDeleteMessage(id);
+    } catch (e) {
+      console.error(`메세지 삭제 중 오류 발생 : ${e}`);
+    }
   };
 
   const handleCheckClick = () => {
