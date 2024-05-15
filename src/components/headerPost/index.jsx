@@ -63,7 +63,7 @@ export default function HeaderPost() {
     window.Kakao.Share.sendCustom({
       templateId: 107707,
       templateArgs: {
-        url: window.location.href,
+        url: path,
       },
     });
   };
