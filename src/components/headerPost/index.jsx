@@ -63,6 +63,9 @@ export default function HeaderPost() {
     window.Kakao.Share.sendCustom({
       templateId: 107707,
     });
+    Kakao.Link.sendScrap({
+      requestUrl: location.href,
+    });
   };
 
   useEffect(() => {
