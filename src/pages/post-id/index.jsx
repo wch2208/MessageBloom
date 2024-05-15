@@ -152,7 +152,7 @@ function PostId() {
             <SearchInput setSearchInfo={setSearchInfo} />
             <div className='post-edit-btn-container'>
               <Link to='/list' className='post-edit-btn-container__back-btn'>
-                <span className='post-edit-btn-container__back-btn'>←뒤로가기</span>
+                <span className='post-edit-btn-container__back-btn'>← 뒤로가기</span>
               </Link>
               <SettingBtn handlePostDeleteModalOpen={handlePostDeleteModalOpen} />
             </div>
