@@ -20,8 +20,9 @@
 .list-card__emoji {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   text-align: center;
-  width: fit-content;
+  width: 49px;
   height: 32px;
   padding: 4px 6px;
   border-radius: 32px;
@@ -30,7 +31,7 @@
   @include font-style(14, 400);
 
   & span {
-    padding: 2px;
+    padding: 1px;
     font-size: 12px;
   }
 }
@@ -44,10 +45,15 @@
 @media #{$tablet-screen} {
   .list-card__emoji {
     padding: 6px 8px;
+    width: 57px;
 
     & span {
       font-size: 14px;
     }
+  }
+
+  .emoji-min-width {
+    width: 47px;
   }
 
   .list-card__emoji-wrap {
