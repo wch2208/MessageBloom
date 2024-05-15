@@ -17,6 +17,19 @@ export default function ListCardContainer({ sortLike }) {
   const { data, error } = useFetchData(getRecipients, [limit, offset, sortLike]);
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth === 1200) {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
     updateScroll(windowWidth);
   }, [windowWidth]);
 
@@ -47,7 +60,7 @@ export default function ListCardContainer({ sortLike }) {
     <>
       {!scroll && offset > 0 && <ArrowButtonLeft onClick={handlePrevious} />}
       {!scroll && offset < 12 && <ArrowButtonRight onClick={handleNext} />}
-      <div className='list__best-cards'>
+      <div className='list-cards-container'>
         {data &&
           data.map((card) => {
             return <ListCard key={card.id} {...card} />;
