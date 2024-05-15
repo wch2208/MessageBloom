@@ -60,10 +60,13 @@ export default function HeaderPost() {
   }, []);
 
   const shareKakao = () => {
+    const currentURL = window.location.href;
+    const postId = currentURL.substring(currentURL.lastIndexOf('/post/'));
+
     window.Kakao.Share.sendCustom({
       templateId: 107707,
       templateArgs: {
-        url: window.location.href,
+        url: postId,
       },
     });
   };
