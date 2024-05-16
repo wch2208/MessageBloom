@@ -13,18 +13,38 @@ function ImageAddModal({ setHandleModalOpen, setRecipient, setCustomImg }) {
       backgroundImageURL: urlInput.current.value,
     }));
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+  const isValidImageURLFormat = (url) => {
+    const urlPattern = /^https?:\/\/.*\.(jpeg|jpg|gif|png|bmp|webp)$/i;
+    return urlPattern.test(url);
+  };
+
+  const processURL = () => {
+    if (isValidImageURLFormat(urlInput.current.value)) {
       addURL();
       setCustomImg(urlInput.current.value);
       setHandleModalOpen(false);
+      return;
+    }
+    alert('이미지 주소를 입력해주세요');
+    urlInput.current.focus();
+    urlInput.current.value = '';
+  };
+
+  const handleKeyDown = (e) => {
+    const isEnterKey = e.key === 'Enter';
+    const isEscKey = e.key === 'Escape';
+
+    if (isEscKey) {
+      setHandleModalOpen(false);
+    }
+
+    if (isEnterKey) {
+      processURL();
     }
   };
 
   const handleConfirmClick = () => {
-    addURL();
-    setCustomImg(urlInput.current.value);
-    setHandleModalOpen(false);
+    processURL();
   };
 
   return (
@@ -43,6 +63,7 @@ function ImageAddModal({ setHandleModalOpen, setRecipient, setCustomImg }) {
           ref={urlInput}
           onKeyDown={handleKeyDown}
           autoFocus
+          autoComplete='off'
         />
         <div className='custom-image-modal-container__btns'>
           <button id='custom-image-modal-container__btns-check-btn' onClick={handleConfirmClick}>
