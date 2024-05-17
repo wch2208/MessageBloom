@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef, useState, useEffect, useRef } from 'react';
 import ArrowIcon from '../../../assets/icon/ic_arrow_down.svg';
 import './CustomDropdown.scss';
 
@@ -8,6 +8,21 @@ function CustomDropdown({ props }, ref) {
   }
   const [selected, setSelected] = useState(props[0].text);
   const [active, setActive] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setActive(false);
+      }
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, []);
 
   const handleClick = (e) => {
     const { innerText } = e.target;
@@ -20,7 +35,7 @@ function CustomDropdown({ props }, ref) {
   };
 
   return (
-    <div className='message-form__inputs' onClick={handleToggle}>
+    <div className='message-form__inputs' ref={dropdownRef} onClick={handleToggle}>
       {selected}
       <img
         className={`message-form__arrow-icon ${active ? 'message-form__arrow-icon--active' : ''}`}
