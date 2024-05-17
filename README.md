@@ -4,7 +4,7 @@
 
 - 배포 링크: [Message Bloom](https://6-6-messagebloom.vercel.app/)
 
-## 프로젝트 소개.
+## 프로젝트 소개
 
 - Message Bloom은 온라인 롤링페이퍼 서비스 입니다.
 
