@@ -2,7 +2,7 @@
 
 ![MessageBloom_Service소개](https://github.com/6Team-Project/MessageBloom/assets/162412765/5b808411-434e-4b52-9d80-0939d9cd7a16)
 
-- 배포 링크: [MessageBloom](https://6-6-messagebloom.vercel.app/)
+- 배포 링크: [Message Bloom](https://6-6-messagebloom.vercel.app/)
 
 ## 프로젝트 소개
 
