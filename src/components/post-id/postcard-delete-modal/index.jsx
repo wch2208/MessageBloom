@@ -29,6 +29,10 @@ function DeleteModal({
       handleDeleteMessage(id);
     } catch (e) {
       console.error(`메세지 삭제 중 오류 발생 : ${e}`);
+      alert('에러가 발생했습니다. 페이지를 새로고침합니다.');
+      setTimeout(() => {
+        window.location.reload();
+      }, 300);
     }
   };
 

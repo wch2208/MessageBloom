@@ -110,7 +110,10 @@ function PostId() {
 
   // 메세지 삭제 함수
   const handleDeleteMessage = (messageId) => {
-    setMessagesData(messagesData.filter((data) => data.id !== messageId));
+    const deleteMessagesData = messagesData.filter((data) => data.id !== messageId);
+    const deleteFirstMessagesData = firstMessagesData.filter((data) => data.id !== messageId);
+    setMessagesData(deleteMessagesData);
+    setFirstMessagesData(deleteFirstMessagesData);
   };
 
   const handleDeleteDataId = (id) => {

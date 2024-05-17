@@ -36,7 +36,12 @@ function PostDeleteModal({ handlePostDeleteModalOpen, id, isPostDeleteModalOpen 
 
   // 포스트 카드 수신자 제거 함수
   const deleteRecipientData = async (id) => {
-    await deleteRecipient(id);
+    try {
+      await deleteRecipient(id);
+    } catch (e) {
+      console.log(`error : ${e}`);
+      alert('에러가 발생했습니다. 리스트페이지로 돌아갑니다.');
+    }
   };
 
   // 포스트 카드 삭제 취소버튼 함수
@@ -47,12 +52,7 @@ function PostDeleteModal({ handlePostDeleteModalOpen, id, isPostDeleteModalOpen 
   // 포스트 카드 삭제 확인버튼 함수
   const handleCheckClick = () => {
     const { value } = pwRef.current;
-    if (!value) {
-      setIsFailConfirm(true);
-      setTimeout(() => {
-        setIsFailConfirm(false);
-      }, 1000);
-    } else if (value !== id) {
+    if (!value || value !== id) {
       setIsFailConfirm(true);
       setTimeout(() => {
         setIsFailConfirm(false);
