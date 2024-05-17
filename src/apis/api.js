@@ -5,7 +5,11 @@ export async function getMessages(recipientId) {
     const response = await instance.get(`6-6/recipients/${recipientId}/messages/?limit=100`);
     return response.data.results;
   } catch (e) {
-    console.error(`error : ${e}`);
+    if (e instanceof Error) {
+      throw e; // 기존 에러 객체 그대로 던짐
+    } else {
+      throw new Error(e); // e가 문자열이나 다른 타입일 경우 새 에러 객체 생성
+    }
   }
 }
 
@@ -13,8 +17,11 @@ export async function deleteMessage(messageId) {
   try {
     const response = await instance.delete(`6-6/messages/${messageId}/`);
   } catch (e) {
-    console.error(`error : ${e}`);
-    throw new Error();
+    if (e instanceof Error) {
+      throw e; // 기존 에러 객체 그대로 던짐
+    } else {
+      throw new Error(e); // e가 문자열이나 다른 타입일 경우 새 에러 객체 생성
+    }
   }
 }
 
@@ -22,8 +29,11 @@ export async function deleteRecipient(recipientId) {
   try {
     const response = await instance.delete(`6-6/recipients/${recipientId}/`);
   } catch (e) {
-    console.error(`error : ${e}`);
-    throw new Error();
+    if (e instanceof Error) {
+      throw e; // 기존 에러 객체 그대로 던짐
+    } else {
+      throw new Error(e); // e가 문자열이나 다른 타입일 경우 새 에러 객체 생성
+    }
   }
 }
 
@@ -32,8 +42,11 @@ export async function getRecipient(recipientId) {
     const response = await instance.get(`6-6/recipients/${recipientId}/`);
     return response.data;
   } catch (e) {
-    console.error(`error : ${e}`);
-    throw new Error();
+    if (e instanceof Error) {
+      throw e; // 기존 에러 객체 그대로 던짐
+    } else {
+      throw new Error(e); // e가 문자열이나 다른 타입일 경우 새 에러 객체 생성
+    }
   }
 }
 
@@ -44,7 +57,6 @@ export async function getCommenterCount() {
     return response.data;
   } catch (e) {
     console.error(`error : ${e}`);
-    throw new Error();
   }
 }
 
