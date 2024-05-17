@@ -14,6 +14,7 @@ export async function deleteMessage(messageId) {
     const response = await instance.delete(`6-6/messages/${messageId}/`);
   } catch (e) {
     console.error(`error : ${e}`);
+    throw new Error();
   }
 }
 
@@ -22,6 +23,7 @@ export async function deleteRecipient(recipientId) {
     const response = await instance.delete(`6-6/recipients/${recipientId}/`);
   } catch (e) {
     console.error(`error : ${e}`);
+    throw new Error();
   }
 }
 
@@ -31,6 +33,7 @@ export async function getRecipient(recipientId) {
     return response.data;
   } catch (e) {
     console.error(`error : ${e}`);
+    throw new Error();
   }
 }
 
@@ -41,6 +44,7 @@ export async function getCommenterCount() {
     return response.data;
   } catch (e) {
     console.error(`error : ${e}`);
+    throw new Error();
   }
 }
 
