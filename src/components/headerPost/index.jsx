@@ -56,7 +56,7 @@ export default function HeaderPost() {
 
   useEffect(() => {
     window.Kakao.cleanup();
-    window.Kakao.init('8859f57551eb726e1f0cbda932511b53');
+    window.Kakao.init(import.meta.env.VITE_KAKAO_JS_SDK_KEY);
   }, []);
 
   const shareKakao = () => {
@@ -64,7 +64,7 @@ export default function HeaderPost() {
     const postId = currentURL.substring(currentURL.lastIndexOf('/post/'));
 
     window.Kakao.Share.sendCustom({
-      templateId: 107707,
+      templateId: import.meta.env.VITE_KAKAO_TEMPLATEID,
       templateArgs: {
         url: postId,
       },
