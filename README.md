@@ -8,7 +8,7 @@
 
 - Message Bloom은 온라인 롤링페이퍼 서비스 입니다.
 
-## 🧑‍💻 개발자 소개 (Sprint 6기 Part2 6팀)
+## 🧑‍💻 개발자 소개(Sprint 6기 Part2 6팀)
 
 | <img src="https://avatars.githubusercontent.com/u/162412765?v=4"> | <img src="https://avatars.githubusercontent.com/u/115947715?v=4"> | <img src="https://avatars.githubusercontent.com/u/97877328?v=4"> | <img src="https://avatars.githubusercontent.com/u/113000290?v=4"> | <img src="https://avatars.githubusercontent.com/u/123517278?v=4"> |
 | :---------------------------------------------------------------: | :---------------------------------------------------------------: | :--------------------------------------------------------------: | :---------------------------------------------------------------: | :---------------------------------------------------------------: |
